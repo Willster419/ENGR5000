@@ -26,5 +26,10 @@ namespace App1
         {
             this.InitializeComponent();
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBox.Text = "Sup";
+        }
     }
 }
