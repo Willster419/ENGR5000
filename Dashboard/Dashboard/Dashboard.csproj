@@ -15,7 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -58,6 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utils\CiInfo.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -98,4 +100,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>echo /// https://stackoverflow.com/questions/4450231/can-i-make-a-constant-from-a-compile-time-env-variable-in-csharp/4453285 &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo namespace RelhaxModpack &gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo { &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo     ///^&lt;summary^&gt;Info about the continuous integration server build that produced this binary.^&lt;/summary^&gt; &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo     public static class CiInfo &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo     { &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo         ///^&lt;summary^&gt;String of the build number and build date/time, and other useful info.^&lt;/summary^&gt; &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo         public const string BuildTag = "%25DATE%25 %25TIME%25"; &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo     } &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"
+echo } &gt;&gt; "$(ProjectDir)\Utils\CiInfo.cs"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
