@@ -59,10 +59,10 @@ namespace Dashboard
         /// <param name="e">More stuff</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Utils.InitUtils(LogOutput);
-            Utils.Log("/------------------------------------------------------------------------\\");
-            Utils.Log(string.Format("Dashboard Version {0}", GetApplicationVersion()));
-            Utils.Log("Built on " + GetCompileTime());
+            Utils.InitUtils(this);
+            Utils.LogConsole("/------------------------------------------------------------------------\\");
+            Utils.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
+            Utils.LogConsole("Built on " + GetCompileTime());
             Utils.GetRobotIPAddress("minwinpc");
         }
         /// <summary>
@@ -72,8 +72,8 @@ namespace Dashboard
         /// <param name="e">Even more stuff</param>
         private void Window_Closed(object sender, EventArgs e)
         {
-            Utils.Log("Application Closing");
-            Utils.Log("\\------------------------------------------------------------------------/");
+            Utils.LogConsole("Application Closing");
+            Utils.LogConsole("\\------------------------------------------------------------------------/");
         }
         #endregion
     }

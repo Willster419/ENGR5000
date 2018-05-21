@@ -11,9 +11,14 @@
             <TabItem Header="Main Page">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Console">
+            <TabItem Header="Dashboard Console">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="LogOutput" x:FieldModifier="public"/>
+                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="ConsoleLogOutput" x:FieldModifier="public"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Robot Console">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="RobotLogOutput" x:FieldModifier="public"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
