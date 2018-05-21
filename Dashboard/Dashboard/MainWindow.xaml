@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dashboard"
         mc:Ignorable="d"
-        Title="Robot Dashboard" Height="450" Width="800">
+        Title="Robot Dashboard" Height="450" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <TabControl>
             <TabItem Header="Main Page">
@@ -13,7 +13,7 @@
             </TabItem>
             <TabItem Header="Console">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox TextWrapping="Wrap" IsReadOnly="True"/>
+                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="LogOutput" x:FieldModifier="public"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
