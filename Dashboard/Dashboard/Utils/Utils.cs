@@ -21,7 +21,9 @@ namespace Dashboard
         public string NetworkName;
         public IPAddress @IPAddress;
     }
-
+    /// <summary>
+    /// A Utility class for important static methods and global fields
+    /// </summary>
     public static class Utils
     {
         /// <summary>
@@ -41,17 +43,46 @@ namespace Dashboard
         /// </summary>
         private static FileStream RobotLogSteam = null;
         /// <summary>
-        /// The Ip address of the robot
+        /// The IP address of the robot
         /// </summary>
         public static string RobotIPV6Address = "";
+        /// <summary>
+        /// The IP address of the computer
+        /// </summary>
         public static string ComputerIPV6Address = "";
-        private static IPEndPoint ipep = null;
-        private static UdpClient client = null;
+        /// <summary>
+        /// The IP endpoint of the robot listener
+        /// </summary>
+        private static IPEndPoint RobotRecieverIPEndPoint = null;
+        /// <summary>
+        /// The IP endpoint of the robot sender
+        /// </summary>
+        private static IPEndPoint RobotSenderIPEndPoint = null;
+        /// <summary>
+        /// The UDP listener client of the robot
+        /// </summary>
+        private static UdpClient RobotListenerClient = null;
+        /// <summary>
+        /// The UDP sender client to the robot
+        /// </summary>
+        private static UdpClient RobotSenderClient = null;
+        /// <summary>
+        /// The background thread for listening for messages from the robot
+        /// </summary>
+        private static BackgroundWorker RobotListener = null;
+        /// <summary>
+        /// The port used for listening for robot events
+        /// </summary>
+        public const int RobotListenerPort = 42424;
+        /// <summary>
+        /// The port used for sending for robot events
+        /// </summary>
+        public const int RobotSenderPort = 24242;
         /// <summary>
         /// Initializes the Logging functions of the application
         /// </summary>
         /// <param name="logOutput">The Textbox from the MainWindow</param>
-        public static void InitUtils(MainWindow @MainWindow)
+        public static void InitLogging(MainWindow @MainWindow)
         {
             ConsoleLogOutput = MainWindow.ConsoleLogOutput;
             RobotLogOutput = MainWindow.RobotLogOutput;
@@ -65,7 +96,7 @@ namespace Dashboard
         /// <param name="debug">For use later, specify this to get a DEBUG header for that line</param>
         public static void LogConsole(string textToLog, bool debug = false)
         {
-            string dateTimeFormat = string.Format("{0:yyyy-MM-dd:HH-mm-ss}", DateTime.Now);
+            string dateTimeFormat = string.Format("{0:yyyy-MM-dd:HH-mm-ss.fff}", DateTime.Now);
             if(debug)
             {
                 textToLog = "DEBUG: " + textToLog;
@@ -83,7 +114,7 @@ namespace Dashboard
         /// <param name="debug">For use later, specify this to get a DEBUG header for that line</param>
         public static void LogRobot(string textToLog, bool debug = false)
         {
-            string dateTimeFormat = string.Format("{0:yyyy-MM-dd:HH-mm-ss}", DateTime.Now);
+            string dateTimeFormat = string.Format("{0:yyyy-MM-dd:HH-mm-ss.fff}", DateTime.Now);
             if (debug)
             {
                 textToLog = "DEBUG: " + textToLog;
@@ -93,20 +124,28 @@ namespace Dashboard
             RobotLogSteam.Write(Encoding.UTF8.GetBytes(textToLog), 0, Encoding.UTF8.GetByteCount(textToLog));
             RobotLogSteam.Flush();
         }
-
-        public static void StartRobotLister(string addressToBind, int portToBind)
+        /// <summary>
+        /// Starts the Listener for netowrk log packets from the robot
+        /// </summary>
+        public static void StartRobotNetworking()
         {
-            //ip objects
-            //TODO: get current computer ip address
-            ipep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 42424);
-            client = new UdpClient();
-            client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            client.Client.Bind(ipep);
-            using (BackgroundWorker worker = new BackgroundWorker())
+            //setup and bind listenr
+            LogConsole("Binding robot listener to address " + ComputerIPV6Address);
+            RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV6Address), RobotListenerPort);
+            RobotListenerClient = new UdpClient(AddressFamily.InterNetworkV6);
+            RobotListenerClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            RobotListenerClient.Client.Bind(RobotRecieverIPEndPoint);
+            //setup and bind sender
+            LogConsole("Binding robot sender to address " + RobotIPV6Address);
+            RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV6Address), RobotSenderPort);
+            RobotSenderClient = new UdpClient(AddressFamily.InterNetworkV6);
+            RobotSenderClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV6Address), Encoding.UTF8.GetByteCount(ComputerIPV6Address), RobotIPV6Address, RobotSenderPort);
+            using (RobotListener = new BackgroundWorker())
             {
-                worker.DoWork += ListenForEvents;
-                worker.ProgressChanged += OnRecievedData;
-                worker.RunWorkerAsync();
+                RobotListener.DoWork += ListenForEvents;
+                RobotListener.ProgressChanged += OnRecievedData;
+                RobotListener.RunWorkerAsync();
             }
         }
 
@@ -114,13 +153,14 @@ namespace Dashboard
         {
             while(true)
             {
-                //string result = Encoding.ASCII.GetString(client.Receive(ref ipep));
+                string result = Encoding.UTF8.GetString(RobotListenerClient.Receive(ref RobotRecieverIPEndPoint));
+                RobotListener.ReportProgress(0, result);
             }
         }
 
         private static void OnRecievedData(object sender, ProgressChangedEventArgs e)
         {
-            
+            LogRobot((string)e.UserState);
         }
     }
 }

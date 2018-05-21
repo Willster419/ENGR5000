@@ -53,7 +53,7 @@ namespace Dashboard
         /// <param name="e">More stuff</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Utils.InitUtils(this);
+            Utils.InitLogging(this);
             Utils.LogConsole("/------------------------------------------------------------------------\\");
             Utils.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
             Utils.LogConsole("Built on " + GetCompileTime());
@@ -75,7 +75,7 @@ namespace Dashboard
             List<NetworkInformation> NetworkInfos = new List<NetworkInformation>();
             foreach (NetworkInterface ni in interfaces)
             {
-                if((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("VMware")) && (!ni.Description.Contains("VirtualBox")))
+                if((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("VMware")) && (!ni.Description.Contains("VirtualBox")) && (!ni.Description.Contains("Tunnel")))
                 {
                     foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {
@@ -112,7 +112,8 @@ namespace Dashboard
                 Utils.LogConsole("Ping host name IP address ping SUCCESS, address is " + e.Reply.Address);
                 Utils.RobotIPV6Address = e.Reply.Address.ToString();
                 //bind the robot socket and start the background listener
-                Utils.LogRobot("Robot found, binding socket and listening for events");
+                Utils.LogRobot("Dashboard: Robot found, binding socket and listening for events");
+                Utils.StartRobotNetworking();
             }
         }
         /// <summary>
