@@ -7,12 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net.NetworkInformation;
+using System.ComponentModel;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Dashboard
 {
     public static class Utils
     {
-
         /// <summary>
         /// A refrence from MainWindow, the log output for the console
         /// </summary>
@@ -32,7 +34,10 @@ namespace Dashboard
         /// <summary>
         /// The Ip address of the robot
         /// </summary>
-        private static string RobotIPV6Address = "";
+        public static string RobotIPV6Address = "";
+        public static string ComputerIPV6Address = "";
+        private static IPEndPoint ipep = null;
+        private static UdpClient client = null;
         /// <summary>
         /// Initializes the Logging functions of the application
         /// </summary>
@@ -79,26 +84,34 @@ namespace Dashboard
             RobotLogSteam.Write(Encoding.UTF8.GetBytes(textToLog), 0, Encoding.UTF8.GetByteCount(textToLog));
             RobotLogSteam.Flush();
         }
-        /// <summary>
-        /// Gets the Robot's IP address
-        /// </summary>
-        /// <param name="hostname">The hostname of the Pi on the robot</param>
-        public static void GetRobotIPAddress(string hostname)
+
+        public static void StartRobotLister(string addressToBind, int portToBind)
         {
-            LogConsole("Getting Robot Ip address...");
-            //ping the hostname, get the ip address in reply
-            Ping p = new Ping();
-            //p.SendAsync("minwinpc", null);
-            PingReply reply = p.Send(hostname);
-            if(reply.Status == IPStatus.Success)
+            //ip objects
+            //TODO: get current computer ip address
+            ipep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 42424);
+            client = new UdpClient();
+            client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            client.Client.Bind(ipep);
+            using (BackgroundWorker worker = new BackgroundWorker())
             {
-                LogConsole("Ip address ping SUCCESS, address is " + reply.Address);
-                RobotIPV6Address = reply.Address.ToString();
+                worker.DoWork += ListenForEvents;
+                worker.ProgressChanged += OnRecievedData;
+                worker.RunWorkerAsync();
             }
-            else
+        }
+
+        private static void ListenForEvents(object sender, DoWorkEventArgs e)
+        {
+            while(true)
             {
-                LogConsole("ERROR, failed to get ip address of robot, (is it online?)");
+                //string result = Encoding.ASCII.GetString(client.Receive(ref ipep));
             }
+        }
+
+        private static void OnRecievedData(object sender, ProgressChangedEventArgs e)
+        {
+            
         }
     }
 }

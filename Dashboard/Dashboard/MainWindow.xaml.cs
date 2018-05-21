@@ -27,15 +27,9 @@ namespace Dashboard
     public partial class MainWindow : Window
     {
         #region Boring Stuff
-        //ip objects
-        //IPEndPoint ipep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 419);
-        //UdpClient client = new UdpClient();
         public MainWindow()
         {
             InitializeComponent();
-            //client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            //client.Client.Bind(ipep);
-            //string result = Encoding.ASCII.GetString(client.Receive(ref ipep));
         }
         /// <summary>
         ///  Gets the version of the Assembely information for the Appliation
@@ -63,7 +57,31 @@ namespace Dashboard
             Utils.LogConsole("/------------------------------------------------------------------------\\");
             Utils.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
             Utils.LogConsole("Built on " + GetCompileTime());
-            Utils.GetRobotIPAddress("minwinpc");
+            Utils.LogConsole("Started background task: Ping hostname for ip address");
+            //ping the robot to check if it's on the network, if it is get it's ip address
+            Ping p = new Ping();
+            p.PingCompleted += OnPingCompleted;
+            p.SendAsync("minwinpc", null);
+            Utils.LogRobot("Dashboard: waiting for robot...");
+        }
+        /// <summary>
+        /// Event hander for when the async ping completes
+        /// </summary>
+        /// <param name="sender">The ping sent</param>
+        /// <param name="e">ping args</param>
+        private void OnPingCompleted(object sender, PingCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Utils.LogConsole("Ping host name IP address ping SUCCESS, address is " + e.Reply.Address);
+                Utils.RobotIPV6Address = e.Reply.Address.ToString();
+                //bind the robot socket and start the background listener
+                Utils.LogRobot("Robot found, binding socket and listening for events");
+            }
+            else
+            {
+                Utils.LogConsole("ERROR, failed to get ip address of robot, (is it online?). The application cannot continue");
+            }
         }
         /// <summary>
         /// When The application is closed
