@@ -13,6 +13,15 @@ using System.Net.Sockets;
 
 namespace Dashboard
 {
+    /// <summary>
+    /// Represents the compination of a network card and it's ip address. Can have multiple Network names if it has an IP V4 and V6
+    /// </summary>
+    public struct NetworkInformation
+    {
+        public string NetworkName;
+        public IPAddress @IPAddress;
+    }
+
     public static class Utils
     {
         /// <summary>

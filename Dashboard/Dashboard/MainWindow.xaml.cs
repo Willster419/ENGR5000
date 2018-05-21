@@ -57,6 +57,36 @@ namespace Dashboard
             Utils.LogConsole("/------------------------------------------------------------------------\\");
             Utils.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
             Utils.LogConsole("Built on " + GetCompileTime());
+            Utils.LogConsole("Checking for local internet connection...");
+            //https://stackoverflow.com/questions/6803073/get-local-ip-address
+            //check if we even have an online connectoin
+            if(!NetworkInterface.GetIsNetworkAvailable())
+            {
+                Utils.LogConsole("ERROR: No valid network connectoins exist!");
+            }
+            else
+            {
+                Utils.LogConsole("At leaset one valid network connections exist!");
+            }
+            //select which ip address of this pc to use
+            //https://stackoverflow.com/questions/6803073/get-local-ip-address
+            //https://stackoverflow.com/questions/9855230/how-do-i-get-the-network-interface-and-its-right-ipv4-address
+            NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+            List<NetworkInformation> NetworkInfos = new List<NetworkInformation>();
+            foreach (NetworkInterface ni in interfaces)
+            {
+                if((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("VMware")) && (!ni.Description.Contains("VirtualBox")))
+                {
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        Utils.LogConsole(string.Format("Valid network found: name={0}, address={1}", ni.Description, ip.Address.ToString()));
+                        NetworkInfos.Add(new NetworkInformation { NetworkName = ni.Description, IPAddress = ip.Address });
+                    }
+                }
+            }
+            Utils.LogConsole("Hard-code select index 0", true);
+            Utils.ComputerIPV6Address = NetworkInfos[0].IPAddress.ToString();
+            Utils.LogConsole("Computer IP address set to " + Utils.ComputerIPV6Address);
             Utils.LogConsole("Started background task: Ping hostname for ip address");
             //ping the robot to check if it's on the network, if it is get it's ip address
             Ping p = new Ping();
@@ -73,14 +103,16 @@ namespace Dashboard
         {
             if (e.Error != null)
             {
+                Utils.LogConsole("ERROR, failed to get ip address of robot, (is it online?). The application cannot continue");
+                Utils.LogConsole(e.Error.ToString());
+                Utils.LogRobot("Dashboard: Robot not found");
+            }
+            else
+            {
                 Utils.LogConsole("Ping host name IP address ping SUCCESS, address is " + e.Reply.Address);
                 Utils.RobotIPV6Address = e.Reply.Address.ToString();
                 //bind the robot socket and start the background listener
                 Utils.LogRobot("Robot found, binding socket and listening for events");
-            }
-            else
-            {
-                Utils.LogConsole("ERROR, failed to get ip address of robot, (is it online?). The application cannot continue");
             }
         }
         /// <summary>
