@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
 
-namespace App1.Utils
+namespace RobotCode.Utils
 {
     /// <summary>
     /// Represents the compination of a network card and it's ip address. Can have multiple Network names if it has an IP V4 and V6
@@ -127,7 +127,7 @@ namespace App1.Utils
             {
                 string test = "send number " + i++;
                 //DEBUG
-                //RobotListenerClient.Send(Encoding.UTF8.GetBytes(test), Encoding.UTF8.GetByteCount(test));
+                RobotListenerClient.Send(Encoding.UTF8.GetBytes(test), Encoding.UTF8.GetByteCount(test));
                 Thread.Sleep(500);
             }
         }
