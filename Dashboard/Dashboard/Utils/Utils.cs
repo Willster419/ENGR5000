@@ -257,7 +257,7 @@ namespace Dashboard
             RobotListenerClient = new UdpClient();
             RobotListenerClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             RobotListenerClient.Client.Bind(RobotRecieverIPEndPoint);
-            using (RobotListener = new BackgroundWorker() { WorkerReportsProgress = true })
+            using (RobotListener = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true })
             {
                 RobotListener.DoWork += ListenForEvents;
                 RobotListener.ProgressChanged += OnRecievedData;
@@ -279,6 +279,8 @@ namespace Dashboard
         {
             while(true)
             {
+                if (e.Cancel)
+                    return;
                 string result = Encoding.UTF8.GetString(RobotListenerClient.Receive(ref RobotRecieverIPEndPoint));
                 RobotListener.ReportProgress(0, result);
             }
