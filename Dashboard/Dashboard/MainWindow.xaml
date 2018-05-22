@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dashboard"
         mc:Ignorable="d"
-        Title="Robot Dashboard" Height="450" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="Robot Dashboard" Height="600" Width="1200" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <TabControl SelectedIndex="1">
             <TabItem Header="Main Page">

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using System.ComponentModel;
@@ -27,10 +27,12 @@ namespace App1.Utils
         /// The IP address of the robot
         /// </summary>
         public static string RobotIPV6Address = "";
+        public static string RobotIPV4Address = "";
         /// <summary>
         /// The IP address of the computer
         /// </summary>
         public static string ComputerIPV6Address = "";
+        public static string ComputerIPV4Address = "";
         /// <summary>
         /// The IP endpoint of the robot listener
         /// </summary>
@@ -67,16 +69,21 @@ namespace App1.Utils
             //get the devices IP address
             //max 2 network devices, 4 connections
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
-            List<NetworkInformation> NetworkInfos = new List<NetworkInformation>();
+            List<NetworkInformation> V6NetworkInfos = new List<NetworkInformation>();
+            List<NetworkInformation> V4NetworkInfos = new List<NetworkInformation>();
             foreach (NetworkInterface ni in interfaces)
             {
                 if((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("Loopback")))
                 {
                     foreach(UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {
-                        if(ip.Address.IsIPv6LinkLocal)
+                        if(ip.Address.AddressFamily == AddressFamily.InterNetworkV6)
                         {
-                            NetworkInfos.Add(new NetworkInformation { NetworkName = ni.Description, IPAddress = ip.Address });
+                            V6NetworkInfos.Add(new NetworkInformation { NetworkName = ni.Description, IPAddress = ip.Address });
+                        }
+                        else if(ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            V4NetworkInfos.Add(new NetworkInformation { NetworkName = ni.Description, IPAddress = ip.Address });
                         }
                     }
                 }
@@ -84,16 +91,44 @@ namespace App1.Utils
             //listen for the dashboard
             bool listingForDashboard = true;
 
-            RobotIPV6Address = NetworkInfos[0].IPAddress.ToString();
+            RobotIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
+            RobotIPV4Address = V4NetworkInfos[0].IPAddress.ToString();
             //dashboard sends it's ip address
-            RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV6Address), RobotSenderPort);
-            RobotSenderClient = new UdpClient(AddressFamily.InterNetworkV6);
+            RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotSenderPort);
+            RobotSenderClient = new UdpClient();
             RobotSenderClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             RobotSenderClient.Client.Bind(RobotSenderIPEndPoint);
             string result = Encoding.UTF8.GetString(RobotSenderClient.Receive(ref RobotSenderIPEndPoint));
             if (IPAddress.TryParse(result, out IPAddress address))
             {
-                ComputerIPV6Address = address.ToString();
+                if(address.AddressFamily == AddressFamily.InterNetworkV6)
+                {
+                    ComputerIPV6Address = address.ToString();
+                }
+                else if (address.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    ComputerIPV4Address = address.ToString();
+                }
+            }
+            //comms established, setup receiver
+            RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(string.IsNullOrWhiteSpace(ComputerIPV6Address) ? ComputerIPV4Address : ComputerIPV6Address), RobotListenerPort);
+            RobotListenerClient = new UdpClient();
+            RobotListenerClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            RobotListenerClient.Connect(RobotRecieverIPEndPoint);
+            RobotListenerClient.Send(Encoding.UTF8.GetBytes("comms established"), Encoding.UTF8.GetByteCount("comms established"));
+            Thread t = new Thread(new ThreadStart(SendHeartbeats));
+            t.Start();
+        }
+
+        private static void SendHeartbeats()
+        {
+            int i = 0;
+            while (true)
+            {
+                string test = "send number " + i++;
+                //DEBUG
+                //RobotListenerClient.Send(Encoding.UTF8.GetBytes(test), Encoding.UTF8.GetByteCount(test));
+                Thread.Sleep(500);
             }
         }
     }
