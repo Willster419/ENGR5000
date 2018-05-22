@@ -13,12 +13,12 @@
             </TabItem>
             <TabItem Header="Dashboard Console">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="ConsoleLogOutput" x:FieldModifier="public"/>
+                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="ConsoleLogOutput" x:FieldModifier="public" VerticalScrollBarVisibility="Visible" TextChanged="ConsoleLogOutput_TextChanged"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Robot Console">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="RobotLogOutput" x:FieldModifier="public"/>
+                    <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="RobotLogOutput" x:FieldModifier="public" VerticalScrollBarVisibility="Visible" TextChanged="RobotLogOutput_TextChanged"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">

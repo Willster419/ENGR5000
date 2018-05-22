@@ -72,6 +72,15 @@ namespace Dashboard
             Utils.LogConsole("\\----------------------------------------------------------------------------------------------------------------------------------/");
         }
         #endregion
+
+        private void RobotLogOutput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RobotLogOutput.ScrollToEnd();
+        }
+
+        private void ConsoleLogOutput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ConsoleLogOutput.ScrollToEnd();
+        }
     }
 }
-//this is leo, just testing
