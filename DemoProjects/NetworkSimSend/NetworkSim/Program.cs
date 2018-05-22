@@ -14,7 +14,7 @@ namespace NetworkSim
         {
             //simulates the network output of the Pi
             //we can test read the data from the console output
-            IPEndPoint ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 419);
+            IPEndPoint ip = new IPEndPoint(IPAddress.Parse("10.0.0.69"), 42069);
             UdpClient client = new UdpClient();
             client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             client.Connect(ip);
@@ -22,9 +22,8 @@ namespace NetworkSim
             while (true)
             {
                 Console.WriteLine("test");
-                client.Send(Encoding.ASCII.GetBytes("test\n"), "test\n".Length);
+                client.Send(Encoding.ASCII.GetBytes("test"), "test".Length);
                 System.Threading.Thread.Sleep(499);
-                break;
             }
         }
     }
