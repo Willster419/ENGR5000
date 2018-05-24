@@ -12,7 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using RobotCode.Utils;
+using System.Diagnostics;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,11 +28,21 @@ namespace RobotCode
         {
             InitializeComponent();
         }
+        Stopwatch sw = new Stopwatch();
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             //init the robot networking
-            Utils.Utils.InitComms();
+            Utils.InitComms();
+            sw.Reset();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Restart();
+            Box.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            sw.Stop();
+            Box.Text = "" + sw.ElapsedMilliseconds;
         }
     }
 }

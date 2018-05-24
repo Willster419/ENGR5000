@@ -8,7 +8,8 @@
     mc:Ignorable="d" Loaded="Page_Loaded">
 
     <Grid Background="Black">
-        <TextBox x:Name="TextBox" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+        <TextBox x:Name="Box" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="897,580,0,0" VerticalAlignment="Top" Height="130" Width="373" Click="Button_Click"/>
 
     </Grid>
 </Page>
