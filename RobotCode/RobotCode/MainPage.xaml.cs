@@ -32,8 +32,13 @@ namespace RobotCode
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            if(!Utils.InitGPIO())
+            {
+                return;
+            }
             //init the robot networking
             Utils.InitComms();
+
             sw.Reset();
         }
 

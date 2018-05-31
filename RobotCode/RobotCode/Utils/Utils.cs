@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
+using Windows.Devices.Gpio;
 
 namespace RobotCode
 {
@@ -18,6 +19,11 @@ namespace RobotCode
         public string NetworkName;
         public IPAddress @IPAddress;
     }
+    public enum RobotStatus
+    {
+        Idle = 0,
+        UnknownError = 5
+    };
     /// <summary>
     /// A Utility class for important static methods
     /// </summary>
@@ -61,6 +67,11 @@ namespace RobotCode
         /// The background thread for listening for messages from the dashboard
         /// </summary>
         private static BackgroundWorker DashboardListener = null;
+        private static bool DashboardConnected = false;
+        private static GpioController Controller = null;
+        public static GpioPin[] Pins = new GpioPin[5];
+        public const int STATUS_PIN = 22;
+        public const int DASHBOARD_CONNECTION_PIN = 4;
         /// <summary>
         /// Initializes the robot, network-wise
         /// </summary>
@@ -116,8 +127,12 @@ namespace RobotCode
             RobotListenerClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             RobotListenerClient.Connect(RobotRecieverIPEndPoint);
             RobotListenerClient.Send(Encoding.UTF8.GetBytes("comms established"), Encoding.UTF8.GetByteCount("comms established"));
-            Thread t = new Thread(new ThreadStart(SendHeartbeats));
-            t.Start();
+            DashboardConnected = true;
+            Pins[1] = Controller.OpenPin(DASHBOARD_CONNECTION_PIN);
+            Pins[1].Write(GpioPinValue.High);
+            Pins[1].SetDriveMode(GpioPinDriveMode.Output);
+            //Thread t = new Thread(new ThreadStart(SendHeartbeats));
+            //t.Start();
         }
 
         private static void SendHeartbeats()
@@ -130,6 +145,17 @@ namespace RobotCode
                 RobotListenerClient.Send(Encoding.UTF8.GetBytes(test), Encoding.UTF8.GetByteCount(test));
                 Thread.Sleep(500);
             }
+        }
+
+        public static bool InitGPIO()
+        {
+            Controller = GpioController.GetDefault();
+            if (Controller == null)
+                return false;
+            Pins[0] = Controller.OpenPin(STATUS_PIN);
+            Pins[0].Write(GpioPinValue.High);
+            Pins[0].SetDriveMode(GpioPinDriveMode.Output);
+            return true;
         }
     }
 }
