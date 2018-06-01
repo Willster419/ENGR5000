@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
 using Windows.Devices.Gpio;
+using Windows.Devices.Spi;
 
 namespace RobotCode
 {
@@ -156,6 +157,17 @@ namespace RobotCode
             Pins[0].Write(GpioPinValue.High);
             Pins[0].SetDriveMode(GpioPinDriveMode.Output);
             return true;
+        }
+
+        public static void LogNetwork(string StringToSend)
+        {
+            if (RobotListenerClient == null)
+                return;
+        }
+
+        public static void InitSPI()
+        {
+
         }
     }
 }

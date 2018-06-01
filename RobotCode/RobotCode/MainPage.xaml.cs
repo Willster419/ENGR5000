@@ -38,7 +38,7 @@ namespace RobotCode
             }
             //init the robot networking
             Utils.InitComms();
-
+            Utils.InitSPI();
             sw.Reset();
         }
 
