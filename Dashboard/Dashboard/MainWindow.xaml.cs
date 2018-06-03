@@ -58,7 +58,8 @@ namespace Dashboard
             Utils.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
             Utils.LogConsole("Built on " + GetCompileTime());
             Utils.LogConsole("Initializing network connections");
-            Utils.StartRobotNetworking();
+            Utils.LogRobot("/----------------------------------------------------------------------------------------------------------------------------------\\");
+            NetworkUtils.StartRobotNetworking();
         }
         /// <summary>
         /// When The application is closed
@@ -68,8 +69,9 @@ namespace Dashboard
         private void Window_Closed(object sender, EventArgs e)
         {
             Utils.LogConsole("Application Closing");
-            Utils.AbortThreads();
+            NetworkUtils.AbortNetworkThreads();
             Utils.LogConsole("\\----------------------------------------------------------------------------------------------------------------------------------/");
+            Utils.LogRobot("\\----------------------------------------------------------------------------------------------------------------------------------/");
         }
         #endregion
 

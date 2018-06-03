@@ -73,8 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Utils\CiInfo.cs" />
-    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Resources\CiInfo.cs" />
+    <Compile Include="Resources\NetworkUtils.cs" />
+    <Compile Include="Resources\Utils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
