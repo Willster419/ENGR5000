@@ -23,7 +23,7 @@
                     <Button Content="Clear Log File" HorizontalAlignment="Left" Margin="90,511,0,0" VerticalAlignment="Top" Width="75" x:Name="DeleteRobotLogFile" Click="DeleteRobotLogFile_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54"x:Name="MapTab"/>
+            <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" x:Name="MapTab"/>
             <TabItem Header="Manual Control" x:Name="ManualControlTab"/>
         </TabControl>
 
