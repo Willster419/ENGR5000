@@ -52,7 +52,7 @@ namespace RobotCode
                     System.Threading.Thread.Sleep(100);
                 }
                 NetworkUtils.LogNetwork("dashboard connected via force wait", NetworkUtils.MessageType.Debug);
-                System.Threading.Thread.Sleep(50);//delay to show it...
+                System.Threading.Thread.Sleep(100);//delay to show it...
             }
             NetworkUtils.LogNetwork("Initializing SPI interface", NetworkUtils.MessageType.Info);
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html

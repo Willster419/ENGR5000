@@ -57,11 +57,16 @@ namespace RobotCode
         /// <summary>
         /// The UDP listener client of the robot
         /// </summary>
+        //https://msdn.microsoft.com/en-us/library/system.net.sockets.tcpclient(v=vs.110).aspx
+        //private static TcpClient RobotSenderClient = null;
         private static UdpClient RobotSenderClient = null;
+        private static NetworkStream RobotNetworkStream = null;
         /// <summary>
         /// The UDP sender client to the robot
         /// </summary>
+        //private static TcpClient RobotRecieverClient = null;
         private static UdpClient RobotRecieverClient = null;
+        private static NetworkStream RobotRecieverStream = null;
         /// <summary>
         /// The port used for sending dashboard events (robot POV)
         /// </summary>
@@ -142,10 +147,11 @@ namespace RobotCode
                 RobotRecieverClient = new UdpClient();
                 RobotRecieverClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotRecieverClient.Client.Bind(RobotRecieverIPEndPoint);
+                //RobotRecieverStream = RobotRecieverClient.GetStream();
                 //wait for receiver client to get the ip address of the dashboard
+                //TCP recieve method here
                 string result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
                 //parse the ip address sent by the dashboard
-                //IPAddress.TryParse(result, out IPAddress address)
                 IPAddress address = IPAddress.Parse(result);
                 if (address.AddressFamily == AddressFamily.InterNetworkV6)
                 {
@@ -234,6 +240,19 @@ namespace RobotCode
             {
                 RobotSenderClient.Send(Encoding.UTF8.GetBytes(StringToSend), Encoding.UTF8.GetByteCount(StringToSend));
             }
+        }
+
+        public static void NetworkSend(NetworkStream ns, string s)
+        {
+            Byte[] data = Encoding.UTF8.GetBytes(s);
+            ns.Write(data, 0, data.Length);
+        }
+
+        public static string NetworkRecieve(NetworkStream ns)
+        {
+            Byte[] data = new Byte[256];
+            Int32 bytes = ns.Read(data, 0, data.Length);
+            return Encoding.UTF8.GetString(data, 0, bytes);
         }
     }
 }
