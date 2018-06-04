@@ -31,7 +31,7 @@ namespace RobotCode
         }
         Stopwatch sw = new Stopwatch();
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             if(!GPIO.InitGPIO())
             {
@@ -41,6 +41,7 @@ namespace RobotCode
             //init the robot networking
             if(!NetworkUtils.InitComms())
             {
+                GPIO.ToggleRobotStatus(RobotStatus.ExceptionAppCrash);
                 Application.Current.Exit();
             }
             //DEBUG: wait for dashboard logging connection
@@ -50,22 +51,21 @@ namespace RobotCode
                 {
                     System.Threading.Thread.Sleep(100);
                 }
-                NetworkUtils.LogNetwork("DEBUG: dashboard connected via force wait");
+                NetworkUtils.LogNetwork("dashboard connected via force wait", NetworkUtils.MessageType.Debug);
+                System.Threading.Thread.Sleep(50);//delay to show it...
             }
-            
-            NetworkUtils.LogNetwork("Initializing SPI interface");
-            GPIO.InitSPI();
-            while (!GPIO.SPI_Initialized)
-                System.Threading.Thread.Sleep(100);
-            if(!GPIO.SPI_works)
+            NetworkUtils.LogNetwork("Initializing SPI interface", NetworkUtils.MessageType.Info);
+            //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
+            if (!await GPIO.InitSPI().ConfigureAwait(false))
             {
-                NetworkUtils.LogNetwork("SPI failed to intialize");
+                NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Info);
+                GPIO.ToggleRobotStatus(RobotStatus.ExceptionAppCrash);
                 Application.Current.Exit();
             }
-            NetworkUtils.LogNetwork("SPI Interface initialization complete, reading one value");
+            NetworkUtils.LogNetwork("SPI Interface initialization complete, reading one value", NetworkUtils.MessageType.Info);
             while(true)
             {
-                NetworkUtils.LogNetwork("" + GPIO.ReadVoltage(0));
+                NetworkUtils.LogNetwork(string.Format("Voltage: {0}V", (GPIO.ReadVoltage(0x00) / 1000.0F)),NetworkUtils.MessageType.Info);
                 System.Threading.Thread.Sleep(1000);
             }
         }
