@@ -75,7 +75,7 @@
     </ApplicationDefinition>
     <Compile Include="Resources\CiInfo.cs" />
     <Compile Include="Resources\NetworkUtils.cs" />
-    <Compile Include="Resources\Utils.cs" />
+    <Compile Include="Resources\Logging.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

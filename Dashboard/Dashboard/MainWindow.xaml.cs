@@ -53,12 +53,12 @@ namespace Dashboard
         /// <param name="e">More stuff</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Utils.InitLogging(this);
-            Utils.LogConsole("/----------------------------------------------------------------------------------------------------------------------------------\\");
-            Utils.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
-            Utils.LogConsole("Built on " + GetCompileTime());
-            Utils.LogConsole("Initializing network connections");
-            Utils.LogRobot("/----------------------------------------------------------------------------------------------------------------------------------\\");
+            Logging.InitLogging(this);
+            Logging.LogConsole("/----------------------------------------------------------------------------------------------------------------------------------\\");
+            Logging.LogConsole(string.Format("Dashboard Version {0}", GetApplicationVersion()));
+            Logging.LogConsole("Built on " + GetCompileTime());
+            Logging.LogConsole("Initializing network connections");
+            Logging.LogRobot("/----------------------------------------------------------------------------------------------------------------------------------\\");
             NetworkUtils.StartRobotNetworking();
         }
         /// <summary>
@@ -68,10 +68,10 @@ namespace Dashboard
         /// <param name="e">Even more stuff</param>
         private void Window_Closed(object sender, EventArgs e)
         {
-            Utils.LogConsole("Application Closing");
+            Logging.LogConsole("Application Closing");
             NetworkUtils.AbortNetworkThreads();
-            Utils.LogConsole("\\----------------------------------------------------------------------------------------------------------------------------------/");
-            Utils.LogRobot("\\----------------------------------------------------------------------------------------------------------------------------------/");
+            Logging.LogConsole("\\----------------------------------------------------------------------------------------------------------------------------------/");
+            Logging.LogRobot("\\----------------------------------------------------------------------------------------------------------------------------------/");
         }
         #endregion
 

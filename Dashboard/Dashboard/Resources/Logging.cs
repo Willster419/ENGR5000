@@ -18,7 +18,7 @@ namespace Dashboard
     /// <summary>
     /// A Utility class for important static methods and global fields
     /// </summary>
-    public static class Utils
+    public static class Logging
     {
         /// <summary>
         /// A refrence from MainWindow, the log output for the console

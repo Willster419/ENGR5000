@@ -81,17 +81,17 @@ namespace Dashboard
         /// </summary>
         public static void StartRobotNetworking()
         {
-            Utils.LogConsole("Checking for any local internet connection...");
+            Logging.LogConsole("Checking for any local internet connection...");
             //https://stackoverflow.com/questions/6803073/get-local-ip-address
             //check if we even have an online connectoin
             if (!NetworkInterface.GetIsNetworkAvailable())
             {
-                Utils.LogConsole("ERROR: No valid network connectoins exist!");
+                Logging.LogConsole("ERROR: No valid network connectoins exist!");
                 return;
             }
             else
             {
-                Utils.LogConsole("At leaset one valid network connections exist!");
+                Logging.LogConsole("At leaset one valid network connections exist!");
             }
             //select which ip address of this pc to use
             //https://stackoverflow.com/questions/6803073/get-local-ip-address
@@ -111,28 +111,28 @@ namespace Dashboard
                     {
                         if (ip.Address.AddressFamily == AddressFamily.InterNetworkV6)
                         {
-                            Utils.LogConsole(string.Format("Valid V6 network found: name={0}, address={1}", ni.Description, ip.Address.ToString()));
+                            Logging.LogConsole(string.Format("Valid V6 network found: name={0}, address={1}", ni.Description, ip.Address.ToString()));
                             V6NetworkInfos.Add(new NetworkInformation { NetworkName = ni.Description, IPAddress = ip.Address });
                         }
                         else if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
                         {
-                            Utils.LogConsole(string.Format("Valid V4 network found: name={0}, address={1}", ni.Description, ip.Address.ToString()));
+                            Logging.LogConsole(string.Format("Valid V4 network found: name={0}, address={1}", ni.Description, ip.Address.ToString()));
                             V4NetworkInfos.Add(new NetworkInformation { NetworkName = ni.Description, IPAddress = ip.Address });
                         }
                     }
                 }
             }
-            Utils.LogConsole("Hard-code select index 0", true);
+            Logging.LogConsole("Hard-code select index 0", true);
             ComputerIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
             ComputerIPV4Address = V4NetworkInfos[0].IPAddress.ToString();
-            Utils.LogConsole("Computer IPV6 address set to " + ComputerIPV6Address);
-            Utils.LogConsole("Computer IPV4 address set to " + ComputerIPV4Address);
-            Utils.LogConsole("Pinging robot hostname for ip address(s)");
+            Logging.LogConsole("Computer IPV6 address set to " + ComputerIPV6Address);
+            Logging.LogConsole("Computer IPV4 address set to " + ComputerIPV4Address);
+            Logging.LogConsole("Pinging robot hostname for ip address(s)");
             //ping the robot to check if it's on the network, if it is get it's ip address
             Ping p = new Ping();
             p.PingCompleted += OnPingCompleted;
             p.SendAsync(RobotNetworkName, null);
-            Utils.LogRobot("Dashboard: waiting for robot...");
+            Logging.LogRobot("Dashboard: waiting for robot...");
         }
         /// <summary>
         /// Event hander for when the async ping completes
@@ -143,14 +143,14 @@ namespace Dashboard
         {
             if (e.Error != null)
             {
-                Utils.LogConsole("ERROR, failed to get ip address of robot, (is it online?). The application cannot continue");
-                Utils.LogConsole(e.Error.ToString());
-                Utils.LogRobot("Dashboard: Robot not found");
+                Logging.LogConsole("ERROR, failed to get ip address of robot, (is it online?). The application cannot continue");
+                Logging.LogConsole(e.Error.ToString());
+                Logging.LogRobot("Dashboard: Robot not found");
                 return;
             }
             else
             {
-                Utils.LogConsole("Ping SUCCESS, getting IP v4 and v6 addresses");
+                Logging.LogConsole("Ping SUCCESS, getting IP v4 and v6 addresses");
                 using (ConnectionManager = new BackgroundWorker() { WorkerReportsProgress = true })
                 {
                     ConnectionManager.DoWork += ManageConnections;
@@ -165,10 +165,10 @@ namespace Dashboard
             switch(e.ProgressPercentage)
             {
                 case 1://log to console
-                    Utils.LogConsole((string)e.UserState);
+                    Logging.LogConsole((string)e.UserState);
                     break;
                 case 2://robot data
-                    Utils.LogRobot((string)e.UserState);
+                    Logging.LogRobot((string)e.UserState);
                     break;
             }
         }
