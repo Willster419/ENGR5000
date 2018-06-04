@@ -38,6 +38,8 @@ namespace Dashboard
         private static FileStream RobotLogSteam = null;
         private static object ConsoleLocker = new object();
         private static object RobotLocker = new object();
+        private const string DASHBOARD_LOG_FILE = "Dashboard.log";
+        private const string ROBOT_LOG_FILE = "Robot.log";
         
         /// <summary>
         /// Initializes the Logging functions of the application
@@ -47,8 +49,8 @@ namespace Dashboard
         {
             ConsoleLogOutput = MainWindow.ConsoleLogOutput;
             RobotLogOutput = MainWindow.RobotLogOutput;
-            ConsoleLogStream = new FileStream("Dashboard.log", FileMode.Append, FileAccess.Write);
-            RobotLogSteam = new FileStream("Robot.log", FileMode.Append, FileAccess.Write);
+            ConsoleLogStream = new FileStream(DASHBOARD_LOG_FILE, FileMode.Append, FileAccess.Write);
+            RobotLogSteam = new FileStream(ROBOT_LOG_FILE, FileMode.Append, FileAccess.Write);
         }
         /// <summary>
         /// Logs a string value to the console log output in the log tab, and to the console log file
@@ -91,6 +93,27 @@ namespace Dashboard
                 RobotLogSteam.Flush();
             }
         }
-        
+
+        public static void ClearConsoleLogFile()
+        {
+            //close the stream, delete the file, and open it again
+            ConsoleLogStream.Flush();
+            ConsoleLogStream.Close();
+            ConsoleLogStream.Dispose();
+            File.Delete(DASHBOARD_LOG_FILE);
+            ConsoleLogStream = new FileStream(DASHBOARD_LOG_FILE, FileMode.Append, FileAccess.Write);
+            ConsoleLogOutput.AppendText("Log file cleared");
+        }
+
+        public static void ClearRobotLogFile()
+        {
+            RobotLogSteam.Flush();
+            RobotLogSteam.Close();
+            RobotLogSteam.Dispose();
+            File.Delete(ROBOT_LOG_FILE);
+            RobotLogSteam = new FileStream(ROBOT_LOG_FILE, FileMode.Append, FileAccess.Write);
+            RobotLogOutput.AppendText("Log file cleared");
+        }
+
     }
 }

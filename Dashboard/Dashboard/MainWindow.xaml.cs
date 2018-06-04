@@ -84,5 +84,25 @@ namespace Dashboard
         {
             ConsoleLogOutput.ScrollToEnd();
         }
+
+        private void ClearDashboardLogOutput_Click(object sender, RoutedEventArgs e)
+        {
+            ConsoleLogOutput.Clear();
+        }
+
+        private void DeleteDashboardLogFile_Click(object sender, RoutedEventArgs e)
+        {
+            Logging.ClearConsoleLogFile();
+        }
+
+        private void ClearRobotLogOutput_Click(object sender, RoutedEventArgs e)
+        {
+            RobotLogOutput.Clear();
+        }
+
+        private void DeleteRobotLogFile_Click(object sender, RoutedEventArgs e)
+        {
+            Logging.ClearRobotLogFile();
+        }
     }
 }
