@@ -35,14 +35,20 @@ namespace Dashboard
             Control = 8
         }
         /// <summary>
-        /// The IP address of the robot
+        /// The IPV6 address of the robot
         /// </summary>
         public static string RobotIPV6Address = "";
+        /// <summary>
+        /// The IPV4 Address of the robot
+        /// </summary>
         public static string RobotIPV4Address = "";
         /// <summary>
-        /// The IP address of the computer
+        /// The IPV6 address of the dashboard
         /// </summary>
         public static string ComputerIPV6Address = "";
+        /// <summary>
+        /// The IPV4 address of the dashboard
+        /// </summary>
         public static string ComputerIPV4Address = "";
         /// <summary>
         /// The IP endpoint of the robot listener
@@ -68,13 +74,34 @@ namespace Dashboard
         /// The port used for sending for robot events (dashboard POV)
         /// </summary>
         public const int RobotSenderPort = 24242;
+        /// <summary>
+        /// The computer/network name of the robot
+        /// </summary>
         public const string RobotNetworkName = "minwinpc";
+        /// <summary>
+        /// Flag used to determine if the robot is connected for the networking thread
+        /// </summary>
         private static bool RobotConnected = false;
+        /// <summary>
+        /// The thread to send heartbeats to the robot. TODO: determine if this can be done via dispatcher event
+        /// </summary>
         private static Thread InitSenderHeartbeatThread = null;
+        /// <summary>
+        /// The Netwokring thread for all initialization and revieving of network data
+        /// </summary>
         private static BackgroundWorker ConnectionManager = null;
+        /// <summary>
+        /// Number of heartbeats that have been sent since the connectino has been alive
+        /// </summary>
         private static UInt64 NumHeartbeatsSent = 0;
+        /// <summary>
+        /// Arbitrary object to lock the sender client to prevent mulitple threads from accesing the sender client at the same time
+        /// </summary>
         private static object SenderLocker = new object();
         private const bool DEBUG_IGNORE_TIMEOUT = false;
+        /// <summary>
+        /// modes for the sender. It could be sending the IP address (0) for the initial (re)connection, or heartbeats(1)
+        /// </summary>
         private static int threadMode = 0;
         /// <summary>
         /// Starts the Listener for netowrk log packets from the robot
@@ -101,6 +128,7 @@ namespace Dashboard
             List<NetworkInformation> V4NetworkInfos = new List<NetworkInformation>();
             foreach (NetworkInterface ni in interfaces)
             {
+                //filter out useless connections (like vmware and virtualbox vm connections, as well as loopback)
                 if ((ni.OperationalStatus == OperationalStatus.Up)
                     && (!ni.Description.Contains("VMware"))
                     && (!ni.Description.Contains("VirtualBox"))
@@ -122,17 +150,18 @@ namespace Dashboard
                     }
                 }
             }
+            //TODO: figure out a better way to do this
             Logging.LogConsole("Hard-code select index 0", true);
             ComputerIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
             ComputerIPV4Address = V4NetworkInfos[0].IPAddress.ToString();
             Logging.LogConsole("Computer IPV6 address set to " + ComputerIPV6Address);
             Logging.LogConsole("Computer IPV4 address set to " + ComputerIPV4Address);
-            Logging.LogConsole("Pinging robot hostname for ip address(s)");
+            Logging.LogConsole("Pinging robot hostname for aliveness");
             //ping the robot to check if it's on the network, if it is get it's ip address
             Ping p = new Ping();
             p.PingCompleted += OnPingCompleted;
             p.SendAsync(RobotNetworkName, null);
-            Logging.LogRobot("Dashboard: waiting for robot...");
+            Logging.LogRobot("Dashboard: Ping sent, waiting for ping respone from robot...");
         }
         /// <summary>
         /// Event hander for when the async ping completes
@@ -159,9 +188,14 @@ namespace Dashboard
                 }
             }
         }
-
+        /// <summary>
+        /// Method executed on the UI thead, raised from the Networking thread when reporting progress.
+        /// </summary>
+        /// <param name="sender">The BackgroundWorker object</param>
+        /// <param name="e">EventArgs (like percent complete and custom user object)</param>
         private static void ConnectionManagerLog(object sender, ProgressChangedEventArgs e)
         {
+            //use the progressPercentage to determine which console to output to
             switch(e.ProgressPercentage)
             {
                 case 1://log to console
@@ -175,6 +209,9 @@ namespace Dashboard
 
         private static void ManageConnections(object sender, DoWorkEventArgs e)
         {
+            //initial worker state:
+            //set the connection status false
+            //start the sender thread
             RobotConnected = false;
             InitSenderHeartbeatThread = new Thread(new ThreadStart(InitRobotListener));
             InitSenderHeartbeatThread.Start();
@@ -188,14 +225,12 @@ namespace Dashboard
                     {
                         if (ip.AddressFamily == AddressFamily.InterNetworkV6 && !IPV6Parsed)
                         {
-                            //Utils.LogConsole("Parsed IPV6 address: " + ip.ToString());
                             ConnectionManager.ReportProgress(1, "Parsed IPV6 address: " + ip.ToString());
                             RobotIPV6Address = ip.ToString();
                             IPV6Parsed = true;
                         }
                         else if (ip.AddressFamily == AddressFamily.InterNetwork && !IPV4Parsed)
                         {
-                            //Utils.LogConsole("Parsed IPV4 address: " + ip.ToString());
                             ConnectionManager.ReportProgress(1, "Parsed IPV4 address: " + ip.ToString());
                             RobotIPV4Address = ip.ToString();
                             IPV4Parsed = true;
@@ -233,6 +268,9 @@ namespace Dashboard
                 }
                 NumHeartbeatsSent = 0;
                 threadMode = 2;//send heartbeats
+                //netwokr setup is complete, now for as long as the connection is alive,
+                //use blokcing call to wait for network events
+                //TODO: see if TCP will provide more reliability for packet delivery
                 while (RobotConnected)
                 {
                     if (e.Cancel)
@@ -255,6 +293,7 @@ namespace Dashboard
                         RobotSenderClient = null;
                     }
                     int messageTypeInt = -1;
+                    //first part of the message will always be a number describing the type of the message
                     string messageTypeString = result.Split(',')[0];
                     if (int.TryParse(messageTypeString, out messageTypeInt))
                     {
@@ -293,6 +332,8 @@ namespace Dashboard
                 {
                     lock (SenderLocker)
                     {
+                        //note that threadmode can be set to 0 (or any other number than 1/2) to avoid sending data
+                        //TODO: use dispatchers rather than sleep?
                         switch (threadMode)
                         {
                             case 1://IPAddress
@@ -310,6 +351,7 @@ namespace Dashboard
 
         public static void AbortNetworkThreads()
         {
+            //stop all threads to allow the application to exit
             if (InitSenderHeartbeatThread != null)
             {
                 InitSenderHeartbeatThread.Abort();

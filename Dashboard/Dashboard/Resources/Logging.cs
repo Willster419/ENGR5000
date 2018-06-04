@@ -36,11 +36,22 @@ namespace Dashboard
         /// The Log Filestream for writing robot messages to disk
         /// </summary>
         private static FileStream RobotLogSteam = null;
+        /// <summary>
+        /// Locker object used to prevent multiple access to the console file stream
+        /// </summary>
         private static object ConsoleLocker = new object();
+        /// <summary>
+        /// Locker object used to prevent multiple access to the robot file stream
+        /// </summary>
         private static object RobotLocker = new object();
+        /// <summary>
+        /// The name of the dashboard log file
+        /// </summary>
         private const string DASHBOARD_LOG_FILE = "Dashboard.log";
+        /// <summary>
+        /// The name of the robot log file
+        /// </summary>
         private const string ROBOT_LOG_FILE = "Robot.log";
-        
         /// <summary>
         /// Initializes the Logging functions of the application
         /// </summary>
@@ -93,7 +104,9 @@ namespace Dashboard
                 RobotLogSteam.Flush();
             }
         }
-
+        /// <summary>
+        /// Clears the console log file by releasing filestreamrescources, deleting the file, and renewing the filestream
+        /// </summary>
         public static void ClearConsoleLogFile()
         {
             //close the stream, delete the file, and open it again
@@ -104,7 +117,9 @@ namespace Dashboard
             ConsoleLogStream = new FileStream(DASHBOARD_LOG_FILE, FileMode.Append, FileAccess.Write);
             ConsoleLogOutput.AppendText("Log file cleared");
         }
-
+        /// <summary>
+        /// Clears the robot log file by releasing filestreamrescources, deleting the file, and renewing the filestream
+        /// </summary>
         public static void ClearRobotLogFile()
         {
             RobotLogSteam.Flush();
