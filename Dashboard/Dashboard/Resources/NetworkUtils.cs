@@ -255,7 +255,8 @@ namespace Dashboard
                         RobotSenderClient = null;
                     }
                     int messageTypeInt = -1;
-                    if (int.TryParse(result.Split(',')[0], out messageTypeInt))
+                    string messageTypeString = result.Split(',')[0];
+                    if (int.TryParse(messageTypeString, out messageTypeInt))
                     {
                         MessageType messageType = (MessageType)messageTypeInt;
                         switch (messageType)
@@ -264,16 +265,16 @@ namespace Dashboard
                                 //do nothing, ignore
                                 break;
                             case MessageType.Debug:
-                                ConnectionManager.ReportProgress(2, "DEBUG: " + result);
+                                ConnectionManager.ReportProgress(2, "DEBUG: " + result.Substring(messageTypeString.Count()+1));
                                 break;
                             case MessageType.Info:
-                                ConnectionManager.ReportProgress(2, "INFO: " + result);
+                                ConnectionManager.ReportProgress(2, "INFO: " + result.Substring(messageTypeString.Count() + 1));
                                 break;
                             case MessageType.Warning:
-                                ConnectionManager.ReportProgress(2, "WARNING: " + result);
+                                ConnectionManager.ReportProgress(2, "WARNING: " + result.Substring(messageTypeString.Count() + 1));
                                 break;
                             case MessageType.Error:
-                                ConnectionManager.ReportProgress(2, "ERROR: " + result);
+                                ConnectionManager.ReportProgress(2, "ERROR: " + result.Substring(messageTypeString.Count() + 1));
                                 break;
                         }
                     }
@@ -287,17 +288,20 @@ namespace Dashboard
             //sends data to the robot ip address untill it responds
             while (true)
             {
-                string heartbeat = MessageType.Heartbeat.ToString() + "," + NumHeartbeatsSent++;
-                lock (SenderLocker)
+                string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
+                if(RobotSenderClient != null)
                 {
-                    switch (threadMode)
+                    lock (SenderLocker)
                     {
-                        case 1://IPAddress
-                            RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV4Address), Encoding.UTF8.GetByteCount(ComputerIPV4Address));
-                            break;
-                        case 2://heartbeats
-                            RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
-                            break;
+                        switch (threadMode)
+                        {
+                            case 1://IPAddress
+                                RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV4Address), Encoding.UTF8.GetByteCount(ComputerIPV4Address));
+                                break;
+                            case 2://heartbeats
+                                RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
+                                break;
+                        }
                     }
                 }
                 Thread.Sleep(1000);

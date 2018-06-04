@@ -217,18 +217,19 @@ namespace RobotCode
             {
                 if(sendHeartbeats)
                 {
-                    LogNetwork(MessageType.Heartbeat.ToString() + "," + NumHeartbeatsSent++);
+                    LogNetwork(NumHeartbeatsSent++.ToString(),MessageType.Heartbeat);
                 }
                 Thread.Sleep(1000);
             }
         }
 
-        public static void LogNetwork(string StringToSend)
+        public static void LogNetwork(string StringToSend, MessageType messageType)
         {
             if (RobotSenderClient == null)
                 return;
             if (!DashboardConnected)
                 return;
+            StringToSend = (int)messageType + "," + StringToSend;
             lock(NetworkSenderLocker)
             {
                 RobotSenderClient.Send(Encoding.UTF8.GetBytes(StringToSend), Encoding.UTF8.GetByteCount(StringToSend));
