@@ -8,25 +8,23 @@
         Title="Robot Dashboard" Height="600" Width="1200" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <TabControl SelectedIndex="1">
-            <TabItem Header="Main Page"/>
-            <TabItem Header="Dashboard Console">
+            <TabItem Header="Main Page" x:Name="MainPageTab"/>
+            <TabItem Header="Dashboard Console" x:Name="DashboardLogTab">
                 <Grid Background="#FFE5E5E5">
                     <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="ConsoleLogOutput" x:FieldModifier="public" VerticalScrollBarVisibility="Visible" TextChanged="ConsoleLogOutput_TextChanged" Margin="0,0,0,35"/>
                     <Button Content="Clear Output" HorizontalAlignment="Left" Margin="10,511,0,0" VerticalAlignment="Top" Width="75" x:Name="ClearDashboardLogOutput" Click="ClearDashboardLogOutput_Click"/>
                     <Button Content="Clear Log File" HorizontalAlignment="Left" Margin="90,511,0,0" VerticalAlignment="Top" Width="75" x:Name="DeleteDashboardLogFile" Click="DeleteDashboardLogFile_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Robot Console">
+            <TabItem Header="Robot Console" x:Name="RobotLogTab">
                 <Grid Background="#FFE5E5E5">
                     <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="RobotLogOutput" x:FieldModifier="public" VerticalScrollBarVisibility="Visible" TextChanged="RobotLogOutput_TextChanged" Margin="0,0,0,35"/>
                     <Button Content="Clear Output" HorizontalAlignment="Left" Margin="10,511,0,0" VerticalAlignment="Top" Width="75" x:Name="ClearRobotLogOutput" Click="ClearRobotLogOutput_Click"/>
                     <Button Content="Clear Log File" HorizontalAlignment="Left" Margin="90,511,0,0" VerticalAlignment="Top" Width="75" x:Name="DeleteRobotLogFile" Click="DeleteRobotLogFile_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="Manual Control"/>
+            <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54"x:Name="MapTab"/>
+            <TabItem Header="Manual Control" x:Name="ManualControlTab"/>
         </TabControl>
 
     </Grid>
