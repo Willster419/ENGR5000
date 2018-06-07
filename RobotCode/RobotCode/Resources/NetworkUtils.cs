@@ -102,7 +102,7 @@ namespace RobotCode
             List<NetworkInformation> V4NetworkInfos = new List<NetworkInformation>();
             foreach (NetworkInterface ni in interfaces)
             {
-                if((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("Loopback")))
+                if ((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("Loopback")) && (!ni.Description.Contains("Virtual")))
                 {
                     foreach(UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {

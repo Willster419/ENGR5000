@@ -7,18 +7,21 @@ using Windows.Devices.Gpio;
 using Windows.Devices.Spi;
 using Windows.Devices.Enumeration;
 using Windows.Devices.Pwm;
+using Windows.UI.Xaml;
+using Windows.ApplicationModel.Background;
+using System.ComponentModel;
 
 namespace RobotCode
 {
 
     public enum RobotStatus
     {
-        Idle = 0,
+        Idle = 1,
         Error = 2,
         Exception = 3,
-        ExceptionAppCrash = 4,
-        UnknownError = 5
+        UnknownError = 4
     };
+
     public static class GPIO
     {
         public static SpiDevice ADC = null;
@@ -30,29 +33,79 @@ namespace RobotCode
         public const int DASHBOARD_CONNECTED_PIN = 27;
         public const byte FORCE_ADC_CHANNEL_SINGLE = 0x80;
         public const float MVOLTS_PER_STEP = 5000.0F / 1024.0F;//5k mv range, 1024 digital steps
+        private readonly static int TOTAL_STATUS_TYPES = Enum.GetNames(typeof(RobotStatus)).Count();
+        private static DispatcherTimer StatusTimer = null;
+        private static BackgroundWorker SensorThread = null;
+        private static int TimeThrough = 0;
+        private static int TimeToStop = 0;
+        public static RobotStatus @RobotStatus = RobotStatus.Idle;
+        public static bool FirstCycle = true;
 
         public static bool InitGPIO()
         {
+            //init the GPIO controller
             Controller = GpioController.GetDefault();
             if (Controller == null)
                 return false;
             Pins[0] = Controller.OpenPin(CODE_RUNNING_PIN);
             Pins[0].Write(GpioPinValue.High);
             Pins[0].SetDriveMode(GpioPinDriveMode.Output);
+            TimeToStop = (int)RobotStatus * 2;
+            //setup the status led
+            /*
+            SensorThread = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+            SensorThread.DoWork += InitTimers;
+            SensorThread.RunWorkerAsync();
+            */
+            StatusTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(200)
+            };
+            StatusTimer.Tick += OnStatusLEDTick;
+            StatusTimer.Start();
             return true;
         }
 
-        public static void ToggleRobotStatus(RobotStatus status)
+        private static void OnStatusLEDTick(object sender, object e)
         {
-            switch (status)
+            //two seconds of nothing
+            //get the current status
+            //flash appropriatly
+            //(repeat the above)
+            //also have check if it's the first tiem running this so that it actually counts correctly
+            //since it's first run it's high
+            if(FirstCycle)
             {
-                case RobotStatus.Idle:
-                    Pins[0].Write(GpioPinValue.High);
-                    break;
-                case RobotStatus.ExceptionAppCrash:
-                    Pins[0].Write(GpioPinValue.Low);
-                    break;
+                Pins[0].Write(GpioPinValue.Low);
+                TimeToStop = (int)RobotStatus * 2;
+                //TimeThrough will already have been set to 0, no need to do it again...
+                FirstCycle = false;
             }
+            if (TimeThrough == 0)
+            {
+                TimeToStop = (int)RobotStatus * 2;//times 2 cause one cycle is on and one is off
+            }
+            if(TimeThrough == TimeToStop-1)
+            {
+                //turn off the status LED
+                Pins[0].Write(GpioPinValue.Low);
+                TimeThrough = -5;
+            }
+            if(TimeThrough >= 0)
+            {
+                if(Pins[0].Read() == GpioPinValue.High)
+                {
+                    Pins[0].Write(GpioPinValue.Low);
+                }
+                else
+                {
+                    Pins[0].Write(GpioPinValue.High);
+                }
+            }
+            TimeThrough++;
         }
 
         public static void ToggleNetworkStatus(bool init)

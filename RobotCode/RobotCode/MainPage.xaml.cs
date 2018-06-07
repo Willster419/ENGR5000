@@ -41,7 +41,7 @@ namespace RobotCode
             //init the robot networking
             if(!NetworkUtils.InitComms())
             {
-                GPIO.ToggleRobotStatus(RobotStatus.ExceptionAppCrash);
+                GPIO.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
             }
             //DEBUG: wait for dashboard logging connection
@@ -59,7 +59,7 @@ namespace RobotCode
             if (!await GPIO.InitSPI().ConfigureAwait(false))
             {
                 NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Info);
-                GPIO.ToggleRobotStatus(RobotStatus.ExceptionAppCrash);
+                GPIO.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
             }
             NetworkUtils.LogNetwork("SPI Interface initialization complete, reading one value", NetworkUtils.MessageType.Info);
@@ -76,6 +76,7 @@ namespace RobotCode
             Box.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             sw.Stop();
             Box.Text = "" + sw.ElapsedMilliseconds;
+            GPIO.RobotStatus = RobotStatus.Exception;
         }
     }
 }
