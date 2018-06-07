@@ -40,6 +40,15 @@ namespace RobotCode
         private static int TimeToStop = 0;
         public static RobotStatus @RobotStatus = RobotStatus.Idle;
         public static bool FirstCycle = true;
+        public const byte SIGNAL_VOLTAGE_MONITOR_CHANNEL = 0x00;
+        public const byte SIGNAL_CURRENT_MONITOR_CHANEL = 0x10;
+        public const byte POWER_VOLTAGE_MONITOR_CHANNEL = 0x20;
+        public const byte POWER_CURRENT_MONITOR_CHANNEL = 0x30;
+        public const byte TEMPATURE_CHANNEL = 0x40;
+        public const byte WATER_LEVEL_CHANNEL = 0x50;
+        public const byte ACCEL_CHANNEL = 0x60;
+        public const byte GYRO_CHANNEL = 0x70;
+        public const int COLLECTION_RELAY = 22;
 
         public static bool InitGPIO()
         {
@@ -153,6 +162,8 @@ namespace RobotCode
              *  channel_config channel_bit_1 channel_bit_2 channel_bit_3 -> use channel config 1 for single end voltage (compares voltage @ channel to Vref)
              *  |      1      |      0      |      0      |      0      | -> single voltrage mode get value from channel 0
              *  use a bitwise or to verify that the channel is set for intented use
+             *  NOTE that the above is the FIRST of TWO hex bits
+             *  THEREFORE channel 0 is 0x80, 1 is 0x90
              */
             hexChannel = (byte)(hexChannel|FORCE_ADC_CHANNEL_SINGLE);
             byte[] transmitBuffer = new byte[3] { 1, hexChannel, 0x00 };
