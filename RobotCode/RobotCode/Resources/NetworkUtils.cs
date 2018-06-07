@@ -60,13 +60,13 @@ namespace RobotCode
         //https://msdn.microsoft.com/en-us/library/system.net.sockets.tcpclient(v=vs.110).aspx
         //private static TcpClient RobotSenderClient = null;
         private static UdpClient RobotSenderClient = null;
-        private static NetworkStream RobotNetworkStream = null;
+        //private static NetworkStream RobotSenderStream = null;
         /// <summary>
         /// The UDP sender client to the robot
         /// </summary>
         //private static TcpClient RobotRecieverClient = null;
         private static UdpClient RobotRecieverClient = null;
-        private static NetworkStream RobotRecieverStream = null;
+        //private static NetworkStream RobotRecieverStream = null;
         /// <summary>
         /// The port used for sending dashboard events (robot POV)
         /// </summary>
@@ -145,12 +145,15 @@ namespace RobotCode
                 //setup the receiver client
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotRecieverClient = new UdpClient();
+                //RobotRecieverClient = new TcpClient();
                 RobotRecieverClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotRecieverClient.Client.Bind(RobotRecieverIPEndPoint);
+                //RobotRecieverClient.Connect(RobotRecieverIPEndPoint);//ONLY TCP CONNECTS FOR RECEIVER!!1
                 //RobotRecieverStream = RobotRecieverClient.GetStream();
                 //wait for receiver client to get the ip address of the dashboard
                 //TCP recieve method here
                 string result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
+                //string result = TCPRecieve(RobotRecieverStream);
                 //parse the ip address sent by the dashboard
                 IPAddress address = IPAddress.Parse(result);
                 if (address.AddressFamily == AddressFamily.InterNetworkV6)
@@ -164,10 +167,12 @@ namespace RobotCode
                 //setup sender
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(string.IsNullOrWhiteSpace(ComputerIPV6Address) ? ComputerIPV4Address : ComputerIPV6Address), RobotSenderPort);
                 RobotSenderClient = new UdpClient();
+                //RobotSenderClient = new TcpClient();
                 RobotSenderClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotSenderClient.Client.SendTimeout = 5000;//value is miliseconds
                 RobotSenderClient.Client.ReceiveTimeout = 5000;
                 RobotSenderClient.Connect(RobotSenderIPEndPoint);
+                //RobotSenderStream = RobotSenderClient.GetStream();
                 //set new timeout settings for the robot receiver
                 if(!DEBUG_IGNORE_TIMEOUT)
                 {
@@ -185,6 +190,7 @@ namespace RobotCode
                     try
                     {
                         result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
+                        //result = TCPRecieve(RobotRecieverStream);
                     }
                     catch (SocketException)
                     {
@@ -239,16 +245,17 @@ namespace RobotCode
             lock(NetworkSenderLocker)
             {
                 RobotSenderClient.Send(Encoding.UTF8.GetBytes(StringToSend), Encoding.UTF8.GetByteCount(StringToSend));
+                //TCPSend(RobotSenderStream, StringToSend);
             }
         }
 
-        public static void NetworkSend(NetworkStream ns, string s)
+        public static void TCPSend(NetworkStream ns, string s)
         {
             Byte[] data = Encoding.UTF8.GetBytes(s);
             ns.Write(data, 0, data.Length);
         }
 
-        public static string NetworkRecieve(NetworkStream ns)
+        public static string TCPRecieve(NetworkStream ns)
         {
             Byte[] data = new Byte[256];
             Int32 bytes = ns.Read(data, 0, data.Length);

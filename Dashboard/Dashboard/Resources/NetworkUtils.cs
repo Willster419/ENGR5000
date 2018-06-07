@@ -62,10 +62,14 @@ namespace Dashboard
         /// The UDP listener client of the robot
         /// </summary>
         private static UdpClient RobotRecieverClient = null;
+        //private static TcpClient RobotRecieverClient = null;
+        //private static NetworkStream RobotRecieverStream = null;
         /// <summary>
         /// The UDP sender client to the robot
         /// </summary>
         private static UdpClient RobotSenderClient = null;
+        //private static TcpClient RobotSenderClient = null;
+        //private static NetworkStream RobotSenderStream = null;
         /// <summary>
         /// The port used for listening for robot events (dashboard POV)
         /// </summary>
@@ -77,7 +81,7 @@ namespace Dashboard
         /// <summary>
         /// The computer/network name of the robot
         /// </summary>
-        public const string RobotNetworkName = "minwinpc";
+        public const string RobotNetworkName = "minwinpc2";
         /// <summary>
         /// Flag used to determine if the robot is connected for the networking thread
         /// </summary>
@@ -244,21 +248,28 @@ namespace Dashboard
                 ConnectionManager.ReportProgress(1,"Binding robot listener to address " + ComputerIPV4Address);
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV4Address), RobotListenerPort);
                 RobotRecieverClient = new UdpClient();
+                //RobotRecieverClient = new TcpClient();
                 RobotRecieverClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotRecieverClient.Client.Bind(RobotRecieverIPEndPoint);
+                //RobotRecieverClient.Connect(RobotRecieverIPEndPoint);//ONLY TCP CONNECTS FOR RECIEVER!!!
+                //RobotRecieverStream = RobotRecieverClient.GetStream();
                 //setup and bind sender
                 ConnectionManager.ReportProgress(1, "Binding robot sender to address " + RobotIPV4Address);
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotSenderPort);
                 RobotSenderClient = new UdpClient();
+                //RobotSenderClient = new TcpClient();
                 RobotSenderClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotSenderClient.Client.ReceiveTimeout = 5000;
                 RobotSenderClient.Client.SendTimeout = 5000;
+                ConnectionManager.ReportProgress(1, "Connecting to robot...");
                 RobotSenderClient.Connect(RobotSenderIPEndPoint);
                 ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot...");
+                //RobotSenderStream = RobotSenderClient.GetStream();
                 threadMode = 1;//send init IP
                 //wait for the robot to respond
                 string result = "";
                 result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
+                //result = TCPRecieve(RobotRecieverStream);
                 ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
                 RobotConnected = true;
                 if(!DEBUG_IGNORE_TIMEOUT)
@@ -278,6 +289,7 @@ namespace Dashboard
                     try
                     {
                         result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
+                        //result = TCPRecieve(RobotRecieverStream);
                     }
                     catch (SocketException)
                     {
@@ -338,15 +350,30 @@ namespace Dashboard
                         {
                             case 1://IPAddress
                                 RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV4Address), Encoding.UTF8.GetByteCount(ComputerIPV4Address));
+                                //TCPSend(RobotSenderStream, ComputerIPV4Address);
                                 break;
                             case 2://heartbeats
                                 RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
+                                //TCPSend(RobotSenderStream, heartbeat);
                                 break;
                         }
                     }
                 }
                 Thread.Sleep(1000);
             }
+        }
+
+        public static void TCPSend(NetworkStream ns, string s)
+        {
+            Byte[] data = Encoding.UTF8.GetBytes(s);
+            ns.Write(data, 0, data.Length);
+        }
+
+        public static string TCPRecieve(NetworkStream ns)
+        {
+            Byte[] data = new Byte[256];
+            Int32 bytes = ns.Read(data, 0, data.Length);
+            return Encoding.UTF8.GetString(data, 0, bytes);
         }
 
         public static void AbortNetworkThreads()
