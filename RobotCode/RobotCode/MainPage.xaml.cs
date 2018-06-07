@@ -54,6 +54,8 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("dashboard connected via force wait", NetworkUtils.MessageType.Debug);
                 System.Threading.Thread.Sleep(100);//delay to show it...
             }
+            //check battery status of both devices
+
             NetworkUtils.LogNetwork("Initializing SPI interface", NetworkUtils.MessageType.Info);
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
             if (!await GPIO.InitSPI().ConfigureAwait(false))

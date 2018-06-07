@@ -22,23 +22,56 @@ namespace RobotCode
         UnknownError = 4
     };
 
+    public enum BatteryStatus
+    {
+        //good battery, no issues here
+        Above75 = 1,
+        //stil la good battery
+        Between50And75 = 2,
+        //low battery, if signal circuit no change, if power circuit, go to charger (same for all below)
+        Between25And50 = 3,
+        //warning low, if signal circuit, going back to charger
+        //may also happen upon robot start, means critical level of power circuit
+        Below15Warning = 4,
+        //critical low, if signal circuit, immediate shutdown to prevent damage to components
+        //may also happen upon robot start, means critical level of signal circuit
+        Below5Shutdown = 5
+    }
+
     public static class GPIO
     {
         public static SpiDevice ADC = null;
         public static SpiConnectionSettings ADCSettings = null;
         public const int SPI_CLOCK_FREQUENCY = 1000000;
         private static GpioController Controller = null;
+        /*
+         * Current pins setup:
+         * 0 is robot status
+         * 1 is networking status
+         * 2 is battery status
+         * 3 is relay output
+         */
         public static GpioPin[] Pins = new GpioPin[5];
         public const int CODE_RUNNING_PIN = 17;
         public const int DASHBOARD_CONNECTED_PIN = 27;
         public const byte FORCE_ADC_CHANNEL_SINGLE = 0x80;
         public const float MVOLTS_PER_STEP = 5000.0F / 1024.0F;//5k mv range, 1024 digital steps
         private readonly static int TOTAL_STATUS_TYPES = Enum.GetNames(typeof(RobotStatus)).Count();
-        private static DispatcherTimer StatusTimer = null;
+        private static DispatcherTimer RobotStatusTimer = null;
+        private static DispatcherTimer BatteryStatusTimer = null;
+        /*
+         * Current timer setup
+         * 0 = robot status
+         * 1 = network status
+         * 2 = battery status
+         */
+        private static DispatcherTimer[] StatusTimers = null;
         private static BackgroundWorker SensorThread = null;
         private static int TimeThrough = 0;
         private static int TimeToStop = 0;
         public static RobotStatus @RobotStatus = RobotStatus.Idle;
+        public static BatteryStatus SignalBatteryStatus = BatteryStatus.Above75;//default for now
+        public static BatteryStatus PowerBatteryStatus = BatteryStatus.Above75;//default
         public static bool FirstCycle = true;
         public const byte SIGNAL_VOLTAGE_MONITOR_CHANNEL = 0x00;
         public const byte SIGNAL_CURRENT_MONITOR_CHANEL = 0x10;
@@ -69,12 +102,17 @@ namespace RobotCode
             SensorThread.DoWork += InitTimers;
             SensorThread.RunWorkerAsync();
             */
-            StatusTimer = new DispatcherTimer
+            RobotStatusTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(200)
             };
-            StatusTimer.Tick += OnStatusLEDTick;
-            StatusTimer.Start();
+            RobotStatusTimer.Tick += OnStatusLEDTick;
+            RobotStatusTimer.Start();
+            BatteryStatusTimer = new DispatcherTimer()
+            {
+                Interval = TimeSpan.FromMilliseconds(250)
+            };
+            //BatteryStatusTimer.Tick += OnBatteryStatusTick;
             return true;
         }
 
