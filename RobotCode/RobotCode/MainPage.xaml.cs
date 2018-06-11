@@ -65,10 +65,18 @@ namespace RobotCode
                 Application.Current.Exit();
             }
             NetworkUtils.LogNetwork("SPI Interface initialization complete, reading one value", NetworkUtils.MessageType.Info);
+            string message = "";
             while(true)
             {
-                NetworkUtils.LogNetwork(string.Format("Voltage: {0}V", (GPIO.ReadVoltage(0x00) / 1000.0F)),NetworkUtils.MessageType.Info);
-                System.Threading.Thread.Sleep(1000);
+                //temp try/catch to debug
+                message = string.Format("Signal Voltage: {0}V", (GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
+                System.Threading.Thread.Sleep(250);
+                message = string.Format("Power Voltage: {0}V", (GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
+                System.Threading.Thread.Sleep(250);
+                message = string.Format("Tempature Voltage: {0}V", (GPIO.ReadVoltage(GPIO.TEMPATURE_CHANNEL) / 1000.0F));
+                System.Threading.Thread.Sleep(250);
+                message = string.Format("Water Voltage: {0}V", (GPIO.ReadVoltage(GPIO.WATER_LEVEL_CHANNEL) / 1000.0F));
+                System.Threading.Thread.Sleep(250);
             }
         }
 
