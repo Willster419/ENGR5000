@@ -37,7 +37,11 @@ namespace RobotCode
         //may also happen upon robot start, means critical level of signal circuit
         Below5Shutdown = 5
     }
-
+    /*
+     * voltage notes:
+        signal: 9.8  = 1.882
+        power:  9.05 = 3.369
+     */
     public static class GPIO
     {
         public static SpiDevice ADC = null;

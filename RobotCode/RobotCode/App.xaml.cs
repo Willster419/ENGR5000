@@ -96,5 +96,11 @@ namespace RobotCode
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        private void Application_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            NetworkUtils.LogNetwork(e.ToString(),NetworkUtils.MessageType.Exception);
+            GPIO.RobotStatus = RobotStatus.Exception;
+        }
     }
 }
