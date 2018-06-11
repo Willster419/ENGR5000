@@ -54,6 +54,7 @@ namespace RobotCode
         public static GpioPin[] Pins = new GpioPin[5];
         public const int CODE_RUNNING_PIN = 17;
         public const int DASHBOARD_CONNECTED_PIN = 27;
+        public const int BATTERY_STATUS_PIN = 23;
         public const byte FORCE_ADC_CHANNEL_SINGLE = 0x80;
         public const float MVOLTS_PER_STEP = 5000.0F / 1024.0F;//5k mv range, 1024 digital steps
         private readonly static int TOTAL_STATUS_TYPES = Enum.GetNames(typeof(RobotStatus)).Count();
