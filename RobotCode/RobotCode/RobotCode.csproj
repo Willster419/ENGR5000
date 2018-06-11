@@ -103,6 +103,7 @@
     <Compile Include="Resources\GPIO.cs" />
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="Resources\NetworkUtils.cs" />
+    <Compile Include="Resources\RobotController.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
