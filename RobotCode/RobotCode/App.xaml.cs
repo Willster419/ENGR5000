@@ -30,6 +30,7 @@ namespace RobotCode
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.UnhandledException += Application_UnhandledException;
         }
 
         /// <summary>
@@ -99,8 +100,9 @@ namespace RobotCode
 
         private void Application_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
-            NetworkUtils.LogNetwork(e.ToString(),NetworkUtils.MessageType.Exception);
-            GPIO.RobotStatus = RobotStatus.Exception;
+            RobotController.RobotStatus = RobotStatus.Exception;
+            NetworkUtils.LogNetwork(e.ToString(), NetworkUtils.MessageType.Exception);
+            this.Exit();
         }
     }
 }
