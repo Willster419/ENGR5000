@@ -31,7 +31,7 @@ namespace RobotCode
         }
         Stopwatch sw = new Stopwatch();
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             if(!GPIO.InitGPIO())
             {
@@ -41,7 +41,7 @@ namespace RobotCode
             //init the robot networking
             if(!NetworkUtils.InitComms())
             {
-                GPIO.RobotStatus = RobotStatus.Error;
+                RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
             }
             //DEBUG: wait for dashboard logging connection
@@ -54,29 +54,26 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("dashboard connected via force wait", NetworkUtils.MessageType.Debug);
                 System.Threading.Thread.Sleep(100);//delay to show it...
             }
-            //check battery status of both devices
-
             NetworkUtils.LogNetwork("Initializing SPI interface", NetworkUtils.MessageType.Info);
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
-            if (!await GPIO.InitSPI().ConfigureAwait(false))
+            //https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation.findallasync
+            //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
+            if (!GPIO.InitSPI())
             {
                 NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Info);
-                GPIO.RobotStatus = RobotStatus.Error;
+                RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
             }
-            NetworkUtils.LogNetwork("SPI Interface initialization complete, reading one value", NetworkUtils.MessageType.Info);
-            string message = "";
-            while(true)
+            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading controller", NetworkUtils.MessageType.Info);
+            //check battery status of both devices
+            NetworkUtils.LogNetwork("Initializing Main Robot controller", NetworkUtils.MessageType.Info);
+            if (!RobotController.InitController())
             {
-                message = string.Format("Signal Voltage: {0}V", (GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
-                System.Threading.Thread.Sleep(250);
-                message = string.Format("Power Voltage: {0}V", (GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
-                System.Threading.Thread.Sleep(250);
-                message = string.Format("Tempature Voltage: {0}V", (GPIO.ReadVoltage(GPIO.TEMPATURE_CHANNEL) / 1000.0F));
-                System.Threading.Thread.Sleep(250);
-                message = string.Format("Water Voltage: {0}V", (GPIO.ReadVoltage(GPIO.WATER_LEVEL_CHANNEL) / 1000.0F));
-                System.Threading.Thread.Sleep(250);
+                NetworkUtils.LogNetwork("Controller failed to intialize", NetworkUtils.MessageType.Info);
+                RobotController.RobotStatus = RobotStatus.Error;
+                Application.Current.Exit();
             }
+            NetworkUtils.LogNetwork("Controller initialized, system online", NetworkUtils.MessageType.Info);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -85,7 +82,7 @@ namespace RobotCode
             Box.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             sw.Stop();
             Box.Text = "" + sw.ElapsedMilliseconds;
-            GPIO.RobotStatus = RobotStatus.Exception;
+            RobotController.RobotStatus = RobotStatus.Exception;
         }
     }
 }

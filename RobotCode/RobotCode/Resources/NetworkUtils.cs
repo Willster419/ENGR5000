@@ -86,6 +86,7 @@ namespace RobotCode
         public const bool DEBUG_IGNORE_TIMEOUT = false;
         public const bool DEBUG_FORCE_DASHBOARD_CONNECT = true;
         private static volatile bool sendHeartbeats = false;
+        private static GpioPin NetworkPin;
         /// <summary>
         /// Initializes the robot, network-wise
         /// </summary>
@@ -133,7 +134,8 @@ namespace RobotCode
             HeartbeatThread = new Thread(new ThreadStart(SendHeartBeats));
             HeartbeatThread.Start();
             sendHeartbeats = true;
-            GPIO.ToggleNetworkStatus(true);
+            NetworkPin = GPIO.Pins[1];
+            NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
             return true;
         }
 
@@ -155,7 +157,16 @@ namespace RobotCode
                 string result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
                 //string result = TCPRecieve(RobotRecieverStream);
                 //parse the ip address sent by the dashboard
-                IPAddress address = IPAddress.Parse(result);
+                IPAddress address;
+                try
+                {
+                    address = IPAddress.Parse(result);
+                }
+                catch (Exception)
+                {
+                    RobotController.RobotStatus = RobotStatus.Exception;
+                    return;
+                }
                 if (address.AddressFamily == AddressFamily.InterNetworkV6)
                 {
                     ComputerIPV6Address = address.ToString();
@@ -183,7 +194,7 @@ namespace RobotCode
                 NumHeartbeatsSent = 0;
                 sendHeartbeats = true;
                 DashboardConnected = true;
-                GPIO.ToggleNetworkStatus(false);
+                NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
                 //listen for dashboard events
                 while (DashboardConnected)
                 {
@@ -196,7 +207,7 @@ namespace RobotCode
                     {
                         //the dashboard has disocnnected!
                         DashboardConnected = false;
-                        GPIO.ToggleNetworkStatus(false);
+                        NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
                         RobotRecieverClient.Close();
                         RobotRecieverClient.Dispose();
                         RobotRecieverClient = null;

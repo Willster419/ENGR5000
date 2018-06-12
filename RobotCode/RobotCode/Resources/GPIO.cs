@@ -10,37 +10,15 @@ using Windows.Devices.Pwm;
 using Windows.UI.Xaml;
 using Windows.ApplicationModel.Background;
 using System.ComponentModel;
+using Windows.Foundation;
 
 namespace RobotCode
 {
 
-    public enum RobotStatus
-    {
-        Idle = 1,
-        Error = 2,
-        Exception = 3,
-        UnknownError = 4
-    };
-
-    public enum BatteryStatus
-    {
-        //good battery, no issues here
-        Above75 = 1,
-        //stil la good battery
-        Between50And75 = 2,
-        //low battery, if signal circuit no change, if power circuit, go to charger (same for all below)
-        Between25And50 = 3,
-        //warning low, if signal circuit, going back to charger
-        //may also happen upon robot start, means critical level of power circuit
-        Below15Warning = 4,
-        //critical low, if signal circuit, immediate shutdown to prevent damage to components
-        //may also happen upon robot start, means critical level of signal circuit
-        Below5Shutdown = 5
-    }
     /*
      * voltage notes:
-        signal: 9.8  = 1.882
-        power:  9.05 = 3.369
+     *  signal: 9.8  = 1.882
+     *  power:  9.05 = 3.369
      */
     public static class GPIO
     {
@@ -54,30 +32,15 @@ namespace RobotCode
          * 1 is networking status
          * 2 is battery status
          * 3 is relay output
+         * 4 is power battery status
          */
         public static GpioPin[] Pins = new GpioPin[5];
-        public const int CODE_RUNNING_PIN = 17;
-        public const int DASHBOARD_CONNECTED_PIN = 27;
-        public const int BATTERY_STATUS_PIN = 23;
+        public const int CODE_RUNNING_PIN = 17;//index 0
+        public const int DASHBOARD_CONNECTED_PIN = 27;//index 1
+        public const int SIGNAL_BATTERY_STATUS_PIN = 23;//index 2
+        public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
         public const byte FORCE_ADC_CHANNEL_SINGLE = 0x80;
         public const float MVOLTS_PER_STEP = 5000.0F / 1024.0F;//5k mv range, 1024 digital steps
-        private readonly static int TOTAL_STATUS_TYPES = Enum.GetNames(typeof(RobotStatus)).Count();
-        private static DispatcherTimer RobotStatusTimer = null;
-        private static DispatcherTimer BatteryStatusTimer = null;
-        /*
-         * Current timer setup
-         * 0 = robot status
-         * 1 = network status
-         * 2 = battery status
-         */
-        private static DispatcherTimer[] StatusTimers = null;
-        private static BackgroundWorker SensorThread = null;
-        private static int TimeThrough = 0;
-        private static int TimeToStop = 0;
-        public static RobotStatus @RobotStatus = RobotStatus.Idle;
-        public static BatteryStatus SignalBatteryStatus = BatteryStatus.Above75;//default for now
-        public static BatteryStatus PowerBatteryStatus = BatteryStatus.Above75;//default
-        public static bool FirstCycle = true;
         public const byte SIGNAL_VOLTAGE_MONITOR_CHANNEL = 0x00;
         public const byte SIGNAL_CURRENT_MONITOR_CHANEL = 0x10;
         public const byte POWER_VOLTAGE_MONITOR_CHANNEL = 0x20;
@@ -86,7 +49,9 @@ namespace RobotCode
         public const byte WATER_LEVEL_CHANNEL = 0x50;
         public const byte ACCEL_CHANNEL = 0x60;
         public const byte GYRO_CHANNEL = 0x70;
-        public const int COLLECTION_RELAY = 22;
+        public const int COLLECTION_RELAY = 22;//index 3
+        public static float SignalBatteryVoltage = 0.0f;
+        public static float SignalPowerVoltage = 0.0f;
 
         public static bool InitGPIO()
         {
@@ -95,89 +60,28 @@ namespace RobotCode
             if (Controller == null)
                 return false;
             Pins[0] = Controller.OpenPin(CODE_RUNNING_PIN);
+            Pins[1] = Controller.OpenPin(DASHBOARD_CONNECTED_PIN);
+            Pins[2] = Controller.OpenPin(SIGNAL_BATTERY_STATUS_PIN);
+            Pins[3] = Controller.OpenPin(COLLECTION_RELAY);
+            Pins[4] = Controller.OpenPin(POWER_BATTERY_STATUS_PIN);
+            for (int i = 0; i < Pins.Count(); i++)
+            {
+                Pins[i].Write(GpioPinValue.Low);
+                Pins[i].SetDriveMode(GpioPinDriveMode.Output);
+            }
             Pins[0].Write(GpioPinValue.High);
-            Pins[0].SetDriveMode(GpioPinDriveMode.Output);
-            TimeToStop = (int)RobotStatus * 2;
-            //setup the status led
-            /*
-            SensorThread = new BackgroundWorker
-            {
-                WorkerSupportsCancellation = true
-            };
-            SensorThread.DoWork += InitTimers;
-            SensorThread.RunWorkerAsync();
-            */
-            RobotStatusTimer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromMilliseconds(200)
-            };
-            RobotStatusTimer.Tick += OnStatusLEDTick;
-            RobotStatusTimer.Start();
-            BatteryStatusTimer = new DispatcherTimer()
-            {
-                Interval = TimeSpan.FromMilliseconds(250)
-            };
-            //BatteryStatusTimer.Tick += OnBatteryStatusTick;
             return true;
         }
 
-        private static void OnStatusLEDTick(object sender, object e)
-        {
-            //two seconds of nothing
-            //get the current status
-            //flash appropriatly
-            //(repeat the above)
-            //also have check if it's the first tiem running this so that it actually counts correctly
-            //since it's first run it's high
-            if(FirstCycle)
-            {
-                Pins[0].Write(GpioPinValue.Low);
-                TimeToStop = (int)RobotStatus * 2;
-                //TimeThrough will already have been set to 0, no need to do it again...
-                FirstCycle = false;
-            }
-            if (TimeThrough == 0)
-            {
-                TimeToStop = (int)RobotStatus * 2;//times 2 cause one cycle is on and one is off
-            }
-            if(TimeThrough == TimeToStop-1)
-            {
-                //turn off the status LED
-                Pins[0].Write(GpioPinValue.Low);
-                TimeThrough = -5;
-            }
-            if(TimeThrough >= 0)
-            {
-                if(Pins[0].Read() == GpioPinValue.High)
-                {
-                    Pins[0].Write(GpioPinValue.Low);
-                }
-                else
-                {
-                    Pins[0].Write(GpioPinValue.High);
-                }
-            }
-            TimeThrough++;
-        }
-
-        public static void ToggleNetworkStatus(bool init)
-        {
-            if(init)
-            {
-                Pins[1] = Controller.OpenPin(DASHBOARD_CONNECTED_PIN);
-            }
-            Pins[1].Write(NetworkUtils.DashboardConnected? GpioPinValue.High: GpioPinValue.Low);
-            if(init)
-            {
-                //SetDriveMode actually writes the value during init
-                Pins[1].SetDriveMode(GpioPinDriveMode.Output);
-            }
-        }
-
-        public static async Task<bool> InitSPI()
+        public static bool InitSPI()
         {
             string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");//apparently SPI0 is a rogue device
-            IReadOnlyList<DeviceInformation> devices = await DeviceInformation.FindAllAsync(SPIDevice);
+            IAsyncOperation<DeviceInformationCollection> t = DeviceInformation.FindAllAsync(SPIDevice);
+            while (!(t.Status == AsyncStatus.Completed))
+            {
+                System.Threading.Thread.Sleep(10);
+            }
+            IReadOnlyList<DeviceInformation> devices = t.GetResults();
             if(devices == null)
                 return false;
             if(devices.Count == 0 )
@@ -188,7 +92,13 @@ namespace RobotCode
                 Mode = SpiMode.Mode0//,
                 //ChipSelectLine = 0
             };
-            ADC = await SpiDevice.FromIdAsync(devices[0].Id, ADCSettings);
+            IAsyncOperation<SpiDevice> spiDevice = SpiDevice.FromIdAsync(devices[0].Id, ADCSettings);
+            while (!(spiDevice.Status == AsyncStatus.Completed))
+            {
+                System.Threading.Thread.Sleep(10);
+            }
+            ADC = spiDevice.GetResults();
+            //ADC = await SpiDevice.FromIdAsync(devices[0].Id, ADCSettings);
             if (ADC == null)
                 return false;
             return true;
@@ -214,6 +124,20 @@ namespace RobotCode
             ADC.TransferFullDuplex(transmitBuffer, receiveBuffer);
             int result = ((receiveBuffer[1] & 3) << 8) + receiveBuffer[2];
             return result * MVOLTS_PER_STEP;
+        }
+
+        public static BatteryStatus GetSignalBatteryStatus()
+        {
+            if (ADC == null)
+                return BatteryStatus.Unknown;
+            return BatteryStatus.Between50And75;
+        }
+
+        public static BatteryStatus GetPowerBatteryStatus()
+        {
+            if (ADC == null)
+                return BatteryStatus.Unknown;
+            return BatteryStatus.Between50And75;
         }
     }
 }
