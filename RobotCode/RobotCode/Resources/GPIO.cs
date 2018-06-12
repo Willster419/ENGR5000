@@ -14,12 +14,6 @@ using Windows.Foundation;
 
 namespace RobotCode
 {
-
-    /*
-     * voltage notes:
-     *  signal: 9.8  = 1.882
-     *  power:  9.05 = 3.369
-     */
     public static class GPIO
     {
         public static SpiDevice ADC = null;
@@ -50,8 +44,13 @@ namespace RobotCode
         public const byte ACCEL_CHANNEL = 0x60;
         public const byte GYRO_CHANNEL = 0x70;
         public const int COLLECTION_RELAY = 22;//index 3
-        public static float SignalBatteryVoltage = 0.0f;
-        public static float SignalPowerVoltage = 0.0f;
+        /*
+        * voltage notes:
+        *  signal: 9.8  = 1.882
+        *  power:  9.05 = 3.369
+        */
+        public static float SignalBatteryVoltage = 0.0F;
+        public static float SignalPowerVoltage = 0.0F;
 
         public static bool InitGPIO()
         {

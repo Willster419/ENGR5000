@@ -115,6 +115,7 @@ namespace RobotCode
             ControllerThread.RunWorkerCompleted += OnWorkCompleted;
             ControllerThread.ProgressChanged += ControllerLogProgress;
             ControllerThread.DoWork += ControlRobot;
+            ControllerThread.RunWorkerAsync();
             return true;
         }
 
