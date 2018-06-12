@@ -124,14 +124,14 @@ namespace RobotCode
             return result * MVOLTS_PER_STEP;
         }
 
-        public static BatteryStatus GetSignalBatteryStatus()
+        public static BatteryStatus UpdateSignalBatteryStatus()
         {
             if (ADC == null)
                 return BatteryStatus.Unknown;
             return BatteryStatus.Between50And75;
         }
 
-        public static BatteryStatus GetPowerBatteryStatus()
+        public static BatteryStatus UpdatePowerBatteryStatus()
         {
             if (ADC == null)
                 return BatteryStatus.Unknown;
