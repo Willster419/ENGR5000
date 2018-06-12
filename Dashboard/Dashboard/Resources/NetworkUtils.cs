@@ -81,7 +81,7 @@ namespace Dashboard
         /// <summary>
         /// The computer/network name of the robot
         /// </summary>
-        public const string RobotNetworkName = "minwinpc2";
+        public const string RobotNetworkName = "minwinpc";
         /// <summary>
         /// Flag used to determine if the robot is connected for the networking thread
         /// </summary>
