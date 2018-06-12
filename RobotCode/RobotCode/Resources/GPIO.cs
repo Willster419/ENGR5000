@@ -14,6 +14,9 @@ using Windows.Foundation;
 
 namespace RobotCode
 {
+    /// <summary>
+    /// Contains all Sensors and Actuators on the robot, as well as all pin mappings.
+    /// </summary>
     public static class GPIO
     {
         public static SpiDevice ADC = null;
@@ -74,7 +77,7 @@ namespace RobotCode
 
         public static bool InitSPI()
         {
-            string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");//apparently SPI0 is a rogue device
+            string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");
             IAsyncOperation<DeviceInformationCollection> t = DeviceInformation.FindAllAsync(SPIDevice);
             while (!(t.Status == AsyncStatus.Completed))
             {
@@ -83,7 +86,8 @@ namespace RobotCode
             IReadOnlyList<DeviceInformation> devices = t.GetResults();
             if(devices == null)
                 return false;
-            if(devices.Count == 0 )
+            //by default, there's this one weird SPI device you can't actually use.
+            if(devices.Count <= 1 )
                 return false;
             ADCSettings = new SpiConnectionSettings(0)
             {

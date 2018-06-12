@@ -158,17 +158,20 @@ namespace RobotCode
             string message = "";
             while (true)
             {
+                //using report progress allows two things:
+                //1: allows reporting to be async (not blocking controller)
+                //2: allows reporting to be on the UI thread (where it should be)
                 message = string.Format("Signal Voltage: {0}V", (GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
-                NetworkUtils.LogNetwork(message, NetworkUtils.MessageType.Info);
+                ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
                 message = string.Format("Power Voltage: {0}V", (GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
-                NetworkUtils.LogNetwork(message, NetworkUtils.MessageType.Info);
+                ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
                 message = string.Format("Tempature Voltage: {0}V", (GPIO.ReadVoltage(GPIO.TEMPATURE_CHANNEL) / 1000.0F));
-                NetworkUtils.LogNetwork(message, NetworkUtils.MessageType.Info);
+                ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
                 message = string.Format("Water Voltage: {0}V", (GPIO.ReadVoltage(GPIO.WATER_LEVEL_CHANNEL) / 1000.0F));
-                NetworkUtils.LogNetwork(message, NetworkUtils.MessageType.Info);
+                ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
             }
         }
@@ -180,7 +183,9 @@ namespace RobotCode
         private static void ControllerLogProgress(object sender, ProgressChangedEventArgs e)
         {
             //log here
-
+            string message = (string)e.UserState;
+            NetworkUtils.MessageType messageType = (NetworkUtils.MessageType)e.ProgressPercentage;
+            NetworkUtils.LogNetwork(message, messageType);
         }
 
         private static void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
