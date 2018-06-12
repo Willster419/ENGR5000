@@ -187,13 +187,13 @@ namespace RobotCode
         {
             if(e.Cancelled)
             {
-                NetworkUtils.LogNetwork("Controller thread was Cancelled! This should never happen!!", NetworkUtils.MessageType.Exception);
-                EmergencyShutdown();
+                NetworkUtils.LogNetwork("Controller thread was Cancelled! This should never happen!!", NetworkUtils.MessageType.Error);
+                EmergencyShutdown(TimeSpan.FromSeconds(60));
             }
             else if (e.Error != null)
             {
-                NetworkUtils.LogNetwork(e.Error.ToString(), NetworkUtils.MessageType.Exception);
-                EmergencyShutdown();
+                NetworkUtils.LogNetwork(e.Error.ToString(), NetworkUtils.MessageType.Error);
+                EmergencyShutdown(TimeSpan.FromSeconds(60));
             }
             else
             {
