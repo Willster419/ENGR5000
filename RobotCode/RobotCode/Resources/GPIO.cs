@@ -97,7 +97,6 @@ namespace RobotCode
                 System.Threading.Thread.Sleep(10);
             }
             ADC = spiDevice.GetResults();
-            //ADC = await SpiDevice.FromIdAsync(devices[0].Id, ADCSettings);
             if (ADC == null)
                 return false;
             return true;

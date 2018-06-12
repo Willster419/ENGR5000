@@ -87,6 +87,7 @@ namespace RobotCode
         public const bool DEBUG_FORCE_DASHBOARD_CONNECT = true;
         private static volatile bool sendHeartbeats = false;
         private static GpioPin NetworkPin;
+        private static Exception RecoveredException = null;
         /// <summary>
         /// Initializes the robot, network-wise
         /// </summary>
@@ -129,6 +130,7 @@ namespace RobotCode
                     WorkerReportsProgress = true
                 };
                 DashboardListener.DoWork += EstablishComms;
+                DashboardListener.RunWorkerCompleted += OnListenerException;
             }
             DashboardListener.RunWorkerAsync();
             HeartbeatThread = new Thread(new ThreadStart(SendHeartBeats));
@@ -137,6 +139,24 @@ namespace RobotCode
             NetworkPin = GPIO.Pins[1];
             NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
             return true;
+        }
+
+        private static void OnListenerException(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //turn off coms and restart the thread
+            if (e.Error != null)
+            {
+                DashboardConnected = false;
+                NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                RecoveredException = e.Error;
+                DashboardListener = new BackgroundWorker()
+                {
+                    WorkerReportsProgress = true
+                };
+                DashboardListener.DoWork += EstablishComms;
+                DashboardListener.RunWorkerCompleted += OnListenerException;
+                DashboardListener.RunWorkerAsync();
+            }
         }
 
         public static void EstablishComms(object sender, DoWorkEventArgs e)
@@ -195,6 +215,11 @@ namespace RobotCode
                 sendHeartbeats = true;
                 DashboardConnected = true;
                 NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                if(RecoveredException != null)
+                {
+                    LogNetwork("The network thread just recovered from an exception level event\n" + RecoveredException.ToString(), MessageType.Exception);
+                    RecoveredException = null;
+                }
                 //listen for dashboard events
                 while (DashboardConnected)
                 {
