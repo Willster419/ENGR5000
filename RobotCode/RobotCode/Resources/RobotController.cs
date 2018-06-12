@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.Devices.Gpio;
 using RobotCode.Resources;
+using Windows.System;
 
 namespace RobotCode
 {
@@ -28,17 +29,17 @@ namespace RobotCode
         //unknown battery status
         Unknown = 0,
         //good battery, no issues here
-        Above75 = 1,
+        Above75 = 5,
         //stil la good battery
-        Between50And75 = 2,
+        Between50And75 = 4,
         //low battery, if signal circuit no change, if power circuit, go to charger (same for all below)
         Between25And50 = 3,
         //warning low, if signal circuit, going back to charger
         //may also happen upon robot start, means critical level of power circuit
-        Below15Warning = 4,
+        Below15Warning = 2,
         //critical low, if signal circuit, immediate shutdown to prevent damage to components
         //may also happen upon robot start, means critical level of signal circuit
-        Below5Shutdown = 5
+        Below5Shutdown = 1
     }
     /// <summary>
     /// The Class responsible for controlling the robot and handling robot status information
@@ -53,21 +54,11 @@ namespace RobotCode
          */
         public static StatusIndicator[] statusIndicators;
         public static RobotStatus @RobotStatus = RobotStatus.Idle;
-        public static BatteryStatus SignalBatteryStatus = BatteryStatus.Above75;//default for now
-        public static BatteryStatus PowerBatteryStatus = BatteryStatus.Above75;//default
+        public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
+        public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
         private static BackgroundWorker ControllerThread;
         public static bool InitController()
         {
-            /*
-            TimeToStop = (int)RobotStatus * 2;
-            RobotStatusTimer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromMilliseconds(200)
-            };
-            RobotStatusTimer.Tick += OnStatusLEDTick;
-            RobotStatusTimer.Start();
-            */
-
             //init the status indicators
             statusIndicators = new StatusIndicator[3];
 
@@ -91,7 +82,7 @@ namespace RobotCode
                 TimeThrough = 0,
                 Index = 1
             };
-            statusIndicators[1].TimeToStop = (int)GPIO.GetSignalBatteryStatus() * 2;
+            statusIndicators[1].TimeToStop = (int)GPIO.UpdateSignalBatteryStatus() * 2;
             statusIndicators[1].Tick += OnStatusTick;
             statusIndicators[1].Start();
 
@@ -103,7 +94,7 @@ namespace RobotCode
                 TimeThrough = 0,
                 Index = 2
             };
-            statusIndicators[2].TimeToStop = (int)GPIO.GetPowerBatteryStatus() * 2;
+            statusIndicators[2].TimeToStop = (int)GPIO.UpdatePowerBatteryStatus() * 2;
             statusIndicators[2].Tick += OnStatusTick;
             statusIndicators[2].Start();
 
@@ -132,10 +123,10 @@ namespace RobotCode
                         SI.TimeToStop = (int)RobotStatus * 2;//times 2 cause one cycle is on and one is off
                         break;
                     case 1://signal battery
-                        SI.TimeToStop = (int)GPIO.GetSignalBatteryStatus() * 2;
+                        SI.TimeToStop = (int)GPIO.UpdateSignalBatteryStatus() * 2;
                         break;
                     case 2://power battery
-                        SI.TimeToStop = (int)GPIO.GetPowerBatteryStatus() * 2;
+                        SI.TimeToStop = (int)GPIO.UpdatePowerBatteryStatus() * 2;
                         break;
                 }
                 
@@ -144,10 +135,12 @@ namespace RobotCode
             {
                 //turn off the status LED
                 SI.GpioPin.Write(GpioPinValue.Low);
+                //set negative time so that it acts as a pause
                 SI.TimeThrough = -4;
             }
             if (SI.TimeThrough >= 0)
             {
+                //basicly a toggle. if high then low, if low then high.
                 if (SI.GpioPin.Read() == GpioPinValue.High)
                 {
                     SI.GpioPin.Write(GpioPinValue.Low);
@@ -179,7 +172,11 @@ namespace RobotCode
                 System.Threading.Thread.Sleep(250);
             }
         }
-
+        /// <summary>
+        /// Hooks back into the UI thread upon progress from the Controller thread
+        /// </summary>
+        /// <param name="sender">The BackgroundWorker itself</param>
+        /// <param name="e">The log message to report. Userstate is string message, percent is message type</param>
         private static void ControllerLogProgress(object sender, ProgressChangedEventArgs e)
         {
             //log here
@@ -203,8 +200,10 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("The controller thread has ended, is the application unloading?", NetworkUtils.MessageType.Debug);
             }
         }
-
-        public static void EmergencyShutdown()
+        /// <summary>
+        /// Stops all motor activity incase of emergency and sets the robot state.
+        /// </summary>
+        public static void EmergencyStop()
         {
             //everything must stop, a critical exception has occured
             RobotStatus = RobotStatus.Exception;
@@ -212,6 +211,17 @@ namespace RobotCode
             GPIO.Pins[3].Write(GpioPinValue.Low);
             //shut off any PWM systems
 
+        }
+        /// <summary>
+        /// Usually when the signal (RPi) battery is in a critical state. Shuts down the unit in the event of a critical
+        /// system failure and sets the robot state.
+        /// </summary>
+        public static void EmergencyShutdown(TimeSpan delay)
+        {
+            NetworkUtils.LogNetwork(string.Format("CRITICAL SYSTEM MESSAGE: The device is shutting down in {0} seconds, use" +
+                " ShutdownManager.CancelShutdown() to cancel", delay.TotalSeconds),NetworkUtils.MessageType.Warning);
+            //completly shut down the robot
+            ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, delay);
         }
     }
 }
