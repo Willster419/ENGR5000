@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
 using Windows.Devices.Gpio;
+using Windows.UI.Xaml;
 
 namespace RobotCode
 {
@@ -79,13 +80,13 @@ namespace RobotCode
         /// The background thread for managing the listener and heartbeat thread
         /// </summary>
         private static BackgroundWorker DashboardListener = null;
-        private static Thread HeartbeatThread = null;
+        private static DispatcherTimer HeartbeatTimer = null;
         public static bool DashboardConnected = false;
         private static UInt64 NumHeartbeatsSent = 0;
         private static object NetworkSenderLocker = new object();
         public const bool DEBUG_IGNORE_TIMEOUT = false;
         public const bool DEBUG_FORCE_DASHBOARD_CONNECT = true;
-        private static volatile bool sendHeartbeats = false;
+        //private static volatile bool sendHeartbeats = false;
         private static GpioPin NetworkPin;
         private static Exception RecoveredException = null;
         /// <summary>
@@ -133,12 +134,19 @@ namespace RobotCode
                 DashboardListener.RunWorkerCompleted += OnListenerException;
             }
             DashboardListener.RunWorkerAsync();
-            HeartbeatThread = new Thread(new ThreadStart(SendHeartBeats));
-            HeartbeatThread.Start();
-            sendHeartbeats = true;
+            HeartbeatTimer = new DispatcherTimer()
+            {
+                Interval = TimeSpan.FromSeconds(1)
+            };
+            HeartbeatTimer.Tick += OnHeartbeatTick;
             NetworkPin = GPIO.Pins[1];
             NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
             return true;
+        }
+
+        private static void OnHeartbeatTick(object sender, object e)
+        {
+            
         }
 
         private static void OnListenerException(object sender, RunWorkerCompletedEventArgs e)
@@ -163,7 +171,9 @@ namespace RobotCode
         {
             while (true)
             {
-                sendHeartbeats = false;
+                //verify stop the timer
+                if (HeartbeatTimer.IsEnabled)
+                    HeartbeatTimer.Stop();
                 //setup the receiver client
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotRecieverClient = new UdpClient();
@@ -212,7 +222,8 @@ namespace RobotCode
                 }
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
-                sendHeartbeats = true;
+                if (!HeartbeatTimer.IsEnabled)
+                    HeartbeatTimer.Start();
                 DashboardConnected = true;
                 NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
                 if(RecoveredException != null)
@@ -261,14 +272,7 @@ namespace RobotCode
 
         private static void SendHeartBeats()
         {
-            while(true)
-            {
-                if(sendHeartbeats)
-                {
-                    LogNetwork(NumHeartbeatsSent++.ToString(),MessageType.Heartbeat);
-                }
-                Thread.Sleep(1000);
-            }
+            LogNetwork(NumHeartbeatsSent++.ToString(),MessageType.Heartbeat);
         }
 
         public static void LogNetwork(string StringToSend, MessageType messageType)
