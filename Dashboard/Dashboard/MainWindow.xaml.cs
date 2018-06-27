@@ -73,7 +73,6 @@ namespace Dashboard
             Logging.LogConsole("\\----------------------------------------------------------------------------------------------------------------------------------/");
             Logging.LogRobot("\\----------------------------------------------------------------------------------------------------------------------------------/");
         }
-        #endregion
 
         private void RobotLogOutput_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -104,5 +103,7 @@ namespace Dashboard
         {
             Logging.ClearRobotLogFile();
         }
+        #endregion
+
     }
 }

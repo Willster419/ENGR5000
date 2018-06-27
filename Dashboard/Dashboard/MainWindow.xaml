@@ -24,7 +24,19 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" x:Name="MapTab"/>
-            <TabItem Header="Manual Control" x:Name="ManualControlTab"/>
+            <TabItem Header="Manual Control" x:Name="ManualControlTab">
+                <Grid Background="#FFE5E5E5">
+                    <CheckBox x:Name="ManualControlToggle" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="JoyStickDetectionStatus" Content="No Joystick Detected" HorizontalAlignment="Left" Margin="29,147,0,0" VerticalAlignment="Top" Width="141"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="310,30,0,0" VerticalAlignment="Top" Width="76"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="221,82,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="407,82,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="310,130,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="75,75,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="116,109,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>
