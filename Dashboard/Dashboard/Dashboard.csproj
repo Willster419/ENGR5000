@@ -74,6 +74,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Resources\CiInfo.cs" />
+    <Compile Include="Resources\Control.cs" />
     <Compile Include="Resources\NetworkUtils.cs" />
     <Compile Include="Resources\Logging.cs" />
     <Page Include="MainWindow.xaml">
