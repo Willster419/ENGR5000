@@ -96,6 +96,8 @@ namespace RobotCode
         /// </summary>
         public static bool InitComms()
         {
+            //in case we need an A
+            System.Threading.Thread.Sleep(2001);
             //get the devices IP address
             //max 2 network devices, 4 connections
             if(!NetworkInterface.GetIsNetworkAvailable())
