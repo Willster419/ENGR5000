@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Dashboard
 {
@@ -62,8 +63,8 @@ namespace Dashboard
         /// The UDP listener client of the robot
         /// </summary>
         private static UdpClient RobotRecieverClient = null;
-        private static TcpClient RobotRecieverClient_tcp = null;
-        private static NetworkStream RobotRecieverStream = null;
+        private static TcpListener RobotReceiverClient_tcp2 = null;
+        private static TcpClient RobotRecieverTCPClient = null;
         /// <summary>
         /// The UDP sender client to the robot
         /// </summary>
@@ -73,7 +74,7 @@ namespace Dashboard
         /// <summary>
         /// The port used for listening for robot events (dashboard POV)
         /// </summary>
-        public const int RobotListenerPort = 42424;
+        public const int RobotRecieverPort = 42424;
         /// <summary>
         /// The port used for sending for robot events (dashboard POV)
         /// </summary>
@@ -87,9 +88,9 @@ namespace Dashboard
         /// </summary>
         private static bool RobotConnected = false;
         /// <summary>
-        /// The thread to send heartbeats to the robot. TODO: determine if this can be done via dispatcher event
+        /// The timer to send the heartbeats at 1 second invervals to the robot
         /// </summary>
-        private static Thread InitSenderHeartbeatThread = null;
+        private static System.Timers.Timer HearbeatSender = null;
         /// <summary>
         /// The Netwokring thread for all initialization and revieving of network data
         /// </summary>
@@ -162,12 +163,59 @@ namespace Dashboard
             Logging.LogConsole("Computer IPV6 address set to " + ComputerIPV6Address);
             Logging.LogConsole("Computer IPV4 address set to " + ComputerIPV4Address);
             Logging.LogConsole("Pinging robot hostname for aliveness");
+            //setup the timer (but don't start it yet)
+            //NOTE: is is on the UI thread
+            HearbeatSender = new System.Timers.Timer()
+            {
+                AutoReset = true,
+                Enabled = true,
+                Interval = 1000
+            };
+            HearbeatSender.Elapsed += HeartBeat_Tick;
+            HearbeatSender.Stop();
             //ping the robot to check if it's on the network, if it is get it's ip address
             Ping p = new Ping();
             p.PingCompleted += OnPingCompleted;
             p.SendAsync(RobotNetworkName, null);
             Logging.LogRobot("Dashboard: Ping sent, waiting for ping respone from robot...");
         }
+
+        private static void HeartBeat_Tick(object sender, ElapsedEventArgs e)
+        {
+            string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
+            if (RobotSenderClient != null)
+            {
+                lock (SenderLocker)
+                {
+                    //note that threadmode can be set to 0 (or any other number than 1/2) to avoid sending data
+                    //TODO: use dispatchers rather than sleep?
+                    switch (threadMode)
+                    {
+                        case 1://IPAddress
+                            if (TCP_TEST_DEBUG)
+                            {
+                                TCPSend(RobotSenderStream, ComputerIPV4Address);
+                            }
+                            else
+                            {
+                                RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV4Address), Encoding.UTF8.GetByteCount(ComputerIPV4Address));
+                            }
+                            break;
+                        case 2://heartbeats
+                            if (TCP_TEST_DEBUG)
+                            {
+                                TCPSend(RobotSenderStream, heartbeat);
+                            }
+                            else
+                            {
+                                RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Event hander for when the async ping completes
         /// </summary>
@@ -185,6 +233,7 @@ namespace Dashboard
             else
             {
                 Logging.LogConsole("Ping SUCCESS, getting IP v4 and v6 addresses");
+                //create the backround thread for networking. Allows for blocking calls for recieve()
                 using (ConnectionManager = new BackgroundWorker() { WorkerReportsProgress = true })
                 {
                     //ConnectionManager.DoWork += ManageConnections;
@@ -226,8 +275,7 @@ namespace Dashboard
             //set the connection status false
             //start the sender thread
             RobotConnected = false;
-            InitSenderHeartbeatThread = new Thread(new ThreadStart(InitRobotListener));
-            InitSenderHeartbeatThread.Start();
+            HearbeatSender.Start();
             while (true)
             {
                 bool IPV6Parsed = false;
@@ -252,14 +300,16 @@ namespace Dashboard
                 }
                 //we now have all data we need to start sending heartbeats
                 //bind the robot socket and start the background listener
+
                 //setup and bind listenr
-                ConnectionManager.ReportProgress(1, "Binding robot listener to address " + ComputerIPV4Address);
-                RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV4Address), RobotListenerPort);
-                RobotRecieverClient_tcp = new TcpClient();
-                RobotRecieverClient_tcp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                RobotRecieverClient_tcp.Client.Bind(RobotRecieverIPEndPoint);
-                RobotRecieverClient_tcp.Connect(RobotRecieverIPEndPoint);//ONLY TCP CONNECTS FOR RECIEVER!!!
-                RobotRecieverStream = RobotRecieverClient_tcp.GetStream();
+                ConnectionManager.ReportProgress(1, string.Format("Connecting robot listener to address {0}, port {1}", ComputerIPV4Address, RobotRecieverPort));
+                RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV4Address), RobotRecieverPort);
+                RobotReceiverClient_tcp2 = new TcpListener(RobotRecieverIPEndPoint);
+                //ALWAYS set socket options to reuse before binding/connecting!!
+                RobotReceiverClient_tcp2.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                //start() connects to the port. is blocking, but should work cause it's address is re-usable
+                RobotReceiverClient_tcp2.Start();
+
                 //setup and bind sender
                 ConnectionManager.ReportProgress(1, "Binding robot sender to address " + RobotIPV4Address);
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotSenderPort);
@@ -275,6 +325,7 @@ namespace Dashboard
                     {
                         RobotSenderClient_tcp.Connect(RobotSenderIPEndPoint);
                         senderConnected = true;
+                        ConnectionManager.ReportProgress(1, "Connected!");
                     }
                     catch (SocketException)
                     {
@@ -285,6 +336,7 @@ namespace Dashboard
                 RobotSenderStream = RobotSenderClient_tcp.GetStream();
                 threadMode = 1;//send init IP
                 //wait for the robot to respond
+                //TODO: what does the robot respond with??
                 string result = "";
                 result = TCPRecieve(RobotRecieverStream);
                 ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
@@ -303,23 +355,25 @@ namespace Dashboard
                 {
                     if (e.Cancel)
                         return;
-                    try
-                    {
-                        result = TCPRecieve(RobotRecieverStream);
-                    }
-                    catch (SocketException)
+                    
+                    result = TCPRecieve(RobotRecieverStream);
+
+                    if (result == null)
                     {
                         //robot has disconnected!
                         RobotConnected = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
-                        RobotRecieverClient_tcp.Close();
-                        RobotRecieverClient_tcp.Dispose();
+                        /*
+                        RobotRecieverClient_tcp2.Close();
+                        RobotRecieverClient_tcp2.Dispose();
                         RobotRecieverClient_tcp = null;
+                        */
                         RobotSenderClient_tcp.Close();
                         RobotSenderClient_tcp.Dispose();
                         RobotSenderClient_tcp = null;
                     }
+                    
                     int messageTypeInt = -1;
                     //first part of the message will always be a number describing the type of the message
                     string messageTypeString = result.Split(',')[0];
@@ -356,8 +410,7 @@ namespace Dashboard
             //set the connection status false
             //start the sender thread
             RobotConnected = false;
-            InitSenderHeartbeatThread = new Thread(new ThreadStart(InitRobotListener));
-            InitSenderHeartbeatThread.Start();
+            HearbeatSender.Start();
             while (true)
             {
                 bool IPV6Parsed = false;
@@ -385,7 +438,7 @@ namespace Dashboard
                 ConnectionManager.ReportProgress(2, "Dashboard: Robot found, binding socket and listening for events");
                 //setup and bind listenr
                 ConnectionManager.ReportProgress(1,"Binding robot listener to address " + ComputerIPV4Address);
-                RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV4Address), RobotListenerPort);
+                RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV4Address), RobotRecieverPort);
                 RobotRecieverClient = new UdpClient();
                 RobotRecieverClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotRecieverClient.Client.Bind(RobotRecieverIPEndPoint);
@@ -464,69 +517,48 @@ namespace Dashboard
                 }
             }
         }
-
-        private static void InitRobotListener()
-        {
-            //sends data to the robot ip address untill it responds
-            while (true)
-            {
-                string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
-                if(RobotSenderClient != null)
-                {
-                    lock (SenderLocker)
-                    {
-                        //note that threadmode can be set to 0 (or any other number than 1/2) to avoid sending data
-                        //TODO: use dispatchers rather than sleep?
-                        switch (threadMode)
-                        {
-                            case 1://IPAddress
-                                if (TCP_TEST_DEBUG)
-                                {
-                                    TCPSend(RobotSenderStream, ComputerIPV4Address);
-                                }
-                                else
-                                {
-                                    RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV4Address), Encoding.UTF8.GetByteCount(ComputerIPV4Address));
-                                }
-                                break;
-                            case 2://heartbeats
-                                if(TCP_TEST_DEBUG)
-                                {
-                                    TCPSend(RobotSenderStream, heartbeat);
-                                }
-                                else
-                                {
-                                    RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
-                                }
-                                break;
-                        }
-                    }
-                }
-                Thread.Sleep(1000);
-            }
-        }
-
-        public static void TCPSend(NetworkStream ns, string s)
+        /// <summary>
+        /// Sends a string of data across a NetworkStream. A return of false means the connection is error
+        /// </summary>
+        /// <param name="ns">The NetworkSteam object</param>
+        /// <param name="s">The string to send</param>
+        /// <returns></returns>
+        public static bool TCPSend(NetworkStream ns, string s)
         {
             Byte[] data = Encoding.UTF8.GetBytes(s);
-            ns.Write(data, 0, data.Length);
+            try
+            {
+                ns.Write(data, 0, data.Length);
+                //send was sucessfull
+                return true;
+            }
+            catch
+            {
+                //MAYBE put disconnected here?
+                return false;
+            }
         }
-
-        public static string TCPRecieve(NetworkStream ns)
+        /// <summary>
+        /// Recieve a string of data from a TCPClient object. A null result indicates a disconnected state
+        /// </summary>
+        /// <param name="clinet">The client object</param>
+        /// <returns></returns>
+        public static string TCPRecieve(TcpClient clinet)
         {
             Byte[] data = new Byte[256];
-            Int32 bytes = ns.Read(data, 0, data.Length);
-            return Encoding.UTF8.GetString(data, 0, bytes);
+            try
+            {
+                return Encoding.UTF8.GetString(data, 0, clinet.GetStream().Read(data, 0, data.Length));
+            }
+            //return null in case of a failed connection
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static void AbortNetworkThreads()
         {
-            //stop all threads to allow the application to exit
-            if (InitSenderHeartbeatThread != null)
-            {
-                InitSenderHeartbeatThread.Abort();
-                InitSenderHeartbeatThread = null;
-            }
             if (ConnectionManager != null)
             {
                 ConnectionManager.Dispose();
