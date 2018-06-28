@@ -32,12 +32,6 @@ namespace TCPClientServer
             }
         }
 
-        public static void TCPSend(NetworkStream ns, string s)
-        {
-            Byte[] data = Encoding.UTF8.GetBytes(s);
-            ns.Write(data, 0, data.Length);
-        }
-
         public static string TCPRecieve(TcpClient clinet)
         {
             Byte[] data = new Byte[256];
