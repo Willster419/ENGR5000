@@ -21,9 +21,9 @@ namespace TCPClientServer
             //recieve sock done here
             TcpListener listener = new TcpListener(ipep);
             listener.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            Console.WriteLine("Server Connecting");
+            Console.WriteLine("Connecting to port");
             listener.Start();
-            Console.WriteLine("Connected");
+            Console.WriteLine("Connected, waiting for connection request (blocking)");
             TcpClient sender = listener.AcceptTcpClient();
             Console.WriteLine("Connection accepted");
             while (true)
