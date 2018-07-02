@@ -85,7 +85,7 @@ namespace RobotCode
         private static UInt64 NumHeartbeatsSent = 0;
         private static object NetworkSenderLocker = new object();
         //bools for debug stuff
-        public const bool DEBUG_IGNORE_TIMEOUT = true;
+        public const bool DEBUG_IGNORE_TIMEOUT = false;
         public const bool DEBUG_FORCE_DASHBOARD_CONNECT = true;
         private const bool TCP_TEST_DEBUG = true;
         private static volatile bool sendHeartbeats = false;

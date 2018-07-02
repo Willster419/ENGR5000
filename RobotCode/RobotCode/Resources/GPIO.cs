@@ -7,6 +7,8 @@ using Windows.Devices.Gpio;
 using Windows.Devices.Spi;
 using Windows.Devices.Enumeration;
 using Windows.Devices.Pwm;
+using Microsoft.IoT.Lightning;
+using Microsoft.IoT.Lightning.Providers;
 using Windows.UI.Xaml;
 using Windows.ApplicationModel.Background;
 using System.ComponentModel;
@@ -55,6 +57,10 @@ namespace RobotCode
         public static float SignalBatteryVoltage = 0.0F;
         public static float SignalPowerVoltage = 0.0F;
 
+        //PWM pins
+        public static PwmPin leftDrive;//channel 0
+        public static PwmPin rightDrive;//channel 1
+
         public static bool InitGPIO()
         {
             //init the GPIO controller
@@ -87,7 +93,7 @@ namespace RobotCode
             if(devices == null)
                 return false;
             //by default, there's this one weird SPI device you can't actually use.
-            if(devices.Count <= 1 )
+            if(devices.Count <= 0 )
                 return false;
             ADCSettings = new SpiConnectionSettings(0)
             {
@@ -104,6 +110,24 @@ namespace RobotCode
             if (ADC == null)
                 return false;
             return true;
+        }
+
+        public static bool InitPWM()
+        {
+            //if lightning drivers aren't enabled, we're done
+            if(!LightningProvider.IsLightningEnabled)
+            {
+                RobotController.RobotStatus = RobotStatus.Exception;
+                return false;
+            }
+            // PWM Pins http://raspberrypi.stackexchange.com/questions/40812/raspberry-pi-2-b-gpio-pwm-and-interrupt-pins
+            //IReadOnlyList<PwmController> pwmControllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
+            //IReadOnlyList<PwmController> allPWMControllers = PwmController.GetDefaultAsync();
+
+            //var pwmController = pwmControllers[1]; // use the on-device controller
+            //pwmController.SetDesiredFrequency(50); // try to match 50Hz
+            //_pwm0Pin = pwmController.OpenPin(18);
+            return false;
         }
 
         public static float ReadVoltage(byte hexChannel)
