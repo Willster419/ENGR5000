@@ -56,18 +56,18 @@ namespace RobotCode
         /// </summary>
         private static IPEndPoint RobotRecieverIPEndPoint = null;
         /// <summary>
-        /// The UDP listener client of the robot
+        /// The UDP sender from robot to dashboard
         /// </summary>
+        private static UdpClient RobotSenderClient = null;
         //https://msdn.microsoft.com/en-us/library/system.net.sockets.tcpclient(v=vs.110).aspx
         private static TcpClient RobotSenderClient_tcp = null;
-        private static UdpClient RobotSenderClient = null;
         private static NetworkStream RobotSenderStream = null;
         /// <summary>
-        /// The UDP sender client to the robot
+        /// The UDP receiver from dashboard to robot
         /// </summary>
-        private static TcpClient RobotRecieverClient_tcp = null;
         private static UdpClient RobotRecieverClient = null;
-        private static NetworkStream RobotRecieverStream = null;
+        private static TcpListener RobotRecieverClient_tcp2 = null;
+        private static TcpClient RobotReceiverTCPClient = null;
         /// <summary>
         /// The port used for sending dashboard events (robot POV)
         /// </summary>
@@ -88,7 +88,7 @@ namespace RobotCode
         public const bool DEBUG_IGNORE_TIMEOUT = false;
         public const bool DEBUG_FORCE_DASHBOARD_CONNECT = true;
         private const bool TCP_TEST_DEBUG = true;
-        //private static volatile bool sendHeartbeats = false;
+        private static volatile bool sendHeartbeats = false;
         private static GpioPin NetworkPin;
         private static Exception RecoveredException = null;
         /// <summary>
@@ -96,8 +96,6 @@ namespace RobotCode
         /// </summary>
         public static bool InitComms()
         {
-            //in case we need an A
-            System.Threading.Thread.Sleep(2001);
             //get the devices IP address
             //max 2 network devices, 4 connections
             if(!NetworkInterface.GetIsNetworkAvailable())
@@ -183,8 +181,7 @@ namespace RobotCode
             while (true)
             {
                 //verify stop the timer
-                if (HeartbeatTimer.IsEnabled)
-                    HeartbeatTimer.Stop();
+                sendHeartbeats = false;
                 //setup the receiver client
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotRecieverClient = new UdpClient();
@@ -286,28 +283,31 @@ namespace RobotCode
             while (true)
             {
                 //verify stop the timer
-                //if (HeartbeatTimer.IsEnabled)
-                    //HeartbeatTimer.Stop();
-                //setup the receiver client
+                sendHeartbeats = false;
+
+                //setup and bind listener
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
-                RobotRecieverClient_tcp = new TcpClient();
-                RobotRecieverClient_tcp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                RobotRecieverClient_tcp.Client.Bind(RobotRecieverIPEndPoint);
-                RobotRecieverClient_tcp.Connect(RobotRecieverIPEndPoint);//ONLY TCP CONNECTS FOR RECEIVER!!1
-                RobotRecieverStream = RobotRecieverClient_tcp.GetStream();
+                RobotRecieverClient_tcp2 = new TcpListener(RobotRecieverIPEndPoint);
+                //set socket before binding!
+                RobotRecieverClient_tcp2.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                RobotRecieverClient_tcp2.Start();//now it's bound
+
                 //wait for receiver client to get the ip address of the dashboard
-                //TCP recieve method here
-                string result = TCPRecieve(RobotRecieverStream);
-                //parse the ip address sent by the dashboard
-                IPAddress address;
-                try
+                IPAddress address = null;
+                bool complete = false;
+                while(!complete)
                 {
-                    address = IPAddress.Parse(result);
-                }
-                catch (Exception)
-                {
-                    RobotController.RobotStatus = RobotStatus.Exception;
-                    return;
+                    try
+                    {
+                        //try to accept the tcp connection and parse the ip address
+                        RobotReceiverTCPClient = RobotRecieverClient_tcp2.AcceptTcpClient();
+                        address = IPAddress.Parse(TCPRecieve(RobotReceiverTCPClient));
+                    }
+                    catch (Exception)
+                    {
+                        RobotController.RobotStatus = RobotStatus.Exception;
+                        return;
+                    }
                 }
                 if (address.AddressFamily == AddressFamily.InterNetworkV6)
                 {
@@ -317,7 +317,8 @@ namespace RobotCode
                 {
                     ComputerIPV4Address = address.ToString();
                 }
-                //setup sender
+
+                //setup and bind sender to send ack
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(string.IsNullOrWhiteSpace(ComputerIPV6Address) ? ComputerIPV4Address : ComputerIPV6Address), RobotSenderPort);
                 RobotSenderClient_tcp = new TcpClient();
                 RobotSenderClient_tcp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
@@ -333,16 +334,21 @@ namespace RobotCode
                     }
                     catch (SocketException)
                     {
-
+                        //keep trying
                     }
                 }
                 RobotSenderStream = RobotSenderClient_tcp.GetStream();
                 //set new timeout settings for the robot receiver
                 if (!DEBUG_IGNORE_TIMEOUT)
                 {
-                    RobotRecieverClient_tcp.Client.SendTimeout = 5000;//value is miliseconds
-                    RobotRecieverClient_tcp.Client.ReceiveTimeout = 5000;
+                    RobotRecieverClient_tcp2.Server.SendTimeout = 5000;//value is miliseconds
+                    RobotRecieverClient_tcp2.Server.ReceiveTimeout = 5000;
                 }
+
+                //send ack to dashboard
+                if (!TCPSend(RobotSenderStream, "ack"))
+                    continue;
+
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
                 if (!HeartbeatTimer.IsEnabled)
@@ -357,21 +363,21 @@ namespace RobotCode
                 //listen for dashboard events
                 while (DashboardConnected)
                 {
-                    try
-                    {
-                        result = TCPRecieve(RobotRecieverStream);
-                    }
-                    catch (SocketException)
+                    string result = null;
+                    result = TCPRecieve(RobotReceiverTCPClient);
+                    if (result == null)
                     {
                         //the dashboard has disocnnected!
                         DashboardConnected = false;
                         NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                        /*
                         RobotRecieverClient_tcp.Close();
                         RobotRecieverClient_tcp.Dispose();
                         RobotRecieverClient_tcp = null;
                         RobotSenderClient_tcp.Close();
                         RobotSenderClient_tcp.Dispose();
                         RobotSenderClient_tcp = null;
+                        */
                     }
                     string messageTypeString = result.Split(',')[0];
                     int messageTypeInt = -1;
@@ -417,17 +423,44 @@ namespace RobotCode
             }
         }
 
-        public static void TCPSend(NetworkStream ns, string s)
+        /// <summary>
+        /// Sends a string of data across a NetworkStream. A return of false means the connection is error
+        /// </summary>
+        /// <param name="ns">The NetworkSteam object</param>
+        /// <param name="s">The string to send</param>
+        /// <returns></returns>
+        public static bool TCPSend(NetworkStream ns, string s)
         {
             Byte[] data = Encoding.UTF8.GetBytes(s);
-            ns.Write(data, 0, data.Length);
+            try
+            {
+                ns.Write(data, 0, data.Length);
+                //send was sucessfull
+                return true;
+            }
+            catch
+            {
+                //MAYBE put disconnected here?
+                return false;
+            }
         }
-
-        public static string TCPRecieve(NetworkStream ns)
+        /// <summary>
+        /// Recieve a string of data from a TCPClient object. A null result indicates a disconnected state
+        /// </summary>
+        /// <param name="clinet">The client object</param>
+        /// <returns></returns>
+        public static string TCPRecieve(TcpClient clinet)
         {
             Byte[] data = new Byte[256];
-            Int32 bytes = ns.Read(data, 0, data.Length);
-            return Encoding.UTF8.GetString(data, 0, bytes);
+            try
+            {
+                return Encoding.UTF8.GetString(data, 0, clinet.GetStream().Read(data, 0, data.Length));
+            }
+            //return null in case of a failed connection
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

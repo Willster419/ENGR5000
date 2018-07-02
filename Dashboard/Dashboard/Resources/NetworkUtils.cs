@@ -106,10 +106,6 @@ namespace Dashboard
         private const bool DEBUG_IGNORE_TIMEOUT = false;
         private const bool TCP_TEST_DEBUG = true;
         /// <summary>
-        /// modes for the sender. It could be sending the IP address (0) for the initial (re)connection, or heartbeats(1)
-        /// </summary>
-        private static int threadMode = 0;
-        /// <summary>
         /// Starts the Listener for netowrk log packets from the robot
         /// </summary>
         public static void StartRobotNetworking()
@@ -187,30 +183,13 @@ namespace Dashboard
             {
                 lock (SenderLocker)
                 {
-                    //note that threadmode can be set to 0 (or any other number than 1/2) to avoid sending data
-                    //TODO: use dispatchers rather than sleep?
-                    switch (threadMode)
+                    if (TCP_TEST_DEBUG)
                     {
-                        case 1://IPAddress
-                            if (TCP_TEST_DEBUG)
-                            {
-                                TCPSend(RobotSenderStream, ComputerIPV4Address);
-                            }
-                            else
-                            {
-                                RobotSenderClient.Send(Encoding.UTF8.GetBytes(ComputerIPV4Address), Encoding.UTF8.GetByteCount(ComputerIPV4Address));
-                            }
-                            break;
-                        case 2://heartbeats
-                            if (TCP_TEST_DEBUG)
-                            {
-                                TCPSend(RobotSenderStream, heartbeat);
-                            }
-                            else
-                            {
-                                RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
-                            }
-                            break;
+                        TCPSend(RobotSenderStream, heartbeat);
+                    }
+                    else
+                    {
+                        RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
                     }
                 }
             }
@@ -302,22 +281,25 @@ namespace Dashboard
                 //bind the robot socket and start the background listener
 
                 //setup and bind listenr
-                ConnectionManager.ReportProgress(1, string.Format("Connecting robot listener to address {0}, port {1}", ComputerIPV4Address, RobotRecieverPort));
+                ConnectionManager.ReportProgress(1, string.Format("Binding robot listener to address {0}, port {1}", ComputerIPV4Address, RobotRecieverPort));
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(ComputerIPV4Address), RobotRecieverPort);
                 RobotReceiverClient_tcp2 = new TcpListener(RobotRecieverIPEndPoint);
                 //ALWAYS set socket options to reuse before binding/connecting!!
                 RobotReceiverClient_tcp2.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                //start() connects to the port. is blocking, but should work cause it's address is re-usable
+                //start() connects to the port, DOES NOT connect the two client together
+                //connects to it's ip address on the computer, so it should not block or throw exception
+                //also from example, server = receiver
+                //cannot accept yet, because accept is blocking and it needs to send it's ip address
                 RobotReceiverClient_tcp2.Start();
 
                 //setup and bind sender
-                ConnectionManager.ReportProgress(1, "Binding robot sender to address " + RobotIPV4Address);
+                ConnectionManager.ReportProgress(1, string.Format("Binding robot sender to address {0}, port {1}", RobotIPV4Address, RobotSenderPort));
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotSenderPort);
                 RobotSenderClient_tcp = new TcpClient();
                 RobotSenderClient_tcp.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotSenderClient_tcp.Client.ReceiveTimeout = 5000;
                 RobotSenderClient_tcp.Client.SendTimeout = 5000;
-                ConnectionManager.ReportProgress(1, "Connecting to robot...");
+                ConnectionManager.ReportProgress(1, "Sender connecting to robot...");
                 bool senderConnected = false;
                 while(!senderConnected)
                 {
@@ -325,7 +307,7 @@ namespace Dashboard
                     {
                         RobotSenderClient_tcp.Connect(RobotSenderIPEndPoint);
                         senderConnected = true;
-                        ConnectionManager.ReportProgress(1, "Connected!");
+                        ConnectionManager.ReportProgress(1, "Sender connected!");
                     }
                     catch (SocketException)
                     {
@@ -334,29 +316,28 @@ namespace Dashboard
                 }
                 ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot...");
                 RobotSenderStream = RobotSenderClient_tcp.GetStream();
-                threadMode = 1;//send init IP
-                //wait for the robot to respond
-                //TODO: what does the robot respond with??
-                string result = "";
-                result = TCPRecieve(RobotRecieverStream);
-                ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
+                threadMode = 1;
                 RobotConnected = true;
-                if (!DEBUG_IGNORE_TIMEOUT)
+                if (!DEBUG_IGNORE_TIMEOUT)//TODO: ignore heartbeats instead of ignoring timeouts??
                 {
-                    RobotRecieverClient_tcp.Client.SendTimeout = 5000;
-                    RobotRecieverClient_tcp.Client.ReceiveTimeout = 5000;
+                    RobotReceiverClient_tcp2.Server.SendTimeout = 5000;
+                    RobotReceiverClient_tcp2.Server.ReceiveTimeout = 5000;
                 }
+                //now wait for ack from robot that it is ready for comms...(this is blocking)
+                RobotRecieverTCPClient = RobotReceiverClient_tcp2.AcceptTcpClient();
+                ConnectionManager.ReportProgress(1, "Reciever connected!");
                 NumHeartbeatsSent = 0;
                 threadMode = 2;//send heartbeats
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
                 //TODO: see if TCP will provide more reliability for packet delivery
+                string result = null;
                 while (RobotConnected)
                 {
                     if (e.Cancel)
                         return;
                     
-                    result = TCPRecieve(RobotRecieverStream);
+                    result = TCPRecieve(RobotRecieverTCPClient);
 
                     if (result == null)
                     {
