@@ -164,6 +164,7 @@ namespace RobotCode
                 message = string.Format("Signal Voltage: {0}V", (GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
                 ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
+                /*
                 message = string.Format("Power Voltage: {0}V", (GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL) / 1000.0F));
                 ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
@@ -173,6 +174,7 @@ namespace RobotCode
                 message = string.Format("Water Voltage: {0}V", (GPIO.ReadVoltage(GPIO.WATER_LEVEL_CHANNEL) / 1000.0F));
                 ControllerThread.ReportProgress((int)NetworkUtils.MessageType.Debug, message);
                 System.Threading.Thread.Sleep(250);
+                */
             }
         }
         /// <summary>

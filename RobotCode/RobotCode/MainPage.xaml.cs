@@ -37,12 +37,14 @@ namespace RobotCode
             {
                 //https://stackoverflow.com/questions/32677597/how-to-exit-or-close-an-uwp-app-programmatically-windows-10
                 Application.Current.Exit();
+                return;
             }
             //init the robot networking
             if(!NetworkUtils.InitComms())
             {
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
+                return;
             }
             //DEBUG: wait for dashboard logging connection
             if(NetworkUtils.DEBUG_FORCE_DASHBOARD_CONNECT)
@@ -63,6 +65,7 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Info);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
+                return;
             }
             NetworkUtils.LogNetwork("SPI Interface initialization complete, loading controller", NetworkUtils.MessageType.Info);
             //check battery status of both devices

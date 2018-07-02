@@ -85,7 +85,7 @@ namespace RobotCode
         private static UInt64 NumHeartbeatsSent = 0;
         private static object NetworkSenderLocker = new object();
         //bools for debug stuff
-        public const bool DEBUG_IGNORE_TIMEOUT = false;
+        public const bool DEBUG_IGNORE_TIMEOUT = true;
         public const bool DEBUG_FORCE_DASHBOARD_CONNECT = true;
         private const bool TCP_TEST_DEBUG = true;
         private static volatile bool sendHeartbeats = false;
@@ -230,8 +230,8 @@ namespace RobotCode
                 }
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
-                if (!HeartbeatTimer.IsEnabled)
-                    HeartbeatTimer.Start();
+                sendHeartbeats = true;
+
                 DashboardConnected = true;
                 NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
                 if(RecoveredException != null)
@@ -252,12 +252,14 @@ namespace RobotCode
                         //the dashboard has disocnnected!
                         DashboardConnected = false;
                         NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                        /*
                         RobotRecieverClient.Close();
                         RobotRecieverClient.Dispose();
                         RobotRecieverClient = null;
                         RobotSenderClient.Close();
                         RobotSenderClient.Dispose();
                         RobotSenderClient = null;
+                        */
                     }
                     string messageTypeString = result.Split(',')[0];
                     int messageTypeInt = -1;
@@ -291,22 +293,22 @@ namespace RobotCode
                 //set socket before binding!
                 RobotRecieverClient_tcp2.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotRecieverClient_tcp2.Start();//now it's bound
-
                 //wait for receiver client to get the ip address of the dashboard
                 IPAddress address = null;
-                bool complete = false;
-                while(!complete)
+                bool recieverConnected = false;
+                while(!recieverConnected)
                 {
                     try
                     {
                         //try to accept the tcp connection and parse the ip address
                         RobotReceiverTCPClient = RobotRecieverClient_tcp2.AcceptTcpClient();
                         address = IPAddress.Parse(TCPRecieve(RobotReceiverTCPClient));
+                        recieverConnected = true;
                     }
                     catch (Exception)
                     {
-                        RobotController.RobotStatus = RobotStatus.Exception;
-                        return;
+                        //RobotController.RobotStatus = RobotStatus.Exception;
+                        //keep trying
                     }
                 }
                 if (address.AddressFamily == AddressFamily.InterNetworkV6)
@@ -317,6 +319,7 @@ namespace RobotCode
                 {
                     ComputerIPV4Address = address.ToString();
                 }
+                //for now we'er just force using the IPV4 stuff
 
                 //setup and bind sender to send ack
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(string.IsNullOrWhiteSpace(ComputerIPV6Address) ? ComputerIPV4Address : ComputerIPV6Address), RobotSenderPort);
@@ -351,8 +354,8 @@ namespace RobotCode
 
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
-                if (!HeartbeatTimer.IsEnabled)
-                    HeartbeatTimer.Start();
+                sendHeartbeats = true;
+
                 DashboardConnected = true;
                 NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
                 if (RecoveredException != null)
@@ -378,6 +381,7 @@ namespace RobotCode
                         RobotSenderClient_tcp.Dispose();
                         RobotSenderClient_tcp = null;
                         */
+                        break;
                     }
                     string messageTypeString = result.Split(',')[0];
                     int messageTypeInt = -1;
@@ -405,7 +409,9 @@ namespace RobotCode
 
         public static void LogNetwork(string StringToSend, MessageType messageType)
         {
-            if (RobotSenderClient == null)
+            if (RobotSenderClient == null && !TCP_TEST_DEBUG)
+                return;
+            if (RobotSenderClient_tcp == null && TCP_TEST_DEBUG)
                 return;
             if (!DashboardConnected)
                 return;
