@@ -32,7 +32,7 @@ namespace RobotCode
         }
         Stopwatch sw = new Stopwatch();
 
-        private void OnPageLoaded(object sender, RoutedEventArgs e)
+        private async void OnPageLoaded(object sender, RoutedEventArgs e)
         {
             if(!GPIO.InitGPIO())
             {
@@ -61,7 +61,7 @@ namespace RobotCode
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
             //https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation.findallasync
             //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
-            if (!GPIO.InitSPI())
+            if (! await GPIO.InitSPI())
             {
                 NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
@@ -72,7 +72,7 @@ namespace RobotCode
             //check battery status of both devices
 
             //init pwm
-            if (!GPIO.InitPWM())
+            if (! await GPIO.InitPWM())
             {
                 NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;

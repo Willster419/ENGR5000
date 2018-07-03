@@ -22,11 +22,20 @@ namespace RobotCode
     /// </summary>
     public static class GPIO
     {
+        //GPIO
+        private static GpioController Controller = null;
+
+        //SPI
         public static SpiDevice ADC = null;
         public static SpiController ADC_Control = null;
         public static SpiConnectionSettings ADCSettings = null;
         public const int SPI_CLOCK_FREQUENCY = 1000000;
-        private static GpioController Controller = null;
+
+        //PWM pins
+        public static PwmPin leftDrive;//channel 0
+        public static PwmPin rightDrive;//channel 1
+        public static PwmController driveControl;
+
         /*
          * Current pins setup:
          * 0 is robot status
@@ -59,11 +68,6 @@ namespace RobotCode
         public static float SignalBatteryVoltage = 0.0F;
         public static float SignalPowerVoltage = 0.0F;
 
-        //PWM pins
-        public static PwmPin leftDrive;//channel 0
-        public static PwmPin rightDrive;//channel 1
-        public static PwmController pwmController;
-
         public static bool InitGPIO()
         {
             if(LightningProvider.IsLightningEnabled)
@@ -93,7 +97,7 @@ namespace RobotCode
             return true;
         }
 
-        public static bool InitSPI()
+        public static async Task<bool> InitSPI()
         {
             //for doing it with inbox drivers
             /*string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");
@@ -123,12 +127,15 @@ namespace RobotCode
                 return false;
             */
             //for doing it with lightning drivers
+            /*
             IAsyncOperation<SpiController> ctrlr = SpiController.GetDefaultAsync();
             while(!(ctrlr.Status == AsyncStatus.Completed))
             {
                 System.Threading.Thread.Sleep(10);
             }
             ADC_Control = ctrlr.GetResults();
+            */
+            ADC_Control = await SpiController.GetDefaultAsync();
             ADCSettings = new SpiConnectionSettings(0)
             {
                 ClockFrequency = SPI_CLOCK_FREQUENCY,
@@ -140,16 +147,28 @@ namespace RobotCode
             return true;
         }
 
-        public static bool InitPWM()
+        public static async Task<bool> InitPWM()
         {
-            
-            // PWM Pins http://raspberrypi.stackexchange.com/questions/40812/raspberry-pi-2-b-gpio-pwm-and-interrupt-pins
-            //IReadOnlyList<PwmController> pwmControllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
-            //IReadOnlyList<PwmController> allPWMControllers = PwmController.GetDefaultAsync();
 
-            //var pwmController = pwmControllers[1]; // use the on-device controller
-            //pwmController.SetDesiredFrequency(50); // try to match 50Hz
-            //_pwm0Pin = pwmController.OpenPin(18);
+            // PWM Pins http://raspberrypi.stackexchange.com/questions/40812/raspberry-pi-2-b-gpio-pwm-and-interrupt-pins
+            var controllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
+            if (controllers.Count <= 1)
+                return false;
+            driveControl = controllers[1];
+            try
+            {
+                driveControl.SetDesiredFrequency(1000);
+            }
+            catch
+            {
+                return false;
+            }
+            rightDrive = driveControl.OpenPin(13);
+            rightDrive.SetActiveDutyCyclePercentage(0.5);
+            rightDrive.Start();
+            leftDrive = driveControl.OpenPin(12);
+            leftDrive.SetActiveDutyCyclePercentage(0.5);
+            leftDrive.Start();
             return true;
         }
 
