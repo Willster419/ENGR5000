@@ -13,6 +13,7 @@ using Windows.UI.Xaml;
 using Windows.ApplicationModel.Background;
 using System.ComponentModel;
 using Windows.Foundation;
+using Windows.Devices;
 
 namespace RobotCode
 {
@@ -22,6 +23,7 @@ namespace RobotCode
     public static class GPIO
     {
         public static SpiDevice ADC = null;
+        public static SpiController ADC_Control = null;
         public static SpiConnectionSettings ADCSettings = null;
         public const int SPI_CLOCK_FREQUENCY = 1000000;
         private static GpioController Controller = null;
@@ -60,11 +62,21 @@ namespace RobotCode
         //PWM pins
         public static PwmPin leftDrive;//channel 0
         public static PwmPin rightDrive;//channel 1
+        public static PwmController pwmController;
 
         public static bool InitGPIO()
         {
+            if(LightningProvider.IsLightningEnabled)
+            {
+                LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
+            }
+            else
+            {
+                return false;
+            }
             //init the GPIO controller
             Controller = GpioController.GetDefault();
+            
             if (Controller == null)
                 return false;
             Pins[0] = Controller.OpenPin(CODE_RUNNING_PIN);
@@ -83,7 +95,8 @@ namespace RobotCode
 
         public static bool InitSPI()
         {
-            string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");
+            //for doing it with inbox drivers
+            /*string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");
             IAsyncOperation<DeviceInformationCollection> t = DeviceInformation.FindAllAsync(SPIDevice);
             while (!(t.Status == AsyncStatus.Completed))
             {
@@ -98,8 +111,7 @@ namespace RobotCode
             ADCSettings = new SpiConnectionSettings(0)
             {
                 ClockFrequency = SPI_CLOCK_FREQUENCY,
-                Mode = SpiMode.Mode0//,
-                //ChipSelectLine = 0
+                Mode = SpiMode.Mode0
             };
             IAsyncOperation<SpiDevice> spiDevice = SpiDevice.FromIdAsync(devices[0].Id, ADCSettings);
             while (!(spiDevice.Status == AsyncStatus.Completed))
@@ -109,17 +121,28 @@ namespace RobotCode
             ADC = spiDevice.GetResults();
             if (ADC == null)
                 return false;
+            */
+            //for doing it with lightning drivers
+            IAsyncOperation<SpiController> ctrlr = SpiController.GetDefaultAsync();
+            while(!(ctrlr.Status == AsyncStatus.Completed))
+            {
+                System.Threading.Thread.Sleep(10);
+            }
+            ADC_Control = ctrlr.GetResults();
+            ADCSettings = new SpiConnectionSettings(0)
+            {
+                ClockFrequency = SPI_CLOCK_FREQUENCY,
+                Mode = SpiMode.Mode0
+            };
+            ADC = ADC_Control.GetDevice(ADCSettings);
+            if (ADC == null)
+                return false;
             return true;
         }
 
         public static bool InitPWM()
         {
-            //if lightning drivers aren't enabled, we're done
-            if(!LightningProvider.IsLightningEnabled)
-            {
-                RobotController.RobotStatus = RobotStatus.Exception;
-                return false;
-            }
+            
             // PWM Pins http://raspberrypi.stackexchange.com/questions/40812/raspberry-pi-2-b-gpio-pwm-and-interrupt-pins
             //IReadOnlyList<PwmController> pwmControllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
             //IReadOnlyList<PwmController> allPWMControllers = PwmController.GetDefaultAsync();
@@ -127,7 +150,7 @@ namespace RobotCode
             //var pwmController = pwmControllers[1]; // use the on-device controller
             //pwmController.SetDesiredFrequency(50); // try to match 50Hz
             //_pwm0Pin = pwmController.OpenPin(18);
-            return false;
+            return true;
         }
 
         public static float ReadVoltage(byte hexChannel)

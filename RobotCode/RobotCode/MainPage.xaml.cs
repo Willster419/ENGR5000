@@ -28,10 +28,11 @@ namespace RobotCode
         public MainPage()
         {
             InitializeComponent();
+            Loaded += OnPageLoaded;
         }
         Stopwatch sw = new Stopwatch();
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void OnPageLoaded(object sender, RoutedEventArgs e)
         {
             if(!GPIO.InitGPIO())
             {
@@ -62,7 +63,7 @@ namespace RobotCode
             //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
             if (!GPIO.InitSPI())
             {
-                NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Info);
+                NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
                 return;
@@ -73,7 +74,7 @@ namespace RobotCode
             //init pwm
             if (!GPIO.InitPWM())
             {
-                NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Info);
+                NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
                 return;
@@ -81,7 +82,7 @@ namespace RobotCode
             NetworkUtils.LogNetwork("PWM loading complete, Initializing Main Robot controller", NetworkUtils.MessageType.Info);
             if (!RobotController.InitController())
             {
-                NetworkUtils.LogNetwork("Controller failed to intialize", NetworkUtils.MessageType.Info);
+                NetworkUtils.LogNetwork("Controller failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
                 return;

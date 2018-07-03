@@ -1,6 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" IgnorableNamespaces="uap mp iot">
-  <Identity Name="0de04018-d038-4c5c-9a48-18c82f663a3c" Publisher="CN=widerw" Version="1.0.0.0" />
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+         xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+         IgnorableNamespaces="uap mp iot">
+  <Identity 
+    Name="0de04018-d038-4c5c-9a48-18c82f663a3c"
+    Publisher="CN=widerw"
+    Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="0de04018-d038-4c5c-9a48-18c82f663a3c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>RobotCode</DisplayName>
@@ -31,5 +38,6 @@
     <iot:Capability Name="lowLevelDevices" />
     <iot:Capability Name="systemManagement" />
     <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="109b86ad-f53d-4b76-aa5f-821e2ddf2141" />
   </Capabilities>
 </Package>
