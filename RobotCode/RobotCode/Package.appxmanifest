@@ -3,7 +3,7 @@
   <Identity Name="0de04018-d038-4c5c-9a48-18c82f663a3c" Publisher="CN=widerw" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="0de04018-d038-4c5c-9a48-18c82f663a3c" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>App1</DisplayName>
+    <DisplayName>RobotCode</DisplayName>
     <PublisherDisplayName>widerw</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

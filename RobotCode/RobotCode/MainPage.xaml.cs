@@ -67,14 +67,24 @@ namespace RobotCode
                 Application.Current.Exit();
                 return;
             }
-            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading controller", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading PWM", NetworkUtils.MessageType.Info);
             //check battery status of both devices
-            NetworkUtils.LogNetwork("Initializing Main Robot controller", NetworkUtils.MessageType.Info);
+
+            //init pwm
+            if (!GPIO.InitPWM())
+            {
+                NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Info);
+                RobotController.RobotStatus = RobotStatus.Error;
+                Application.Current.Exit();
+                return;
+            }
+            NetworkUtils.LogNetwork("PWM loading complete, Initializing Main Robot controller", NetworkUtils.MessageType.Info);
             if (!RobotController.InitController())
             {
                 NetworkUtils.LogNetwork("Controller failed to intialize", NetworkUtils.MessageType.Info);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
+                return;
             }
             NetworkUtils.LogNetwork("Controller initialized, system online", NetworkUtils.MessageType.Info);
         }
