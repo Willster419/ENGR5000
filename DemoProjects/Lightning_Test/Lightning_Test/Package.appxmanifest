@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" 
+    xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" 
+    xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" 
+    xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" 
+    IgnorableNamespaces="uap mp iot">
+
+  <Identity
+    Name="8a4c9c5e-29a2-47d3-b060-6cb540b05503"
+    Publisher="CN=widerw"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="8a4c9c5e-29a2-47d3-b060-6cb540b05503" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>Lightning_Test</DisplayName>
+    <PublisherDisplayName>widerw</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Lightning_Test.App">
+      <uap:VisualElements
+        DisplayName="Lightning_Test"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="Lightning_Test"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <iot:Capability Name="lowLevelDevices" />
+    <DeviceCapability Name="109b86ad-f53d-4b76-aa5f-821e2ddf2141" />
+  </Capabilities>
+</Package>
