@@ -8,7 +8,45 @@
         Title="Robot Dashboard" Height="600" Width="1200" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <TabControl SelectedIndex="1">
-            <TabItem Header="Main Page" x:Name="MainPageTab"/>
+            <TabItem Header="Main Page" x:Name="MainPageTab">
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="Analog Voltages" HorizontalAlignment="Left" Height="219" Margin="10,10,0,0" VerticalAlignment="Top" Width="412">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="20" Width="149*"/>
+                                <ColumnDefinition MaxWidth="60" Width="60*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Channel 0 (Signal Circuit Voltage)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" />
+                            <Label   Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 1 (Signal Circuit Current)"/>
+                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <Label   Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 2 (Power Circuit Voltage)"/>
+                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <Label   Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 3 (Power Circuit Current)"/>
+                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <Label   Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 4 (Water Level)"/>
+                            <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <Label   Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 5 (Tempature)"/>
+                            <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <Label   Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 6 (Accel)"/>
+                            <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <Label   Grid.Column="0" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 7(Gyro)"/>
+                            <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
             <TabItem Header="Dashboard Console" x:Name="DashboardLogTab">
                 <Grid Background="#FFE5E5E5">
                     <TextBox TextWrapping="Wrap" IsReadOnly="True" x:Name="ConsoleLogOutput" x:FieldModifier="public" VerticalScrollBarVisibility="Visible" TextChanged="ConsoleLogOutput_TextChanged" Margin="0,0,0,35"/>
