@@ -26,7 +26,7 @@ namespace Lightning_Test
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private GpioPin _pin22;
+        private PwmPin _pin22;
         private PwmPin _pin27;
 
         public MainPage()
@@ -40,14 +40,6 @@ namespace Lightning_Test
             if (LightningProvider.IsLightningEnabled)
             {
                 LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
-
-                var pwmControllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
-                var pwmController = pwmControllers[1]; // the on-device controller
-                pwmController.SetDesiredFrequency(50); // try to match 50Hz
-
-                _pin27 = pwmController.OpenPin(27);
-                _pin27.SetActiveDutyCyclePercentage(0);
-                _pin27.Start();
             }
 
             var gpioController = await GpioController.GetDefaultAsync();
@@ -56,9 +48,42 @@ namespace Lightning_Test
                 
                 return;
             }
-            _pin22 = gpioController.OpenPin(22);
-            _pin22.SetDriveMode(GpioPinDriveMode.Output);
-            _pin22.Write(GpioPinValue.Low);
+           // _pin22 = gpioController.OpenPin(22);
+            //_pin22.SetDriveMode(GpioPinDriveMode.Output);
+            //_pin22.Write(GpioPinValue.Low);
+
+            var pwmControllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
+            int count = pwmControllers.Count;
+            PwmController prepwmController = null;
+            try
+            {
+                prepwmController = pwmControllers[0];
+                prepwmController.SetDesiredFrequency(50);
+                _pin22 = prepwmController.OpenPin(13);
+                _pin22.SetActiveDutyCyclePercentage(0.1);
+                _pin22.Start();
+            }
+            catch
+            {
+
+            }
+            
+
+            PwmController pwmController = null;
+            try
+            {
+                pwmController = pwmControllers[1]; // the on-device controller
+                pwmController.SetDesiredFrequency(1000); // try to match 50Hz
+                _pin27 = pwmController.OpenPin(13);
+                _pin27.SetActiveDutyCyclePercentage(0.1);
+                _pin27.Start();
+
+            }
+            catch
+            {
+
+            }
+            
         }
     }
 }
