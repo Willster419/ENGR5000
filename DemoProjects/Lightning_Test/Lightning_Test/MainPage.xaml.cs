@@ -26,13 +26,23 @@ namespace Lightning_Test
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private PwmPin _pin22;
-        private PwmPin _pin27;
+        private PwmPin leftDrive;
+        private PwmPin rightDrive;
+        private PwmController pwmController = null;
 
         public MainPage()
         {
             this.InitializeComponent();
             this.Loaded += OnPageLoad;
+            this.Unloaded += OnPageUnload;
+        }
+
+        private void OnPageUnload(object sender, RoutedEventArgs e)
+        {
+            if (leftDrive != null)
+                leftDrive.Stop();
+            if (rightDrive != null)
+                rightDrive.Stop();
         }
 
         private async void OnPageLoad(object sender, RoutedEventArgs e)
@@ -45,45 +55,20 @@ namespace Lightning_Test
             var gpioController = await GpioController.GetDefaultAsync();
             if (gpioController == null)
             {
-                
                 return;
             }
-           // _pin22 = gpioController.OpenPin(22);
-            //_pin22.SetDriveMode(GpioPinDriveMode.Output);
-            //_pin22.Write(GpioPinValue.Low);
 
             var pwmControllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
-            int count = pwmControllers.Count;
-            PwmController prepwmController = null;
-            try
-            {
-                prepwmController = pwmControllers[0];
-                prepwmController.SetDesiredFrequency(50);
-                _pin22 = prepwmController.OpenPin(13);
-                _pin22.SetActiveDutyCyclePercentage(0.1);
-                _pin22.Start();
-            }
-            catch
-            {
 
-            }
             
-
-            PwmController pwmController = null;
-            try
-            {
-                pwmController = pwmControllers[1]; // the on-device controller
-                pwmController.SetDesiredFrequency(1000); // try to match 50Hz
-                _pin27 = pwmController.OpenPin(13);
-                _pin27.SetActiveDutyCyclePercentage(0.1);
-                _pin27.Start();
-
-            }
-            catch
-            {
-
-            }
-            
+            pwmController = pwmControllers[1];//hard code from examples to use index 1
+            pwmController.SetDesiredFrequency(1000);//do *not* debug over this line, it will crash
+            rightDrive = pwmController.OpenPin(13);
+            rightDrive.SetActiveDutyCyclePercentage(0.5);
+            rightDrive.Start();
+            leftDrive = pwmController.OpenPin(12);
+            leftDrive.SetActiveDutyCyclePercentage(0.5);
+            leftDrive.Start();
         }
     }
 }
