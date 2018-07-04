@@ -14,6 +14,7 @@ using Windows.ApplicationModel.Background;
 using System.ComponentModel;
 using Windows.Foundation;
 using Windows.Devices;
+using RobotCode.Resources;
 
 namespace RobotCode
 {
@@ -32,8 +33,8 @@ namespace RobotCode
         public const int SPI_CLOCK_FREQUENCY = 1000000;
 
         //PWM pins
-        public static PwmPin leftDrive;//channel 0
-        public static PwmPin rightDrive;//channel 1
+        public static SMPWM leftDrive;//channel 0
+        public static SMPWM rightDrive;//channel 1
         public static PwmController driveControl;
 
         /*
@@ -163,12 +164,12 @@ namespace RobotCode
             {
                 return false;
             }
-            rightDrive = driveControl.OpenPin(13);
-            rightDrive.SetActiveDutyCyclePercentage(0.5);
-            rightDrive.Start();
-            leftDrive = driveControl.OpenPin(12);
-            leftDrive.SetActiveDutyCyclePercentage(0.5);
+            leftDrive = new SMPWM();
+            rightDrive = new SMPWM();
+            leftDrive.Init(23, 23, Controller, driveControl);
+            rightDrive.Init(22, 22, Controller, driveControl);
             leftDrive.Start();
+            rightDrive.Start();
             return true;
         }
 
