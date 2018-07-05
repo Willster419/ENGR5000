@@ -86,7 +86,7 @@ namespace RobotCode
         private static object NetworkSenderLocker = new object();
         //bools for debug stuff
         public static bool DEBUG_IGNORE_TIMEOUT = false;
-        public static bool DEBUG_FORCE_DASHBOARD_CONNECT = false;//set to false when testing without dashboard
+        public static bool DEBUG_FORCE_DASHBOARD_CONNECT = true;//set to false when testing without dashboard
         private static bool DEBUG_TCP_TEST = true;
         private static volatile bool sendHeartbeats = false;
         private static GpioPin NetworkPin;

@@ -113,8 +113,9 @@ namespace Dashboard
 
         private void ClearBothlogDisplays_Click(object sender, RoutedEventArgs e)
         {
+            NetworkUtils.Disconnect();
             ClearRobotLogOutput_Click(null, null);
-            ClearRobotLogOutput_Click(null, null);
+            ClearDashboardLogOutput_Click(null, null);
         }
     }
 }

@@ -573,5 +573,24 @@ namespace Dashboard
                 ConnectionManager = null;
             }
         }
+
+        public static void Disconnect()
+        {
+            if (DEBUG_TCP_TEST)
+            {
+                if (RobotSenderClient_tcp != null)
+                {
+                    RobotSenderClient_tcp.Dispose();
+                }
+                if (RobotRecieverTCPClient != null)
+                {
+                    RobotRecieverTCPClient.Dispose();
+                }
+            }
+            else
+            {
+
+            }
+        }
     }
 }
