@@ -10,7 +10,7 @@
         <TabControl SelectedIndex="1">
             <TabItem Header="Main Page" x:Name="MainPageTab">
                 <Grid Background="#FFE5E5E5">
-                    <GroupBox Header="Analog Voltages" HorizontalAlignment="Left" Height="219" Margin="10,10,0,0" VerticalAlignment="Top" Width="412">
+                    <GroupBox Header="Analog Voltages" HorizontalAlignment="Left" Height="219" Margin="10,10,0,0" VerticalAlignment="Top" Width="300">
                         <Grid Background="#FFE5E5E5">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -23,38 +23,83 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition MinWidth="20" Width="149*"/>
+                                <ColumnDefinition />
                                 <ColumnDefinition MaxWidth="60" Width="60*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Channel 0 (Signal Circuit Voltage)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" />
+                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 1 (Signal Circuit Current)"/>
-                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 2 (Power Circuit Voltage)"/>
-                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 3 (Power Circuit Current)"/>
-                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 4 (Water Level)"/>
-                            <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 5 (Tempature)"/>
-                            <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 6 (Accel)"/>
-                            <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 7(Gyro)"/>
-                            <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"/>
+                            <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Drive System" HorizontalAlignment="Left" Height="100" Margin="422,10,0,0" VerticalAlignment="Top" Width="235">
+                    <GroupBox Header="Drive System" HorizontalAlignment="Left" Height="180" Margin="315,10,0,0" VerticalAlignment="Top" Width="235">
                         <Grid Background="#FFE5E5E5">
-
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition MaxWidth="60" Width="60*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                            </Grid.RowDefinitions>
+                            <Label Content="Left Drive Sign"       HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch"/>
+                            <Label Content="Left Drive Magnitude"  HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch"/>
+                            <Label Content="Left Drive Encoder"    HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch"/>
+                            <Label Content="Right Drive Sign"      HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch"/>
+                            <Label Content="Right Drive Magnitude" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch"/>
+                            <Label Content="Right Drive Encoder"   HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Status LEDs" HorizontalAlignment="Left" Height="114" Margin="422,115,0,0" VerticalAlignment="Top" Width="235">
+                    <GroupBox Header="Status" HorizontalAlignment="Left" Height="128" Margin="550,10,0,0" VerticalAlignment="Top" Width="192">
                         <Grid Background="#FFE5E5E5">
-
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition MaxWidth="60" Width="60*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                                <RowDefinition Height="25" MaxHeight="25" />
+                            </Grid.RowDefinitions>
+                            <Label   Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 1 Volts"/>
+                            <Label   Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 1 Amps"/>
+                            <Label   Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 2 Volts"/>
+                            <Label   Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 2 Amps"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
                         </Grid>
                     </GroupBox>
-
+                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="747,10,0,0" VerticalAlignment="Top" Width="192">
+                        <Grid Background="#FFE5E5E5">
+                            <Button x:Name="ResetNetworkConnection" Content="Reset Network Connection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="157" Margin="10,10,0,0" Click="ResetNetworkConnection_Click"/>
+                            <Button x:Name="ClearBothlogDisplays" Content="...And clear log displays" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="157" Click="ClearBothlogDisplays_Click"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Dashboard Console" x:Name="DashboardLogTab">
@@ -75,14 +120,50 @@
             <TabItem Header="Manual Control" x:Name="ManualControlTab">
                 <Grid Background="#FFE5E5E5">
                     <CheckBox x:Name="ManualControlToggle" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="JoyStickDetectionStatus" Content="No Joystick Detected" HorizontalAlignment="Left" Margin="29,147,0,0" VerticalAlignment="Top" Width="141"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="310,30,0,0" VerticalAlignment="Top" Width="76"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="221,82,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="407,82,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="310,130,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="75,75,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="116,109,0,0" VerticalAlignment="Top"/>
+                    <GroupBox Header="Button Control" HorizontalAlignment="Left" Height="150" Margin="10,36,0,0" VerticalAlignment="Top" Width="150">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveUpButton" Content="Up"/>
+                            <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveLeftButton" Content="Left"/>
+                            <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveRightButton" Content="Right"/>
+                            <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveDownButton" Content="Down"/>
+
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Keyboard Control" HorizontalAlignment="Left" Height="57" Margin="165,96,0,0" VerticalAlignment="Top" Width="150">
+                        <Grid Background="#FFE5E5E5">
+                            <TextBox x:Name="KeyboardControl" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Use arrow keys here..." VerticalAlignment="Stretch" IsReadOnly="True"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Joystick Control" HorizontalAlignment="Left" Height="60" Margin="165,36,0,0" VerticalAlignment="Top" Width="150">
+                        <ComboBox HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Width="140"/>
+                    </GroupBox>
+                    <GroupBox Header="Output" HorizontalAlignment="Left" Height="71" Margin="320,36,0,0" VerticalAlignment="Top" Width="87">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25*" MaxWidth="25" MinWidth="25"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Content="X="/>
+                            <Label HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Content="Y="/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True"/>
+
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
         </TabControl>

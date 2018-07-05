@@ -26,7 +26,6 @@ namespace Dashboard
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region Boring Stuff
         public MainWindow()
         {
             InitializeComponent();
@@ -87,6 +86,7 @@ namespace Dashboard
         private void ClearDashboardLogOutput_Click(object sender, RoutedEventArgs e)
         {
             ConsoleLogOutput.Clear();
+            Logging.LogConsole("Console log cleared");
         }
 
         private void DeleteDashboardLogFile_Click(object sender, RoutedEventArgs e)
@@ -97,13 +97,24 @@ namespace Dashboard
         private void ClearRobotLogOutput_Click(object sender, RoutedEventArgs e)
         {
             RobotLogOutput.Clear();
+            Logging.LogRobot("Robot log cleared");
         }
 
         private void DeleteRobotLogFile_Click(object sender, RoutedEventArgs e)
         {
             Logging.ClearRobotLogFile();
         }
-        #endregion
 
+        private void ResetNetworkConnection_Click(object sender, RoutedEventArgs e)
+        {
+            Logging.LogConsole("Resetting network connections...");
+            NetworkUtils.StartRobotNetworking();
+        }
+
+        private void ClearBothlogDisplays_Click(object sender, RoutedEventArgs e)
+        {
+            ClearRobotLogOutput_Click(null, null);
+            ClearRobotLogOutput_Click(null, null);
+        }
     }
 }

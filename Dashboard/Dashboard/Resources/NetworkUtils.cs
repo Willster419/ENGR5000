@@ -103,8 +103,14 @@ namespace Dashboard
         /// Arbitrary object to lock the sender client to prevent mulitple threads from accesing the sender client at the same time
         /// </summary>
         private static readonly object SenderLocker = new object();
-        private const bool DEBUG_IGNORE_TIMEOUT = true;
-        private const bool TCP_TEST_DEBUG = true;
+        /// <summary>
+        /// Ignore the timeout from the networking (for example, from a step by step debug session)
+        /// </summary>
+        private static bool DEBUG_IGNORE_TIMEOUT = true;
+        /// <summary>
+        /// Toggle TCP connection mode
+        /// </summary>
+        private static bool DEBUG_TCP_TEST = true;
         /// <summary>
         /// Starts the Listener for netowrk log packets from the robot
         /// </summary>
@@ -161,13 +167,16 @@ namespace Dashboard
             Logging.LogConsole("Pinging robot hostname for aliveness");
             //setup the timer (but don't start it yet)
             //NOTE: is is on the UI thread
-            HearbeatSender = new System.Timers.Timer()
+            if(HearbeatSender == null)
             {
-                AutoReset = true,
-                Enabled = true,
-                Interval = 1000
-            };
-            HearbeatSender.Elapsed += HeartBeat_Tick;
+                HearbeatSender = new System.Timers.Timer()
+                {
+                    AutoReset = true,
+                    Enabled = true,
+                    Interval = 1000
+                };
+                HearbeatSender.Elapsed += HeartBeat_Tick;
+            }
             HearbeatSender.Stop();
             //ping the robot to check if it's on the network, if it is get it's ip address
             Ping p = new Ping();
@@ -183,7 +192,7 @@ namespace Dashboard
             {
                 lock (SenderLocker)
                 {
-                    if (TCP_TEST_DEBUG)
+                    if (DEBUG_TCP_TEST)
                     {
                         TCPSend(RobotSenderStream, heartbeat);
                     }
@@ -212,11 +221,17 @@ namespace Dashboard
             else
             {
                 Logging.LogConsole("Ping SUCCESS, getting IP v4 and v6 addresses");
+                if(ConnectionManager != null)
+                {
+                    //it's ending *now*
+                    ConnectionManager.Dispose();
+                    ConnectionManager = null;
+                }
                 //create the backround thread for networking. Allows for blocking calls for recieve()
                 using (ConnectionManager = new BackgroundWorker() { WorkerReportsProgress = true })
                 {
                     //ConnectionManager.DoWork += ManageConnections;
-                    if(TCP_TEST_DEBUG)
+                    if(DEBUG_TCP_TEST)
                     {
                         ConnectionManager.DoWork += ManageConnections_tcp;
                     }
