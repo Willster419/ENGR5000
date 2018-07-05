@@ -85,9 +85,9 @@ namespace RobotCode
         private static UInt64 NumHeartbeatsSent = 0;
         private static object NetworkSenderLocker = new object();
         //bools for debug stuff
-        public const bool DEBUG_IGNORE_TIMEOUT = false;
-        public const bool DEBUG_FORCE_DASHBOARD_CONNECT = false;//set to false when testing without dashboard
-        private const bool TCP_TEST_DEBUG = true;
+        public static bool DEBUG_IGNORE_TIMEOUT = false;
+        public static bool DEBUG_FORCE_DASHBOARD_CONNECT = false;//set to false when testing without dashboard
+        private static bool DEBUG_TCP_TEST = true;
         private static volatile bool sendHeartbeats = false;
         private static GpioPin NetworkPin;
         private static Exception RecoveredException = null;
@@ -132,7 +132,7 @@ namespace RobotCode
                 {
                     WorkerReportsProgress = true
                 };
-                if(TCP_TEST_DEBUG)
+                if(DEBUG_TCP_TEST)
                 {
                     DashboardListener.DoWork += EstablishComms_tcp;
                 }
@@ -409,16 +409,16 @@ namespace RobotCode
 
         public static void LogNetwork(string StringToSend, MessageType messageType)
         {
-            if (RobotSenderClient == null && !TCP_TEST_DEBUG)
+            if (RobotSenderClient == null && !DEBUG_TCP_TEST)
                 return;
-            if (RobotSenderClient_tcp == null && TCP_TEST_DEBUG)
+            if (RobotSenderClient_tcp == null && DEBUG_TCP_TEST)
                 return;
             if (!DashboardConnected)
                 return;
             StringToSend = (int)messageType + "," + StringToSend;
             lock(NetworkSenderLocker)
             {
-                if(TCP_TEST_DEBUG)
+                if(DEBUG_TCP_TEST)
                 {
                     TCPSend(RobotSenderStream, StringToSend);
                 }
