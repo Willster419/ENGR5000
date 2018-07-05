@@ -166,8 +166,8 @@ namespace RobotCode
             }
             leftDrive = new SMPWM();
             rightDrive = new SMPWM();
-            leftDrive.Init(23, 23, Controller, driveControl);
-            rightDrive.Init(22, 22, Controller, driveControl);
+            leftDrive.Init(5, 12, Controller, driveControl);//PWM grey wire, m2
+            rightDrive.Init(6, 13, Controller, driveControl);//PWM purple wire, m1
             leftDrive.Start();
             rightDrive.Start();
             return true;
