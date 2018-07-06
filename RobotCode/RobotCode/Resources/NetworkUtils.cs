@@ -79,7 +79,7 @@ namespace RobotCode
         /// <summary>
         /// The background thread for managing the listener and heartbeat thread
         /// </summary>
-        private static BackgroundWorker DashboardListener = null;
+        private static BackgroundWorker ConnectionManager = null;
         private static DispatcherTimer HeartbeatTimer = null;
         public static bool DashboardConnected = false;
         private static UInt64 NumHeartbeatsSent = 0;
@@ -126,23 +126,26 @@ namespace RobotCode
                 return false;
             RobotIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
             RobotIPV4Address = V4NetworkInfos[0].IPAddress.ToString();
-            if(DashboardListener == null)
+            if(ConnectionManager == null)
             {
-                DashboardListener = new BackgroundWorker()
+                ConnectionManager = new BackgroundWorker()
                 {
-                    WorkerReportsProgress = true
+                    WorkerReportsProgress = true,
+                    WorkerSupportsCancellation = true
                 };
                 if(DEBUG_TCP_TEST)
                 {
-                    DashboardListener.DoWork += EstablishComms_tcp;
+                    ConnectionManager.DoWork += ManageConnections_tcp;
                 }
                 else
                 {
-                    DashboardListener.DoWork += EstablishComms;
+                    ConnectionManager.DoWork += ManageConnections;
                 }
-                DashboardListener.RunWorkerCompleted += OnListenerException;
+                ConnectionManager.ProgressChanged += ConnectionManagerLog;
+                ConnectionManager.RunWorkerCompleted += OnWorkComplete;
             }
-            DashboardListener.RunWorkerAsync();
+            ConnectionManager.RunWorkerAsync();
+            //setup the heartbeat timer
             HeartbeatTimer = new DispatcherTimer()
             {
                 Interval = TimeSpan.FromSeconds(1)
@@ -152,6 +155,11 @@ namespace RobotCode
             NetworkPin = GPIO.Pins[1];
             NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
             return true;
+        }
+
+        private static void ConnectionManagerLog(object sender, ProgressChangedEventArgs e)
+        {
+            
         }
 
         private static void OnHeartbeatTick(object sender, object e)
@@ -179,7 +187,7 @@ namespace RobotCode
             }
         }
 
-        private static void OnListenerException(object sender, RunWorkerCompletedEventArgs e)
+        private static void OnWorkComplete(object sender, RunWorkerCompletedEventArgs e)
         {
             //turn off coms and restart the thread
             if (e.Error != null)
@@ -187,17 +195,17 @@ namespace RobotCode
                 DashboardConnected = false;
                 NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
                 RecoveredException = e.Error;
-                DashboardListener = new BackgroundWorker()
+                ConnectionManager = new BackgroundWorker()
                 {
                     WorkerReportsProgress = true
                 };
-                DashboardListener.DoWork += EstablishComms;
-                DashboardListener.RunWorkerCompleted += OnListenerException;
-                DashboardListener.RunWorkerAsync();
+                ConnectionManager.DoWork += ManageConnections;
+                ConnectionManager.RunWorkerCompleted += OnWorkComplete;
+                ConnectionManager.RunWorkerAsync();
             }
         }
 
-        public static void EstablishComms(object sender, DoWorkEventArgs e)
+        public static void ManageConnections(object sender, DoWorkEventArgs e)
         {
             while (true)
             {
@@ -293,7 +301,7 @@ namespace RobotCode
             }
         }
 
-        public static void EstablishComms_tcp(object sender, DoWorkEventArgs e)
+        public static void ManageConnections_tcp(object sender, DoWorkEventArgs e)
         {
             while (true)
             {

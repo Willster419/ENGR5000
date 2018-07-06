@@ -165,19 +165,6 @@ namespace Dashboard
             Logging.LogConsole("Computer IPV6 address set to " + ComputerIPV6Address);
             Logging.LogConsole("Computer IPV4 address set to " + ComputerIPV4Address);
             Logging.LogConsole("Pinging robot hostname for aliveness");
-            //setup the timer (but don't start it yet)
-            //NOTE: is is on the UI thread
-            if(HearbeatSender == null)
-            {
-                HearbeatSender = new System.Timers.Timer()
-                {
-                    AutoReset = true,
-                    Enabled = true,
-                    Interval = 1000
-                };
-                HearbeatSender.Elapsed += HeartBeat_Tick;
-            }
-            HearbeatSender.Stop();
             //ping the robot to check if it's on the network, if it is get it's ip address
             Ping p = new Ping();
             p.PingCompleted += OnPingCompleted;
@@ -221,17 +208,15 @@ namespace Dashboard
             else
             {
                 Logging.LogConsole("Ping SUCCESS, getting IP v4 and v6 addresses");
-                if(ConnectionManager != null)
-                {
-                    //it's ending *now*
-                    ConnectionManager.Dispose();
-                    ConnectionManager = null;
-                }
                 //create the backround thread for networking. Allows for blocking calls for recieve()
-                using (ConnectionManager = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true })
+                if (ConnectionManager == null)
                 {
-                    //ConnectionManager.DoWork += ManageConnections;
-                    if(DEBUG_TCP_TEST)
+                    ConnectionManager = new BackgroundWorker()
+                    {
+                        WorkerReportsProgress = true,
+                        WorkerSupportsCancellation = true
+                    };
+                    if (DEBUG_TCP_TEST)
                     {
                         ConnectionManager.DoWork += ManageConnections_tcp;
                     }
@@ -241,8 +226,21 @@ namespace Dashboard
                     }
                     ConnectionManager.ProgressChanged += ConnectionManagerLog;
                     ConnectionManager.RunWorkerCompleted += OnWorkComplete;
-                    ConnectionManager.RunWorkerAsync();
                 }
+                ConnectionManager.RunWorkerAsync();
+                //setup the timer (but don't start it yet)
+                //NOTE: is is on the UI thread
+                if (HearbeatSender == null)
+                {
+                    HearbeatSender = new System.Timers.Timer()
+                    {
+                        AutoReset = true,
+                        Enabled = true,
+                        Interval = 1000
+                    };
+                    HearbeatSender.Elapsed += HeartBeat_Tick;
+                }
+                HearbeatSender.Stop();
             }
         }
 
