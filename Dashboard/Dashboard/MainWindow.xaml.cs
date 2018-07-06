@@ -68,7 +68,6 @@ namespace Dashboard
         private void Window_Closed(object sender, EventArgs e)
         {
             Logging.LogConsole("Application Closing");
-            NetworkUtils.AbortNetworkThreads();
             Logging.LogConsole("\\----------------------------------------------------------------------------------------------------------------------------------/");
             Logging.LogRobot("\\----------------------------------------------------------------------------------------------------------------------------------/");
         }
@@ -108,12 +107,12 @@ namespace Dashboard
         private void ResetNetworkConnection_Click(object sender, RoutedEventArgs e)
         {
             Logging.LogConsole("Resetting network connections...");
-            NetworkUtils.StartRobotNetworking();
+            //NetworkUtils.Disconnect();
+            NetworkUtils.ConnectionManager.CancelAsync();
         }
 
         private void ClearBothlogDisplays_Click(object sender, RoutedEventArgs e)
         {
-            NetworkUtils.Disconnect();
             ClearRobotLogOutput_Click(null, null);
             ClearDashboardLogOutput_Click(null, null);
         }

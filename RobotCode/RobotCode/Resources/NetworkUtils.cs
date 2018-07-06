@@ -148,6 +148,7 @@ namespace RobotCode
                 Interval = TimeSpan.FromSeconds(1)
             };
             HeartbeatTimer.Tick += OnHeartbeatTick;
+            HeartbeatTimer.Start();
             NetworkPin = GPIO.Pins[1];
             NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
             return true;
@@ -155,7 +156,27 @@ namespace RobotCode
 
         private static void OnHeartbeatTick(object sender, object e)
         {
-            
+            if(sendHeartbeats)
+            {
+                string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
+                if(DEBUG_TCP_TEST)
+                {
+                    if(RobotSenderClient_tcp != null)
+                    {
+                        TCPSend(RobotSenderStream, heartbeat);
+                    }
+                }
+                else
+                {
+                    if(RobotSenderClient != null)
+                    {
+                        lock (NetworkSenderLocker)
+                        {
+
+                        }
+                    }
+                }
+            }
         }
 
         private static void OnListenerException(object sender, RunWorkerCompletedEventArgs e)
@@ -252,14 +273,6 @@ namespace RobotCode
                         //the dashboard has disocnnected!
                         DashboardConnected = false;
                         NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
-                        /*
-                        RobotRecieverClient.Close();
-                        RobotRecieverClient.Dispose();
-                        RobotRecieverClient = null;
-                        RobotSenderClient.Close();
-                        RobotSenderClient.Dispose();
-                        RobotSenderClient = null;
-                        */
                     }
                     string messageTypeString = result.Split(',')[0];
                     int messageTypeInt = -1;
@@ -373,14 +386,7 @@ namespace RobotCode
                         //the dashboard has disocnnected!
                         DashboardConnected = false;
                         NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
-                        /*
-                        RobotRecieverClient_tcp.Close();
-                        RobotRecieverClient_tcp.Dispose();
-                        RobotRecieverClient_tcp = null;
-                        RobotSenderClient_tcp.Close();
-                        RobotSenderClient_tcp.Dispose();
-                        RobotSenderClient_tcp = null;
-                        */
+                        Disconnect();
                         break;
                     }
                     string messageTypeString = result.Split(',')[0];
@@ -437,17 +443,21 @@ namespace RobotCode
         /// <returns></returns>
         public static bool TCPSend(NetworkStream ns, string s)
         {
-            Byte[] data = Encoding.UTF8.GetBytes(s);
-            try
+            lock(NetworkSenderLocker)
             {
-                ns.Write(data, 0, data.Length);
-                //send was sucessfull
-                return true;
-            }
-            catch
-            {
-                //MAYBE put disconnected here?
-                return false;
+                Byte[] data = Encoding.UTF8.GetBytes(s);
+                try
+                {
+                    ns.Write(data, 0, data.Length);
+                    //send was sucessfull
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    //MAYBE put disconnected here?
+                    RecoveredException = e;
+                    return false;
+                }
             }
         }
         /// <summary>
@@ -463,9 +473,39 @@ namespace RobotCode
                 return Encoding.UTF8.GetString(data, 0, clinet.GetStream().Read(data, 0, data.Length));
             }
             //return null in case of a failed connection
-            catch (Exception)
+            catch (Exception e)
             {
+                RecoveredException = e;
                 return null;
+            }
+        }
+
+        public static void Disconnect()
+        {
+            if (DEBUG_TCP_TEST)
+            {
+                if (RobotSenderStream != null)
+                {
+                    RobotSenderStream.Close();
+                    //RobotSenderStream.Dispose();
+                }
+                if (RobotSenderClient_tcp != null)
+                {
+                    //RobotSenderClient_tcp.Client.Disconnect(true);
+                    RobotSenderClient_tcp.Close();
+                    //RobotSenderClient_tcp.Dispose();
+                }
+                if (RobotReceiverTCPClient != null)
+                {
+                    RobotReceiverTCPClient.GetStream().Close();
+                    //RobotReceiverTCPClient.Client.Disconnect(true);
+                    RobotReceiverTCPClient.Client.Close();
+                    //RobotReceiverTCPClient.Dispose();
+                }
+            }
+            else
+            {
+
             }
         }
     }

@@ -94,7 +94,7 @@ namespace Dashboard
         /// <summary>
         /// The Netwokring thread for all initialization and revieving of network data
         /// </summary>
-        private static BackgroundWorker ConnectionManager = null;
+        public static BackgroundWorker ConnectionManager = null;
         /// <summary>
         /// Number of heartbeats that have been sent since the connectino has been alive
         /// </summary>
@@ -228,7 +228,7 @@ namespace Dashboard
                     ConnectionManager = null;
                 }
                 //create the backround thread for networking. Allows for blocking calls for recieve()
-                using (ConnectionManager = new BackgroundWorker() { WorkerReportsProgress = true })
+                using (ConnectionManager = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true })
                 {
                     //ConnectionManager.DoWork += ManageConnections;
                     if(DEBUG_TCP_TEST)
@@ -240,10 +240,38 @@ namespace Dashboard
                         ConnectionManager.DoWork += ManageConnections;
                     }
                     ConnectionManager.ProgressChanged += ConnectionManagerLog;
+                    ConnectionManager.RunWorkerCompleted += OnWorkComplete;
                     ConnectionManager.RunWorkerAsync();
                 }
             }
         }
+
+        private static void OnWorkComplete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            //NOTE: this is back on the UI threads
+            if(e.Error != null)
+            {
+                //error occured, should be restarted
+                Disconnect();
+                StartRobotNetworking();
+            }
+            else if (e.Cancelled)
+            {
+                //cancel occured, user is resetting the network connections
+                Disconnect();
+                StartRobotNetworking();
+            }
+            else
+            {
+                //just let it die
+                if(ConnectionManager != null)
+                {
+                    ConnectionManager.Dispose();
+                    ConnectionManager = null;
+                }
+            }
+        }
+
         /// <summary>
         /// Method executed on the UI thead, raised from the Networking thread when reporting progress.
         /// </summary>
@@ -272,6 +300,12 @@ namespace Dashboard
             HearbeatSender.Start();
             while (true)
             {
+                if (ConnectionManager.CancellationPending)
+                {
+                    e.Cancel = true;
+                    HearbeatSender.Stop();
+                    return;
+                }
                 bool IPV6Parsed = false;
                 bool IPV4Parsed = false;
                 while (!IPV6Parsed && !IPV4Parsed)
@@ -318,6 +352,12 @@ namespace Dashboard
                 bool senderConnected = false;
                 while(!senderConnected)
                 {
+                    if(ConnectionManager.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        HearbeatSender.Stop();
+                        return;
+                    }
                     try
                     {
                         RobotSenderClient_tcp.Connect(RobotSenderIPEndPoint);
@@ -329,7 +369,7 @@ namespace Dashboard
                         //try again
                     }
                 }
-                ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot and waiting for response...");
+                ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot...");
                 RobotSenderStream = RobotSenderClient_tcp.GetStream();
                 TCPSend(RobotSenderStream, ComputerIPV4Address);
                 if (!DEBUG_IGNORE_TIMEOUT)//TODO: ignore heartbeats instead of ignoring timeouts??
@@ -339,8 +379,15 @@ namespace Dashboard
                 }
                 //now wait for ack from robot that it is ready for comms...(this is blocking)
                 bool recieverConnected = false;
+                ConnectionManager.ReportProgress(1, "IP address sent, waiting for response...");
                 while(!recieverConnected)
                 {
+                    if (ConnectionManager.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        HearbeatSender.Stop();
+                        return;
+                    }
                     try
                     {
                         RobotRecieverTCPClient = RobotReceiverClient_tcp2.AcceptTcpClient();
@@ -361,9 +408,12 @@ namespace Dashboard
                 string result = null;
                 while (RobotConnected)
                 {
-                    if (e.Cancel)
+                    if (ConnectionManager.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        HearbeatSender.Stop();
                         return;
-                    
+                    }
                     result = TCPRecieve(RobotRecieverTCPClient);
 
                     if (result == null)
@@ -372,16 +422,10 @@ namespace Dashboard
                         RobotConnected = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
-                        /*
-                        RobotRecieverClient_tcp2.Close();
-                        RobotRecieverClient_tcp2.Dispose();
-                        RobotRecieverClient_tcp = null;
-                        
-                        RobotSenderClient_tcp.Close();
-                        RobotSenderClient_tcp.Dispose();
-                        RobotSenderClient_tcp = null;
-                        */
-                        break;
+                        //Disconnect();
+                        //break;
+                        e.Cancel = true;
+                        return;
                     }
                     
                     int messageTypeInt = -1;
@@ -423,6 +467,12 @@ namespace Dashboard
             HearbeatSender.Start();
             while (true)
             {
+                if (ConnectionManager.CancellationPending)
+                {
+                    e.Cancel = true;
+                    HearbeatSender.Stop();
+                    return;
+                }
                 bool IPV6Parsed = false;
                 bool IPV4Parsed = false;
                 while (!IPV6Parsed && !IPV4Parsed)
@@ -477,8 +527,12 @@ namespace Dashboard
                 //use blokcing call to wait for network events
                 while (RobotConnected)
                 {
-                    if (e.Cancel)
+                    if (ConnectionManager.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        HearbeatSender.Stop();
                         return;
+                    }
                     try
                     {
                         result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
@@ -565,26 +619,55 @@ namespace Dashboard
             }
         }
 
-        public static void AbortNetworkThreads()
-        {
-            if (ConnectionManager != null)
-            {
-                ConnectionManager.Dispose();
-                ConnectionManager = null;
-            }
-        }
-
         public static void Disconnect()
         {
             if (DEBUG_TCP_TEST)
             {
+                Logging.LogConsole("Closing Sender",true);
+                if (RobotSenderStream != null)
+                {
+                    if(RobotSenderClient_tcp.Connected)
+                        RobotSenderStream.Close();
+                    RobotSenderStream.Dispose();
+                    RobotSenderStream = null;
+                }
                 if (RobotSenderClient_tcp != null)
                 {
+                    //if(RobotSenderClient_tcp.Connected)
+                        //RobotSenderClient_tcp.Client.Disconnect(true);
+                    RobotSenderClient_tcp.Close();
                     RobotSenderClient_tcp.Dispose();
+                    RobotSenderClient_tcp = null;
                 }
+                Logging.LogConsole("Closing Reciever", true);
                 if (RobotRecieverTCPClient != null)
                 {
+                    if (RobotRecieverTCPClient.Connected)
+                    {
+                        Logging.LogConsole("Reciever was open, closing", true);
+                        RobotRecieverTCPClient.GetStream().Close();
+                        //RobotRecieverTCPClient.Client.Disconnect(true);
+                    }
+                    RobotRecieverTCPClient.Client.Close();
+                }
+                if(RobotReceiverClient_tcp2 != null)
+                {
+                    Logging.LogConsole("closing tcpServer", true);
+                    if (RobotReceiverClient_tcp2.Server.Connected)
+                    {
+                        Logging.LogConsole("tcpServer was open, closing", true);
+                        RobotReceiverClient_tcp2.Server.Disconnect(true);
+                    }
+                    RobotReceiverClient_tcp2.Stop();
+                }
+                if(RobotRecieverTCPClient != null)
+                {
                     RobotRecieverTCPClient.Dispose();
+                    RobotRecieverTCPClient = null;
+                }
+                if(RobotReceiverClient_tcp2 != null)
+                {
+                    RobotReceiverClient_tcp2 = null;
                 }
             }
             else
