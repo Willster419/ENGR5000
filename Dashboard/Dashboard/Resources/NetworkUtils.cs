@@ -86,11 +86,11 @@ namespace Dashboard
         /// <summary>
         /// Flag used to determine if the robot is connected for the networking thread
         /// </summary>
-        private static bool RobotConnected = false;
+        private static bool ConnectionLive = false;
         /// <summary>
         /// The timer to send the heartbeats at 1 second invervals to the robot
         /// </summary>
-        private static System.Timers.Timer HearbeatSender = null;
+        private static System.Timers.Timer HeartbeatTimer = null;
         /// <summary>
         /// The Netwokring thread for all initialization and revieving of network data
         /// </summary>
@@ -102,7 +102,7 @@ namespace Dashboard
         /// <summary>
         /// Arbitrary object to lock the sender client to prevent mulitple threads from accesing the sender client at the same time
         /// </summary>
-        private static readonly object SenderLocker = new object();
+        private static readonly object NetworkSenderLocker = new object();
         /// <summary>
         /// Ignore the timeout from the networking (for example, from a step by step debug session)
         /// </summary>
@@ -114,7 +114,7 @@ namespace Dashboard
         /// <summary>
         /// Starts the Listener for netowrk log packets from the robot
         /// </summary>
-        public static void StartRobotNetworking()
+        public static void InitComms()
         {
             Logging.LogConsole("Checking for any local internet connection...");
             //https://stackoverflow.com/questions/6803073/get-local-ip-address
@@ -172,18 +172,21 @@ namespace Dashboard
             Logging.LogRobot("Dashboard: Ping sent, waiting for ping respone from robot...");
         }
 
-        private static void HeartBeat_Tick(object sender, ElapsedEventArgs e)
+        private static void OnHeartbeatTick(object sender, ElapsedEventArgs e)
         {
             string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
-            if (RobotSenderClient != null)
+            if (DEBUG_TCP_TEST)
             {
-                lock (SenderLocker)
+                if (RobotSenderClient_tcp != null)
                 {
-                    if (DEBUG_TCP_TEST)
-                    {
-                        TCPSend(RobotSenderStream, heartbeat);
-                    }
-                    else
+                    TCPSend(RobotSenderStream, heartbeat);
+                }
+            }
+            else
+            {
+                if (RobotSenderClient != null)
+                {
+                    lock (NetworkSenderLocker)
                     {
                         RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
                     }
@@ -230,17 +233,17 @@ namespace Dashboard
                 ConnectionManager.RunWorkerAsync();
                 //setup the timer (but don't start it yet)
                 //NOTE: is is on the UI thread
-                if (HearbeatSender == null)
+                if (HeartbeatTimer == null)
                 {
-                    HearbeatSender = new System.Timers.Timer()
+                    HeartbeatTimer = new System.Timers.Timer()
                     {
                         AutoReset = true,
                         Enabled = true,
                         Interval = 1000
                     };
-                    HearbeatSender.Elapsed += HeartBeat_Tick;
+                    HeartbeatTimer.Elapsed += OnHeartbeatTick;
                 }
-                HearbeatSender.Stop();
+                HeartbeatTimer.Stop();
             }
         }
 
@@ -251,13 +254,13 @@ namespace Dashboard
             {
                 //error occured, should be restarted
                 Disconnect();
-                StartRobotNetworking();
+                InitComms();
             }
             else if (e.Cancelled)
             {
                 //cancel occured, user is resetting the network connections
                 Disconnect();
-                StartRobotNetworking();
+                InitComms();
             }
             else
             {
@@ -294,14 +297,14 @@ namespace Dashboard
             //initial worker state:
             //set the connection status false
             //start the sender thread
-            RobotConnected = false;
-            HearbeatSender.Start();
+            ConnectionLive = false;
+            HeartbeatTimer.Start();
             while (true)
             {
                 if (ConnectionManager.CancellationPending)
                 {
                     e.Cancel = true;
-                    HearbeatSender.Stop();
+                    HeartbeatTimer.Stop();
                     return;
                 }
                 bool IPV6Parsed = false;
@@ -353,7 +356,7 @@ namespace Dashboard
                     if(ConnectionManager.CancellationPending)
                     {
                         e.Cancel = true;
-                        HearbeatSender.Stop();
+                        HeartbeatTimer.Stop();
                         return;
                     }
                     try
@@ -383,7 +386,7 @@ namespace Dashboard
                     if (ConnectionManager.CancellationPending)
                     {
                         e.Cancel = true;
-                        HearbeatSender.Stop();
+                        HeartbeatTimer.Stop();
                         return;
                     }
                     try
@@ -398,18 +401,18 @@ namespace Dashboard
 
                     }
                 }
-                RobotConnected = true;
+                ConnectionLive = true;
                 NumHeartbeatsSent = 0;
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
                 //TODO: see if TCP will provide more reliability for packet delivery
                 string result = null;
-                while (RobotConnected)
+                while (ConnectionLive)
                 {
                     if (ConnectionManager.CancellationPending)
                     {
                         e.Cancel = true;
-                        HearbeatSender.Stop();
+                        HeartbeatTimer.Stop();
                         return;
                     }
                     result = TCPRecieve(RobotRecieverTCPClient);
@@ -417,7 +420,7 @@ namespace Dashboard
                     if (result == null)
                     {
                         //robot has disconnected!
-                        RobotConnected = false;
+                        ConnectionLive = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
                         //Disconnect();
@@ -461,14 +464,14 @@ namespace Dashboard
             //initial worker state:
             //set the connection status false
             //start the sender thread
-            RobotConnected = false;
-            HearbeatSender.Start();
+            ConnectionLive = false;
+            HeartbeatTimer.Start();
             while (true)
             {
                 if (ConnectionManager.CancellationPending)
                 {
                     e.Cancel = true;
-                    HearbeatSender.Stop();
+                    HeartbeatTimer.Stop();
                     return;
                 }
                 bool IPV6Parsed = false;
@@ -514,7 +517,7 @@ namespace Dashboard
                 string result = "";
                 result = Encoding.UTF8.GetString(RobotRecieverClient.Receive(ref RobotRecieverIPEndPoint));
                 ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
-                RobotConnected = true;
+                ConnectionLive = true;
                 if(!DEBUG_IGNORE_TIMEOUT)
                 {
                     RobotRecieverClient.Client.SendTimeout = 5000;
@@ -523,12 +526,12 @@ namespace Dashboard
                 NumHeartbeatsSent = 0;
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
-                while (RobotConnected)
+                while (ConnectionLive)
                 {
                     if (ConnectionManager.CancellationPending)
                     {
                         e.Cancel = true;
-                        HearbeatSender.Stop();
+                        HeartbeatTimer.Stop();
                         return;
                     }
                     try
@@ -538,7 +541,7 @@ namespace Dashboard
                     catch (SocketException)
                     {
                         //robot has disconnected!
-                        RobotConnected = false;
+                        ConnectionLive = false;
                         ConnectionManager.ReportProgress(1,"Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2,"Robot Disconnected");
                         RobotRecieverClient.Close();

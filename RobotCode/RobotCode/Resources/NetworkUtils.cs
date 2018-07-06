@@ -80,15 +80,14 @@ namespace RobotCode
         /// The background thread for managing the listener and heartbeat thread
         /// </summary>
         private static BackgroundWorker ConnectionManager = null;
-        private static DispatcherTimer HeartbeatTimer = null;
-        public static bool DashboardConnected = false;
+        private static System.Timers.Timer HeartbeatTimer = null;
+        public static bool ConnectionLive = false;
         private static UInt64 NumHeartbeatsSent = 0;
-        private static object NetworkSenderLocker = new object();
+        private static readonly object NetworkSenderLocker = new object();
         //bools for debug stuff
         public static bool DEBUG_IGNORE_TIMEOUT = false;
         public static bool DEBUG_FORCE_DASHBOARD_CONNECT = true;//set to false when testing without dashboard
         private static bool DEBUG_TCP_TEST = true;
-        private static volatile bool sendHeartbeats = false;
         private static GpioPin NetworkPin;
         private static Exception RecoveredException = null;
         /// <summary>
@@ -107,7 +106,11 @@ namespace RobotCode
             List<NetworkInformation> V4NetworkInfos = new List<NetworkInformation>();
             foreach (NetworkInterface ni in interfaces)
             {
-                if ((ni.OperationalStatus == OperationalStatus.Up) && (!ni.Description.Contains("Loopback")) && (!ni.Description.Contains("Virtual")))
+                if ((ni.OperationalStatus == OperationalStatus.Up)
+                    && (!ni.Description.Contains("VMware"))
+                    && (!ni.Description.Contains("VirtualBox"))
+                    && (!ni.Description.Contains("Tunnel"))
+                    && (!ni.Description.Contains("Loopback")))
                 {
                     foreach(UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
                     {
@@ -146,14 +149,20 @@ namespace RobotCode
             }
             ConnectionManager.RunWorkerAsync();
             //setup the heartbeat timer
-            HeartbeatTimer = new DispatcherTimer()
+            if(HeartbeatTimer == null)
             {
-                Interval = TimeSpan.FromSeconds(1)
-            };
-            HeartbeatTimer.Tick += OnHeartbeatTick;
-            HeartbeatTimer.Start();
+                HeartbeatTimer = new System.Timers.Timer()
+                {
+                    AutoReset = true,
+                    Enabled = true,
+                    Interval = 1000
+                };
+                HeartbeatTimer.Elapsed += OnHeartbeatTick;
+            }
+            HeartbeatTimer.Stop();
+            //Robot only
             NetworkPin = GPIO.Pins[1];
-            NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+            NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
             return true;
         }
 
@@ -164,24 +173,21 @@ namespace RobotCode
 
         private static void OnHeartbeatTick(object sender, object e)
         {
-            if(sendHeartbeats)
+            string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
+            if(DEBUG_TCP_TEST)
             {
-                string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
-                if(DEBUG_TCP_TEST)
+                if(RobotSenderClient_tcp != null)
                 {
-                    if(RobotSenderClient_tcp != null)
-                    {
-                        TCPSend(RobotSenderStream, heartbeat);
-                    }
+                    TCPSend(RobotSenderStream, heartbeat);
                 }
-                else
+            }
+            else
+            {
+                if(RobotSenderClient != null)
                 {
-                    if(RobotSenderClient != null)
+                    lock (NetworkSenderLocker)
                     {
-                        lock (NetworkSenderLocker)
-                        {
-
-                        }
+                        RobotSenderClient.Send(Encoding.UTF8.GetBytes(heartbeat), Encoding.UTF8.GetByteCount(heartbeat));
                     }
                 }
             }
@@ -192,8 +198,8 @@ namespace RobotCode
             //turn off coms and restart the thread
             if (e.Error != null)
             {
-                DashboardConnected = false;
-                NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                ConnectionLive = false;
+                NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                 RecoveredException = e.Error;
                 ConnectionManager = new BackgroundWorker()
                 {
@@ -210,7 +216,7 @@ namespace RobotCode
             while (true)
             {
                 //verify stop the timer
-                sendHeartbeats = false;
+                HeartbeatTimer.Stop();
                 //setup the receiver client
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotRecieverClient = new UdpClient();
@@ -259,17 +265,17 @@ namespace RobotCode
                 }
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
-                sendHeartbeats = true;
+                HeartbeatTimer.Start();
 
-                DashboardConnected = true;
-                NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                ConnectionLive = true;
+                NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                 if(RecoveredException != null)
                 {
                     LogNetwork("The network thread just recovered from an exception level event\n" + RecoveredException.ToString(), MessageType.Exception);
                     RecoveredException = null;
                 }
                 //listen for dashboard events
-                while (DashboardConnected)
+                while (ConnectionLive)
                 {
                     try
                     {
@@ -279,8 +285,8 @@ namespace RobotCode
                     catch (SocketException)
                     {
                         //the dashboard has disocnnected!
-                        DashboardConnected = false;
-                        NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                        ConnectionLive = false;
+                        NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                     }
                     string messageTypeString = result.Split(',')[0];
                     int messageTypeInt = -1;
@@ -303,11 +309,14 @@ namespace RobotCode
 
         public static void ManageConnections_tcp(object sender, DoWorkEventArgs e)
         {
+            ConnectionLive = false;
+            //Robot only
+            NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
+            HeartbeatTimer.Start();
             while (true)
             {
                 //verify stop the timer
-                sendHeartbeats = false;
-
+                HeartbeatTimer.Stop();
                 //setup and bind listener
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotRecieverClient_tcp2 = new TcpListener(RobotRecieverIPEndPoint);
@@ -375,25 +384,25 @@ namespace RobotCode
 
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
-                sendHeartbeats = true;
+                HeartbeatTimer.Start();
 
-                DashboardConnected = true;
-                NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                ConnectionLive = true;
+                NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                 if (RecoveredException != null)
                 {
                     LogNetwork("The network thread just recovered from an exception level event\n" + RecoveredException.ToString(), MessageType.Exception);
                     RecoveredException = null;
                 }
                 //listen for dashboard events
-                while (DashboardConnected)
+                while (ConnectionLive)
                 {
                     string result = null;
                     result = TCPRecieve(RobotReceiverTCPClient);
                     if (result == null)
                     {
                         //the dashboard has disocnnected!
-                        DashboardConnected = false;
-                        NetworkPin.Write(DashboardConnected ? GpioPinValue.High : GpioPinValue.Low);
+                        ConnectionLive = false;
+                        NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                         Disconnect();
                         break;
                     }
@@ -427,7 +436,7 @@ namespace RobotCode
                 return;
             if (RobotSenderClient_tcp == null && DEBUG_TCP_TEST)
                 return;
-            if (!DashboardConnected)
+            if (!ConnectionLive)
                 return;
             StringToSend = (int)messageType + "," + StringToSend;
             lock(NetworkSenderLocker)

@@ -50,7 +50,7 @@ namespace RobotCode
             //DEBUG: wait for dashboard logging connection
             if(NetworkUtils.DEBUG_FORCE_DASHBOARD_CONNECT)
             {
-                while(!NetworkUtils.DashboardConnected)
+                while(!NetworkUtils.ConnectionLive)
                 {
                     System.Threading.Thread.Sleep(100);
                 }

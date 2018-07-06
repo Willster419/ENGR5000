@@ -58,7 +58,7 @@ namespace Dashboard
             Logging.LogConsole("Built on " + GetCompileTime());
             Logging.LogConsole("Initializing network connections");
             Logging.LogRobot("/----------------------------------------------------------------------------------------------------------------------------------\\");
-            NetworkUtils.StartRobotNetworking();
+            NetworkUtils.InitComms();
         }
         /// <summary>
         /// When The application is closed
