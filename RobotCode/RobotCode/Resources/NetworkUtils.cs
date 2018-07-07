@@ -121,7 +121,7 @@ namespace RobotCode
         /// <summary>
         /// Toggle TCP connection mode
         /// </summary>
-        private static bool DEBUG_TCP_TEST = true;
+        private static bool DEBUG_TCP_TEST = false;
         /// <summary>
         /// Force the robot to wait on load until the dashboard is connected
         /// set to false when testing without dashboard
@@ -413,6 +413,8 @@ namespace RobotCode
                 //setup and bind listener
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotReceiverTCPListener = new TcpListener(RobotRecieverIPEndPoint);
+                RobotReceiverTCPListener.Server.SendTimeout = 5000;//value is miliseconds
+                RobotReceiverTCPListener.Server.ReceiveTimeout = 5000;
                 //set socket before binding!
                 RobotReceiverTCPListener.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 RobotReceiverTCPListener.Start();//now it's bound
@@ -476,10 +478,16 @@ namespace RobotCode
                 }
                 RobotSenderTCPStream = RobotSenderTCPClient.GetStream();
                 //set new timeout settings for the robot receiver
-                if (!DEBUG_IGNORE_TIMEOUT)
+                if (RobotRecieverTCPClient.Client.ReceiveTimeout != 5000)
+                    RobotRecieverTCPClient.Client.ReceiveTimeout = 5000;
+                if (RobotRecieverTCPClient.Client.SendTimeout != 5000)
+                    RobotRecieverTCPClient.Client.SendTimeout = 5000;
+                if (RobotRecieverTCPClient.GetStream().CanTimeout)
                 {
-                    RobotReceiverTCPListener.Server.SendTimeout = 5000;//value is miliseconds
-                    RobotReceiverTCPListener.Server.ReceiveTimeout = 5000;
+                    if (RobotRecieverTCPClient.GetStream().ReadTimeout != 5000)
+                        RobotRecieverTCPClient.GetStream().ReadTimeout = 5000;
+                    if (RobotRecieverTCPClient.GetStream().WriteTimeout != 5000)
+                        RobotRecieverTCPClient.GetStream().WriteTimeout = 5000;
                 }
                 //send ack to dashboard
                 if (!TCPSend(RobotSenderTCPStream, "ack"))
@@ -505,8 +513,13 @@ namespace RobotCode
                         return;
                     }
                     result = TCPRecieve(RobotRecieverTCPClient);
-                    if (result == null)
+                    if (string.IsNullOrWhiteSpace(result))
                     {
+                        if (DEBUG_IGNORE_TIMEOUT && DEBUG_TCP_TEST)
+                        {
+                            Thread.Sleep(1000);
+                            continue;
+                        }
                         //the dashboard has disocnnected!
                         ConnectionLive = false;
                         NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);

@@ -118,11 +118,11 @@ namespace Dashboard
         /// <summary>
         /// Ignore the timeout from the networking (for example, from a step by step debug session)
         /// </summary>
-        private static bool DEBUG_IGNORE_TIMEOUT = false;
+        private static bool DEBUG_IGNORE_TIMEOUT = true;
         /// <summary>
         /// Toggle TCP connection mode
         /// </summary>
-        private static bool DEBUG_TCP_TEST = true;
+        private static bool DEBUG_TCP_TEST = false;
         /// <summary>
         /// Starts the Listener for netowrk log packets from the robot
         /// </summary>
@@ -524,6 +524,17 @@ namespace Dashboard
                         RobotRecieverTCPClient = RobotReceiverTCPListener.AcceptTcpClient();
                         string temp = TCPRecieve(RobotRecieverTCPClient);//should be ack
                         ConnectionManager.ReportProgress(1, "Reciever connected!");
+                        if (RobotRecieverTCPClient.Client.ReceiveTimeout != 5000)
+                            RobotRecieverTCPClient.Client.ReceiveTimeout = 5000;
+                        if (RobotRecieverTCPClient.Client.SendTimeout != 5000)
+                            RobotRecieverTCPClient.Client.SendTimeout = 5000;
+                        if(RobotRecieverTCPClient.GetStream().CanTimeout)
+                        {
+                            if (RobotRecieverTCPClient.GetStream().ReadTimeout != 5000)
+                                RobotRecieverTCPClient.GetStream().ReadTimeout = 5000;
+                            if (RobotRecieverTCPClient.GetStream().WriteTimeout != 5000)
+                                RobotRecieverTCPClient.GetStream().WriteTimeout = 5000;
+                        }
                         recieverConnected = true;
                     }
                     catch (Exception)
@@ -535,9 +546,7 @@ namespace Dashboard
                 ConnectionLive = true;
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
-                //netwokr setup is complete, now for as long as the connection is alive,
-                //use blokcing call to wait for network events
-                //TODO: see if TCP will provide more reliability for packet delivery
+                //netwokr setup is complete
                 string result = null;
                 while (ConnectionLive)
                 {
@@ -548,8 +557,13 @@ namespace Dashboard
                         return;
                     }
                     result = TCPRecieve(RobotRecieverTCPClient);
-                    if (result == null)
+                    if (string.IsNullOrWhiteSpace(result))
                     {
+                        if (DEBUG_IGNORE_TIMEOUT && DEBUG_TCP_TEST)
+                        {
+                            Thread.Sleep(1000);
+                            continue;
+                        }
                         //robot has disconnected!
                         ConnectionLive = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
