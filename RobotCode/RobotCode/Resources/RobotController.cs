@@ -57,6 +57,7 @@ namespace RobotCode
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
         private static BackgroundWorker ControllerThread;
+        public static bool SystemOnline = false;
         public static bool InitController()
         {
             //init the status indicators

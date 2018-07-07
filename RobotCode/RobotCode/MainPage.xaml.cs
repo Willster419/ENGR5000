@@ -87,6 +87,7 @@ namespace RobotCode
                 return;
             }
             NetworkUtils.LogNetwork("Controller initialized, system online", NetworkUtils.MessageType.Info);
+            RobotController.SystemOnline = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -100,42 +100,6 @@ namespace RobotCode
 
         public static async Task<bool> InitSPI()
         {
-            //for doing it with inbox drivers
-            /*string SPIDevice = SpiDevice.GetDeviceSelector("SPI0");
-            IAsyncOperation<DeviceInformationCollection> t = DeviceInformation.FindAllAsync(SPIDevice);
-            while (!(t.Status == AsyncStatus.Completed))
-            {
-                System.Threading.Thread.Sleep(10);
-            }
-            IReadOnlyList<DeviceInformation> devices = t.GetResults();
-            if(devices == null)
-                return false;
-            //by default, there's this one weird SPI device you can't actually use.
-            if(devices.Count <= 0 )
-                return false;
-            ADCSettings = new SpiConnectionSettings(0)
-            {
-                ClockFrequency = SPI_CLOCK_FREQUENCY,
-                Mode = SpiMode.Mode0
-            };
-            IAsyncOperation<SpiDevice> spiDevice = SpiDevice.FromIdAsync(devices[0].Id, ADCSettings);
-            while (!(spiDevice.Status == AsyncStatus.Completed))
-            {
-                System.Threading.Thread.Sleep(10);
-            }
-            ADC = spiDevice.GetResults();
-            if (ADC == null)
-                return false;
-            */
-            //for doing it with lightning drivers
-            /*
-            IAsyncOperation<SpiController> ctrlr = SpiController.GetDefaultAsync();
-            while(!(ctrlr.Status == AsyncStatus.Completed))
-            {
-                System.Threading.Thread.Sleep(10);
-            }
-            ADC_Control = ctrlr.GetResults();
-            */
             ADC_Control = await SpiController.GetDefaultAsync();
             ADCSettings = new SpiConnectionSettings(0)
             {
@@ -173,7 +137,7 @@ namespace RobotCode
             return true;
         }
 
-        public static float ReadVoltage(byte hexChannel)
+        public static float ReadVoltage(byte hexChannel, bool normalizeTo5, int round)
         {
             //unsigned char in C++ is byte in C#
             if(ADC == null)
@@ -192,7 +156,12 @@ namespace RobotCode
             byte[] receiveBuffer = new byte[3];
             ADC.TransferFullDuplex(transmitBuffer, receiveBuffer);
             int result = ((receiveBuffer[1] & 3) << 8) + receiveBuffer[2];
-            return result * MVOLTS_PER_STEP;
+            float resultFloat = result * MVOLTS_PER_STEP;
+            if (normalizeTo5)
+                resultFloat = resultFloat / 1000F;
+            if (round >= 0)
+                resultFloat = MathF.Round(resultFloat, round);
+            return resultFloat;
         }
 
         public static BatteryStatus UpdateSignalBatteryStatus()

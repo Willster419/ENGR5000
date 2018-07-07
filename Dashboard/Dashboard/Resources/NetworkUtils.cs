@@ -33,7 +33,8 @@ namespace Dashboard
             Exception = 5,
             Mapping = 6,
             XML = 7,
-            Control = 8
+            Control = 8,
+            DiagnosticData = 9
         }
         /// <summary>
         /// The IPV6 address of the robot
@@ -126,8 +127,11 @@ namespace Dashboard
         /// <summary>
         /// Starts the Listener for netowrk log packets from the robot
         /// </summary>
-        public static void InitComms()
+        private static MainWindow mainWindowInstance;
+        public static void InitComms(MainWindow mw)
         {
+            if (mw != null)
+                mainWindowInstance = mw;
             Logging.LogConsole("Checking for any local internet connection...");
             //https://stackoverflow.com/questions/6803073/get-local-ip-address
             //check if we even have an online connectoin
@@ -268,6 +272,11 @@ namespace Dashboard
                 case 2://robot data
                     Logging.LogRobot((string)e.UserState);
                     break;
+                case 3://diagnostic data
+                    string data = (string)e.UserState;
+                    string[] diagnosticData = data.Split(',');
+                    mainWindowInstance.OnDiagnosticData(diagnosticData);
+                    break;
             }
         }
         /// <summary>
@@ -283,13 +292,13 @@ namespace Dashboard
             {
                 //error occured, should be restarted
                 Disconnect();
-                InitComms();
+                InitComms(null);
             }
             else if (e.Cancelled)
             {
                 //cancel occured, user is resetting the network connections
                 Disconnect();
-                InitComms();
+                InitComms(null);
             }
             else
             {
@@ -435,6 +444,9 @@ namespace Dashboard
                                 break;
                             case MessageType.Exception:
                                 ConnectionManager.ReportProgress(2, "EXCEPTION: " + result.Substring(messageTypeString.Count() + 1));
+                                break;
+                            case MessageType.DiagnosticData:
+                                ConnectionManager.ReportProgress(3, result.Substring(messageTypeString.Count() + 1));
                                 break;
                         }
                     }
@@ -596,6 +608,9 @@ namespace Dashboard
                                 break;
                             case MessageType.Exception:
                                 ConnectionManager.ReportProgress(2, "EXCEPTION: " + result.Substring(messageTypeString.Count() + 1));
+                                break;
+                            case MessageType.DiagnosticData:
+                                ConnectionManager.ReportProgress(3, result.Substring(messageTypeString.Count() + 1));
                                 break;
                         }
                     }

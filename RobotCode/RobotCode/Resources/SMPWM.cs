@@ -88,5 +88,13 @@ namespace RobotCode.Resources
         {
             return _pwmPin.GetActiveDutyCyclePercentage();
         }
+        public int GetSignInt()
+        {
+            return _GPIOPin.Read() == GpioPinValue.High ? 1 : 0;
+        }
+        public bool GetSignBool()
+        {
+            return _GPIOPin.Read() == GpioPinValue.High ? true : false;
+        }
     }
 }

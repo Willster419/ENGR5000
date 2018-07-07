@@ -27,21 +27,21 @@
                                 <ColumnDefinition MaxWidth="60" Width="60*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Channel 0 (Signal Circuit Voltage)" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel0Data" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 1 (Signal Circuit Current)"/>
-                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel1Data" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 2 (Power Circuit Voltage)"/>
-                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel2Data" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 3 (Power Circuit Current)"/>
-                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel3Data" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 4 (Water Level)"/>
-                            <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel4Data" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 5 (Tempature)"/>
-                            <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel5Data" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 6 (Accel)"/>
-                            <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel6Data" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 7(Gyro)"/>
-                            <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Channel7Data" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Drive System" HorizontalAlignment="Left" Height="180" Margin="315,10,0,0" VerticalAlignment="Top" Width="235">
@@ -64,12 +64,12 @@
                             <Label Content="Right Drive Sign"      HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch"/>
                             <Label Content="Right Drive Magnitude" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch"/>
                             <Label Content="Right Drive Encoder"   HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch"/>
-                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="LeftDriveSign" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="LeftDriveMag" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="LeftDriveEncoder" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="RightDriveSign" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="RightDriveMag" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="RightDriveEncoder" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Status" HorizontalAlignment="Left" Height="128" Margin="550,10,0,0" VerticalAlignment="Top" Width="192">
@@ -88,10 +88,10 @@
                             <Label   Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 1 Amps"/>
                             <Label   Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 2 Volts"/>
                             <Label   Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Battery 2 Amps"/>
-                            <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
-                            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
-                            <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
-                            <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox x:FieldModifier="public" x:Name="Battery1Volts" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox x:FieldModifier="public" x:Name="Battery1Amps" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox x:FieldModifier="public" x:Name="Battery2Volts" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
+                            <TextBox x:FieldModifier="public" x:Name="Battery2Amps" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="747,10,0,0" VerticalAlignment="Top" Width="192">

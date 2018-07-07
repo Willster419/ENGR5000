@@ -58,7 +58,7 @@ namespace Dashboard
             Logging.LogConsole("Built on " + GetCompileTime());
             Logging.LogConsole("Initializing network connections");
             Logging.LogRobot("/----------------------------------------------------------------------------------------------------------------------------------\\");
-            NetworkUtils.InitComms();
+            NetworkUtils.InitComms(this);
         }
         /// <summary>
         /// When The application is closed
@@ -114,6 +114,29 @@ namespace Dashboard
         {
             ClearRobotLogOutput_Click(null, null);
             ClearDashboardLogOutput_Click(null, null);
+        }
+
+        public void OnDiagnosticData(string[] data)
+        {
+            int i = 0;
+            Channel0Data.Text = data[i++];
+            Channel1Data.Text = data[i++];
+            Channel2Data.Text = data[i++];
+            Channel3Data.Text = data[i++];
+            Channel4Data.Text = data[i++];
+            Channel5Data.Text = data[i++];
+            Channel6Data.Text = data[i++];
+            Channel7Data.Text = data[i++];
+            LeftDriveSign.Text = data[i++];
+            LeftDriveMag.Text = data[i++];
+            LeftDriveEncoder.Text = data[i++];
+            RightDriveSign.Text = data[i++];
+            RightDriveMag.Text = data[i++];
+            RightDriveEncoder.Text = data[i++];
+            Battery1Volts.Text = data[i++];
+            Battery1Amps.Text = data[i++];
+            Battery2Volts.Text = data[i++];
+            Battery2Amps.Text = data[i++];
         }
     }
 }

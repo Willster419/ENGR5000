@@ -35,7 +35,8 @@ namespace RobotCode
             Exception = 5,
             Mapping = 6,
             XML = 7,
-            Control = 8
+            Control = 8,
+            DiagnosticData = 9
         }
         /// <summary>
         /// The IPV6 address of the robot
@@ -102,6 +103,10 @@ namespace RobotCode
         /// The timer to send the heartbeats at 1 second invervals to the dashboard
         /// </summary>
         private static System.Timers.Timer HeartbeatTimer = null;
+        /// <summary>
+        /// The timer to send diagnostic robot data
+        /// </summary>
+        private static System.Timers.Timer DiagnosticTimer = null;
         /// <summary>
         /// The Netwokring thread for all initialization and revieving of network data
         /// </summary>
@@ -187,6 +192,17 @@ namespace RobotCode
                 HeartbeatTimer.Elapsed += OnHeartbeatTick;
             }
             HeartbeatTimer.Stop();
+            if (DiagnosticTimer == null)
+            {
+                DiagnosticTimer = new System.Timers.Timer()
+                {
+                    AutoReset = true,
+                    Enabled = true,
+                    Interval = 20
+                };
+                DiagnosticTimer.Elapsed += SendDiagnosticData;
+            }
+            DiagnosticTimer.Stop();
             if (ConnectionManager == null)
             {
                 ConnectionManager = new BackgroundWorker()
@@ -210,7 +226,7 @@ namespace RobotCode
             NetworkPin = GPIO.Pins[1];
             NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
             return true;
-        }        
+        }
         /// <summary>
         /// When the network thread is exiting
         /// </summary>
@@ -259,10 +275,12 @@ namespace RobotCode
                 {
                     e.Cancel = true;
                     HeartbeatTimer.Stop();
+                    DiagnosticTimer.Stop();
                     return;
                 }
                 //verify stop the timer
                 HeartbeatTimer.Stop();
+                DiagnosticTimer.Stop();
                 //setup and bind listener
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotRecieverUDPClient = new UdpClient();
@@ -279,6 +297,7 @@ namespace RobotCode
                     {
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     try
@@ -324,6 +343,7 @@ namespace RobotCode
                     {
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     try
@@ -341,6 +361,7 @@ namespace RobotCode
                 //start to send heartbeats
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
+                DiagnosticTimer.Start();
                 ConnectionLive = true;
                 NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                 if(RecoveredException != null)
@@ -355,6 +376,7 @@ namespace RobotCode
                     {
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     try
@@ -370,6 +392,7 @@ namespace RobotCode
                         NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     int messageTypeInt = -1;
@@ -406,10 +429,12 @@ namespace RobotCode
                 {
                     e.Cancel = true;
                     HeartbeatTimer.Stop();
+                    DiagnosticTimer.Stop();
                     return;
                 }
                 //verify stop the timer
                 HeartbeatTimer.Stop();
+                DiagnosticTimer.Stop();
                 //setup and bind listener
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotRecieverPort);
                 RobotReceiverTCPListener = new TcpListener(RobotRecieverIPEndPoint);
@@ -427,6 +452,7 @@ namespace RobotCode
                     {
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     try
@@ -464,6 +490,7 @@ namespace RobotCode
                     {
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     try
@@ -497,6 +524,7 @@ namespace RobotCode
                 NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
+                DiagnosticTimer.Start();
                 if (RecoveredException != null)
                 {
                     LogNetwork("The network thread just recovered from an exception level event\n" + RecoveredException.ToString(), MessageType.Exception);
@@ -510,6 +538,7 @@ namespace RobotCode
                     {
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
+                        DiagnosticTimer.Stop();
                         return;
                     }
                     result = TCPRecieve(RobotRecieverTCPClient);
@@ -564,6 +593,34 @@ namespace RobotCode
                     }
                 }
             }
+        }
+        private static void SendDiagnosticData(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            //collect and send diagnostic robot data to the dashboard
+            if (!ConnectionLive || !RobotController.SystemOnline)
+                return;
+            string[] diagnosticData = new string[]
+            {
+                GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
+                GPIO.ReadVoltage(GPIO.SIGNAL_CURRENT_MONITOR_CHANEL,true,2).ToString(),
+                GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
+                GPIO.ReadVoltage(GPIO.POWER_CURRENT_MONITOR_CHANNEL,true,2).ToString(),
+                GPIO.ReadVoltage(GPIO.WATER_LEVEL_CHANNEL,true,2).ToString(),
+                GPIO.ReadVoltage(GPIO.TEMPATURE_CHANNEL,true,2).ToString(),
+                "",
+                "",
+                GPIO.leftDrive == null? "null" : GPIO.leftDrive.GetSignInt().ToString(),
+                GPIO.leftDrive == null? "null" : GPIO.leftDrive.GetActiveDutyCyclePercentage().ToString(),
+                GPIO.leftDrive == null? "null" : "",
+                GPIO.rightDrive == null? "null" : GPIO.rightDrive.GetSignInt().ToString(),
+                GPIO.rightDrive == null? "null" : GPIO.rightDrive.GetActiveDutyCyclePercentage().ToString(),
+                GPIO.rightDrive == null? "null" : "",
+                "",
+                "",
+                "",
+                "",
+            };
+            LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }
         /// <summary>
         /// Send a string of information over the network to the dashboard
