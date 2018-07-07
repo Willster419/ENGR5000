@@ -107,7 +107,6 @@ namespace Dashboard
         private void ResetNetworkConnection_Click(object sender, RoutedEventArgs e)
         {
             Logging.LogConsole("Resetting network connections...");
-            //NetworkUtils.Disconnect();
             NetworkUtils.ConnectionManager.CancelAsync();
         }
 
