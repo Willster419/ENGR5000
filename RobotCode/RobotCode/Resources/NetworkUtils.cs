@@ -599,6 +599,8 @@ namespace RobotCode
             //collect and send diagnostic robot data to the dashboard
             if (!ConnectionLive || !RobotController.SystemOnline)
                 return;
+            GPIO.SignalVoltage = MathF.Round(GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) * GPIO.SIGNAL_VOLTAGE_MULTIPLIER,2);
+            GPIO.PowerVoltage = MathF.Round(GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * GPIO.POWER_VOLTAGE_MULTIPLIER,2);
             string[] diagnosticData = new string[]
             {
                 GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
@@ -609,15 +611,15 @@ namespace RobotCode
                 GPIO.ReadVoltage(GPIO.TEMPATURE_CHANNEL,true,2).ToString(),
                 "",
                 "",
-                GPIO.leftDrive == null? "null" : GPIO.leftDrive.GetSignInt().ToString(),
-                GPIO.leftDrive == null? "null" : GPIO.leftDrive.GetActiveDutyCyclePercentage().ToString(),
-                GPIO.leftDrive == null? "null" : "",
-                GPIO.rightDrive == null? "null" : GPIO.rightDrive.GetSignInt().ToString(),
-                GPIO.rightDrive == null? "null" : GPIO.rightDrive.GetActiveDutyCyclePercentage().ToString(),
-                GPIO.rightDrive == null? "null" : "",
+                GPIO.leftDrive.GetSignInt().ToString(),
+                GPIO.leftDrive.GetActiveDutyCyclePercentage().ToString(),
                 "",
+                GPIO.rightDrive.GetSignInt().ToString(),
+                GPIO.rightDrive.GetActiveDutyCyclePercentage().ToString(),
                 "",
+                GPIO.SignalVoltage.ToString(),//signal voltage
                 "",
+                GPIO.PowerVoltage.ToString(),//power voltage
                 "",
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
