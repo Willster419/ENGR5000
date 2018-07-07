@@ -118,7 +118,7 @@ namespace Dashboard
         /// <summary>
         /// Ignore the timeout from the networking (for example, from a step by step debug session)
         /// </summary>
-        private static bool DEBUG_IGNORE_TIMEOUT = true;
+        private static bool DEBUG_IGNORE_TIMEOUT = false;
         /// <summary>
         /// Toggle TCP connection mode
         /// </summary>
@@ -180,7 +180,6 @@ namespace Dashboard
             p.SendAsync(RobotNetworkName, null);
             Logging.LogRobot("Dashboard: Ping sent, waiting for ping respone from robot...");
         }
-
         /// <summary>
         /// Event hander for when the async ping completes
         /// </summary>
@@ -198,6 +197,39 @@ namespace Dashboard
             else
             {
                 Logging.LogConsole("Ping SUCCESS, getting IP v4 and v6 addresses");
+                bool IPV6Parsed = false;
+                bool IPV4Parsed = false;
+                while (!IPV6Parsed && !IPV4Parsed)
+                {
+                    foreach (IPAddress ip in Dns.GetHostAddresses(RobotNetworkName))
+                    {
+                        if (ip.AddressFamily == AddressFamily.InterNetworkV6 && !IPV6Parsed)
+                        {
+                            Logging.LogConsole("Parsed IPV6 address: " + ip.ToString());
+                            RobotIPV6Address = ip.ToString();
+                            IPV6Parsed = true;
+                        }
+                        else if (ip.AddressFamily == AddressFamily.InterNetwork && !IPV4Parsed)
+                        {
+                            Logging.LogConsole("Parsed IPV4 address: " + ip.ToString());
+                            RobotIPV4Address = ip.ToString();
+                            IPV4Parsed = true;
+                        }
+                    }
+                }
+                //setup the timer (but don't start it yet)
+                //NOTE: is is on the UI thread
+                if (HeartbeatTimer == null)
+                {
+                    HeartbeatTimer = new System.Timers.Timer()
+                    {
+                        AutoReset = true,
+                        Enabled = true,
+                        Interval = 1000
+                    };
+                    HeartbeatTimer.Elapsed += OnHeartbeatTick;
+                }
+                HeartbeatTimer.Stop();
                 //create the backround thread for networking. Allows for blocking calls for recieve()
                 if (ConnectionManager == null)
                 {
@@ -218,19 +250,6 @@ namespace Dashboard
                     ConnectionManager.RunWorkerCompleted += OnWorkComplete;
                 }
                 ConnectionManager.RunWorkerAsync();
-                //setup the timer (but don't start it yet)
-                //NOTE: is is on the UI thread
-                if (HeartbeatTimer == null)
-                {
-                    HeartbeatTimer = new System.Timers.Timer()
-                    {
-                        AutoReset = true,
-                        Enabled = true,
-                        Interval = 1000
-                    };
-                    HeartbeatTimer.Elapsed += OnHeartbeatTick;
-                }
-                HeartbeatTimer.Stop();
             }
         }
         /// <summary>
@@ -283,7 +302,7 @@ namespace Dashboard
             }
         }
         /// <summary>
-        /// The main worker method for the networking thread
+        /// The main worker method for the networking thread, UDP method
         /// </summary>
         /// <param name="sender">The BackgroundWorker object</param>
         /// <param name="e">The event args</param>
@@ -300,26 +319,6 @@ namespace Dashboard
                     return;
                 }
                 HeartbeatTimer.Stop();
-                bool IPV6Parsed = false;
-                bool IPV4Parsed = false;
-                while (!IPV6Parsed && !IPV4Parsed)
-                {
-                    foreach (IPAddress ip in Dns.GetHostAddresses(RobotNetworkName))
-                    {
-                        if (ip.AddressFamily == AddressFamily.InterNetworkV6 && !IPV6Parsed)
-                        {
-                            ConnectionManager.ReportProgress(1, "Parsed IPV6 address: " + ip.ToString());
-                            RobotIPV6Address = ip.ToString();
-                            IPV6Parsed = true;
-                        }
-                        else if (ip.AddressFamily == AddressFamily.InterNetwork && !IPV4Parsed)
-                        {
-                            ConnectionManager.ReportProgress(1, "Parsed IPV4 address: " + ip.ToString());
-                            RobotIPV4Address = ip.ToString();
-                            IPV4Parsed = true;
-                        }
-                    }
-                }
                 //we now have all data we need to start sending heartbeats
                 //bind the robot socket and start the background listener
                 ConnectionManager.ReportProgress(2, "Dashboard: Robot found, binding socket and listening for events");
@@ -328,6 +327,8 @@ namespace Dashboard
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(DashboardIPV4Address), RobotRecieverPort);
                 RobotRecieverUDPClient = new UdpClient();
                 RobotRecieverUDPClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+                RobotRecieverUDPClient.Client.SendTimeout = 5000;
+                RobotRecieverUDPClient.Client.ReceiveTimeout = 5000;
                 RobotRecieverUDPClient.Client.Bind(RobotRecieverIPEndPoint);
                 //setup and bind sender
                 ConnectionManager.ReportProgress(1, "Binding robot sender to address " + RobotIPV4Address);
@@ -337,19 +338,52 @@ namespace Dashboard
                 RobotSenderUDPClient.Client.ReceiveTimeout = 5000;
                 RobotSenderUDPClient.Client.SendTimeout = 5000;
                 ConnectionManager.ReportProgress(1, "Connecting to robot...");
-                RobotSenderUDPClient.Connect(RobotSenderIPEndPoint);
-                ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot...");
-                //wait for the robot to respond
-                string result = "";
-                result = Encoding.UTF8.GetString(RobotRecieverUDPClient.Receive(ref RobotRecieverIPEndPoint));
-                ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
-                ConnectionLive = true;
-                if (!DEBUG_IGNORE_TIMEOUT)
+                bool robotConnected = false;
+                while(!robotConnected)
                 {
-                    RobotRecieverUDPClient.Client.SendTimeout = 5000;
-                    RobotRecieverUDPClient.Client.ReceiveTimeout = 5000;
+                    if (ConnectionManager.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        HeartbeatTimer.Stop();
+                        return;
+                    }
+                    try
+                    {
+                        RobotSenderUDPClient.Connect(RobotSenderIPEndPoint);
+                        robotConnected = true;
+                    }
+                    catch(Exception)
+                    {
+
+                    }
                 }
+                //wait for the robot to respond
+                ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot and waiting for response...");
+                bool robotResponded = false;
+                string result = null;
+                while (!robotResponded)
+                {
+                    if (ConnectionManager.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        HeartbeatTimer.Stop();
+                        return;
+                    }
+                    try
+                    {
+                        RobotSenderUDPClient.Send(Encoding.UTF8.GetBytes(DashboardIPV4Address), Encoding.UTF8.GetByteCount(DashboardIPV4Address));
+                        result = Encoding.UTF8.GetString(RobotRecieverUDPClient.Receive(ref RobotRecieverIPEndPoint));//should be "ack"
+                        robotResponded = true;
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+                ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
                 NumHeartbeatsSent = 0;
+                HeartbeatTimer.Start();
+                ConnectionLive = true;
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
                 while (ConnectionLive)
@@ -366,16 +400,15 @@ namespace Dashboard
                     }
                     catch (SocketException)
                     {
+                        if (DEBUG_IGNORE_TIMEOUT && !DEBUG_TCP_TEST)
+                            continue;
                         //robot has disconnected!
                         ConnectionLive = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
-                        RobotRecieverUDPClient.Close();
-                        RobotRecieverUDPClient.Dispose();
-                        RobotRecieverUDPClient = null;
-                        RobotSenderUDPClient.Close();
-                        RobotSenderUDPClient.Dispose();
-                        RobotSenderUDPClient = null;
+                        e.Cancel = true;
+                        HeartbeatTimer.Stop();
+                        return;
                     }
                     int messageTypeInt = -1;
                     //first part of the message will always be a number describing the type of the message
@@ -400,20 +433,23 @@ namespace Dashboard
                             case MessageType.Error:
                                 ConnectionManager.ReportProgress(2, "ERROR: " + result.Substring(messageTypeString.Count() + 1));
                                 break;
+                            case MessageType.Exception:
+                                ConnectionManager.ReportProgress(2, "EXCEPTION: " + result.Substring(messageTypeString.Count() + 1));
+                                break;
                         }
                     }
 
                 }
             }
         }
-
+        /// <summary>
+        /// The main worker method for the networking thread, TCP method
+        /// </summary>
+        /// <param name="sender">The BackgroundWorker object</param>
+        /// <param name="e">The event args</param>
         private static void ManageConnections_tcp(object sender, DoWorkEventArgs e)
         {
-            //initial worker state:
-            //set the connection status false
-            //start the sender thread
             ConnectionLive = false;
-            HeartbeatTimer.Start();
             while (true)
             {
                 if (ConnectionManager.CancellationPending)
@@ -422,30 +458,10 @@ namespace Dashboard
                     HeartbeatTimer.Stop();
                     return;
                 }
-                bool IPV6Parsed = false;
-                bool IPV4Parsed = false;
-                while (!IPV6Parsed && !IPV4Parsed)
-                {
-                    foreach (IPAddress ip in Dns.GetHostAddresses(RobotNetworkName))
-                    {
-                        if (ip.AddressFamily == AddressFamily.InterNetworkV6 && !IPV6Parsed)
-                        {
-                            ConnectionManager.ReportProgress(1, "Parsed IPV6 address: " + ip.ToString());
-                            RobotIPV6Address = ip.ToString();
-                            IPV6Parsed = true;
-                        }
-                        else if (ip.AddressFamily == AddressFamily.InterNetwork && !IPV4Parsed)
-                        {
-                            ConnectionManager.ReportProgress(1, "Parsed IPV4 address: " + ip.ToString());
-                            RobotIPV4Address = ip.ToString();
-                            IPV4Parsed = true;
-                        }
-                    }
-                }
-                //we now have all data we need to start sending heartbeats
-                //bind the robot socket and start the background listener
-
+                //stop the timer
+                HeartbeatTimer.Stop();
                 //setup and bind listenr
+                ConnectionManager.ReportProgress(2, "Dashboard: Robot found, binding socket and listening for events");
                 ConnectionManager.ReportProgress(1, string.Format("Binding robot listener to address {0}, port {1}", DashboardIPV4Address, RobotRecieverPort));
                 RobotRecieverIPEndPoint = new IPEndPoint(IPAddress.Parse(DashboardIPV4Address), RobotRecieverPort);
                 RobotReceiverTCPListener = new TcpListener(RobotRecieverIPEndPoint);
@@ -456,7 +472,6 @@ namespace Dashboard
                 //also from example, server = receiver
                 //cannot accept yet, because accept is blocking and it needs to send it's ip address
                 RobotReceiverTCPListener.Start();
-
                 //setup and bind sender
                 ConnectionManager.ReportProgress(1, string.Format("Binding robot sender to address {0}, port {1}", RobotIPV4Address, RobotSenderPort));
                 RobotSenderIPEndPoint = new IPEndPoint(IPAddress.Parse(RobotIPV4Address), RobotSenderPort);
@@ -488,7 +503,7 @@ namespace Dashboard
                 ConnectionManager.ReportProgress(1, "Sending IP address of dashboard to robot...");
                 RobotSenderTCPStream = RobotSenderTCPClient.GetStream();
                 TCPSend(RobotSenderTCPStream, DashboardIPV4Address);
-                if (!DEBUG_IGNORE_TIMEOUT)//TODO: ignore heartbeats instead of ignoring timeouts??
+                if (!DEBUG_IGNORE_TIMEOUT)
                 {
                     RobotReceiverTCPListener.Server.SendTimeout = 5000;
                     RobotReceiverTCPListener.Server.ReceiveTimeout = 5000;
@@ -516,8 +531,10 @@ namespace Dashboard
 
                     }
                 }
+                ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
                 ConnectionLive = true;
                 NumHeartbeatsSent = 0;
+                HeartbeatTimer.Start();
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
                 //TODO: see if TCP will provide more reliability for packet delivery
@@ -531,19 +548,15 @@ namespace Dashboard
                         return;
                     }
                     result = TCPRecieve(RobotRecieverTCPClient);
-
                     if (result == null)
                     {
                         //robot has disconnected!
                         ConnectionLive = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
-                        //Disconnect();
-                        //break;
                         e.Cancel = true;
                         return;
                     }
-                    
                     int messageTypeInt = -1;
                     //first part of the message will always be a number describing the type of the message
                     string messageTypeString = result.Split(',')[0];
@@ -566,6 +579,9 @@ namespace Dashboard
                                 break;
                             case MessageType.Error:
                                 ConnectionManager.ReportProgress(2, "ERROR: " + result.Substring(messageTypeString.Count() + 1));
+                                break;
+                            case MessageType.Exception:
+                                ConnectionManager.ReportProgress(2, "EXCEPTION: " + result.Substring(messageTypeString.Count() + 1));
                                 break;
                         }
                     }
@@ -595,7 +611,9 @@ namespace Dashboard
                 }
             }
         }
-
+        /// <summary>
+        /// Closes all network connections and releases all rescources used by the system
+        /// </summary>
         public static void Disconnect()
         {
             if (DEBUG_TCP_TEST)
@@ -652,7 +670,24 @@ namespace Dashboard
             }
             else
             {
-
+                Logging.LogConsole("Closing reciever");
+                if(RobotRecieverUDPClient != null)
+                {
+                    if (RobotRecieverUDPClient.Client.Connected)
+                        RobotRecieverUDPClient.Client.Disconnect(true);
+                    RobotRecieverUDPClient.Client.Dispose();
+                    RobotRecieverUDPClient.Close();
+                    RobotRecieverUDPClient.Dispose();
+                    RobotRecieverUDPClient = null;
+                }
+                Logging.LogConsole("Closing Sender");
+                if(RobotSenderUDPClient != null)
+                {
+                    RobotSenderUDPClient.Client.Dispose();
+                    RobotSenderUDPClient.Close();
+                    RobotSenderUDPClient.Dispose();
+                    RobotSenderUDPClient = null;
+                }
             }
         }
         /// <summary>
@@ -663,17 +698,20 @@ namespace Dashboard
         /// <returns></returns>
         public static bool TCPSend(NetworkStream ns, string s)
         {
-            Byte[] data = Encoding.UTF8.GetBytes(s);
-            try
+            lock (NetworkSenderLocker)
             {
-                ns.Write(data, 0, data.Length);
-                //send was sucessfull
-                return true;
-            }
-            catch
-            {
-                //MAYBE put disconnected here?
-                return false;
+                Byte[] data = Encoding.UTF8.GetBytes(s);
+                try
+                {
+                    ns.Write(data, 0, data.Length);
+                    //send was sucessfull
+                    return true;
+                }
+                catch
+                {
+                    //MAYBE put disconnected here?
+                    return false;
+                }
             }
         }
         /// <summary>
@@ -683,7 +721,7 @@ namespace Dashboard
         /// <returns></returns>
         public static string TCPRecieve(TcpClient clinet)
         {
-            Byte[] data = new Byte[256];
+            Byte[] data = new Byte[4096];
             try
             {
                 return Encoding.UTF8.GetString(data, 0, clinet.GetStream().Read(data, 0, data.Length));
