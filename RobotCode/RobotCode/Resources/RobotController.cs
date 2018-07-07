@@ -193,7 +193,7 @@ namespace RobotCode
                     GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5F);
                     GPIO.Pins[3].Write(GpioPinValue.Low);
                 }
-                System.Threading.Thread.Sleep(50);
+                System.Threading.Thread.Sleep(20);
             }
         }
         private static void ControlRobotAuto(object sender, DoWorkEventArgs e)

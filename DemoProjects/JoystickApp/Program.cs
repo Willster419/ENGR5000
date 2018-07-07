@@ -71,6 +71,7 @@ namespace EnumDevicesApp
 
             // Set BufferSize in order to use buffered data.
             joystick.Properties.BufferSize = 128;
+            joystick.Properties.DeadZone = 1500;
 
             // Acquire the joystick
             joystick.Acquire();

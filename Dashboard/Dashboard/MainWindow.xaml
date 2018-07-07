@@ -72,7 +72,7 @@
                             <TextBox x:FieldModifier="public" x:Name="RightDriveEncoder" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Status" HorizontalAlignment="Left" Height="128" Margin="550,10,0,0" VerticalAlignment="Top" Width="192">
+                    <GroupBox Header="Status" HorizontalAlignment="Left" Height="128" Margin="315,195,0,0" VerticalAlignment="Top" Width="235">
                         <Grid Background="#FFE5E5E5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -94,10 +94,61 @@
                             <TextBox x:FieldModifier="public" x:Name="Battery2Amps" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="747,10,0,0" VerticalAlignment="Top" Width="192">
+                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="10,234,0,0" VerticalAlignment="Top" Width="300">
                         <Grid Background="#FFE5E5E5">
                             <Button x:Name="ResetNetworkConnection" Content="Reset Network Connection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="10,35,0,0" Click="ResetNetworkConnection_Click"/>
                             <Button x:Name="ClearBothlogDisplays" Content="Clear log displays" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Click="ClearBothlogDisplays_Click"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Manual Control" HorizontalAlignment="Left" Height="271" Margin="555,10,0,0" VerticalAlignment="Top" Width="483">
+                        <Grid Background="#FFE5E5E5">
+                            <CheckBox x:Name="ManualControlToggle" x:FieldModifier="public" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="ManualControlToggle_Checked" Unchecked="ManualControlToggle_Unchecked"/>
+                            <GroupBox Header="Button Control" HorizontalAlignment="Left" Height="150" Margin="10,36,0,0" VerticalAlignment="Top" Width="150">
+                                <Grid Background="#FFE5E5E5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveUpButton"    Content="Up"/>
+                                    <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveLeftButton"  Content="Left"/>
+                                    <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveRightButton" Content="Right"/>
+                                    <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveDownButton"  Content="Down"/>
+                                    <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveMotorButton" Content="Motor"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Keyboard Control" HorizontalAlignment="Left" Height="57" Margin="165,84,0,0" VerticalAlignment="Top" Width="150">
+                                <Grid Background="#FFE5E5E5">
+                                    <TextBox x:Name="KeyboardControl" x:FieldModifier="public" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Use arrow keys here..." VerticalAlignment="Stretch" IsReadOnly="True"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Joystick Control" HorizontalAlignment="Left" Height="60" Margin="165,146,0,0" VerticalAlignment="Top" Width="150">
+                                <ComboBox x:Name="Joysticks" HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Width="140" SelectionChanged="Joysticks_SelectionChanged"/>
+                            </GroupBox>
+                            <GroupBox Header="Output" HorizontalAlignment="Left" Height="94" Margin="361,36,0,0" VerticalAlignment="Top" Width="88">
+                                <Grid Background="#FFE5E5E5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="45*" MaxWidth="45" MinWidth="45"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Content="Left"/>
+                                    <Label HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Content="Right"/>
+                                    <Label HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Content="Motor"/>
+                                    <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="OutputRight" x:FieldModifier="public"/>
+                                    <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="OutputLeft"  x:FieldModifier="public"/>
+                                    <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="OutputMotor" x:FieldModifier="public"/>
+                                </Grid>
+                            </GroupBox>
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -117,55 +168,6 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" x:Name="MapTab"/>
-            <TabItem Header="Manual Control" x:Name="ManualControlTab">
-                <Grid Background="#FFE5E5E5">
-                    <CheckBox x:Name="ManualControlToggle" x:FieldModifier="public" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="ManualControlToggle_Checked" Unchecked="ManualControlToggle_Unchecked"/>
-                    <GroupBox Header="Button Control" HorizontalAlignment="Left" Height="150" Margin="10,36,0,0" VerticalAlignment="Top" Width="150">
-                        <Grid Background="#FFE5E5E5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveUpButton"    Content="Up"/>
-                            <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveLeftButton"  Content="Left"/>
-                            <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveRightButton" Content="Right"/>
-                            <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveDownButton"  Content="Down"/>
-                            <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveMotorButton" Content="Motor"/>
-                        </Grid>
-                    </GroupBox>
-                    <GroupBox Header="Keyboard Control" HorizontalAlignment="Left" Height="57" Margin="165,96,0,0" VerticalAlignment="Top" Width="150">
-                        <Grid Background="#FFE5E5E5">
-                            <TextBox x:Name="KeyboardControl" x:FieldModifier="public" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Use arrow keys here..." VerticalAlignment="Stretch" IsReadOnly="True"/>
-                        </Grid>
-                    </GroupBox>
-                    <GroupBox Header="Joystick Control" HorizontalAlignment="Left" Height="60" Margin="165,36,0,0" VerticalAlignment="Top" Width="150">
-                        <ComboBox x:Name="Joysticks" HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Width="140" SelectionChanged="Joysticks_SelectionChanged"/>
-                    </GroupBox>
-                    <GroupBox Header="Output" HorizontalAlignment="Left" Height="71" Margin="320,36,0,0" VerticalAlignment="Top" Width="87">
-                        <Grid Background="#FFE5E5E5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25*" MaxWidth="25" MinWidth="25"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Label HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Content="X="/>
-                            <Label HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Content="Y="/>
-                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True"/>
-                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True"/>
-
-                        </Grid>
-                    </GroupBox>
-                </Grid>
-            </TabItem>
         </TabControl>
 
     </Grid>

@@ -643,10 +643,10 @@ namespace RobotCode
                 "",
                 "",
                 GPIO.leftDrive.GetSignInt().ToString(),
-                GPIO.leftDrive.GetActiveDutyCyclePercentage().ToString(),
+                Math.Round(GPIO.leftDrive.GetActiveDutyCyclePercentage(),2).ToString(),
                 "",
                 GPIO.rightDrive.GetSignInt().ToString(),
-                GPIO.rightDrive.GetActiveDutyCyclePercentage().ToString(),
+                Math.Round(GPIO.rightDrive.GetActiveDutyCyclePercentage(),2).ToString(),
                 "",
                 GPIO.SignalVoltage.ToString(),//signal voltage
                 "",
