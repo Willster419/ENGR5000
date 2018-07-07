@@ -119,7 +119,7 @@
             <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" x:Name="MapTab"/>
             <TabItem Header="Manual Control" x:Name="ManualControlTab">
                 <Grid Background="#FFE5E5E5">
-                    <CheckBox x:Name="ManualControlToggle" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="ManualControlToggle" x:FieldModifier="public" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="ManualControlToggle_Checked" Unchecked="ManualControlToggle_Unchecked"/>
                     <GroupBox Header="Button Control" HorizontalAlignment="Left" Height="150" Margin="10,36,0,0" VerticalAlignment="Top" Width="150">
                         <Grid Background="#FFE5E5E5">
                             <Grid.RowDefinitions>
@@ -132,20 +132,20 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveUpButton" Content="Up"/>
-                            <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveLeftButton" Content="Left"/>
-                            <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveRightButton" Content="Right"/>
-                            <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="DriveDownButton" Content="Down"/>
-
+                            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveUpButton"    Content="Up"/>
+                            <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveLeftButton"  Content="Left"/>
+                            <Button Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveRightButton" Content="Right"/>
+                            <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveDownButton"  Content="Down"/>
+                            <Button Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public" x:Name="DriveMotorButton" Content="Motor"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Keyboard Control" HorizontalAlignment="Left" Height="57" Margin="165,96,0,0" VerticalAlignment="Top" Width="150">
                         <Grid Background="#FFE5E5E5">
-                            <TextBox x:Name="KeyboardControl" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Use arrow keys here..." VerticalAlignment="Stretch" IsReadOnly="True"/>
+                            <TextBox x:Name="KeyboardControl" x:FieldModifier="public" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Use arrow keys here..." VerticalAlignment="Stretch" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Joystick Control" HorizontalAlignment="Left" Height="60" Margin="165,36,0,0" VerticalAlignment="Top" Width="150">
-                        <ComboBox HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Width="140"/>
+                        <ComboBox x:Name="Joysticks" HorizontalAlignment="Left" Margin="0,10,-2,0" VerticalAlignment="Top" Width="140" SelectionChanged="Joysticks_SelectionChanged"/>
                     </GroupBox>
                     <GroupBox Header="Output" HorizontalAlignment="Left" Height="71" Margin="320,36,0,0" VerticalAlignment="Top" Width="87">
                         <Grid Background="#FFE5E5E5">

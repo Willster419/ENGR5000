@@ -143,6 +143,7 @@ namespace RobotCode
         /// <summary>
         /// Initializes the robot, network-wise
         /// </summary>
+        public static string ManualControlCommands = "";
         public static bool InitComms()
         {
             //get the devices IP address
@@ -406,7 +407,22 @@ namespace RobotCode
                                 //do nothing
                                 break;
                             case MessageType.Control:
-                                //TODO: manually control the robot
+                                string controlMessage = result.Substring(messageTypeString.Count() + 1);
+                                if (!controlMessage.Equals(ManualControlCommands))
+                                {
+                                    //assuming thread access is atomic...
+                                    ManualControlCommands = controlMessage;
+                                    if(ManualControlCommands.Equals("Start"))
+                                    {
+                                        RobotController.RobotControlStatus = ControlStatus.RequestManual;
+                                        RobotController.ControllerThread.CancelAsync();
+                                    }
+                                    else if(ManualControlCommands.Equals("Stop"))
+                                    {
+                                        RobotController.RobotControlStatus = ControlStatus.RelaseManual;
+                                        RobotController.ControllerThread.CancelAsync();
+                                    }
+                                }
                                 break;
                         }
                     }
@@ -566,7 +582,22 @@ namespace RobotCode
                                 //do nothing
                                 break;
                             case MessageType.Control:
-                                //TODO: manually control the robot
+                                string controlMessage = result.Substring(messageTypeString.Count() + 1);
+                                if (!controlMessage.Equals(ManualControlCommands))
+                                {
+                                    //assuming thread access is atomic...
+                                    ManualControlCommands = controlMessage;
+                                    if (ManualControlCommands.Equals("Start"))
+                                    {
+                                        RobotController.RobotControlStatus = ControlStatus.RequestManual;
+                                        RobotController.ControllerThread.CancelAsync();
+                                    }
+                                    else if (ManualControlCommands.Equals("Stop"))
+                                    {
+                                        RobotController.RobotControlStatus = ControlStatus.RelaseManual;
+                                        RobotController.ControllerThread.CancelAsync();
+                                    }
+                                }
                                 break;
                         }
                     }

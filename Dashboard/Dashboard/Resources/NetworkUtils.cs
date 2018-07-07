@@ -640,6 +640,36 @@ namespace Dashboard
                 }
             }
         }
+        public static bool SendRobotMesage(MessageType messageType, string message)
+        {
+            if (!ConnectionLive)
+                return false;
+            string messageSend = (int)messageType + "," + message;
+            if (DEBUG_TCP_TEST)
+            {
+                if (RobotSenderTCPClient == null)
+                    return false;
+                if(!TCPSend(RobotSenderTCPStream, messageSend))
+                    return false;
+            }
+            else
+            {
+                if (RobotSenderUDPClient == null)
+                    return false;
+                lock (NetworkSenderLocker)
+                {
+                    try
+                    {
+                        RobotSenderUDPClient.Send(Encoding.UTF8.GetBytes(messageSend), Encoding.UTF8.GetByteCount(messageSend));
+                    }
+                    catch(Exception)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         /// <summary>
         /// Closes all network connections and releases all rescources used by the system
         /// </summary>

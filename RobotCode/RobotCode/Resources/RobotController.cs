@@ -41,6 +41,17 @@ namespace RobotCode
         //may also happen upon robot start, means critical level of signal circuit
         Below5Shutdown = 1
     }
+    public enum ControlStatus
+    {
+        None = 0,
+        RequestManual = 1,
+        Manual = 2,
+        RelaseManual = 3,
+        Mapping = 4,
+        Cleaning = 5,
+        Docking = 6,//*lennyface*
+        LowPowerWait = 7
+    }
     /// <summary>
     /// The Class responsible for controlling the robot and handling robot status information
     /// </summary>
@@ -56,7 +67,8 @@ namespace RobotCode
         public static RobotStatus @RobotStatus = RobotStatus.Idle;
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
-        private static BackgroundWorker ControllerThread;
+        public static ControlStatus RobotControlStatus = ControlStatus.None;
+        public static BackgroundWorker ControllerThread;
         public static bool SystemOnline = false;
         public static bool InitController()
         {
@@ -98,21 +110,18 @@ namespace RobotCode
             statusIndicators[2].TimeToStop = (int)GPIO.UpdatePowerBatteryStatus() * 2;
             statusIndicators[2].Tick += OnStatusTick;
             statusIndicators[2].Start();
-
+            //TODO: status indicator for what the robot control is doing
             ControllerThread = new BackgroundWorker()
             {
-                WorkerSupportsCancellation = false,
+                WorkerSupportsCancellation = true,
                 WorkerReportsProgress = true
             };
             ControllerThread.RunWorkerCompleted += OnWorkCompleted;
             ControllerThread.ProgressChanged += ControllerLogProgress;
-            ControllerThread.DoWork += ControlRobot;
+            ControllerThread.DoWork += ControlRobotAuto;
             ControllerThread.RunWorkerAsync();
             return true;
         }
-
-        
-
         private static void OnStatusTick(object sender, object e)
         {
             StatusIndicator SI = (StatusIndicator)sender;
@@ -154,19 +163,54 @@ namespace RobotCode
             SI.TimeThrough++;
         }
 
-        private static void ControlRobot(object sender, DoWorkEventArgs e)
+        private static void ControlRobotManual(object sender, DoWorkEventArgs e)
         {
+            //https://social.msdn.microsoft.com/Forums/vstudio/en-US/42e694a0-843a-4f7f-81bc-69e1ae662e9f/how-to-lower-the-thread-priority?forum=csharpgeneral
+            if (System.Threading.Thread.CurrentThread.Priority != System.Threading.ThreadPriority.Highest)
+            {
+                System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Highest;
+            }
+            NetworkUtils.LogNetwork("Manual control method starting", NetworkUtils.MessageType.Debug);
             while (true)
             {
-                GPIO.leftDrive.SetActiveDutyCyclePercentage(0.4);
-                GPIO.rightDrive.SetActiveDutyCyclePercentage(0.4);
-                System.Threading.Thread.Sleep(1000);
-                GPIO.leftDrive.SetActiveDutyCyclePercentage(0.6);
-                GPIO.rightDrive.SetActiveDutyCyclePercentage(0.6);
-                System.Threading.Thread.Sleep(1000);
-                GPIO.leftDrive.SetActiveDutyCyclePercentage(0.5);
-                GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5);
-                System.Threading.Thread.Sleep(500);
+                if(ControllerThread.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                //parse the write the commands
+                string[] commands = NetworkUtils.ManualControlCommands.Split(',');
+                //left (float), right (float), motor (bool)
+                try
+                {
+                    GPIO.leftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
+                    GPIO.rightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
+                    GPIO.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.High : GpioPinValue.Low);
+                }
+                catch
+                {
+                    GPIO.leftDrive.SetActiveDutyCyclePercentage(0.5F);
+                    GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    GPIO.Pins[3].Write(GpioPinValue.Low);
+                }
+                System.Threading.Thread.Sleep(50);
+            }
+        }
+        private static void ControlRobotAuto(object sender, DoWorkEventArgs e)
+        {
+            //https://social.msdn.microsoft.com/Forums/vstudio/en-US/42e694a0-843a-4f7f-81bc-69e1ae662e9f/how-to-lower-the-thread-priority?forum=csharpgeneral
+            if (System.Threading.Thread.CurrentThread.Priority != System.Threading.ThreadPriority.Highest)
+            {
+                System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Highest;
+            }
+            while (true)
+            {
+                if (ControllerThread.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                System.Threading.Thread.Sleep(100);
             }
         }
         /// <summary>
@@ -184,19 +228,48 @@ namespace RobotCode
 
         private static void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(e.Cancelled)
+            NetworkUtils.LogNetwork("Control thread is down, determining what to do next", NetworkUtils.MessageType.Debug);
+            //NOTE: this is on the UI thread
+            if (e.Cancelled || e.Error != null)
             {
-                NetworkUtils.LogNetwork("Controller thread was Cancelled! This should never happen!!", NetworkUtils.MessageType.Error);
-                EmergencyShutdown(TimeSpan.FromSeconds(60));
-            }
-            else if (e.Error != null)
-            {
-                NetworkUtils.LogNetwork(e.Error.ToString(), NetworkUtils.MessageType.Error);
-                EmergencyShutdown(TimeSpan.FromSeconds(60));
+                if (e.Error != null)
+                {
+                    NetworkUtils.LogNetwork(e.Error.ToString(), NetworkUtils.MessageType.Error);
+                }
+                try
+                { ControllerThread.DoWork -= ControlRobotAuto; }
+                catch
+                { }
+                try
+                { ControllerThread.DoWork -= ControlRobotManual; }
+                catch
+                { }
+                //check for manual control
+                switch (RobotControlStatus)
+                {
+                    case ControlStatus.RequestManual:
+                        NetworkUtils.LogNetwork("Manual Control has been requested, sending ack and enabling manual control",NetworkUtils.MessageType.Debug);
+                        NetworkUtils.LogNetwork("request_ack", NetworkUtils.MessageType.Control);
+                        ControllerThread.DoWork += ControlRobotManual;
+                        ControllerThread.RunWorkerAsync();
+                        break;
+                    case ControlStatus.Manual:
+                        NetworkUtils.LogNetwork("Resuming manual control", NetworkUtils.MessageType.Debug);
+                        ControllerThread.DoWork += ControlRobotManual;
+                        ControllerThread.RunWorkerAsync();
+                        break;
+                    case ControlStatus.RelaseManual:
+                        NetworkUtils.LogNetwork("Releasing manual control, restarting auto", NetworkUtils.MessageType.Debug);
+                        NetworkUtils.LogNetwork("release_ack", NetworkUtils.MessageType.Control);
+                        ControllerThread.DoWork += ControlRobotAuto;
+                        ControllerThread.RunWorkerAsync();
+                        break;
+                }
             }
             else
             {
                 NetworkUtils.LogNetwork("The controller thread has ended, is the application unloading?", NetworkUtils.MessageType.Debug);
+                return;
             }
         }
         /// <summary>

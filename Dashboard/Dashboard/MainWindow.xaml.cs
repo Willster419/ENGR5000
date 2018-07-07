@@ -18,6 +18,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading;
 using RelhaxModpack;
+using SharpDX.DirectInput;
 
 namespace Dashboard
 {
@@ -137,6 +138,33 @@ namespace Dashboard
             Battery1Amps.Text = data[i++];
             Battery2Volts.Text = data[i++];
             Battery2Amps.Text = data[i++];
+        }
+
+        private void ManualControlToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            Logging.LogConsole("Getting all joystick instances");
+            if (Dashboard.Resources.Control.DirectInput == null)
+                Dashboard.Resources.Control.DirectInput = new DirectInput();
+            //get all valid instances
+            foreach (DeviceInstance deviceInstance in Dashboard.Resources.Control.DirectInput.GetDevices(DeviceType.Joystick, DeviceEnumerationFlags.AllDevices))
+            {
+                Joysticks.Items.Add(deviceInstance.ProductName);
+            }
+            Logging.LogConsole("Starting Manual Control");
+            Dashboard.Resources.Control.StartControl(this);
+        }
+
+        private void ManualControlToggle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            //send stop of manual control
+            Dashboard.Resources.Control.StopControl();
+        }
+
+        private void Joysticks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DeviceInstance di = (DeviceInstance)Joysticks.SelectedItem;
+            Logging.LogConsole("Init joystick " + di.ProductName);
+            Dashboard.Resources.Control.EnableManualJoystickControl(di);
         }
     }
 }
