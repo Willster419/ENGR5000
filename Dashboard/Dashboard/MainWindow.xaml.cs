@@ -166,12 +166,15 @@ namespace Dashboard
         {
             //clear the list
             Joysticks.Items.Clear();
+            ControlSystem.joystickDriveneable = true;
             ControlSystem.InitManualJoystickControl(this);
         }
 
         private void JoystickToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             Joysticks.SelectedIndex = -1;
+            ControlSystem.joystickDriveneable = false;
+            ControlSystem.StopJoystickControl();
         }
     }
 }
