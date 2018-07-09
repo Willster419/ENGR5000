@@ -152,6 +152,9 @@ namespace Dashboard
             //send stop of manual control
             ControlSystem.StopControl();
             ControlSystem.FirstJoystickMoveMent = true;
+            OutputLeft.Text = "";
+            OutputRight.Text = "";
+            OutputMotor.Text = "";
         }
 
         private void Joysticks_SelectionChanged(object sender, SelectionChangedEventArgs e)
