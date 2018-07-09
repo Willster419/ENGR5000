@@ -172,6 +172,7 @@ namespace Dashboard
         private void JoystickToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             Joysticks.SelectedIndex = -1;
+            ControlSystem.StopJoystickControl();
         }
     }
 }
