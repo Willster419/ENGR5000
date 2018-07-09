@@ -173,7 +173,8 @@ namespace Dashboard
             }
             //TODO: figure out a better way to do this
             Logging.LogConsole("Hard-code select index 0", true);
-            DashboardIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
+            if(V6NetworkInfos.Count > 0)
+                DashboardIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
             DashboardIPV4Address = V4NetworkInfos[0].IPAddress.ToString();
             Logging.LogConsole("Computer IPV6 address set to " + DashboardIPV6Address);
             Logging.LogConsole("Computer IPV4 address set to " + DashboardIPV4Address);
