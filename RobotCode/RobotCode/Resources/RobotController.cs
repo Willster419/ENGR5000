@@ -178,6 +178,15 @@ namespace RobotCode
                     e.Cancel = true;
                     return;
                 }
+                if(!NetworkUtils.ConnectionLive)
+                {
+                    //stop moving
+                    GPIO.leftDrive.SetActiveDutyCyclePercentage(0.5F);
+                    GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    GPIO.Pins[3].Write(GpioPinValue.Low);
+                    System.Threading.Thread.Sleep(20);
+                    continue;
+                }
                 //parse the write the commands
                 string[] commands = NetworkUtils.ManualControlCommands.Split(',');
                 //left (float), right (float), motor (bool)
@@ -193,7 +202,7 @@ namespace RobotCode
                     GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5F);
                     GPIO.Pins[3].Write(GpioPinValue.Low);
                 }
-                System.Threading.Thread.Sleep(20);
+                System.Threading.Thread.Sleep(10);
             }
         }
         private static void ControlRobotAuto(object sender, DoWorkEventArgs e)
