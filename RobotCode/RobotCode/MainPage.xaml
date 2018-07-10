@@ -6,10 +6,4 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="Black">
-        <TextBox x:Name="Box" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsReadOnly="True"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="897,580,0,0" VerticalAlignment="Top" Height="130" Width="373" Click="Button_Click"/>
-
-    </Grid>
 </Page>

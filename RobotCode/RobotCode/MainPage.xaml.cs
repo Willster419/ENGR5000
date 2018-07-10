@@ -30,7 +30,6 @@ namespace RobotCode
             InitializeComponent();
             Loaded += OnPageLoaded;
         }
-        Stopwatch sw = new Stopwatch();
 
         private async void OnPageLoaded(object sender, RoutedEventArgs e)
         {
@@ -88,15 +87,6 @@ namespace RobotCode
             }
             NetworkUtils.LogNetwork("Controller initialized, system online", NetworkUtils.MessageType.Info);
             RobotController.SystemOnline = true;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            sw.Restart();
-            Box.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            sw.Stop();
-            Box.Text = "" + sw.ElapsedMilliseconds;
-            RobotController.RobotStatus = RobotStatus.Exception;
         }
     }
 }
