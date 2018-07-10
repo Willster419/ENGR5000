@@ -65,9 +65,14 @@ namespace RobotCode
         public const float POWER_VOLTAGE_MULTIPLIER = 2.70F;
         public static float SignalVoltage = 0.0F;
         public static float PowerVoltage = 0.0F;
-
+        #region Init methods
+        /// <summary>
+        /// Initializes the GPIO controller
+        /// </summary>
+        /// <returns>True if succussfull init, false otherwise</returns>
         public static bool InitGPIO()
         {
+            //init the lightning provivders
             if(LightningProvider.IsLightningEnabled)
             {
                 LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
@@ -94,7 +99,10 @@ namespace RobotCode
             Pins[0].Write(GpioPinValue.High);
             return true;
         }
-
+        /// <summary>
+        /// Initializes the SPI contorller
+        /// </summary>
+        /// <returns>true if the contorl init success, false otherwise</returns>
         public static async Task<bool> InitSPI()
         {
             ADC_Control = await SpiController.GetDefaultAsync();
@@ -108,10 +116,12 @@ namespace RobotCode
                 return false;
             return true;
         }
-
+        /// <summary>
+        /// Initializes the PWM controller
+        /// </summary>
+        /// <returns>true if successfull init, false otherwise</returns>
         public static async Task<bool> InitPWM()
         {
-
             // PWM Pins http://raspberrypi.stackexchange.com/questions/40812/raspberry-pi-2-b-gpio-pwm-and-interrupt-pins
             var controllers = await PwmController.GetControllersAsync(LightningPwmProvider.GetPwmProvider());
             if (controllers.Count <= 1)
@@ -133,7 +143,23 @@ namespace RobotCode
             rightDrive.Start();
             return true;
         }
-
+        /// <summary>
+        /// Initializes the I2C controller
+        /// </summary>
+        /// <returns>true if successfull init, false otherwise</returns>
+        public static async Task<bool> InitI2C()
+        {
+            return true;
+        }
+        #endregion
+        #region SPI methods
+        /// <summary>
+        /// Reads a raw digital voltage from one of the analog channels
+        /// </summary>
+        /// <param name="hexChannel">The channel, 0-7, in hex to read from (use the consants definded)</param>
+        /// <param name="normalizeTo5">true if you want to voltage normalized to 5 volts (99% you do)</param>
+        /// <param name="round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
+        /// <returns>A floating point number of the voltage</returns>
         public static float ReadVoltage(byte hexChannel, bool normalizeTo5, int round)
         {
             //unsigned char in C++ is byte in C#
@@ -160,7 +186,12 @@ namespace RobotCode
                 resultFloat = MathF.Round(resultFloat, round);
             return resultFloat;
         }
-
+        #endregion
+        #region Battery Methods
+        /// <summary>
+        /// Reads the voltage of the battery for the signal system
+        /// </summary>
+        /// <returns>The BatteryStatus Enumeration that corresponds to the value read</returns>
         public static BatteryStatus UpdateSignalBatteryStatus()
         {
             if (ADC == null)
@@ -193,7 +224,10 @@ namespace RobotCode
                 return BatteryStatus.Below5Shutdown;
             }
         }
-
+        /// <summary>
+        /// Reads the voltage of the battery for the power system
+        /// </summary>
+        /// <returns>The BatteryStatus Enumeration that corresponds to the value read</returns>
         public static BatteryStatus UpdatePowerBatteryStatus()
         {
             if (ADC == null)
@@ -226,5 +260,6 @@ namespace RobotCode
                 return BatteryStatus.Below5Shutdown;
             }
         }
+        #endregion
     }
 }

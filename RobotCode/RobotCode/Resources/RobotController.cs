@@ -26,21 +26,36 @@ namespace RobotCode
     /// </summary>
     public enum BatteryStatus
     {
-        //unknown battery status
+        /// <summary>
+        /// unknown battery status
+        /// </summary>
         Unknown = 0,
-        //good battery, no issues here
+        /// <summary>
+        /// great battery
+        /// </summary>
         Above75 = 5,
-        //stil la good battery
+        /// <summary>
+        /// good battery
+        /// </summary>
         Between50And75 = 4,
-        //low battery, if signal circuit no change, if power circuit, go to charger (same for all below)
+        /// <summary>
+        /// accetable, low battery, if signal circuit no change, if power circuit, go to charger
+        /// </summary>
         Between25And50 = 3,
-        //warning low, if signal circuit, going back to charger
-        //may also happen upon robot start, means critical level of power circuit
+        /// <summary>
+        /// warning low, if signal circuit, going back to charger
+        /// may also happen upon robot start, means critical level of power circuit
+        /// </summary>
         Below15Warning = 2,
-        //critical low, if signal circuit, immediate shutdown to prevent damage to components
-        //may also happen upon robot start, means critical level of signal circuit
+        /// <summary>
+        /// critical low, if signal circuit, immediate shutdown to prevent damage to components
+        /// may also happen upon robot start, means critical level of signal circuit
+        /// </summary>
         Below5Shutdown = 1
     }
+    /// <summary>
+    /// Differnt states that the robot could be in, defined from what task the robot could be working on
+    /// </summary>
     public enum ControlStatus
     {
         None = 0,
@@ -116,12 +131,17 @@ namespace RobotCode
                 WorkerSupportsCancellation = true,
                 WorkerReportsProgress = true
             };
-            ControllerThread.RunWorkerCompleted += OnWorkCompleted;
+            ControllerThread.RunWorkerCompleted += OnControlThreadExit;
             ControllerThread.ProgressChanged += ControllerLogProgress;
             ControllerThread.DoWork += ControlRobotAuto;
             ControllerThread.RunWorkerAsync();
             return true;
         }
+        /// <summary>
+        /// The tick event for the timer for diagnostic LEDs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnStatusTick(object sender, object e)
         {
             StatusIndicator SI = (StatusIndicator)sender;
@@ -162,7 +182,11 @@ namespace RobotCode
             }
             SI.TimeThrough++;
         }
-
+        /// <summary>
+        /// The method for the control thread to run when manual debugging control is requested
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void ControlRobotManual(object sender, DoWorkEventArgs e)
         {
             //https://social.msdn.microsoft.com/Forums/vstudio/en-US/42e694a0-843a-4f7f-81bc-69e1ae662e9f/how-to-lower-the-thread-priority?forum=csharpgeneral
@@ -205,6 +229,11 @@ namespace RobotCode
                 System.Threading.Thread.Sleep(10);
             }
         }
+        /// <summary>
+        /// Default contorl method for when the robot is in regular cleaning mode
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void ControlRobotAuto(object sender, DoWorkEventArgs e)
         {
             //https://social.msdn.microsoft.com/Forums/vstudio/en-US/42e694a0-843a-4f7f-81bc-69e1ae662e9f/how-to-lower-the-thread-priority?forum=csharpgeneral
@@ -234,8 +263,12 @@ namespace RobotCode
             NetworkUtils.MessageType messageType = (NetworkUtils.MessageType)e.ProgressPercentage;
             NetworkUtils.LogNetwork(message, messageType);
         }
-
-        private static void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
+        /// <summary>
+        /// Event method reasied when The control thread is exited. If cancled or error it will restart from this method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void OnControlThreadExit(object sender, RunWorkerCompletedEventArgs e)
         {
             NetworkUtils.LogNetwork("Control thread is down, determining what to do next", NetworkUtils.MessageType.Debug);
             //NOTE: this is on the UI thread

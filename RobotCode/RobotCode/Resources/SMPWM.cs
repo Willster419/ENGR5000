@@ -18,6 +18,9 @@ namespace RobotCode.Resources
         /// The GPIO pin to use for direction
         /// </summary>
         private GpioPin _GPIOPin;
+        /// <summary>
+        /// Constructer i guess
+        /// </summary>
         public SMPWM(){  }
         /// <summary>
         /// Initialize the Pins with default values of low and 0
@@ -84,14 +87,26 @@ namespace RobotCode.Resources
             _GPIOPin.Write(value);
             _pwmPin.SetActiveDutyCyclePercentage(percentage);
         }
+        /// <summary>
+        /// Get the percent, from 0 to 1, of the acive duty cycle of the PWM pin
+        /// </summary>
+        /// <returns>The floating point active duty cycle</returns>
         public double GetActiveDutyCyclePercentage()
         {
             return _pwmPin.GetActiveDutyCyclePercentage();
         }
+        /// <summary>
+        /// Gets the sign of the PWM signal, true is forward, false is backward
+        /// </summary>
+        /// <returns>1 if forward, 0 if backward</returns>
         public int GetSignInt()
         {
             return _GPIOPin.Read() == GpioPinValue.High ? 1 : 0;
         }
+        /// <summary>
+        /// Gets the sign of the PWM signal, true is forward, false is backward
+        /// </summary>
+        /// <returns>ture if forward, false if backward</returns>
         public bool GetSignBool()
         {
             return _GPIOPin.Read() == GpioPinValue.High ? true : false;

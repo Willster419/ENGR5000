@@ -144,6 +144,10 @@ namespace RobotCode
         /// Initializes the robot, network-wise
         /// </summary>
         public static string ManualControlCommands = "";
+        /// <summary>
+        /// Initialises the communication system
+        /// </summary>
+        /// <returns>True if successfull initaliization, false otherwise</returns>
         public static bool InitComms()
         {
             //get the devices IP address
@@ -604,6 +608,11 @@ namespace RobotCode
                 }
             }
         }
+        /// <summary>
+        /// Method for the 1 second tick of the heartbeat timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnHeartbeatTick(object sender, object e)
         {
             string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
@@ -625,6 +634,11 @@ namespace RobotCode
                 }
             }
         }
+        /// <summary>
+        /// Sends diagnostic data to the dashboard
+        /// </summary>
+        /// <param name="sender">The timer</param>
+        /// <param name="e">The event args</param>
         private static void SendDiagnosticData(object sender, System.Timers.ElapsedEventArgs e)
         {
             //collect and send diagnostic robot data to the dashboard
