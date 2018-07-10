@@ -12,14 +12,30 @@ using Windows.System;
 namespace RobotCode
 {
     /// <summary>
-    /// Status indicators for the various states the robot could be in
+    /// Status indicators for the various erorr
     /// </summary>
     public enum RobotStatus
     {
+        /// <summary>
+        /// No errors
+        /// </summary>
         Idle = 1,
-        Error = 2,
-        Exception = 3,
-        UnknownError = 4
+        /// <summary>
+        /// Issues, but not critical, can be solved or ignored
+        /// </summary>
+        Warning = 2,
+        /// <summary>
+        /// Something that affects the system severly, but it can still has limited functionalatiy
+        /// </summary>
+        Error = 3,
+        /// <summary>
+        /// The robot has encountered an unhandled (should be handled) exception, the application may (should) unload
+        /// </summary>
+        Exception = 4,
+        /// <summary>
+        /// An Unknown error
+        /// </summary>
+        UnknownError = 5
     };
     /// <summary>
     /// Status indicators for various levels of the battery
@@ -149,13 +165,13 @@ namespace RobotCode
             {
                 switch(SI.Index)
                 {
-                    case 0://robot status
+                    case (int)StatusFeed.RobotStatus://robot status
                         SI.TimeToStop = (int)RobotStatus * 2;//times 2 cause one cycle is on and one is off
                         break;
-                    case 1://signal battery
+                    case (int)StatusFeed.SignalBattery://signal battery
                         SI.TimeToStop = (int)Hardware.UpdateSignalBatteryStatus() * 2;
                         break;
-                    case 2://power battery
+                    case (int)StatusFeed.PowerBattery://power battery
                         SI.TimeToStop = (int)Hardware.UpdatePowerBatteryStatus() * 2;
                         break;
                 }

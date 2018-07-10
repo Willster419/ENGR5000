@@ -37,6 +37,10 @@ namespace RobotCode
         public static SMPWM rightDrive;//channel 1
         public static PwmController driveControl;
 
+        //I2C (TODO)
+
+        //Encoders (TODO)
+
         /*
          * Current pins setup:
          * 0 is robot status

@@ -17,7 +17,13 @@ namespace RobotCode
     /// </summary>
     public struct NetworkInformation
     {
+        /// <summary>
+        /// The name of the network (card) interface
+        /// </summary>
         public string NetworkName;
+        /// <summary>
+        /// An IP address that the network interface currently has
+        /// </summary>
         public IPAddress @IPAddress;
     }
     /// <summary>
@@ -183,7 +189,8 @@ namespace RobotCode
             if (V6NetworkInfos.Count == 0 && V4NetworkInfos.Count == 0)
                 return false;
             //TODO: figure out a better way to do this
-            RobotIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
+            if(V6NetworkInfos.Count > 0)
+                RobotIPV6Address = V6NetworkInfos[0].IPAddress.ToString();
             RobotIPV4Address = V4NetworkInfos[0].IPAddress.ToString();
             //setup the heartbeat timer
             if (HeartbeatTimer == null)
