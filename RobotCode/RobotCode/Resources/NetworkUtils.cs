@@ -224,7 +224,7 @@ namespace RobotCode
             }
             ConnectionManager.RunWorkerAsync();
             //Robot only
-            NetworkPin = GPIO.Pins[1];
+            NetworkPin = Hardware.Pins[1];
             NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
             return true;
         }
@@ -630,27 +630,27 @@ namespace RobotCode
             //collect and send diagnostic robot data to the dashboard
             if (!ConnectionLive || !RobotController.SystemOnline)
                 return;
-            GPIO.SignalVoltage = MathF.Round(GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) * GPIO.SIGNAL_VOLTAGE_MULTIPLIER,2);
-            GPIO.PowerVoltage = MathF.Round(GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * GPIO.POWER_VOLTAGE_MULTIPLIER,2);
+            Hardware.SignalVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.SIGNAL_VOLTAGE_MULTIPLIER,2);
+            Hardware.PowerVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.POWER_VOLTAGE_MULTIPLIER,2);
             string[] diagnosticData = new string[]
             {
-                GPIO.ReadVoltage(GPIO.SIGNAL_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
-                GPIO.ReadVoltage(GPIO.SIGNAL_CURRENT_MONITOR_CHANEL,true,2).ToString(),
-                GPIO.ReadVoltage(GPIO.POWER_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
-                GPIO.ReadVoltage(GPIO.POWER_CURRENT_MONITOR_CHANNEL,true,2).ToString(),
-                GPIO.ReadVoltage(GPIO.WATER_LEVEL_CHANNEL,true,2).ToString(),
-                GPIO.ReadVoltage(GPIO.TEMPATURE_CHANNEL,true,2).ToString(),
+                Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
+                Hardware.ReadVoltage(Hardware.SIGNAL_CURRENT_MONITOR_CHANEL,true,2).ToString(),
+                Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
+                Hardware.ReadVoltage(Hardware.POWER_CURRENT_MONITOR_CHANNEL,true,2).ToString(),
+                Hardware.ReadVoltage(Hardware.WATER_LEVEL_CHANNEL,true,2).ToString(),
+                Hardware.ReadVoltage(Hardware.TEMPATURE_CHANNEL,true,2).ToString(),
                 "",
                 "",
-                GPIO.leftDrive.GetSignInt().ToString(),
-                Math.Round(GPIO.leftDrive.GetActiveDutyCyclePercentage(),2).ToString(),
+                Hardware.leftDrive.GetSignInt().ToString(),
+                Math.Round(Hardware.leftDrive.GetActiveDutyCyclePercentage(),2).ToString(),
                 "",
-                GPIO.rightDrive.GetSignInt().ToString(),
-                Math.Round(GPIO.rightDrive.GetActiveDutyCyclePercentage(),2).ToString(),
+                Hardware.rightDrive.GetSignInt().ToString(),
+                Math.Round(Hardware.rightDrive.GetActiveDutyCyclePercentage(),2).ToString(),
                 "",
-                GPIO.SignalVoltage.ToString(),//signal voltage
+                Hardware.SignalVoltage.ToString(),//signal voltage
                 "",
-                GPIO.PowerVoltage.ToString(),//power voltage
+                Hardware.PowerVoltage.ToString(),//power voltage
                 "",
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);

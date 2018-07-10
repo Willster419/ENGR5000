@@ -34,7 +34,7 @@ namespace RobotCode
 
         private async void OnPageLoaded(object sender, RoutedEventArgs e)
         {
-            if(!GPIO.InitGPIO())
+            if(!Hardware.InitGPIO())
             {
                 //https://stackoverflow.com/questions/32677597/how-to-exit-or-close-an-uwp-app-programmatically-windows-10
                 Application.Current.Exit();
@@ -60,7 +60,7 @@ namespace RobotCode
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
             //https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation.findallasync
             //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
-            if (! await GPIO.InitSPI())
+            if (! await Hardware.InitSPI())
             {
                 NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
@@ -71,7 +71,7 @@ namespace RobotCode
             //check battery status of both devices
 
             //init pwm
-            if (! await GPIO.InitPWM())
+            if (! await Hardware.InitPWM())
             {
                 NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;

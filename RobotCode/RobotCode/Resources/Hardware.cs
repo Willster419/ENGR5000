@@ -21,7 +21,7 @@ namespace RobotCode
     /// <summary>
     /// Contains all Sensors and Actuators on the robot, as well as all pin mappings.
     /// </summary>
-    public static class GPIO
+    public static class Hardware
     {
         //GPIO
         private static GpioController Controller = null;

@@ -100,7 +100,7 @@
     </Compile>
     <Compile Include="Mapping\Rectangle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\GPIO.cs" />
+    <Compile Include="Resources\Hardware.cs" />
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="Resources\NetworkUtils.cs" />
     <Compile Include="Resources\RobotController.cs" />

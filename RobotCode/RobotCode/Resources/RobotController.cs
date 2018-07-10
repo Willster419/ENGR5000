@@ -78,7 +78,7 @@ namespace RobotCode
             //robot status
             statusIndicators[0] = new StatusIndicator()
             {
-                GpioPin = GPIO.Pins[0],
+                GpioPin = Hardware.Pins[0],
                 Interval = TimeSpan.FromMilliseconds(250),
                 TimeThrough = 0,
                 Index = 0
@@ -90,24 +90,24 @@ namespace RobotCode
             //signal batteyr specific
             statusIndicators[1] = new StatusIndicator()
             {
-                GpioPin = GPIO.Pins[2],
+                GpioPin = Hardware.Pins[2],
                 Interval = TimeSpan.FromMilliseconds(200),
                 TimeThrough = 0,
                 Index = 1
             };
-            statusIndicators[1].TimeToStop = (int)GPIO.UpdateSignalBatteryStatus() * 2;
+            statusIndicators[1].TimeToStop = (int)Hardware.UpdateSignalBatteryStatus() * 2;
             statusIndicators[1].Tick += OnStatusTick;
             statusIndicators[1].Start();
 
             //power batteyr specific
             statusIndicators[2] = new StatusIndicator()
             {
-                GpioPin = GPIO.Pins[4],
+                GpioPin = Hardware.Pins[4],
                 Interval = TimeSpan.FromMilliseconds(200),
                 TimeThrough = 0,
                 Index = 2
             };
-            statusIndicators[2].TimeToStop = (int)GPIO.UpdatePowerBatteryStatus() * 2;
+            statusIndicators[2].TimeToStop = (int)Hardware.UpdatePowerBatteryStatus() * 2;
             statusIndicators[2].Tick += OnStatusTick;
             statusIndicators[2].Start();
             //TODO: status indicator for what the robot control is doing
@@ -133,10 +133,10 @@ namespace RobotCode
                         SI.TimeToStop = (int)RobotStatus * 2;//times 2 cause one cycle is on and one is off
                         break;
                     case 1://signal battery
-                        SI.TimeToStop = (int)GPIO.UpdateSignalBatteryStatus() * 2;
+                        SI.TimeToStop = (int)Hardware.UpdateSignalBatteryStatus() * 2;
                         break;
                     case 2://power battery
-                        SI.TimeToStop = (int)GPIO.UpdatePowerBatteryStatus() * 2;
+                        SI.TimeToStop = (int)Hardware.UpdatePowerBatteryStatus() * 2;
                         break;
                 }
                 
@@ -181,9 +181,9 @@ namespace RobotCode
                 if(!NetworkUtils.ConnectionLive)
                 {
                     //stop moving
-                    GPIO.leftDrive.SetActiveDutyCyclePercentage(0.5F);
-                    GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5F);
-                    GPIO.Pins[3].Write(GpioPinValue.Low);
+                    Hardware.leftDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.rightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.Pins[3].Write(GpioPinValue.Low);
                     System.Threading.Thread.Sleep(20);
                     continue;
                 }
@@ -192,15 +192,15 @@ namespace RobotCode
                 //left (float), right (float), motor (bool)
                 try
                 {
-                    GPIO.leftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
-                    GPIO.rightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
-                    GPIO.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.High : GpioPinValue.Low);
+                    Hardware.leftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
+                    Hardware.rightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
+                    Hardware.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.High : GpioPinValue.Low);
                 }
                 catch
                 {
-                    GPIO.leftDrive.SetActiveDutyCyclePercentage(0.5F);
-                    GPIO.rightDrive.SetActiveDutyCyclePercentage(0.5F);
-                    GPIO.Pins[3].Write(GpioPinValue.Low);
+                    Hardware.leftDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.rightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.Pins[3].Write(GpioPinValue.Low);
                 }
                 System.Threading.Thread.Sleep(10);
             }
@@ -289,7 +289,7 @@ namespace RobotCode
             //everything must stop, a critical exception has occured
             RobotStatus = RobotStatus.Exception;
             //shut off any relays on
-            GPIO.Pins[3].Write(GpioPinValue.Low);
+            Hardware.Pins[3].Write(GpioPinValue.Low);
             //shut off any PWM systems
 
         }
