@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using SharpDX;
 using SharpDX.DirectInput;
 using System.Windows.Threading;
 using System.ComponentModel;
@@ -12,40 +7,100 @@ using System.ComponentModel;
 
 namespace Dashboard.Resources
 {
+    /// <summary>
+    /// The entire manual control system
+    /// </summary>
     public static class ControlSystem
     {
-        public static DirectInput @DirectInput;
+        /// <summary>
+        /// The Direct input object
+        /// See sharpDX api documentation for more info
+        /// </summary>
+        private static DirectInput @DirectInput;
+        /// <summary>
+        /// The unique GUID of the HID device
+        /// See sharpDX api documentation for more info
+        /// </summary>
         private static Guid JoystickGUID = Guid.Empty;
+        /// <summary>
+        /// The Direct input object
+        /// See sharpDX api documentation for more info
+        /// </summary>
         private static Joystick @Joystick;
-        public static DispatcherTimer ControlTimer;
+        /// <summary>
+        /// The Direct input object
+        /// See sharpDX api documentation for more info
+        /// </summary>
+        private static DispatcherTimer ControlTimer;
+        /// <summary>
+        /// The thread to poll joystick events
+        /// </summary>
         private static BackgroundWorker joystickWorker;
+        /// <summary>
+        /// An instance/refrence to the main window so we can access UI objects
+        /// </summary>
         private static MainWindow MainWindowInstance;
-        public static List<DeviceInstance> DeviceInstances = new List<DeviceInstance>();
-
+        /// <summary>
+        /// A list of HID divices on the system
+        /// See sharpDX api documentation for more info
+        /// </summary>
+        private static List<DeviceInstance> DeviceInstances = new List<DeviceInstance>();
+        /// <summary>
+        /// The PWM duty cycle percent sent for the left motor
+        /// </summary>
         private static float LeftDrive = 0.0F;
+        /// <summary>
+        /// The PWM duty cycle percent sent for the right motor
+        /// </summary>
         private static float RightDrive = 0.0F;
+        /// <summary>
+        /// The Motor value sent to the realy to activate the motor
+        /// </summary>
         private static bool Motor = false;
-
+        /// <summary>
+        /// The joystick X axis value only updated when an X axis update is detected
+        /// </summary>
         private static float JoystickXValue = 0;
+        /// <summary>
+        /// The joystick Y axis value only updated when an Y axis update is detected
+        /// </summary>
         private static float JoystickYValue = 0;
-        private static bool JoystickMotor = false;
-        public static bool FirstJoystickMoveMent = true;
+        /// <summary>
+        /// The int passed into this class from when the index from the UI is selected of which joystick to use
+        /// </summary>
         private static volatile int joystickIndex = -1;
-        public static volatile bool joystickDriveneable = false;
-
-        private const float MAX_AXIS_VALUE = 65535;
-        private const float MIDDLE_AXIS_VALUE = MAX_AXIS_VALUE / 2;
-        private const float AXIS_DEADZONE = 1000;
-        private const float MAX_DEADZONE_AXIS_VALUE = MAX_AXIS_VALUE - AXIS_DEADZONE;
-        private const float MIDDLE_DEADZONE_AXIS_VALUE = MAX_DEADZONE_AXIS_VALUE / 2;
-
+        /// <summary>
+        /// Flag to have set at the start of every joystick manual control session
+        /// If true, it sends the first values as 0 (no movement) and sets itself false
+        /// </summary>
+        public static bool FirstJoystickMoveMent = true;
+        /// <summary>
+        /// Flag to indicate from the UI checkbox of if the joystick drive control mode is enabled
+        /// </summary>
+        public static bool joystickDriveneable = false;
+        /// <summary>
+        /// The maximum raw axis value reported by the API
+        /// </summary>
+        private const float MAX_AXIS_VALUE = 65535F;
+        /// <summary>
+        /// The default deadzone to use for this joystick
+        /// </summary>
+        private const int AXIS_DEADZONE = 1000;
+        /// <summary>
+        /// A "clock divider" to scale back the number of control messages sent to the robot
+        /// </summary>
         private static int NetworkSendTimer = 0;
-
+        /// <summary>
+        /// Initializes the Joystick control by checking the system for all available joysticks
+        /// </summary>
+        /// <param name="mw">The refrence for the mainWindow. It is only updated once.</param>
         public static void InitManualJoystickControl(MainWindow mw)
         {
+            Logging.LogConsole("Linking refrence for main window");
             if (MainWindowInstance == null)
                 MainWindowInstance = mw;
-            if(joystickWorker == null)
+            Logging.LogConsole("Setting up background worker");
+            if (joystickWorker == null)
             {
                 joystickWorker = new BackgroundWorker()
                 {
@@ -67,7 +122,11 @@ namespace Dashboard.Resources
                 Logging.LogConsole("Found joystick instance: " + deviceInstance.ProductName);
             }
         }
-
+        /// <summary>
+        /// Method called when the joystick polling method eithor is done, cancled, or exception
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnWorkerStop(object sender, RunWorkerCompletedEventArgs e)
         {
             if(e.Cancelled)
@@ -77,7 +136,12 @@ namespace Dashboard.Resources
             Joystick.Dispose();
             Joystick = null;
         }
-
+        /// <summary>
+        /// The method for the joystick polling thread. Gets all joystick values and sends them (along with each property updated flag) to the sender timer
+        /// For more informatino on this method, see the sharpDX api documentation/samples
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void GetJoystickValues(object sender, DoWorkEventArgs e)
         {
             if (System.Threading.Thread.CurrentThread.Priority != System.Threading.ThreadPriority.BelowNormal)
@@ -91,7 +155,7 @@ namespace Dashboard.Resources
             Joystick = new Joystick(DirectInput, DeviceInstances[joystickIndex].InstanceGuid);
             Joystick.Properties.BufferSize = 128;
             Joystick.Properties.AxisMode = DeviceAxisMode.Absolute;
-            Joystick.Properties.DeadZone = 1500;
+            Joystick.Properties.DeadZone = AXIS_DEADZONE;
             Joystick.Acquire();
             while (true)
             {
@@ -155,7 +219,10 @@ namespace Dashboard.Resources
                 }
             }
         }
-
+        /// <summary>
+        /// Starts the joystick polling thread
+        /// </summary>
+        /// <param name="index"></param>
         public static void EnableManualJoystickControl(int index)
         {
             joystickIndex = index;
@@ -169,7 +236,10 @@ namespace Dashboard.Resources
             }
             Logging.LogConsole("Joystick initaliized");
         }
-
+        /// <summary>
+        /// Starts manual control by creating the dispatcherTimer and sending the request to the robot to init the manual control method
+        /// </summary>
+        /// <param name="mw">The instance of the main window. only updated once</param>
         public static void StartControl(MainWindow mw)
         {
             if (MainWindowInstance == null)
@@ -192,7 +262,11 @@ namespace Dashboard.Resources
             Logging.LogConsole("Manual control Started");
             ControlTimer.Start();
         }
-
+        /// <summary>
+        /// The method for the sender timer to poll and send control messages to the robot
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnControlTimerTick(object sender, EventArgs e)
         {
             if(Joystick != null && MainWindowInstance != null && (bool)MainWindowInstance.JoystickToggle.IsChecked)
@@ -317,7 +391,9 @@ namespace Dashboard.Resources
                 NetworkSendTimer = 0;
             }
         }
-        
+        /// <summary>
+        /// Stops manual control by stoping the sender timer and sends the stop signal to release manual control
+        /// </summary>
         public static void StopControl()
         {
             //stop timer
@@ -330,7 +406,9 @@ namespace Dashboard.Resources
                 return;
             }
         }
-
+        /// <summary>
+        /// Stops the joystick worker thread to stop polling for events
+        /// </summary>
         public static void StopJoystickControl()
         {
             if(!joystickWorker.CancellationPending)
