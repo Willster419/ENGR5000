@@ -287,3 +287,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 /Dashboard/Dashboard/Utils/CiInfo.cs
+/Dashboard/Dashboard/Resources/CiInfo.cs
