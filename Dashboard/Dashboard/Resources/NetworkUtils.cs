@@ -128,6 +128,10 @@ namespace Dashboard
         /// Starts the Listener for netowrk log packets from the robot
         /// </summary>
         private static MainWindow mainWindowInstance;
+        /// <summary>
+        /// Iinitalize the communications system
+        /// </summary>
+        /// <param name="mw">The instance of the MainWindow so we can access the UI fields ot add/remove data</param>
         public static void InitComms(MainWindow mw)
         {
             if (mw != null)
@@ -619,7 +623,11 @@ namespace Dashboard
                 }
             }
         }
-
+        /// <summary>
+        /// Event to fire when the heartbeat tick happends every second
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void OnHeartbeatTick(object sender, ElapsedEventArgs e)
         {
             string heartbeat = (int)MessageType.Heartbeat + "," + NumHeartbeatsSent++;
@@ -641,6 +649,12 @@ namespace Dashboard
                 }
             }
         }
+        /// <summary>
+        /// Send a message to the robot
+        /// </summary>
+        /// <param name="messageType">The type of message to send (see MessageType enumeration for types)</param>
+        /// <param name="message">The actual string message to send</param>
+        /// <returns></returns>
         public static bool SendRobotMesage(MessageType messageType, string message)
         {
             if (!ConnectionLive)
