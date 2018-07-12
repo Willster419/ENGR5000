@@ -66,9 +66,15 @@ namespace RobotCode
         public const byte GYRO_CHANNEL = 0x70;
         public const int COLLECTION_RELAY = 22;//index 3
         public const float SIGNAL_VOLTAGE_MULTIPLIER = 4.91F;
-        public const float POWER_VOLTAGE_MULTIPLIER = 2.70F;
+        public const float POWER_VOLTAGE_BASE_SUBRTACT = 2.5F;
+        public const float POWER_VOLTAGE_MULTIPLIER = 11F;
         public static float SignalVoltage = 0.0F;
         public static float PowerVoltage = 0.0F;
+        public const float CURRENT_BASE_SUBTRACT = 2.5F;
+        public const float POWER_CURRENT_MULTIPLIER = 12F;
+        public const float SIGNAL_CURRENT_MULTIPLIER = 2F;
+        public static float SignalCurrent = 0.0F;
+        public static float PowerCurrent = 0.0F;
         #region Init methods
         /// <summary>
         /// Initializes the GPIO controller
