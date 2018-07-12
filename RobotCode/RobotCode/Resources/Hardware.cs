@@ -7,6 +7,7 @@ using Windows.Devices.Gpio;
 using Windows.Devices.Spi;
 using Windows.Devices.Enumeration;
 using Windows.Devices.Pwm;
+using Windows.Devices.I2c;
 using Microsoft.IoT.Lightning;
 using Microsoft.IoT.Lightning.Providers;
 using Windows.UI.Xaml;
@@ -38,6 +39,9 @@ namespace RobotCode
         public static PwmController driveControl;
 
         //I2C (TODO)
+        public static I2cController I2C_Controller = null;
+        public static I2cDevice I2C_Device = null;
+        public static I2cConnectionSettings I2C_Connection_settings = null;
 
         //Encoders (TODO)
 
@@ -159,6 +163,18 @@ namespace RobotCode
         /// <returns>true if successfull init, false otherwise</returns>
         public static async Task<bool> InitI2C()
         {
+            //https://github.com/Microsoft/Windows-universal-samples/blob/master/Samples/IoT-I2C/cs/Scenario1_ReadData.xaml.cs
+            I2C_Controller = await I2cController.GetDefaultAsync();
+            if (I2C_Controller == null)
+                return false;
+            //TODO: make constants for device names
+            I2C_Connection_settings = new I2cConnectionSettings(0x68)//MPU-6050 address
+            {
+                BusSpeed = I2cBusSpeed.StandardMode,
+            };
+            I2C_Device = I2C_Controller.GetDevice(I2C_Connection_settings);
+            if (I2C_Device == null)
+                return false;
             return true;
         }
         #endregion
@@ -195,6 +211,26 @@ namespace RobotCode
             if (round >= 0)
                 resultFloat = MathF.Round(resultFloat, round);
             return resultFloat;
+        }
+        #endregion
+        #region I2C methods
+        public static float[] ReadSPIData()
+        {
+            byte[] command = new byte[]
+            {
+                0x3B
+            };
+            byte[] results = new byte[8];
+            try
+            {
+                I2C_Device.WriteRead(command, results);
+                NetworkUtils.LogNetwork(results.ToString(), NetworkUtils.MessageType.Debug);
+            }
+            catch
+            {
+                return null;
+            }
+            return null;
         }
         #endregion
         #region Battery Methods
