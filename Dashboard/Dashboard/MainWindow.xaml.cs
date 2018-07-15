@@ -120,7 +120,15 @@ namespace Dashboard
         private void ResetNetworkConnection_Click(object sender, RoutedEventArgs e)
         {
             Logging.LogConsole("Resetting network connections...");
-            NetworkUtils.ConnectionManager.CancelAsync();
+            if (NetworkUtils.ConnectionManager == null)
+            {
+                NetworkUtils.Disconnect();
+                NetworkUtils.InitComms(null);
+            }
+            else
+            { 
+                NetworkUtils.ConnectionManager.CancelAsync();
+            }
         }
         /// <summary>
         /// On putton press to acivate the button press events of clearing both log displays
