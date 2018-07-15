@@ -69,9 +69,9 @@ namespace RobotCode
         public const byte ACCEL_CHANNEL = 0x60;
         public const byte GYRO_CHANNEL = 0x70;
         public const int COLLECTION_RELAY = 22;//index 3
-        public const float SIGNAL_VOLTAGE_MULTIPLIER = 4.91F;
-        public const float POWER_VOLTAGE_BASE_SUBRTACT = 2.5F;
-        public const float POWER_VOLTAGE_MULTIPLIER = 11F;
+        public const float POWER_VOLTAGE_MULTIPLIER = 4.75F;
+        public const float SIGNAL_VOLTAGE_BASE_SUBRTACT = 2.5F;
+        public const float SIGNAL_VOLTAGE_MULTIPLIER = 11.20F;
         public static float SignalVoltage = 0.0F;
         public static float PowerVoltage = 0.0F;
         public const float CURRENT_BASE_SUBTRACT = 2.5F;
@@ -105,12 +105,15 @@ namespace RobotCode
             Pins[2] = Controller.OpenPin(SIGNAL_BATTERY_STATUS_PIN);
             Pins[3] = Controller.OpenPin(COLLECTION_RELAY);
             Pins[4] = Controller.OpenPin(POWER_BATTERY_STATUS_PIN);
+            //loop for all the pins
             for (int i = 0; i < Pins.Count(); i++)
             {
-                Pins[i].Write(GpioPinValue.Low);
+                if (i != 0 && i != 3)//use this to set high for values that need it
+                    Pins[i].Write(GpioPinValue.Low);
+                else
+                    Pins[i].Write(GpioPinValue.High);
                 Pins[i].SetDriveMode(GpioPinDriveMode.Output);
             }
-            Pins[0].Write(GpioPinValue.High);
             return true;
         }
         /// <summary>
@@ -247,9 +250,9 @@ namespace RobotCode
             if(!NetworkUtils.ConnectionLive)
             {
                 //update the voltage value since the network thread is not
-                SignalVoltage = ReadVoltage(SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, 2) * SIGNAL_VOLTAGE_MULTIPLIER;
+                Hardware.SignalVoltage = MathF.Round((Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) - Hardware.SIGNAL_VOLTAGE_BASE_SUBRTACT) * Hardware.SIGNAL_VOLTAGE_MULTIPLIER, 2);
             }
-            if(SignalVoltage > 9.99F)
+            if (SignalVoltage > 9.99F)
             {
                 return BatteryStatus.Above75;
             }
@@ -283,7 +286,7 @@ namespace RobotCode
             if (!NetworkUtils.ConnectionLive)
             {
                 //update the voltage value since the network thread is not
-                PowerVoltage = ReadVoltage(POWER_VOLTAGE_MONITOR_CHANNEL, true, 2) * POWER_VOLTAGE_MULTIPLIER;
+                Hardware.PowerVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.POWER_VOLTAGE_MULTIPLIER, 2);
             }
             if (PowerVoltage > 8.99F)
             {

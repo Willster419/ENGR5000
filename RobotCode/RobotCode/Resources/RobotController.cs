@@ -223,7 +223,7 @@ namespace RobotCode
                     //stop moving
                     Hardware.leftDrive.SetActiveDutyCyclePercentage(0.5F);
                     Hardware.rightDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.Pins[3].Write(GpioPinValue.Low);
+                    Hardware.Pins[3].Write(GpioPinValue.High);
                     System.Threading.Thread.Sleep(20);
                     continue;
                 }
@@ -234,13 +234,13 @@ namespace RobotCode
                 {
                     Hardware.leftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
                     Hardware.rightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
-                    Hardware.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.High : GpioPinValue.Low);
+                    Hardware.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.Low : GpioPinValue.High);
                 }
                 catch
                 {
                     Hardware.leftDrive.SetActiveDutyCyclePercentage(0.5F);
                     Hardware.rightDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.Pins[3].Write(GpioPinValue.Low);
+                    Hardware.Pins[3].Write(GpioPinValue.High);
                 }
                 System.Threading.Thread.Sleep(10);
             }

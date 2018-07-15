@@ -651,9 +651,8 @@ namespace RobotCode
             //collect and send diagnostic robot data to the dashboard
             if (!ConnectionLive || !RobotController.SystemOnline)
                 return;
-            Hardware.SignalVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.SIGNAL_VOLTAGE_MULTIPLIER,2);
-            //Hardware.PowerVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.POWER_VOLTAGE_MULTIPLIER,2);
-            Hardware.PowerVoltage = MathF.Round((Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) - Hardware.POWER_VOLTAGE_BASE_SUBRTACT) * Hardware.POWER_VOLTAGE_MULTIPLIER,2);
+            Hardware.PowerVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.POWER_VOLTAGE_MULTIPLIER,2);
+            Hardware.SignalVoltage = MathF.Round((Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) - Hardware.SIGNAL_VOLTAGE_BASE_SUBRTACT) * Hardware.SIGNAL_VOLTAGE_MULTIPLIER,2);
             Hardware.SignalCurrent = MathF.Round(MathF.Abs(Hardware.ReadVoltage(Hardware.SIGNAL_CURRENT_MONITOR_CHANEL, true, -1) - Hardware.CURRENT_BASE_SUBTRACT) * Hardware.SIGNAL_CURRENT_MULTIPLIER, 2);
             Hardware.PowerCurrent = MathF.Round(MathF.Abs(Hardware.ReadVoltage(Hardware.POWER_CURRENT_MONITOR_CHANNEL, true, -1) - Hardware.CURRENT_BASE_SUBTRACT) * Hardware.POWER_CURRENT_MULTIPLIER, 2);
             string[] diagnosticData = new string[]
