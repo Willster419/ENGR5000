@@ -608,6 +608,18 @@ namespace RobotCode
                                         RobotController.RobotControlStatus = ControlStatus.RelaseManual;
                                         RobotController.ControllerThread.CancelAsync();
                                     }
+                                    else if (ManualControlCommands.Split(',')[0].Equals("Shutdown"))
+                                    {
+                                        RobotController.Poweroff(TimeSpan.FromSeconds(int.Parse(ManualControlCommands.Split(',')[1])));
+                                    }
+                                    else if (ManualControlCommands.Split(',')[0].Equals("Reboot"))
+                                    {
+                                        RobotController.Reboot(TimeSpan.FromSeconds(int.Parse(ManualControlCommands.Split(',')[1])));
+                                    }
+                                    else if (ManualControlCommands.Split(',')[0].Equals("Cancel_Shutdown"))
+                                    {
+                                        RobotController.CancelShutdown();
+                                    }
                                 }
                                 break;
                         }

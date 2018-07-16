@@ -353,5 +353,31 @@ namespace RobotCode
             //completly shut down the robot
             ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, delay);
         }
+        /// <summary>
+        /// Requests a reboot of the system
+        /// </summary>
+        /// <param name="delay">The delay before the reboot takes place</param>
+        public static void Reboot(TimeSpan delay)
+        {
+            NetworkUtils.LogNetwork(string.Format("NOTICE: Rebooting in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
+            ShutdownManager.BeginShutdown(ShutdownKind.Restart, delay);
+        }
+        /// <summary>
+        /// Reauests a poweroff of the system
+        /// </summary>
+        /// <param name="delay">The dealy before the poweroff takes place</param>
+        public static void Poweroff(TimeSpan delay)
+        {
+            NetworkUtils.LogNetwork(string.Format("NOTICE: Shutting down in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
+            ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, delay);
+        }
+        /// <summary>
+        /// Cancels a pending shutdown or reboot, if one exists
+        /// </summary>
+        public static void CancelShutdown()
+        {
+            NetworkUtils.LogNetwork("WARNING: Canceling shutdown/reboot", NetworkUtils.MessageType.Warning);
+            ShutdownManager.CancelShutdown();
+        }
     }
 }

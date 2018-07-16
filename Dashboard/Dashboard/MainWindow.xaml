@@ -158,6 +158,15 @@
                             </GroupBox>
                         </Grid>
                     </GroupBox>
+                    <GroupBox Header="Power Control" HorizontalAlignment="Left" Height="133" Margin="10,339,0,0" VerticalAlignment="Top" Width="183">
+                        <Grid Background="#FFE5E5E5" Margin="0,0,0,-22">
+                            <Button  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="151" Content="Request Reboot" x:Name="RequestShutdownButton" Click="RequestShutdownButton_Click"/>
+                            <Button  HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="151" Content="Request Shutdown" x:Name="RequestRebootButton" Click="RequestRebootButton_Click"/>
+                            <Label   HorizontalAlignment="Left" Margin="79,60,0,0" VerticalAlignment="Top" Height="23" Content="Second Delay"/>
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" x:Name="SecondsDelay"/>
+                            <Button  HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="151" Content="Cancel Shutdown/Restart" x:Name="CancelShutdownRestartButton" Click="CancelShutdownRestartButton_Click"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Dashboard Console" x:Name="DashboardLogTab">

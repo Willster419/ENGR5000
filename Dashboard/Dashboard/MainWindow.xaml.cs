@@ -173,6 +173,8 @@ namespace Dashboard
         /// <param name="e"></param>
         private void ManualControlToggle_Checked(object sender, RoutedEventArgs e)
         {
+            if (!NetworkUtils.ConnectionLive)
+                return;
             Logging.LogConsole("Starting Manual Control");
             ControlSystem.StartControl(this);
         }
@@ -183,6 +185,8 @@ namespace Dashboard
         /// <param name="e"></param>
         private void ManualControlToggle_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (!NetworkUtils.ConnectionLive)
+                return;
             //send stop of manual control
             ControlSystem.StopControl();
             ControlSystem.FirstJoystickMoveMent = true;
@@ -197,6 +201,8 @@ namespace Dashboard
         /// <param name="e"></param>
         private void Joysticks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (!NetworkUtils.ConnectionLive)
+                return;
             if (Joysticks.SelectedIndex == -1)
                 return;
             Logging.LogConsole("Init joystick index " + Joysticks.SelectedIndex);
@@ -209,6 +215,8 @@ namespace Dashboard
         /// <param name="e"></param>
         private void JoystickToggle_Checked(object sender, RoutedEventArgs e)
         {
+            if (!NetworkUtils.ConnectionLive)
+                return;
             //clear the list
             Joysticks.Items.Clear();
             ControlSystem.joystickDriveneable = true;
@@ -221,9 +229,72 @@ namespace Dashboard
         /// <param name="e"></param>
         private void JoystickToggle_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (!NetworkUtils.ConnectionLive)
+                return;
             Joysticks.SelectedIndex = -1;
             ControlSystem.joystickDriveneable = false;
             ControlSystem.StopJoystickControl();
+        }
+
+        private void RequestShutdownButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(!NetworkUtils.ConnectionLive)
+            {
+                Logging.LogConsole("ERROR: cannont shutdown request when no connection");
+            }
+            if(string.IsNullOrWhiteSpace(SecondsDelay.Text))
+            {
+                Logging.LogConsole("ERROR: cannot start shutdown when no timeout given");
+                return;
+            }
+            if (int.TryParse(SecondsDelay.Text, out int timeout))
+            {
+                if(timeout < 10)
+                {
+                    Logging.LogConsole("ERROR: invalid shutdown timeout: " + timeout.ToString());
+                    return;
+                }
+                NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Shutdown," + timeout.ToString());
+            }
+            else
+            {
+                Logging.LogConsole("ERROR: failed to parse shutdown timout value: " + SecondsDelay.Text);
+            }
+        }
+
+        private void RequestRebootButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!NetworkUtils.ConnectionLive)
+            {
+                Logging.LogConsole("ERROR: cannont reboot request when no connection");
+            }
+            if (string.IsNullOrWhiteSpace(SecondsDelay.Text))
+            {
+                Logging.LogConsole("ERROR: cannot start reboot when no timeout given");
+                return;
+            }
+            if (int.TryParse(SecondsDelay.Text, out int timeout))
+            {
+                if (timeout < 10)
+                {
+                    Logging.LogConsole("ERROR: invalid rebot timeout: " + timeout.ToString());
+                    return;
+                }
+                NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Reboot," + timeout.ToString());
+            }
+            else
+            {
+                Logging.LogConsole("ERROR: failed to parse reboot timout value: " + SecondsDelay.Text);
+            }
+        }
+
+        private void CancelShutdownRestartButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!NetworkUtils.ConnectionLive)
+            {
+                Logging.LogConsole("ERROR: cannont shutdown request when no connection");
+            }
+            NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Cancel_Shutdown");
         }
     }
 }
