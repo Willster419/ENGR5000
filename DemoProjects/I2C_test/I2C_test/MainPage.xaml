@@ -9,6 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <TextBox HorizontalAlignment="Left" Margin="10,10,0,0" Text="TextBox" VerticalAlignment="Top" Width="263" x:Name="AccelDataX" />
+        <TextBox HorizontalAlignment="Left" Margin="10,42,0,0" Text="TextBox" VerticalAlignment="Top" Width="263" x:Name="AccelDataY"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,74,0,0" Text="TextBox" VerticalAlignment="Top" Width="263" x:Name="AccelDataZ"/>
+        <TextBox HorizontalAlignment="Left" Margin="278,74,0,0" Text="TextBox" VerticalAlignment="Top" Width="263" x:Name="GyroDataX"/>
+        <TextBox HorizontalAlignment="Left" Margin="278,42,0,0" Text="TextBox" VerticalAlignment="Top" Width="263" x:Name="GyroDataY"/>
+        <TextBox HorizontalAlignment="Left" Margin="278,10,0,0" Text="TextBox" VerticalAlignment="Top" Width="263" x:Name="GyroDataZ"/>
     </Grid>
 </Page>
