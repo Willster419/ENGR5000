@@ -48,6 +48,7 @@ namespace Encoder_Event_Test
             GpioController _controller = GpioController.GetDefault();
             CLK = _controller.OpenPin(20);
             DT = _controller.OpenPin(26);
+            //TODO: maybe set debounce to 1ms test? i can't rotate the encoder at 1000 Hz, maybe 100...
             //CLK.DebounceTimeout = TimeSpan.FromTicks(500);
             //DT.DebounceTimeout = TimeSpan.FromTicks(500);
             CLK.SetDriveMode(GpioPinDriveMode.Input);
