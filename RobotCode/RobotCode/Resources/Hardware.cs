@@ -173,7 +173,7 @@ namespace RobotCode
             //TODO: make constants for device names
             I2C_Connection_settings = new I2cConnectionSettings(0x68)//MPU-6050 address
             {
-                BusSpeed = I2cBusSpeed.StandardMode,
+                BusSpeed = I2cBusSpeed.FastMode,
             };
             I2C_Device = I2C_Controller.GetDevice(I2C_Connection_settings);
             if (I2C_Device == null)
