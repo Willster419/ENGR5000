@@ -29,12 +29,10 @@ namespace Encoder_Event_Test
     public sealed partial class MainPage : Page
     {
         private int counter = 0;
-        private int numCLKFire = 0;
-        private int numDTFire = 0;
         private GpioPin CLK;
         private GpioPin DT;
         private DispatcherTimer _debounceTimout;
-        private volatile bool acceptingNewValue = true;
+        byte[] values = new byte[] { 0, 0, 0, 0 };
         public MainPage()
         {
             this.InitializeComponent();
@@ -54,52 +52,94 @@ namespace Encoder_Event_Test
             GpioController _controller = GpioController.GetDefault();
             CLK = _controller.OpenPin(20);
             DT = _controller.OpenPin(26);
-            //TODO: maybe set debounce to 1ms test? i can't rotate the encoder at 1000 Hz, maybe 100...
-            //CLK.DebounceTimeout = TimeSpan.FromMilliseconds(1000);//DOES NOT WORK, MICROSOFT ISSUE :<
-            //DT.DebounceTimeout = TimeSpan.FromMilliseconds(1000);
             CLK.SetDriveMode(GpioPinDriveMode.Input);
             DT.SetDriveMode(GpioPinDriveMode.Input);
-            //CLK.ValueChanged += CLK_ValueChanged;
-            DT.ValueChanged += DT_ValueChanged;
+            CLK.ValueChanged += CLK_ValueChanged;
+            DT.ValueChanged += CLK_ValueChanged;
             //GpioChangeReader reader = new GpioChangeReader(DT);
             _debounceTimout = new DispatcherTimer();
-            _debounceTimout.Interval = TimeSpan.FromMilliseconds(50);
-            _debounceTimout.Tick += (sender2, args) =>
-            {
-                _debounceTimout.Stop();
-                acceptingNewValue = true;
-            };
+            _debounceTimout.Interval = TimeSpan.FromMilliseconds(1);
+            _debounceTimout.Tick += _debounceTimout_Tick;
+            //_debounceTimout.Start();
+            //try polling at 1ms rate...
         }
 
-        private void DT_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
+        private void CLK_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
-            if (args.Edge == GpioPinEdge.FallingEdge && CLK.Read() == GpioPinValue.High && acceptingNewValue)
+            //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
+            //DT first, then CLK
+            //0,1 are old, 2,3 are new
+            //DT,CLK,DT,CLK
+            values[0] = values[2];
+            values[1] = values[3];
+            values[2] = (byte)DT.Read();
+            values[3] = (byte)CLK.Read();
+            string together = string.Join("", values);
+            if//CCW
+            (
+                together.Equals("0001") ||
+                together.Equals("0111") ||
+                together.Equals("1000") ||
+                together.Equals("1110")
+            )
             {
-                acceptingNewValue = false;
-                _debounceTimout.Start();
                 counter++;
-                numDTFire++;
                 var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    DTVal.Text = numDTFire.ToString();
+                    CounterVal.Text = counter.ToString();
+                });
+            }
+            else if//CW
+            (
+                together.Equals("0010") ||
+                together.Equals("0100") ||
+                together.Equals("1011") ||
+                together.Equals("1101")
+            )
+            {
+                counter--;
+                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
                     CounterVal.Text = counter.ToString();
                 });
             }
         }
 
-        private void CLK_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
+        private void _debounceTimout_Tick(object sender, object e)
         {
-            //falling edge is what triggers the change = LED ON = now low value
-            //rising edge = LED OFF = low to high = now high value
-            if(args.Edge == GpioPinEdge.FallingEdge && DT.Read() == GpioPinValue.High && acceptingNewValue)
+            //DT first, then CLK
+            //0,1 are old, 2,3 are new
+            //DT,CLK,DT,CLK
+            values[0] = values[2];
+            values[1] = values[3];
+            values[2] = (byte)DT.Read();
+            values[3] = (byte)CLK.Read();
+            string together = string.Join("", values);
+            if//CCW
+            (
+                together.Equals("0001") ||
+                together.Equals("0111") ||
+                together.Equals("1000") ||
+                together.Equals("1110")
+            )
             {
-                acceptingNewValue = false;
-                _debounceTimout.Start();
-                counter--;
-                numCLKFire++;
+                counter++;
                 var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    CLKVal.Text = numCLKFire.ToString();
+                    CounterVal.Text = counter.ToString();
+                });
+            }
+            else if//CW
+            (
+                together.Equals("0010") ||
+                together.Equals("0100") ||
+                together.Equals("1011") ||
+                together.Equals("1101")
+            )
+            {
+                counter--;
+                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
                     CounterVal.Text = counter.ToString();
                 });
             }
