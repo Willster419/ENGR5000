@@ -17,6 +17,7 @@ using Microsoft.IoT.Lightning;
 using Microsoft.IoT.Lightning.Providers;
 using Windows.Devices;
 using Windows.UI.Core;
+using System.Diagnostics;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -31,8 +32,18 @@ namespace Encoder_Event_Test
         private int counter = 0;
         private GpioPin CLK;
         private GpioPin DT;
-        private DispatcherTimer _debounceTimout;
         byte[] values = new byte[] { 0, 0, 0, 0 };
+
+        private static readonly byte[] ccw1 = new byte[] { 0, 0, 0, 1 };
+        private static readonly byte[] ccw2 = new byte[] { 0, 1, 1, 1 };
+        private static readonly byte[] ccw4 = new byte[] { 1, 1, 1, 0 };
+        private static readonly byte[] ccw3 = new byte[] { 1, 0, 0, 0 };
+
+        private static readonly byte[] cw1 = new byte[] { 0, 0, 1, 0 };
+        private static readonly byte[] cw3 = new byte[] { 1, 0, 1, 1 };
+        private static readonly byte[] cw4 = new byte[] { 1, 1, 0, 1 };
+        private static readonly byte[] cw2 = new byte[] { 0, 1, 0, 0 };
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -56,12 +67,25 @@ namespace Encoder_Event_Test
             DT.SetDriveMode(GpioPinDriveMode.Input);
             CLK.ValueChanged += CLK_ValueChanged;
             DT.ValueChanged += CLK_ValueChanged;
-            //GpioChangeReader reader = new GpioChangeReader(DT);
-            _debounceTimout = new DispatcherTimer();
-            _debounceTimout.Interval = TimeSpan.FromMilliseconds(1);
-            _debounceTimout.Tick += _debounceTimout_Tick;
-            //_debounceTimout.Start();
-            //try polling at 1ms rate...
+            DispatcherTimer timer = new DispatcherTimer()
+            {
+                Interval = TimeSpan.FromMilliseconds(200)
+            };
+            timer.Tick += Timer_Tick;
+            timer.Start();
+            //TIMING INFO
+            //10,000 ticks = 1ms = 1000us
+            //1,000 ticks = 0.1ms = 100us
+            //100 ticks = 0.01ms = 10us
+            //900 ticks = 0.09ms = 90us
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            var task = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+            {
+                CounterVal.Text = counter.ToString();
+            });
         }
 
         private void CLK_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
@@ -72,76 +96,38 @@ namespace Encoder_Event_Test
             //DT,CLK,DT,CLK
             values[0] = values[2];
             values[1] = values[3];
-            values[2] = (byte)DT.Read();
-            values[3] = (byte)CLK.Read();
-            string together = string.Join("", values);
+            if(sender == DT)
+            {
+                values[2] = (byte)args.Edge;//1 = rising, 0 = falling
+                values[3] = (byte)CLK.Read();
+            }
+            else
+            {
+                values[3] = (byte)args.Edge;//1 = rising, 0 = falling
+                values[2] = (byte)DT.Read();
+            }
+            //values[2] = (byte)DT.Read();
+            //values[3] = (byte)CLK.Read();
+            //string together = string.Join("", values);
             if//CCW
             (
-                together.Equals("0001") ||
-                together.Equals("0111") ||
-                together.Equals("1000") ||
-                together.Equals("1110")
+                values.SequenceEqual(ccw1) ||
+                values.SequenceEqual(ccw2) ||
+                values.SequenceEqual(ccw3) ||
+                values.SequenceEqual(ccw4)
             )
             {
                 counter++;
-                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    CounterVal.Text = counter.ToString();
-                });
             }
             else if//CW
             (
-                together.Equals("0010") ||
-                together.Equals("0100") ||
-                together.Equals("1011") ||
-                together.Equals("1101")
+                values.SequenceEqual(cw1) ||
+                values.SequenceEqual(cw2) ||
+                values.SequenceEqual(cw3) ||
+                values.SequenceEqual(cw4)
             )
             {
                 counter--;
-                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    CounterVal.Text = counter.ToString();
-                });
-            }
-        }
-
-        private void _debounceTimout_Tick(object sender, object e)
-        {
-            //DT first, then CLK
-            //0,1 are old, 2,3 are new
-            //DT,CLK,DT,CLK
-            values[0] = values[2];
-            values[1] = values[3];
-            values[2] = (byte)DT.Read();
-            values[3] = (byte)CLK.Read();
-            string together = string.Join("", values);
-            if//CCW
-            (
-                together.Equals("0001") ||
-                together.Equals("0111") ||
-                together.Equals("1000") ||
-                together.Equals("1110")
-            )
-            {
-                counter++;
-                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    CounterVal.Text = counter.ToString();
-                });
-            }
-            else if//CW
-            (
-                together.Equals("0010") ||
-                together.Equals("0100") ||
-                together.Equals("1011") ||
-                together.Equals("1101")
-            )
-            {
-                counter--;
-                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    CounterVal.Text = counter.ToString();
-                });
             }
         }
     }
