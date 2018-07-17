@@ -8,8 +8,12 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBox x:Name="LogBox" x:FieldModifier="public" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
-
+    <Grid Background="Black" >
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="CLK value: " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,35,0,0" Text="DT  value: " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,10,0,0" Text="TextBlock  " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="CLKVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,35,0,0" Text="TextBlock  " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="DTVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" Text="Counter:   " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="97,60,0,0" Text="TextBlock  " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="CounterVal"/>
     </Grid>
 </Page>

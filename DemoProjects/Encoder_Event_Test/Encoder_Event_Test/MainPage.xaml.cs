@@ -16,6 +16,8 @@ using Windows.Devices.Gpio;
 using Microsoft.IoT.Lightning;
 using Microsoft.IoT.Lightning.Providers;
 using Windows.Devices;
+using Windows.UI.Core;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -27,8 +29,12 @@ namespace Encoder_Event_Test
     public sealed partial class MainPage : Page
     {
         private int counter = 0;
+        private int numCLKFire = 0;
+        private int numDTFire = 0;
         private GpioPin CLK;
         private GpioPin DT;
+        private DispatcherTimer _debounceTimout;
+        private volatile bool acceptingNewValue = true;
         public MainPage()
         {
             this.InitializeComponent();
@@ -49,42 +55,53 @@ namespace Encoder_Event_Test
             CLK = _controller.OpenPin(20);
             DT = _controller.OpenPin(26);
             //TODO: maybe set debounce to 1ms test? i can't rotate the encoder at 1000 Hz, maybe 100...
-            //CLK.DebounceTimeout = TimeSpan.FromTicks(500);
-            //DT.DebounceTimeout = TimeSpan.FromTicks(500);
+            //CLK.DebounceTimeout = TimeSpan.FromMilliseconds(1000);//DOES NOT WORK, MICROSOFT ISSUE :<
+            //DT.DebounceTimeout = TimeSpan.FromMilliseconds(1000);
             CLK.SetDriveMode(GpioPinDriveMode.Input);
             DT.SetDriveMode(GpioPinDriveMode.Input);
             //CLK.ValueChanged += CLK_ValueChanged;
             DT.ValueChanged += DT_ValueChanged;
-            DispatcherTimer _timer = new DispatcherTimer()
-            {
-                Interval = TimeSpan.FromMilliseconds(100)
-            };
-            _timer.Tick += _timer_Tick;
-            _timer.Start();
             //GpioChangeReader reader = new GpioChangeReader(DT);
-        }
-
-        private void _timer_Tick(object sender, object e)
-        {
-            LogBox.Text = "Counter = " + counter.ToString();
+            _debounceTimout = new DispatcherTimer();
+            _debounceTimout.Interval = TimeSpan.FromMilliseconds(50);
+            _debounceTimout.Tick += (sender2, args) =>
+            {
+                _debounceTimout.Stop();
+                acceptingNewValue = true;
+            };
         }
 
         private void DT_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
-            //LogBox.Text = "DT_ValueChanged: " + args.Edge.ToString() + "\r\n";
-            if(args.Edge == GpioPinEdge.RisingEdge)
+            if (args.Edge == GpioPinEdge.FallingEdge && CLK.Read() == GpioPinValue.High && acceptingNewValue)
             {
-                //LogBox.Text = CLK.Read().ToString();
-                if(CLK.Read() == GpioPinValue.Low)
+                acceptingNewValue = false;
+                _debounceTimout.Start();
+                counter++;
+                numDTFire++;
+                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    counter++;
-                    //LogBox.Text = "Counter = " + counter++.ToString();
-                }
-                else
+                    DTVal.Text = numDTFire.ToString();
+                    CounterVal.Text = counter.ToString();
+                });
+            }
+        }
+
+        private void CLK_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
+        {
+            //falling edge is what triggers the change = LED ON = now low value
+            //rising edge = LED OFF = low to high = now high value
+            if(args.Edge == GpioPinEdge.FallingEdge && DT.Read() == GpioPinValue.High && acceptingNewValue)
+            {
+                acceptingNewValue = false;
+                _debounceTimout.Start();
+                counter--;
+                numCLKFire++;
+                var task = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    counter--;
-                    //LogBox.Text = "Counter = " + counter--.ToString();
-                }
+                    CLKVal.Text = numCLKFire.ToString();
+                    CounterVal.Text = counter.ToString();
+                });
             }
         }
     }
