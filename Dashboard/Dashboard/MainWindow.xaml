@@ -167,7 +167,7 @@
                             <Button  HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="151" Content="Cancel Shutdown/Restart" x:Name="CancelShutdownRestartButton" Click="CancelShutdownRestartButton_Click"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="SPI Data" HorizontalAlignment="Left" Height="164" Margin="10,234,0,0" VerticalAlignment="Top" Width="300" x:Name="SpiModules">
+                    <GroupBox Header="I2C Data" HorizontalAlignment="Left" Height="164" Margin="10,234,0,0" VerticalAlignment="Top" Width="300" x:Name="SpiModules">
                         <Grid Background="#FFE5E5E5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -193,6 +193,22 @@
                             <TextBox x:FieldModifier="public" x:Name="GyroX" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                             <TextBox x:FieldModifier="public" x:Name="GyroY" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                             <TextBox x:FieldModifier="public" x:Name="GyroZ" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Robot Status" HorizontalAlignment="Left" Height="71" Margin="899,252,0,0" VerticalAlignment="Top" Width="183">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45*" MaxWidth="85" MinWidth="45"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Content="Control Status"/>
+                            <Label HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Content="Robot Status"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="ControlStatus" x:FieldModifier="public"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="RobotStatus"  x:FieldModifier="public"/>
                         </Grid>
                     </GroupBox>
                 </Grid>

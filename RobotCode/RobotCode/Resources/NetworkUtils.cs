@@ -677,6 +677,8 @@ namespace RobotCode
                 return;
             string[] diagnosticData = new string[]
             {
+                RobotController.RobotControlStatus.ToString(),
+                RobotController.RobotStatus.ToString(),
                 Hardware.SignalVoltageRaw.ToString(),//raw signal voltage
                 Hardware.SignalCurrentRaw.ToString(),//raw signal current
                 Hardware.PowerVoltageRaw.ToString(),//raw power voltage
