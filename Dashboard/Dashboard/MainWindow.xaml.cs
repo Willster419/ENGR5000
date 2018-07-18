@@ -261,6 +261,7 @@ namespace Dashboard
                     return;
                 }
                 NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Shutdown," + timeout.ToString());
+                Logging.LogConsole(string.Format("Sent Shutdown command for {0} seconds delay",timeout.ToString()));
             }
             else
             {
@@ -287,6 +288,7 @@ namespace Dashboard
                     return;
                 }
                 NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Reboot," + timeout.ToString());
+                Logging.LogConsole(string.Format("Sent Reboot command for {0} seconds delay", timeout.ToString()));
             }
             else
             {

@@ -385,7 +385,7 @@ namespace RobotCode
         /// <param name="delay">The delay before the reboot takes place</param>
         public static void Reboot(TimeSpan delay)
         {
-            NetworkUtils.LogNetwork(string.Format("NOTICE: Rebooting in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
+            NetworkUtils.LogNetwork(string.Format("Rebooting in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
             ShutdownManager.BeginShutdown(ShutdownKind.Restart, delay);
         }
         /// <summary>
@@ -394,7 +394,7 @@ namespace RobotCode
         /// <param name="delay">The dealy before the poweroff takes place</param>
         public static void Poweroff(TimeSpan delay)
         {
-            NetworkUtils.LogNetwork(string.Format("NOTICE: Shutting down in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
+            NetworkUtils.LogNetwork(string.Format("Shutting down in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
             ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, delay);
         }
         /// <summary>
@@ -402,7 +402,7 @@ namespace RobotCode
         /// </summary>
         public static void CancelShutdown()
         {
-            NetworkUtils.LogNetwork("WARNING: Canceling shutdown/reboot", NetworkUtils.MessageType.Warning);
+            NetworkUtils.LogNetwork("Canceling shutdown/reboot", NetworkUtils.MessageType.Warning);
             ShutdownManager.CancelShutdown();
         }
     }
