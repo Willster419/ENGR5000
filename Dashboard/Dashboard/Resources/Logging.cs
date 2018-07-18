@@ -52,16 +52,46 @@ namespace Dashboard
         /// The name of the robot log file
         /// </summary>
         private const string ROBOT_LOG_FILE = "Robot.log";
+        /// <summary>
+        /// The directory where all robot log files are kept
+        /// </summary>
         private const string DATA_LOG_FOLDER_NAME = "log_files";
+        /// <summary>
+        /// The Starting prefix for all robot data log files
+        /// </summary>
         private const string DATA_LOG_FILE_START = "robot_data_";
+        /// <summary>
+        /// The file suffix extension for the robot data log files
+        /// </summary>
         private const string DATA_LOG_FILE_EXTENSION = ".csv";
         //https://stackoverflow.com/questions/938421/getting-the-applications-directory-from-a-wpf-application
+        /// <summary>
+        /// The Startup path of the application
+        /// </summary>
         private static readonly string ApplicationPath = AppDomain.CurrentDomain.BaseDirectory;
+        /// <summary>
+        /// The parsed absolute path to the data log folder
+        /// </summary>
         private static readonly string DATA_LOG_FOLDER_PATH = Path.Combine(ApplicationPath, DATA_LOG_FOLDER_NAME);
+        /// <summary>
+        /// The name of the currently open data file
+        /// </summary>
         private static string CurrentDataFilename = "";
+        /// <summary>
+        /// The absolute full path of the current open data file
+        /// </summary>
         private static string CurrentDataFullFilePath = "";
+        /// <summary>
+        /// The character seperater for the csv file
+        /// </summary>
         private const string DATA_SEP_CHAR = ",";
+        /// <summary>
+        /// The Line endings to use for each data entry
+        /// </summary>
         private const string DATA_LINE_ENDING = "\r\n";
+        /// <summary>
+        /// The Header for the data log file. contains all header info for all logged data
+        /// </summary>
         private static readonly string[] DATA_HEADER = new string[]
         {
             "Date",
@@ -173,6 +203,9 @@ namespace Dashboard
         #endregion
 
         #region Data logging
+        /// <summary>
+        /// Initialize a new data logfile by making a new name and applying the header infromation to the file
+        /// </summary>
         public static void InitNewDataLogFile()
         {
             if (!Directory.Exists(DATA_LOG_FOLDER_PATH))
@@ -182,8 +215,22 @@ namespace Dashboard
             CurrentDataFullFilePath = Path.Combine(DATA_LOG_FOLDER_PATH, CurrentDataFilename);
             File.WriteAllText(CurrentDataFullFilePath, string.Join(DATA_SEP_CHAR, DATA_HEADER) + DATA_LINE_ENDING);
         }
+        /// <summary>
+        /// Write a data entry to the currently open file, if an open file exists
+        /// </summary>
+        /// <param name="data"></param>
         public static void WriteDataLogEntry(string[] data)
         {
+            if (string.IsNullOrEmpty(CurrentDataFullFilePath))
+            {
+                LogConsole("ERROR: WriteDataLogEntry called but CurrentDataFullFilePath is null");
+                return;
+            }
+            if (!File.Exists(CurrentDataFullFilePath))
+            {
+                LogConsole("ERROR: WriteDataLogEntry called but file does not exist!");
+                return;
+            }
             //format for date
             string dateFormat = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
             //format for time
