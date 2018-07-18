@@ -174,6 +174,8 @@ namespace Dashboard
             GyroX.Text = data[i++];
             GyroY.Text = data[i++];
             GyroZ.Text = data[i++];
+            //and log it to disk
+            Logging.WriteDataLogEntry(data);
         }
         /// <summary>
         /// On click on checkbox when the user wants to request manual debug control

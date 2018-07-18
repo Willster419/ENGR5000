@@ -398,6 +398,8 @@ namespace Dashboard
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
                 ConnectionLive = true;
+                //initialize the robot data logging system
+                Logging.InitNewDataLogFile();
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
                 while (ConnectionLive)
@@ -561,6 +563,8 @@ namespace Dashboard
                 }
                 ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
                 ConnectionLive = true;
+                //initialize the robot data logging system
+                Logging.InitNewDataLogFile();
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
                 //netwokr setup is complete
