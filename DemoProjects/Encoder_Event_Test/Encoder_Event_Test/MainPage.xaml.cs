@@ -30,6 +30,7 @@ namespace Encoder_Event_Test
     public sealed partial class MainPage : Page
     {
         private int counter = 0;
+        private int numCorrectFiredEvents = 0;
         private GpioPin CLK;
         private GpioPin DT;
         byte[] values = new byte[] { 0, 0, 0, 0 };
@@ -85,6 +86,7 @@ namespace Encoder_Event_Test
             var task = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
             {
                 CounterVal.Text = counter.ToString();
+                DTVal.Text = numCorrectFiredEvents.ToString();
             });
         }
 
@@ -117,6 +119,7 @@ namespace Encoder_Event_Test
                 values.SequenceEqual(ccw4)
             )
             {
+                numCorrectFiredEvents++;
                 counter++;
             }
             else if//CW
@@ -127,7 +130,15 @@ namespace Encoder_Event_Test
                 values.SequenceEqual(cw4)
             )
             {
+                numCorrectFiredEvents++;
                 counter--;
+            }
+        }
+        private void CorrectTicks()
+        {
+            while(counter%4 != 0)
+            {
+                counter++;
             }
         }
     }
