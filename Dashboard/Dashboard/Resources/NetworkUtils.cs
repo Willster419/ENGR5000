@@ -119,7 +119,7 @@ namespace Dashboard
         /// <summary>
         /// Ignore the timeout from the networking (for example, from a step by step debug session)
         /// </summary>
-        private static bool DEBUG_IGNORE_TIMEOUT = false;
+        private static bool DEBUG_IGNORE_TIMEOUT = true;
         /// <summary>
         /// Toggle TCP connection mode
         /// </summary>

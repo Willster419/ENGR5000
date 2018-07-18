@@ -24,61 +24,166 @@ namespace RobotCode
     /// </summary>
     public static class Hardware
     {
-        //GPIO
-        private static GpioController Controller = null;
-
-        //SPI
-        public static SpiDevice ADC = null;
-        public static SpiController ADC_Control = null;
-        public static SpiConnectionSettings ADCSettings = null;
-        public const int SPI_CLOCK_FREQUENCY = 1000000;
-
-        //PWM pins
-        public static SMPWM leftDrive;//channel 0
-        public static SMPWM rightDrive;//channel 1
-        public static PwmController driveControl;
-
-        //I2C (TODO)
-        public static I2cController I2C_Controller = null;
-        public static I2cDevice I2C_Device = null;
-        public static I2cConnectionSettings I2C_Connection_settings = null;
-
-        //Encoders (TODO)
-
-        /*
-         * Current pins setup:
-         * 0 is robot status
-         * 1 is networking status
-         * 2 is battery status
-         * 3 is relay output
-         * 4 is power battery status
-         */
+        #region GPIO
+        public static GpioController GpioController = null;
         public static GpioPin[] Pins = new GpioPin[5];
         public const int CODE_RUNNING_PIN = 17;//index 0
         public const int DASHBOARD_CONNECTED_PIN = 27;//index 1
         public const int SIGNAL_BATTERY_STATUS_PIN = 23;//index 2
-        public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
-        public const byte FORCE_ADC_CHANNEL_SINGLE = 0x80;
-        public const float MVOLTS_PER_STEP = 5000.0F / 1024.0F;//5k mv range, 1024 digital steps
-        public const byte SIGNAL_VOLTAGE_MONITOR_CHANNEL = 0x00;
-        public const byte SIGNAL_CURRENT_MONITOR_CHANEL = 0x10;
-        public const byte POWER_VOLTAGE_MONITOR_CHANNEL = 0x20;
-        public const byte POWER_CURRENT_MONITOR_CHANNEL = 0x30;
-        public const byte TEMPATURE_CHANNEL = 0x40;
-        public const byte WATER_LEVEL_CHANNEL = 0x50;
-        public const byte ACCEL_CHANNEL = 0x60;
-        public const byte GYRO_CHANNEL = 0x70;
         public const int COLLECTION_RELAY = 22;//index 3
+        public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
+        #endregion
+
+        #region SPI/ADC
+#warning TODO: signal voltage sensor starts at 2.5, but only goes from 0.5 to 4.5!!
+        /// <summary>
+        /// The MCP3008 ADC device, SPI interface
+        /// </summary>
+        public static SpiDevice ADC = null;
+        /// <summary>
+        /// The SPI Controller on the Pi
+        /// </summary>
+        public static SpiController ADC_Control = null;
+        /// <summary>
+        /// The SPI connection settings for the MCP3008
+        /// </summary>
+        public static SpiConnectionSettings ADCSettings = null;
+        /// <summary>
+        /// The clock frequency to use on the MCP3008
+        /// </summary>
+        public const int SPI_CLOCK_FREQUENCY = 1000000;
+        /// <summary>
+        /// Constant to use with SPI reading to make channel selections easier (see ReadVoltage method)
+        /// </summary>
+        public const byte FORCE_ADC_CHANNEL_SINGLE = 0x80;
+        /// <summary>
+        /// The digital resultion of the MCP3008
+        /// </summary>
+        public const float MVOLTS_PER_STEP = 5000.0F / 1024.0F;//5k mv range, 1024 digital steps
+        /// <summary>
+        /// The analog channel of the signal voltage sensor
+        /// </summary>
+        public const byte SIGNAL_VOLTAGE_MONITOR_CHANNEL = 0x00;
+        /// <summary>
+        /// The analog channel of the signal current sensor
+        /// </summary>
+        public const byte SIGNAL_CURRENT_MONITOR_CHANEL = 0x10;
+        /// <summary>
+        /// The analog channel fo the power voltage sensor
+        /// </summary>
+        public const byte POWER_VOLTAGE_MONITOR_CHANNEL = 0x20;
+        /// <summary>
+        /// The analog channel of the power current sensor
+        /// </summary>
+        public const byte POWER_CURRENT_MONITOR_CHANNEL = 0x30;
+        /// <summary>
+        /// The analog channel of the tempature sensor
+        /// </summary>
+        public const byte TEMPATURE_CHANNEL = 0x40;
+        /// <summary>
+        /// The analog chanel of the water level sensor
+        /// </summary>
+        public const byte WATER_LEVEL_CHANNEL = 0x50;
         public const float POWER_VOLTAGE_MULTIPLIER = 4.75F;
         public const float SIGNAL_VOLTAGE_BASE_SUBRTACT = 2.5F;
         public const float SIGNAL_VOLTAGE_MULTIPLIER = 11.20F;
-        public static float SignalVoltage = 0.0F;
-        public static float PowerVoltage = 0.0F;
         public const float CURRENT_BASE_SUBTRACT = 2.5F;
         public const float POWER_CURRENT_MULTIPLIER = 12F;
         public const float SIGNAL_CURRENT_MULTIPLIER = 2F;
-        public static float SignalCurrent = 0.0F;
-        public static float PowerCurrent = 0.0F;
+        /// <summary>
+        /// The voltage of the signal battery
+        /// </summary>
+        public static float SignalVoltage { get; private set; }
+        /// <summary>
+        /// The raw analog voltage of the signal battery level (volts)
+        /// </summary>
+        public static float SignalVoltageRaw { get; private set; }
+        /// <summary>
+        /// The volatge of the power battery
+        /// </summary>
+        public static float PowerVoltage { get; private set; }
+        /// <summary>
+        /// The raw analog voltage of the power battery elvel (volts)
+        /// </summary>
+        public static float PowerVoltageRaw { get; private set; }
+        /// <summary>
+        /// The current flowing from the signal battery (amps)
+        /// </summary>
+        public static float SignalCurrent { get; private set; }
+        /// <summary>
+        /// The raw analog voltage of the current flowing from the signal battery
+        /// </summary>
+        public static float SignalCurrentRaw { get; private set; }
+        /// <summary>
+        /// The current frowing from the power battery (amps)
+        /// </summary>
+        public static float PowerCurrent { get; private set; }
+        /// <summary>
+        /// The raw analog voltage of the current flowing from the poawer battery
+        /// </summary>
+        public static float PowerCurrentRaw { get; private set; }
+        /// <summary>
+        /// The tempature of around the robot (celcius)
+        /// </summary>
+        public static float Tempature { get; private set; }
+        /// <summary>
+        /// The raw analog voltage of the tempature around the robot
+        /// </summary>
+        public static float TempatureRaw { get; private set; }
+        /// <summary>
+        /// The level detection of water in the collection
+        /// </summary>
+        public static float WaterLevel { get; private set; }
+        #endregion
+
+        #region PWM
+        public static SMPWM LeftDrive;//channel 0
+        public static SMPWM RightDrive;//channel 1
+        public static PwmController driveControl;
+        #endregion
+
+        #region I2C
+        public static I2cController I2C_Controller = null;
+        public static I2cDevice I2C_Device = null;
+        public static I2cConnectionSettings I2C_Connection_settings = null;
+        private const byte ADDRESS = 0x68;
+        private const byte PWR_MGMT_1 = 0x6B;
+        private const byte SMPLRT_DIV = 0x19;
+        private const byte CONFIG = 0x1A;
+        private const byte GYRO_CONFIG = 0x1B;
+        private const byte ACCEL_CONFIG = 0x1C;
+        private const byte FIFO_EN = 0x23;
+        private const byte INT_ENABLE = 0x38;
+        private const byte INT_STATUS = 0x3A;
+        private const byte USER_CTRL = 0x6A;
+        private const byte FIFO_COUNT = 0x72;
+        private const byte FIFO_R_W = 0x74;
+        private const int SensorBytes = 12;
+        public static float AccelerationX { get; private set; }
+        public static float AccelerationY { get; private set; }
+        public static float AccelerationZ { get; private set; }
+        public static float GyroX { get; private set; }
+        public static float GyroY { get; private set; }
+        public static float GyroZ { get; private set; }
+        #endregion
+
+        #region Encoders
+        public static RotaryEncoder LeftEncoder;
+        public static RotaryEncoder RightEncoder;
+        public const int ROTARY_LEFT_CLK = 0;
+        public const int ROTARY_LEFT_DT = 0;
+        public const int ROTARY_RIGHT_CLK = 0;
+        public const int ROTARY_RIGHT_DT = 0;
+        public static readonly byte[] ccw1 = new byte[] { 0, 0, 0, 1 };
+        public static readonly byte[] ccw2 = new byte[] { 0, 1, 1, 1 };
+        public static readonly byte[] ccw4 = new byte[] { 1, 1, 1, 0 };
+        public static readonly byte[] ccw3 = new byte[] { 1, 0, 0, 0 };
+        public static readonly byte[] cw1 = new byte[] { 0, 0, 1, 0 };
+        public static readonly byte[] cw3 = new byte[] { 1, 0, 1, 1 };
+        public static readonly byte[] cw4 = new byte[] { 1, 1, 0, 1 };
+        public static readonly byte[] cw2 = new byte[] { 0, 1, 0, 0 };
+        #endregion
+
         #region Init methods
         /// <summary>
         /// Initializes the GPIO controller
@@ -96,15 +201,15 @@ namespace RobotCode
                 return false;
             }
             //init the GPIO controller
-            Controller = GpioController.GetDefault();
+            GpioController = GpioController.GetDefault();
             
-            if (Controller == null)
+            if (GpioController == null)
                 return false;
-            Pins[0] = Controller.OpenPin(CODE_RUNNING_PIN);
-            Pins[1] = Controller.OpenPin(DASHBOARD_CONNECTED_PIN);
-            Pins[2] = Controller.OpenPin(SIGNAL_BATTERY_STATUS_PIN);
-            Pins[3] = Controller.OpenPin(COLLECTION_RELAY);
-            Pins[4] = Controller.OpenPin(POWER_BATTERY_STATUS_PIN);
+            Pins[0] = GpioController.OpenPin(CODE_RUNNING_PIN);
+            Pins[1] = GpioController.OpenPin(DASHBOARD_CONNECTED_PIN);
+            Pins[2] = GpioController.OpenPin(SIGNAL_BATTERY_STATUS_PIN);
+            Pins[3] = GpioController.OpenPin(COLLECTION_RELAY);
+            Pins[4] = GpioController.OpenPin(POWER_BATTERY_STATUS_PIN);
             //loop for all the pins
             for (int i = 0; i < Pins.Count(); i++)
             {
@@ -117,7 +222,7 @@ namespace RobotCode
             return true;
         }
         /// <summary>
-        /// Initializes the SPI contorller
+        /// Initializes the SPI contorller and set default sensor values attached to the ADC
         /// </summary>
         /// <returns>true if the contorl init success, false otherwise</returns>
         public static async Task<bool> InitSPI()
@@ -131,6 +236,12 @@ namespace RobotCode
             ADC = ADC_Control.GetDevice(ADCSettings);
             if (ADC == null)
                 return false;
+            WaterLevel = 0;
+            Tempature = 0;
+            SignalCurrent = 0;
+            SignalVoltage = 0;
+            PowerCurrent = 0;
+            PowerVoltage = 0;
             return true;
         }
         /// <summary>
@@ -152,16 +263,16 @@ namespace RobotCode
             {
                 return false;
             }
-            leftDrive = new SMPWM();
-            rightDrive = new SMPWM();
-            leftDrive.Init(5, 12, Controller, driveControl);//PWM grey wire, m2
-            rightDrive.Init(6, 13, Controller, driveControl);//PWM purple wire, m1
-            leftDrive.Start();
-            rightDrive.Start();
+            LeftDrive = new SMPWM();
+            RightDrive = new SMPWM();
+            LeftDrive.Init(5, 12, GpioController, driveControl);//PWM grey wire, m2
+            RightDrive.Init(6, 13, GpioController, driveControl);//PWM purple wire, m1
+            LeftDrive.Start();
+            RightDrive.Start();
             return true;
         }
         /// <summary>
-        /// Initializes the I2C controller
+        /// Initializes the I2C controller and set default values of devices attached to I2C
         /// </summary>
         /// <returns>true if successfull init, false otherwise</returns>
         public static async Task<bool> InitI2C()
@@ -171,17 +282,70 @@ namespace RobotCode
             if (I2C_Controller == null)
                 return false;
             //TODO: make constants for device names
-            I2C_Connection_settings = new I2cConnectionSettings(0x68)//MPU-6050 address
+            I2C_Connection_settings = new I2cConnectionSettings(ADDRESS)//MPU-6050 address
             {
                 BusSpeed = I2cBusSpeed.FastMode,
             };
             I2C_Device = I2C_Controller.GetDevice(I2C_Connection_settings);
             if (I2C_Device == null)
                 return false;
+            await Task.Delay(3); // wait power up sequence
+            try
+            {
+                I2C_WriteByte(PWR_MGMT_1, 0x80);// reset the device
+            }
+            catch
+            {
+                return false;
+            }
+
+            await Task.Delay(100);
+            I2C_WriteByte(PWR_MGMT_1, 0x2);
+            I2C_WriteByte(USER_CTRL, 0x04); //reset fifo
+
+            I2C_WriteByte(PWR_MGMT_1, 1); // clock source = gyro x
+            I2C_WriteByte(GYRO_CONFIG, 0); // +/- 250 degrees sec
+            I2C_WriteByte(ACCEL_CONFIG, 0); // +/- 2g
+
+            I2C_WriteByte(CONFIG, 1); // 184 Hz, 2ms delay
+            I2C_WriteByte(SMPLRT_DIV, 19);  // set rate 50Hz
+            I2C_WriteByte(FIFO_EN, 0x78); // enable accel and gyro to read into fifo
+            I2C_WriteByte(USER_CTRL, 0x40); // reset and enable fifo
+            I2C_WriteByte(INT_ENABLE, 0x1);
+            AccelerationX = 0;
+            AccelerationY = 0;
+            AccelerationZ = 0;
+            GyroX = 0;
+            GyroY = 0;
+            GyroZ = 0;
+            return true;
+        }
+        /// <summary>
+        /// Initialize the Encoders and set dafult values
+        /// </summary>
+        /// <returns></returns>
+        public static bool InitEncoders()
+        {
+            LeftEncoder = new RotaryEncoder();
+            RightEncoder = new RotaryEncoder();
+            if (!LeftEncoder.InitEncoder(26, 19, GpioController))
+                return false;
+            if (!RightEncoder.InitEncoder(20, 16, GpioController))
+                return false;
             return true;
         }
         #endregion
-        #region SPI methods
+
+        #region SPI/ADC methods
+        /// <summary>
+        /// Updated all sensors (except battery info) on the ADC
+        /// Currently tempature and water level
+        /// </summary>
+        public static void UpdateSPIData()
+        {
+            WaterLevel = ReadVoltage(WATER_LEVEL_CHANNEL, true, 2);
+            Tempature = ReadVoltage(TEMPATURE_CHANNEL, true, 2);
+        }
         /// <summary>
         /// Reads a raw digital voltage from one of the analog channels
         /// </summary>
@@ -189,7 +353,7 @@ namespace RobotCode
         /// <param name="normalizeTo5">true if you want to voltage normalized to 5 volts (99% you do)</param>
         /// <param name="round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
         /// <returns>A floating point number of the voltage</returns>
-        public static float ReadVoltage(byte hexChannel, bool normalizeTo5, int round)
+        private static float ReadVoltage(byte hexChannel, bool normalizeTo5, int round)
         {
             //unsigned char in C++ is byte in C#
             if(ADC == null)
@@ -216,27 +380,96 @@ namespace RobotCode
             return resultFloat;
         }
         #endregion
+
         #region I2C methods
-        public static float[] ReadSPIData()
+        /// <summary>
+        /// Updates Acceleration and Gyro values
+        /// </summary>
+        /// <param name="round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
+        public static void UpdateI2CData(int round)
         {
-            byte[] command = new byte[]
+            int interruptStatus = I2C_ReadByte(INT_STATUS);
+            if ((interruptStatus & 0x10) != 0)
             {
-                0x3B
-            };
-            byte[] results = new byte[8];
-            try
-            {
-                I2C_Device.WriteRead(command, results);
-                NetworkUtils.LogNetwork(results.ToString(), NetworkUtils.MessageType.Debug);
+                I2C_WriteByte(USER_CTRL, 0x44); // reset and enable fifo
             }
-            catch
+            if ((interruptStatus & 0x1) == 0) return;
+            int count = I2C_ReadWord(FIFO_COUNT);
+            while (count >= SensorBytes)
             {
-                return null;
+                var data = I2C_ReadBytes(FIFO_R_W, SensorBytes);
+                count -= SensorBytes;
+
+                var xa = (short)(data[0] << 8 | data[1]);
+                var ya = (short)(data[2] << 8 | data[3]);
+                var za = (short)(data[4] << 8 | data[5]);
+
+                var xg = (short)(data[6] << 8 | data[7]);
+                var yg = (short)(data[8] << 8 | data[9]);
+                var zg = (short)(data[10] << 8 | data[11]);
+
+                AccelerationX = xa / (float)16384;
+                AccelerationY = ya / (float)16384;
+                AccelerationZ = za / (float)16384;
+                GyroX = xg / (float)131;
+                GyroY = yg / (float)131;
+                GyroZ = zg / (float)131;
+
+                if (round >= 0)
+                {
+                    AccelerationX = MathF.Round(AccelerationX, round);
+                    AccelerationY = MathF.Round(AccelerationY, round);
+                    AccelerationZ = MathF.Round(AccelerationZ, round);
+                    GyroX = MathF.Round(GyroX, round);
+                    GyroY = MathF.Round(GyroY, round);
+                    GyroZ = MathF.Round(GyroZ, round);
+                }
             }
-            return null;
+        }
+        private static void I2C_WriteByte(byte regAddr, byte data)
+        {
+            byte[] buffer = new byte[2];
+            buffer[0] = regAddr;
+            buffer[1] = data;
+            I2C_Device.Write(buffer);
+        }
+
+        private static byte I2C_ReadByte(byte regAddr)
+        {
+            byte[] buffer = new byte[1];
+            buffer[0] = regAddr;
+            byte[] value = new byte[1];
+            I2C_Device.WriteRead(buffer, value);
+            return value[0];
+        }
+
+        private static byte[] I2C_ReadBytes(byte regAddr, int length)
+        {
+            byte[] values = new byte[length];
+            byte[] buffer = new byte[1];
+            buffer[0] = regAddr;
+            I2C_Device.WriteRead(buffer, values);
+            return values;
+        }
+
+        private static ushort I2C_ReadWord(byte address)
+        {
+            byte[] buffer = I2C_ReadBytes(FIFO_COUNT, 2);
+            return (ushort)(((int)buffer[0] << 8) | (int)buffer[1]);
         }
         #endregion
+
         #region Battery Methods
+        /// <summary>
+        /// Updates the Voltage and Current values of the signal battery
+        /// </summary>
+        public static void UpdateSignalBattery()
+        {
+            SignalVoltageRaw = ReadVoltage(SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, 2);
+            SignalCurrentRaw = ReadVoltage(SIGNAL_CURRENT_MONITOR_CHANEL, true, 2);
+            SignalVoltage = MathF.Round((SignalVoltageRaw - SIGNAL_VOLTAGE_BASE_SUBRTACT) * SIGNAL_VOLTAGE_MULTIPLIER, 2);
+            SignalCurrent = MathF.Round(MathF.Abs(SignalCurrentRaw - CURRENT_BASE_SUBTRACT) * SIGNAL_CURRENT_MULTIPLIER, 2);
+        }
         /// <summary>
         /// Reads the voltage of the battery for the signal system
         /// </summary>
@@ -247,11 +480,6 @@ namespace RobotCode
                 return BatteryStatus.Unknown;
             if(!RobotController.SystemOnline)
                 return BatteryStatus.Unknown;
-            if(!NetworkUtils.ConnectionLive)
-            {
-                //update the voltage value since the network thread is not
-                Hardware.SignalVoltage = MathF.Round((Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) - Hardware.SIGNAL_VOLTAGE_BASE_SUBRTACT) * Hardware.SIGNAL_VOLTAGE_MULTIPLIER, 2);
-            }
             if (SignalVoltage > 9.99F)
             {
                 return BatteryStatus.Above75;
@@ -274,6 +502,16 @@ namespace RobotCode
             }
         }
         /// <summary>
+        /// Updates the current and voltrage of the power battery
+        /// </summary>
+        public static void UpdatePowerBattery()
+        {
+            PowerVoltageRaw = ReadVoltage(POWER_VOLTAGE_MONITOR_CHANNEL, true, 2);
+            PowerCurrentRaw = ReadVoltage(POWER_CURRENT_MONITOR_CHANNEL, true, 2);
+            PowerVoltage = MathF.Round(PowerVoltageRaw * POWER_VOLTAGE_MULTIPLIER, 2);
+            PowerCurrent = MathF.Round(MathF.Abs(PowerCurrentRaw - CURRENT_BASE_SUBTRACT) * POWER_CURRENT_MULTIPLIER, 2);
+        }
+        /// <summary>
         /// Reads the voltage of the battery for the power system
         /// </summary>
         /// <returns>The BatteryStatus Enumeration that corresponds to the value read</returns>
@@ -283,11 +521,6 @@ namespace RobotCode
                 return BatteryStatus.Unknown;
             if (!RobotController.SystemOnline)
                 return BatteryStatus.Unknown;
-            if (!NetworkUtils.ConnectionLive)
-            {
-                //update the voltage value since the network thread is not
-                Hardware.PowerVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.POWER_VOLTAGE_MULTIPLIER, 2);
-            }
             if (PowerVoltage > 8.99F)
             {
                 return BatteryStatus.Above75;

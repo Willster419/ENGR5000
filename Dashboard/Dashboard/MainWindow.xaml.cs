@@ -165,6 +165,12 @@ namespace Dashboard
             Battery1Amps.Text = data[i++];
             Battery2Volts.Text = data[i++];
             Battery2Amps.Text = data[i++];
+            AccelX.Text = data[i++];
+            AccelY.Text = data[i++];
+            AccelZ.Text = data[i++];
+            GyroX.Text = data[i++];
+            GyroY.Text = data[i++];
+            GyroZ.Text = data[i++];
         }
         /// <summary>
         /// On click on checkbox when the user wants to request manual debug control

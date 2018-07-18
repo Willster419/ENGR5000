@@ -218,28 +218,38 @@ namespace RobotCode
                     e.Cancel = true;
                     return;
                 }
+                //if there is no network connection
                 if(!NetworkUtils.ConnectionLive)
                 {
                     //stop moving
-                    Hardware.leftDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.rightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5F);
                     Hardware.Pins[3].Write(GpioPinValue.High);
                     System.Threading.Thread.Sleep(20);
                     continue;
                 }
+                //update sensor values
+                //battery
+                Hardware.UpdateSignalBattery();
+                Hardware.UpdatePowerBattery();
+                //I2C
+                Hardware.UpdateI2CData(2);
+                //SPI
+                Hardware.UpdateSPIData();
+
                 //parse the write the commands
                 string[] commands = NetworkUtils.ManualControlCommands.Split(',');
                 //left (float), right (float), motor (bool)
                 try
                 {
-                    Hardware.leftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
-                    Hardware.rightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
+                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
+                    Hardware.RightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
                     Hardware.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.Low : GpioPinValue.High);
                 }
                 catch
                 {
-                    Hardware.leftDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.rightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5F);
                     Hardware.Pins[3].Write(GpioPinValue.High);
                 }
                 System.Threading.Thread.Sleep(10);
@@ -259,12 +269,21 @@ namespace RobotCode
             }
             while (true)
             {
+                //check for cancel/abort
                 if (ControllerThread.CancellationPending)
                 {
                     e.Cancel = true;
                     return;
                 }
-                System.Threading.Thread.Sleep(100);
+                //update sensor values
+                //battery
+                Hardware.UpdateSignalBattery();
+                Hardware.UpdatePowerBattery();
+                //I2C
+                Hardware.UpdateI2CData(2);
+                //SPI
+                Hardware.UpdateSPIData();
+                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(1));
             }
         }
         /// <summary>
@@ -338,9 +357,16 @@ namespace RobotCode
             //everything must stop, a critical exception has occured
             RobotStatus = RobotStatus.Exception;
             //shut off any relays on
-            Hardware.Pins[3].Write(GpioPinValue.Low);
+            if(Hardware.GpioController != null && Hardware.Pins[3] != null)
+                Hardware.Pins[3].Write(GpioPinValue.High);
             //shut off any PWM systems
-
+            if(Hardware.driveControl != null)
+            {
+                if (Hardware.LeftDrive != null)
+                    Hardware.LeftDrive.Stop();
+                if (Hardware.RightDrive != null)
+                    Hardware.RightDrive.Stop();
+            }
         }
         /// <summary>
         /// Usually when the signal (RPi) battery is in a critical state. Shuts down the unit in the event of a critical

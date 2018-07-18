@@ -28,10 +28,10 @@ namespace RobotCode
         public MainPage()
         {
             InitializeComponent();
-            Loaded += OnPageLoaded;
+            Loaded += InitRobot;
         }
 
-        private async void OnPageLoaded(object sender, RoutedEventArgs e)
+        private async void InitRobot(object sender, RoutedEventArgs e)
         {
             if(!Hardware.InitGPIO())
             {
@@ -39,6 +39,7 @@ namespace RobotCode
                 Application.Current.Exit();
                 return;
             }
+
             //init the robot networking
             if(!NetworkUtils.InitComms())
             {
@@ -46,6 +47,7 @@ namespace RobotCode
                 Application.Current.Exit();
                 return;
             }
+
             //DEBUG: wait for dashboard logging connection
             if(NetworkUtils.DEBUG_FORCE_DASHBOARD_CONNECT)
             {
@@ -55,7 +57,18 @@ namespace RobotCode
                 }
                 NetworkUtils.LogNetwork("dashboard connected via force wait", NetworkUtils.MessageType.Debug);
             }
-            NetworkUtils.LogNetwork("Initializing SPI interface", NetworkUtils.MessageType.Info);
+
+            //encoders
+            NetworkUtils.LogNetwork("Initializing Encoders", NetworkUtils.MessageType.Info);
+            if(!Hardware.InitEncoders())
+            {
+                NetworkUtils.LogNetwork("Encoders Failed to initialize", NetworkUtils.MessageType.Error);
+                RobotController.RobotStatus = RobotStatus.Error;
+                Application.Current.Exit();
+            }
+
+            //SPI/ADC
+            NetworkUtils.LogNetwork("Encoders initialized, initializing SPI interface", NetworkUtils.MessageType.Info);
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
             //https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation.findallasync
             //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
@@ -66,10 +79,9 @@ namespace RobotCode
                 Application.Current.Exit();
                 return;
             }
-            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading PWM", NetworkUtils.MessageType.Info);
-            //check battery status of both devices
 
-            //init pwm
+            //pwm
+            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading PWM", NetworkUtils.MessageType.Info);
             if (! await Hardware.InitPWM())
             {
                 NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Error);
@@ -77,7 +89,18 @@ namespace RobotCode
                 Application.Current.Exit();
                 return;
             }
-            NetworkUtils.LogNetwork("PWM loading complete, Initializing Main Robot controller", NetworkUtils.MessageType.Info);
+
+            //I2c
+            NetworkUtils.LogNetwork("PWM loading complete, SPI", NetworkUtils.MessageType.Info);
+            if(! await Hardware.InitI2C())
+            {
+                NetworkUtils.LogNetwork("I2C Failed to Initialize", NetworkUtils.MessageType.Error);
+                RobotController.RobotStatus = RobotStatus.Error;
+                Application.Current.Exit();
+            }
+
+            //main control system
+            NetworkUtils.LogNetwork("I2C loading complete, Initializing Main Robot controller", NetworkUtils.MessageType.Info);
             if (!RobotController.InitController())
             {
                 NetworkUtils.LogNetwork("Controller failed to intialize", NetworkUtils.MessageType.Error);

@@ -94,13 +94,13 @@
                             <TextBox x:FieldModifier="public" x:Name="Battery2Amps" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="10,234,0,0" VerticalAlignment="Top" Width="300">
+                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="899,147,0,0" VerticalAlignment="Top" Width="183">
                         <Grid Background="#FFE5E5E5">
                             <Button x:Name="ResetNetworkConnection" Content="Reset Network Connection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="10,35,0,0" Click="ResetNetworkConnection_Click"/>
                             <Button x:Name="ClearBothlogDisplays" Content="Clear log displays" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Click="ClearBothlogDisplays_Click"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Manual Control" HorizontalAlignment="Left" Height="271" Margin="555,10,0,0" VerticalAlignment="Top" Width="483">
+                    <GroupBox Header="Manual Control" HorizontalAlignment="Left" Height="313" Margin="555,10,0,0" VerticalAlignment="Top" Width="339">
                         <Grid Background="#FFE5E5E5">
                             <CheckBox x:Name="ManualControlToggle" x:FieldModifier="public" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="ManualControlToggle_Checked" Unchecked="ManualControlToggle_Unchecked"/>
                             <GroupBox Header="Button Control" HorizontalAlignment="Left" Height="150" Margin="10,36,0,0" VerticalAlignment="Top" Width="150">
@@ -137,7 +137,7 @@
                                     <TextBox x:Name="JoystickYValue" x:FieldModifier="public" HorizontalAlignment="Left" Height="18" Margin="55,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" IsReadOnly="True"/>
                                 </Grid>
                             </GroupBox>
-                            <GroupBox Header="Output" HorizontalAlignment="Left" Height="94" Margin="330,36,0,0" VerticalAlignment="Top" Width="131">
+                            <GroupBox Header="Output" HorizontalAlignment="Left" Height="94" Margin="10,191,0,0" VerticalAlignment="Top" Width="150">
                                 <Grid Background="#FFE5E5E5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
@@ -158,13 +158,41 @@
                             </GroupBox>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Power Control" HorizontalAlignment="Left" Height="133" Margin="10,339,0,0" VerticalAlignment="Top" Width="183">
-                        <Grid Background="#FFE5E5E5" Margin="0,0,0,-22">
+                    <GroupBox Header="Power Control" HorizontalAlignment="Left" Height="132" Margin="899,10,0,0" VerticalAlignment="Top" Width="183">
+                        <Grid Background="#FFE5E5E5" >
                             <Button  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="151" Content="Request Reboot" x:Name="RequestShutdownButton" Click="RequestShutdownButton_Click"/>
                             <Button  HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="151" Content="Request Shutdown" x:Name="RequestRebootButton" Click="RequestRebootButton_Click"/>
                             <Label   HorizontalAlignment="Left" Margin="79,60,0,0" VerticalAlignment="Top" Height="23" Content="Second Delay"/>
                             <TextBox HorizontalAlignment="Left" Height="23" Margin="10,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" x:Name="SecondsDelay"/>
                             <Button  HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="151" Content="Cancel Shutdown/Restart" x:Name="CancelShutdownRestartButton" Click="CancelShutdownRestartButton_Click"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="SPI Data" HorizontalAlignment="Left" Height="164" Margin="10,234,0,0" VerticalAlignment="Top" Width="300" x:Name="SpiModules">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition MaxWidth="60" Width="60*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Accel X"       HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch"/>
+                            <Label Content="Accel Y"  HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch"/>
+                            <Label Content="Accel Z"    HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch"/>
+                            <Label Content="Gyro X"      HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch"/>
+                            <Label Content="Gyro Y" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch"/>
+                            <Label Content="Gyro Z"   HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch"/>
+                            <TextBox x:FieldModifier="public" x:Name="AccelX" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="AccelY" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="AccelZ" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="GyroX" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="GyroY" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="GyroZ" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
                 </Grid>

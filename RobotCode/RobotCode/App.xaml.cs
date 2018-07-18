@@ -97,12 +97,16 @@ namespace RobotCode
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
+        /// <summary>
+        /// Occures when the application encounters an unhandled exception. The applicatoin is unloaded and all resources released
+        /// </summary>
+        /// <param name="sender">The source that caused the exception</param>
+        /// <param name="e">The exception object entry</param>
         private void Application_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
             RobotController.RobotStatus = RobotStatus.Exception;
             NetworkUtils.LogNetwork(e.ToString(), NetworkUtils.MessageType.Exception);
-            this.Exit();
+            Current.Exit();
         }
     }
 }

@@ -433,6 +433,18 @@ namespace RobotCode
                                         RobotController.RobotControlStatus = ControlStatus.RelaseManual;
                                         RobotController.ControllerThread.CancelAsync();
                                     }
+                                    else if (ManualControlCommands.Split(',')[0].Equals("Shutdown"))
+                                    {
+                                        RobotController.Poweroff(TimeSpan.FromSeconds(int.Parse(ManualControlCommands.Split(',')[1])));
+                                    }
+                                    else if (ManualControlCommands.Split(',')[0].Equals("Reboot"))
+                                    {
+                                        RobotController.Reboot(TimeSpan.FromSeconds(int.Parse(ManualControlCommands.Split(',')[1])));
+                                    }
+                                    else if (ManualControlCommands.Split(',')[0].Equals("Cancel_Shutdown"))
+                                    {
+                                        RobotController.CancelShutdown();
+                                    }
                                 }
                                 break;
                         }
@@ -663,30 +675,32 @@ namespace RobotCode
             //collect and send diagnostic robot data to the dashboard
             if (!ConnectionLive || !RobotController.SystemOnline)
                 return;
-            Hardware.PowerVoltage = MathF.Round(Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL, true, -1) * Hardware.POWER_VOLTAGE_MULTIPLIER,2);
-            Hardware.SignalVoltage = MathF.Round((Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, -1) - Hardware.SIGNAL_VOLTAGE_BASE_SUBRTACT) * Hardware.SIGNAL_VOLTAGE_MULTIPLIER,2);
-            Hardware.SignalCurrent = MathF.Round(MathF.Abs(Hardware.ReadVoltage(Hardware.SIGNAL_CURRENT_MONITOR_CHANEL, true, -1) - Hardware.CURRENT_BASE_SUBTRACT) * Hardware.SIGNAL_CURRENT_MULTIPLIER, 2);
-            Hardware.PowerCurrent = MathF.Round(MathF.Abs(Hardware.ReadVoltage(Hardware.POWER_CURRENT_MONITOR_CHANNEL, true, -1) - Hardware.CURRENT_BASE_SUBTRACT) * Hardware.POWER_CURRENT_MULTIPLIER, 2);
             string[] diagnosticData = new string[]
             {
-                Hardware.ReadVoltage(Hardware.SIGNAL_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
-                Hardware.ReadVoltage(Hardware.SIGNAL_CURRENT_MONITOR_CHANEL,true,2).ToString(),
-                Hardware.ReadVoltage(Hardware.POWER_VOLTAGE_MONITOR_CHANNEL,true,2).ToString(),
-                Hardware.ReadVoltage(Hardware.POWER_CURRENT_MONITOR_CHANNEL,true,2).ToString(),
-                Hardware.ReadVoltage(Hardware.WATER_LEVEL_CHANNEL,true,2).ToString(),
-                Hardware.ReadVoltage(Hardware.TEMPATURE_CHANNEL,true,2).ToString(),
-                "",
-                "",
-                Hardware.leftDrive.GetSignInt().ToString(),
-                Math.Round(Hardware.leftDrive.GetActiveDutyCyclePercentage(),2).ToString(),
-                "",
-                Hardware.rightDrive.GetSignInt().ToString(),
-                Math.Round(Hardware.rightDrive.GetActiveDutyCyclePercentage(),2).ToString(),
-                "",
+                Hardware.SignalVoltageRaw.ToString(),//raw signal voltage
+                Hardware.SignalCurrentRaw.ToString(),//raw signal current
+                Hardware.PowerVoltageRaw.ToString(),//raw power voltage
+                Hardware.PowerVoltage.ToString(),//raw power current
+                Hardware.WaterLevel.ToString(),//water level
+                Hardware.TempatureRaw.ToString(),//raw tempature
+                "",//CH6 (unused)
+                "",//CH7 (unused)
+                Hardware.LeftDrive.GetSignInt().ToString(),//sign
+                Math.Round(Hardware.LeftDrive.GetActiveDutyCyclePercentage(),2).ToString(),//mag
+                Hardware.LeftEncoder.Counter.ToString(),//encoder
+                Hardware.RightDrive.GetSignInt().ToString(),//sign
+                Math.Round(Hardware.RightDrive.GetActiveDutyCyclePercentage(),2).ToString(),//mag
+                Hardware.RightEncoder.Counter.ToString(),//encoder
                 Hardware.SignalVoltage.ToString(),//signal voltage
-                Hardware.SignalCurrent.ToString(),
+                Hardware.SignalCurrent.ToString(),//signal current
                 Hardware.PowerVoltage.ToString(),//power voltage
-                Hardware.PowerCurrent.ToString(),
+                Hardware.PowerCurrent.ToString(),//power current
+                Hardware.AccelerationX.ToString(), //accel X
+                Hardware.AccelerationY.ToString(), //accel Y
+                Hardware.AccelerationZ.ToString(), //accel Z
+                Hardware.GyroX.ToString(), //gyro X
+                Hardware.GyroY.ToString(), //gyro Y
+                Hardware.GyroZ.ToString() //gyro Z
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }
