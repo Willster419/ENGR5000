@@ -147,6 +147,9 @@ namespace Dashboard
         public void OnDiagnosticData(string[] data)
         {
             int i = 0;
+            //TODO: send control mode
+            //TODO: send Robot Status
+            //TODO: send robot auto control stage
             Channel0Data.Text = data[i++];
             Channel1Data.Text = data[i++];
             Channel2Data.Text = data[i++];

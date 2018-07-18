@@ -38,9 +38,9 @@
                             <TextBox x:FieldModifier="public" x:Name="Channel4Data" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                             <Label   Grid.Column="0" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 5 (Tempature)"/>
                             <TextBox x:FieldModifier="public" x:Name="Channel5Data" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
-                            <Label   Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 6 (Accel)"/>
+                            <Label   Grid.Column="0" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 6 (NC)"/>
                             <TextBox x:FieldModifier="public" x:Name="Channel6Data" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
-                            <Label   Grid.Column="0" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 7(Gyro)"/>
+                            <Label   Grid.Column="0" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Channel 7(NC)"/>
                             <TextBox x:FieldModifier="public" x:Name="Channel7Data" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>

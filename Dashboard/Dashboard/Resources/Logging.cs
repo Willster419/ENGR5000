@@ -39,11 +39,11 @@ namespace Dashboard
         /// <summary>
         /// Locker object used to prevent multiple access to the console file stream
         /// </summary>
-        private static object ConsoleLocker = new object();
+        private static readonly object ConsoleLocker = new object();
         /// <summary>
         /// Locker object used to prevent multiple access to the robot file stream
         /// </summary>
-        private static object RobotLocker = new object();
+        private static readonly object RobotLocker = new object();
         /// <summary>
         /// The name of the dashboard log file
         /// </summary>
@@ -52,6 +52,47 @@ namespace Dashboard
         /// The name of the robot log file
         /// </summary>
         private const string ROBOT_LOG_FILE = "Robot.log";
+        private const string DATA_LOG_FOLDER_NAME = "log_files";
+        private const string DATA_LOG_FILE_START = "robot_data_";
+        private const string DATA_LOG_FILE_EXTENSION = ".csv";
+        //https://stackoverflow.com/questions/938421/getting-the-applications-directory-from-a-wpf-application
+        private static readonly string ApplicationPath = AppDomain.CurrentDomain.BaseDirectory;
+        private static readonly string DATA_LOG_FOLDER_PATH = Path.Combine(ApplicationPath, DATA_LOG_FOLDER_NAME);
+        private static string CurrentDataFilename = "";
+        private static string CurrentDataFullFilePath = "";
+        private const string DATA_SEP_CHAR = ",";
+        private const string DATA_LINE_ENDING = "\r\n";
+        private static readonly string[] DATA_HEADER = new string[]
+        {
+            "Date",
+            "Time",
+            "ControlMode",
+            "RobotStatus",
+            "RobotAutoControlStage",
+            "Battery1VoltsRaw",
+            "Battery1AmpsRaw",
+            "Battery2VoltsRaw",
+            "Battery2AmpsRaw",
+            "WaterLevel",
+            "TempatureRaw",
+            "LeftDriveSign",
+            "LeftDriveMag",
+            "LeftDriveEncoder",
+            "RightDriveSign",
+            "RightDriveMag",
+            "RightDriveEncoder",
+            "Battery1Volts",
+            "Battery1Amps",
+            "Battery2Volts",
+            "Battery2Amps",
+            "AccelX",
+            "AccelY",
+            "AccelZ",
+            "GyroX",
+            "GyroY",
+            "GyroZ"
+        };
+        #region Console Logging
         /// <summary>
         /// Initializes the Logging functions of the application
         /// </summary>
@@ -129,6 +170,31 @@ namespace Dashboard
             RobotLogSteam = new FileStream(ROBOT_LOG_FILE, FileMode.Append, FileAccess.Write);
             RobotLogOutput.AppendText("Log file cleared");
         }
+        #endregion
 
+        #region Data logging
+        public static void InitNewDataLogFile()
+        {
+            if (!Directory.Exists(DATA_LOG_FOLDER_PATH))
+                Directory.CreateDirectory(DATA_LOG_FOLDER_PATH);
+            string dateTimeFormat = string.Format("{0:yyyy-MM-dd:HH-mm-ss}", DateTime.Now);
+            CurrentDataFilename = DATA_LOG_FILE_START + dateTimeFormat + DATA_LOG_FILE_EXTENSION;
+            CurrentDataFullFilePath = Path.Combine(DATA_LOG_FOLDER_PATH, CurrentDataFilename);
+            File.WriteAllText(CurrentDataFullFilePath, string.Join(DATA_SEP_CHAR, DATA_HEADER) + DATA_LINE_ENDING);
+        }
+        public static void WriteDataLogEntry(string[] data)
+        {
+            //format for date
+            string dateFormat = string.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            //format for time
+            string timeFormat = string.Format("{0:HH-mm-ss.fff}", DateTime.Now);
+            //combine reslutls with data
+            string[] dataToWrite = new string[data.Length + 2];
+            dataToWrite[0] = dateFormat;
+            dataToWrite[1] = timeFormat;
+            data.CopyTo(dataToWrite, 2);
+            File.WriteAllText(CurrentDataFullFilePath, string.Join(DATA_SEP_CHAR, dataToWrite)+DATA_LINE_ENDING);
+        }
+        #endregion
     }
 }
