@@ -467,7 +467,22 @@ namespace RobotCode
         {
             SignalVoltageRaw = ReadVoltage(SIGNAL_VOLTAGE_MONITOR_CHANNEL, true, 2);
             SignalCurrentRaw = ReadVoltage(SIGNAL_CURRENT_MONITOR_CHANEL, true, 2);
-            SignalVoltage = MathF.Round((SignalVoltageRaw - SIGNAL_VOLTAGE_BASE_SUBRTACT) * SIGNAL_VOLTAGE_MULTIPLIER, 2);
+            /*
+             * Notes on signal voltage monitor:
+             * - Middle value is 2.5 volts
+             * - ONLY reads from 0.5 to 4.5, NOT 0-5!
+             * - Range is 2.5V +/- 2 volts
+             * - Device scales form -30 to 30V
+             * - +/-4v signal = +/-30v actual
+            */
+            //idea to avoid negatives:
+            //subtract 0.5 for the part that isn't used
+            float voltage_part_1 = SignalVoltageRaw-0.5F;
+            //make signal 0 - 4 = correspond to 0 - 60 actual
+            float voltage_part_2 = voltage_part_1 * 15F;
+            //subtract 30 to normalize back
+            SignalVoltage = voltage_part_2 - 30F;
+            //SignalVoltage = MathF.Round((SignalVoltageRaw - SIGNAL_VOLTAGE_BASE_SUBRTACT) * SIGNAL_VOLTAGE_MULTIPLIER, 2);
             SignalCurrent = MathF.Round(MathF.Abs(SignalCurrentRaw - CURRENT_BASE_SUBTRACT) * SIGNAL_CURRENT_MULTIPLIER, 2);
         }
         /// <summary>
