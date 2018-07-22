@@ -121,9 +121,13 @@ namespace RobotCode
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
         public static ControlStatus @ControlStatus = ControlStatus.None;
-        public static AutoControlState RobotAutoControlState = AutoControlState.None;
+        public static AutoControlState RobotAutoControlState { get; private set; } = AutoControlState.None;
         public static BackgroundWorker ControllerThread;
         public static bool SystemOnline = false;
+        private const bool IGNORE_LOW_SIGNAL_BATTERY_ACTION = true;
+        private const bool IGNORE_LOW_POWER_BATTERY_ACTION = true;
+        private static int DelayI2CRead = 0;
+
         public static bool InitController()
         {
             //init the status indicators
@@ -296,6 +300,7 @@ namespace RobotCode
             }
             if (ControlStatus != ControlStatus.Auto)
                 ControlStatus = ControlStatus.Auto;
+            RobotAutoControlState = AutoControlState.None;
             while (true)
             {
                 //check for cancel/abort
@@ -311,10 +316,75 @@ namespace RobotCode
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
-                Hardware.UpdateI2CData(2);
+                if (DelayI2CRead >= 2)
+                {
+                    Hardware.UpdateI2CData(2);
+                    DelayI2CRead = -1;
+                }
+                DelayI2CRead++;
                 //SPI
                 Hardware.UpdateSPIData();
-                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(10));
+
+                //process battery conditions
+                if(!IGNORE_LOW_SIGNAL_BATTERY_ACTION)
+                {
+                    //TODO: make method to run this single time as to not spam loging, maybe previous value and use if statements??
+                    switch(SignalBatteryStatus)
+                    {
+                        case BatteryStatus.Below5Shutdown:
+                            NetworkUtils.LogNetwork("Robot signal voltage has reached critical level and must shut down, Setting shutdown for 60s", NetworkUtils.MessageType.Error);
+                            EmergencyShutdown(TimeSpan.FromSeconds(60));
+                            break;
+                        case BatteryStatus.Below15Warning:
+                            NetworkUtils.LogNetwork("Robot signal voltage has reached warning level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                            break;
+                    }
+                }
+                if(!IGNORE_LOW_POWER_BATTERY_ACTION)
+                {
+                    //same idea as above
+                }
+
+                //check water level
+                if(Hardware.WaterLevel > 1.5F && false)//ignore water leverl for now
+                {
+                    NetworkUtils.LogNetwork("Robot water level is at level, needs to dump", NetworkUtils.MessageType.Warning);
+                    RobotAutoControlState = AutoControlState.OnWaterLimit;
+                }
+
+                switch (RobotAutoControlState)
+                {
+                    case AutoControlState.None:
+                        //getting into here means that the robot has not started, has good batteries, and is not water level full
+                        
+                        //RobotAutoControlState = AutoControlState.TurnToMap;
+                        break;
+                    case AutoControlState.TurnToMap:
+                        //turn to right to get to laser reading
+                        //move encoders specific ammount
+
+                        if(false)//it makes it to the wall
+                        {
+                            NetworkUtils.LogNetwork("Robot has found wall, moving to map", NetworkUtils.MessageType.Info);
+                            Hardware.LeftEncoder.ResetCounter();
+                            Hardware.RightEncoder.ResetCounter();
+                            RobotAutoControlState = AutoControlState.MapOneSide;
+                        }
+                        break;
+
+                    case AutoControlState.MapOneSide:
+                        //if front IR sensor
+                        //  save counter rotations
+                        //  move to turn to map phase
+                        //if wall IR sensor
+                        //  turn x rotations
+                        //else if not wall ir sensor and counter for turning
+                        //  set back to slow right turn
+
+                        break;
+                }
+
+                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(5));
             }
         }
         /// <summary>
