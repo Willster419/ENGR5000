@@ -13,19 +13,21 @@
 *.userprefs
 
 # Build results
-#https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
-#![Dd]ebug/
-#[Dd]ebug/*
-#![Dd]ebug/log_files/
+#[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
 x64/
 x86/
+ARM/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 [Ll]og/
+
+#exclude log files directories
+
+
 
 # Visual Studio 2015 cache/options directory
 .vs/
