@@ -382,7 +382,7 @@ namespace RobotCode
             //config DLPF to be 10/10 HZ, 13.8/13.4 ms delay (secondmost maximum filtering)
             //TODO: determine if this is too much filtering?
             //https://www.youtube.com/watch?v=Bv5ajMgdsno
-            I2C_WriteByte(CONFIG, 0x05);
+            I2C_WriteByte(CONFIG, 0x06);
             //use a 50Hz sample rate
             I2C_WriteByte(SMPLRT_DIV, 19);
 
@@ -477,9 +477,9 @@ namespace RobotCode
             AccelerationX = xa / (float)16384;
             AccelerationY = ya / (float)16384;
             AccelerationZ = za / (float)16384;
-            GyroX = xg / (float)16384;
-            GyroY = yg / (float)16384;
-            GyroZ = zg / (float)16384;
+            GyroX = xg / (float)131;
+            GyroY = yg / (float)131;
+            GyroZ = zg / (float)131;
             Temp_2 = te / (float)16384;
 
             if (round >= 0)
@@ -510,18 +510,20 @@ namespace RobotCode
             return value[0];
         }
 
-        private static short I2C_ReadShort(byte reg1Addr, byte reg2Addr)
+        private static short I2C_ReadShort(byte MSBRegAddr, byte LSBRegAddr)
         {
-            byte[] buffer1 = new byte[1];
-            byte[] buffer2 = new byte[1];
-            byte[] value1 = new byte[1];
-            byte[] value2 = new byte[1];
+            byte[] MSBbuffer = new byte[1];
+            MSBbuffer[0] = MSBRegAddr;
+            byte[] LSBbuffer = new byte[1];
+            LSBbuffer[0] = LSBRegAddr;
+            byte[] MSBValue = new byte[1];
+            byte[] LSBValue = new byte[1];
             //get the 15-8 register
-            MPU6050.WriteRead(buffer1, value1);
+            MPU6050.WriteRead(MSBbuffer, MSBValue);
             //gets the 7-0 register
-            MPU6050.WriteRead(buffer2, value2);
+            MPU6050.WriteRead(LSBbuffer, LSBValue);
             //https://stackoverflow.com/questions/31654634/combine-two-bytes-to-short-using-left-shift
-            return (short)(value1[0] << 8 | value2[0]);
+            return (short)(MSBValue[0] << 8 | LSBValue[0]);
         }
         #endregion
 
