@@ -25,15 +25,42 @@ namespace RobotCode
     public static class Hardware
     {
         #region GPIO
+        /// <summary>
+        /// The GPIO Controller for all IO pins
+        /// </summary>
         public static GpioController GpioController = null;
+        /// <summary>
+        /// An array of all GPIO (not I2C, SPI, etc.) pins used in the robot
+        /// </summary>
         public static GpioPin[] Pins = new GpioPin[5];
+        /// <summary>
+        /// The GPIO pin number of the LED code running pin. Index 0 in pin array
+        /// </summary>
         public const int CODE_RUNNING_PIN = 17;//index 0
+        /// <summary>
+        /// The GPIO pin number of the LED comms pin. Index 1 in pin array
+        /// </summary>
         public const int DASHBOARD_CONNECTED_PIN = 27;//index 1
+        /// <summary>
+        /// The GPIO pin number of the signal battery status pin. White(?) LED, index 2 in pin array
+        /// </summary>
         public const int SIGNAL_BATTERY_STATUS_PIN = 23;//index 2
-        public const int COLLECTION_RELAY = 22;//index 3
+        /// <summary>
+        /// THE GPIO pin number of the Augar pin. Index 3 in array
+        /// </summary>
+        public const int AUGAR_PIN = 22;//index 3
+        /// <summary>
+        /// The GPIO pin number of the power battery status pin. Green(?) LED, index 4 of pin array
+        /// </summary>
         public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
-        public static int Collection_1_output = (int)GpioPinValue.High;
-        public static int Collection_2_output = (int)GpioPinValue.High;
+        /// <summary>
+        /// The current logical representation of the realy output for the auger. 1 is no output, 0 is output
+        /// </summary>
+        public static int Augar_Output { get; private set; } = (int)GpioPinValue.High;
+        /// <summary>
+        /// The current logical representation of the relay output for the impeller. 1 is no output, 0 is output
+        /// </summary>
+        public static int Impeller_Output { get; private set; } = (int)GpioPinValue.High;
         #endregion
 
         #region SPI/ADC
@@ -138,15 +165,36 @@ namespace RobotCode
         #endregion
 
         #region PWM
+        /// <summary>
+        /// The Left drive PWM output. Channel 0 from the Pi
+        /// </summary>
         public static SMPWM LeftDrive;//channel 0
+        /// <summary>
+        /// The Right drive PWM output. Channel 1 from the Pi
+        /// </summary>
         public static SMPWM RightDrive;//channel 1
+        /// <summary>
+        /// The Controller of PWM hardware on the Pi
+        /// </summary>
         public static PwmController driveControl;
         #endregion
 
         #region I2C
+        /// <summary>
+        /// The hardware I2C controller on the Pi
+        /// </summary>
         public static I2cController I2C_Controller = null;
+        /// <summary>
+        /// The GY-521 module
+        /// </summary>
         public static I2cDevice I2C_Device = null;
+        /// <summary>
+        /// The Connection settings for the GY-521 module
+        /// </summary>
         public static I2cConnectionSettings I2C_Connection_settings = null;
+        /// <summary>
+        /// The init address of the GY-521 module
+        /// </summary>
         private const byte ADDRESS = 0x68;
         private const byte PWR_MGMT_1 = 0x6B;
         private const byte SMPLRT_DIV = 0x19;
@@ -209,7 +257,7 @@ namespace RobotCode
             Pins[0] = GpioController.OpenPin(CODE_RUNNING_PIN);
             Pins[1] = GpioController.OpenPin(DASHBOARD_CONNECTED_PIN);
             Pins[2] = GpioController.OpenPin(SIGNAL_BATTERY_STATUS_PIN);
-            Pins[3] = GpioController.OpenPin(COLLECTION_RELAY);
+            Pins[3] = GpioController.OpenPin(AUGAR_PIN);
             Pins[4] = GpioController.OpenPin(POWER_BATTERY_STATUS_PIN);
             //loop for all the pins
             for (int i = 0; i < Pins.Count(); i++)
@@ -340,8 +388,8 @@ namespace RobotCode
         #region GPIO methods
         public static void UpdateGPIOValues()
         {
-            Collection_1_output = (int)Pins[3].Read();
-            Collection_2_output = 1;
+            Augar_Output = (int)Pins[3].Read();
+            Impeller_Output = 1;
         }
         #endregion
 

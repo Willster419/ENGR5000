@@ -100,9 +100,9 @@ namespace RobotCode
         RequestManual = 1,
         Manual = 2,
         RelaseManual = 3,
-        Mapping = 4,
-        Cleaning = 5,
-        Docking = 6,//*lennyface*
+        RequestAuto = 4,
+        Auto = 5,
+        ReleaseAuto = 6,
         LowPowerWait = 7
     }
     /// <summary>
@@ -120,7 +120,7 @@ namespace RobotCode
         public static RobotStatus @RobotStatus = RobotStatus.Idle;
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
-        public static ControlStatus RobotControlStatus = ControlStatus.None;
+        public static ControlStatus @ControlStatus = ControlStatus.None;
         public static AutoControlState RobotAutoControlState = AutoControlState.None;
         public static BackgroundWorker ControllerThread;
         public static bool SystemOnline = false;
@@ -233,6 +233,8 @@ namespace RobotCode
             {
                 System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Highest;
             }
+            if (ControlStatus != ControlStatus.Manual)
+                ControlStatus = ControlStatus.Manual;
             NetworkUtils.LogNetwork("Manual control method starting", NetworkUtils.MessageType.Debug);
             while (true)
             {
@@ -292,6 +294,8 @@ namespace RobotCode
             {
                 System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Highest;
             }
+            if (ControlStatus != ControlStatus.Auto)
+                ControlStatus = ControlStatus.Auto;
             while (true)
             {
                 //check for cancel/abort
@@ -349,7 +353,7 @@ namespace RobotCode
                 catch
                 { }
                 //check for manual control
-                switch (RobotControlStatus)
+                switch (ControlStatus)
                 {
                     case ControlStatus.RequestManual:
                         NetworkUtils.LogNetwork("Manual Control has been requested, sending ack and enabling manual control",NetworkUtils.MessageType.Debug);
@@ -382,12 +386,14 @@ namespace RobotCode
         public static void EmergencyStop()
         {
             //everything must stop, a critical exception has occured
-            RobotStatus = RobotStatus.Exception;
+            RobotStatus = RobotStatus.Error;
             //shut off any relays on
             if(Hardware.GpioController != null && Hardware.Pins[3] != null)
                 Hardware.Pins[3].Write(GpioPinValue.High);
+            //if (Hardware.GpioController != null && Hardware.Pins[3] != null)
+                //Hardware.Pins[3].Write(GpioPinValue.High);
             //shut off any PWM systems
-            if(Hardware.driveControl != null)
+            if (Hardware.driveControl != null)
             {
                 if (Hardware.LeftDrive != null)
                     Hardware.LeftDrive.Stop();

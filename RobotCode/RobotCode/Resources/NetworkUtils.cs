@@ -425,12 +425,12 @@ namespace RobotCode
                                     ManualControlCommands = controlMessage;
                                     if(ManualControlCommands.Equals("Start"))
                                     {
-                                        RobotController.RobotControlStatus = ControlStatus.RequestManual;
+                                        RobotController.ControlStatus = ControlStatus.RequestManual;
                                         RobotController.ControllerThread.CancelAsync();
                                     }
                                     else if(ManualControlCommands.Equals("Stop"))
                                     {
-                                        RobotController.RobotControlStatus = ControlStatus.RelaseManual;
+                                        RobotController.ControlStatus = ControlStatus.RelaseManual;
                                         RobotController.ControllerThread.CancelAsync();
                                     }
                                     else if (ManualControlCommands.Split(',')[0].Equals("Shutdown"))
@@ -612,12 +612,12 @@ namespace RobotCode
                                     ManualControlCommands = controlMessage;
                                     if (ManualControlCommands.Equals("Start"))
                                     {
-                                        RobotController.RobotControlStatus = ControlStatus.RequestManual;
+                                        RobotController.ControlStatus = ControlStatus.RequestManual;
                                         RobotController.ControllerThread.CancelAsync();
                                     }
                                     else if (ManualControlCommands.Equals("Stop"))
                                     {
-                                        RobotController.RobotControlStatus = ControlStatus.RelaseManual;
+                                        RobotController.ControlStatus = ControlStatus.RelaseManual;
                                         RobotController.ControllerThread.CancelAsync();
                                     }
                                     else if (ManualControlCommands.Split(',')[0].Equals("Shutdown"))
@@ -677,7 +677,7 @@ namespace RobotCode
                 return;
             string[] diagnosticData = new string[]
             {
-                RobotController.RobotControlStatus.ToString(),
+                RobotController.ControlStatus.ToString(),
                 RobotController.RobotStatus.ToString(),
                 RobotController.RobotAutoControlState.ToString(),
                 Hardware.SignalVoltageRaw.ToString(),//raw signal voltage
@@ -704,8 +704,8 @@ namespace RobotCode
                 Hardware.GyroX.ToString(), //gyro X
                 Hardware.GyroY.ToString(), //gyro Y
                 Hardware.GyroZ.ToString(), //gyro Z
-                Hardware.Collection_1_output.ToString(),//collection relay
-                Hardware.Collection_2_output.ToString(),//another collection relay
+                Hardware.Augar_Output.ToString(),//collection relay
+                Hardware.Impeller_Output.ToString(),//another collection relay
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }
