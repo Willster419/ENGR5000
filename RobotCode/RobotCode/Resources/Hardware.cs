@@ -32,10 +32,11 @@ namespace RobotCode
         public const int SIGNAL_BATTERY_STATUS_PIN = 23;//index 2
         public const int COLLECTION_RELAY = 22;//index 3
         public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
+        public static int Collection_1_output = (int)GpioPinValue.High;
+        public static int Collection_2_output = (int)GpioPinValue.High;
         #endregion
 
         #region SPI/ADC
-#warning TODO: signal voltage sensor starts at 2.5, but only goes from 0.5 to 4.5!!
         /// <summary>
         /// The MCP3008 ADC device, SPI interface
         /// </summary>
@@ -336,6 +337,14 @@ namespace RobotCode
         }
         #endregion
 
+        #region GPIO methods
+        public static void UpdateGPIOValues()
+        {
+            Collection_1_output = (int)Pins[3].Read();
+            Collection_2_output = 1;
+        }
+        #endregion
+
         #region SPI/ADC methods
         /// <summary>
         /// Updated all sensors (except battery info) on the ADC
@@ -344,7 +353,7 @@ namespace RobotCode
         public static void UpdateSPIData()
         {
             WaterLevel = ReadVoltage(WATER_LEVEL_CHANNEL, true, 2);
-            Tempature = ReadVoltage(TEMPATURE_CHANNEL, true, 2);
+            TempatureRaw = ReadVoltage(TEMPATURE_CHANNEL, true, 2);
         }
         /// <summary>
         /// Reads a raw digital voltage from one of the analog channels
@@ -481,8 +490,7 @@ namespace RobotCode
             //make signal 0 - 4 = correspond to 0 - 60 actual
             float voltage_part_2 = voltage_part_1 * 15F;
             //subtract 30 to normalize back
-            SignalVoltage = voltage_part_2 - 30F;
-            //SignalVoltage = MathF.Round((SignalVoltageRaw - SIGNAL_VOLTAGE_BASE_SUBRTACT) * SIGNAL_VOLTAGE_MULTIPLIER, 2);
+            SignalVoltage = MathF.Round(voltage_part_2 - 33.8F, 2);
             SignalCurrent = MathF.Round(MathF.Abs(SignalCurrentRaw - CURRENT_BASE_SUBTRACT) * SIGNAL_CURRENT_MULTIPLIER, 2);
         }
         /// <summary>

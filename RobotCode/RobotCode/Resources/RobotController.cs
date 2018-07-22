@@ -38,6 +38,28 @@ namespace RobotCode
         UnknownError = 5
     };
     /// <summary>
+    /// The various different fine control states that the robot could be in
+    /// </summary>
+    public enum AutoControlState
+    {
+        None,
+        LeavingDock,
+        TurnToMap,
+        MapOneSide,
+        MapTurn,
+        MapTwoSide,
+        MapThreeSide,
+        MapFourSide,
+        Calculations,
+        CleanUp,
+        CleanDown,
+        CleanComplete,
+        OnObstuction,
+        OnLowSignalBattery,
+        OnLowPowerBattery,
+        OnWaterLimit
+    }
+    /// <summary>
     /// Status indicators for various levels of the battery
     /// </summary>
     public enum BatteryStatus
@@ -99,6 +121,7 @@ namespace RobotCode
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
         public static ControlStatus RobotControlStatus = ControlStatus.None;
+        public static AutoControlState RobotAutoControlState = AutoControlState.None;
         public static BackgroundWorker ControllerThread;
         public static bool SystemOnline = false;
         public static bool InitController()
@@ -232,6 +255,8 @@ namespace RobotCode
                 //battery
                 Hardware.UpdateSignalBattery();
                 Hardware.UpdatePowerBattery();
+                //GPIO
+                Hardware.UpdateGPIOValues();
                 //I2C
                 Hardware.UpdateI2CData(2);
                 //SPI
@@ -279,11 +304,13 @@ namespace RobotCode
                 //battery
                 Hardware.UpdateSignalBattery();
                 Hardware.UpdatePowerBattery();
+                //GPIO
+                Hardware.UpdateGPIOValues();
                 //I2C
                 Hardware.UpdateI2CData(2);
                 //SPI
                 Hardware.UpdateSPIData();
-                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(1));
+                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(10));
             }
         }
         /// <summary>

@@ -37,6 +37,10 @@ namespace Dashboard
         /// </summary>
         private static FileStream RobotLogSteam = null;
         /// <summary>
+        /// The Log Filestream for writing diagnostic robot data
+        /// </summary>
+        private static FileStream RobotDataStream = null;
+        /// <summary>
         /// Locker object used to prevent multiple access to the console file stream
         /// </summary>
         private static readonly object ConsoleLocker = new object();
@@ -105,6 +109,8 @@ namespace Dashboard
             "Battery2AmpsRaw",
             "WaterLevel",
             "TempatureRaw",
+            "CH6",
+            "CH7",
             "LeftDriveSign",
             "LeftDriveMag",
             "LeftDriveEncoder",
@@ -120,7 +126,9 @@ namespace Dashboard
             "AccelZ",
             "GyroX",
             "GyroY",
-            "GyroZ"
+            "GyroZ",
+            "CollectionMotor1",
+            "CollectionMotor2"
         };
         #region Console Logging
         /// <summary>
@@ -210,10 +218,14 @@ namespace Dashboard
         {
             if (!Directory.Exists(DATA_LOG_FOLDER_PATH))
                 Directory.CreateDirectory(DATA_LOG_FOLDER_PATH);
-            string dateTimeFormat = string.Format("{0:yyyy-MM-dd:HH-mm-ss}", DateTime.Now);
+            string dateTimeFormat = string.Format("{0:yyyy_MM_dd-HH_mm_ss}", DateTime.Now);
             CurrentDataFilename = DATA_LOG_FILE_START + dateTimeFormat + DATA_LOG_FILE_EXTENSION;
             CurrentDataFullFilePath = Path.Combine(DATA_LOG_FOLDER_PATH, CurrentDataFilename);
-            File.WriteAllText(CurrentDataFullFilePath, string.Join(DATA_SEP_CHAR, DATA_HEADER) + DATA_LINE_ENDING);
+            string toWrite = string.Join(DATA_SEP_CHAR, DATA_HEADER) + DATA_LINE_ENDING;
+            RobotDataStream = new FileStream(CurrentDataFullFilePath, FileMode.Append, FileAccess.Write);
+            RobotDataStream.Write(Encoding.UTF8.GetBytes(toWrite), 0, Encoding.UTF8.GetByteCount(toWrite));
+            RobotDataStream.Flush();
+            LogConsole("New data log file created");
         }
         /// <summary>
         /// Write a data entry to the currently open file, if an open file exists
@@ -240,7 +252,9 @@ namespace Dashboard
             dataToWrite[0] = dateFormat;
             dataToWrite[1] = timeFormat;
             data.CopyTo(dataToWrite, 2);
-            File.WriteAllText(CurrentDataFullFilePath, string.Join(DATA_SEP_CHAR, dataToWrite)+DATA_LINE_ENDING);
+            string toWrite = string.Join(DATA_SEP_CHAR, dataToWrite) + DATA_LINE_ENDING;
+            RobotDataStream.Write(Encoding.UTF8.GetBytes(toWrite), 0, Encoding.UTF8.GetByteCount(toWrite));
+            RobotDataStream.Flush();
         }
         #endregion
     }

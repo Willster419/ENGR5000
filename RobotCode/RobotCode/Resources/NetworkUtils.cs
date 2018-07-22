@@ -679,14 +679,15 @@ namespace RobotCode
             {
                 RobotController.RobotControlStatus.ToString(),
                 RobotController.RobotStatus.ToString(),
+                RobotController.RobotAutoControlState.ToString(),
                 Hardware.SignalVoltageRaw.ToString(),//raw signal voltage
                 Hardware.SignalCurrentRaw.ToString(),//raw signal current
                 Hardware.PowerVoltageRaw.ToString(),//raw power voltage
                 Hardware.PowerVoltage.ToString(),//raw power current
                 Hardware.WaterLevel.ToString(),//water level
                 Hardware.TempatureRaw.ToString(),//raw tempature
-                "",//CH6 (unused)
-                "",//CH7 (unused)
+                "NC",//CH6 (unused)
+                "NC",//CH7 (unused)
                 Hardware.LeftDrive.GetSignInt().ToString(),//sign
                 Math.Round(Hardware.LeftDrive.GetActiveDutyCyclePercentage(),2).ToString(),//mag
                 Hardware.LeftEncoder.Counter.ToString(),//encoder
@@ -702,7 +703,9 @@ namespace RobotCode
                 Hardware.AccelerationZ.ToString(), //accel Z
                 Hardware.GyroX.ToString(), //gyro X
                 Hardware.GyroY.ToString(), //gyro Y
-                Hardware.GyroZ.ToString() //gyro Z
+                Hardware.GyroZ.ToString(), //gyro Z
+                Hardware.Collection_1_output.ToString(),//collection relay
+                Hardware.Collection_2_output.ToString(),//another collection relay
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }

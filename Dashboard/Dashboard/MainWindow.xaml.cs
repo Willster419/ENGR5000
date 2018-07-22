@@ -149,6 +149,7 @@ namespace Dashboard
             int i = 0;
             ControlStatus.Text = data[i++];
             RobotStatus.Text = data[i++];
+            RobotAutoStatus.Text = data[i++];
             Channel0Data.Text = data[i++];
             Channel1Data.Text = data[i++];
             Channel2Data.Text = data[i++];
