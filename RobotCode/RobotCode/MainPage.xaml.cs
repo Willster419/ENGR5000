@@ -91,7 +91,7 @@ namespace RobotCode
             }
 
             //I2c
-            NetworkUtils.LogNetwork("PWM loading complete, SPI", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("PWM loading complete, I2C", NetworkUtils.MessageType.Info);
             if(! await Hardware.InitI2C())
             {
                 NetworkUtils.LogNetwork("I2C Failed to Initialize", NetworkUtils.MessageType.Error);

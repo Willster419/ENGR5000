@@ -6413,3 +6413,134 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-21:20-32-43.228   DEBUG: Manual Control has been requested, sending ack and enabling manual control
 2018-07-21:20-32-43.233   DEBUG: Manual control method starting
 2018-07-21:20-33-17.950   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:16-13-12.923   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:16-13-13.111   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:16-13-24.424   Dashboard: Robot not found
+2018-07-22:16-16-51.346   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:16-16-51.561   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:16-16-51.947   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:16-18-42.384   DEBUG: dashboard connected via force wait
+2018-07-22:16-18-42.384   INFO: Initializing Encoders
+2018-07-22:16-18-42.432   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:16-18-42.584   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:16-19-54.441   Robot log cleared
+2018-07-22:16-19-57.428   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:16-19-57.694   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:16-20-22.986   DEBUG: dashboard connected via force wait
+2018-07-22:16-20-22.987   INFO: Initializing Encoders
+2018-07-22:16-20-22.992   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:16-20-23.123   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:16-30-53.025   Robot log cleared
+2018-07-22:16-30-58.170   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:16-30-58.596   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:16-31-13.746   Robot log cleared
+2018-07-22:16-31-18.760   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:16-31-19.073   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:16-31-49.309   DEBUG: dashboard connected via force wait
+2018-07-22:16-31-49.310   INFO: Initializing Encoders
+2018-07-22:16-31-49.318   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:16-31-49.445   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:16-32-11.947   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:17-01-01.375   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:17-01-01.591   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:17-01-01.888   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:17-01-42.212   DEBUG: dashboard connected via force wait
+2018-07-22:17-01-42.213   INFO: Initializing Encoders
+2018-07-22:17-01-42.230   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:17-01-42.382   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:17-03-09.711   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:17-04-23.151   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:17-04-23.345   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:17-04-30.150   Dashboard: Robot not found
+2018-07-22:17-04-31.465   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:17-06-09.391   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:17-06-09.633   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:17-06-09.932   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:17-06-10.148   DEBUG: dashboard connected via force wait
+2018-07-22:17-06-10.148   INFO: Initializing Encoders
+2018-07-22:17-06-10.165   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:17-06-10.399   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:17-11-48.766   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:17-11-49.092   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:17-11-49.547   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:17-11-59.766   DEBUG: dashboard connected via force wait
+2018-07-22:17-11-59.766   INFO: Initializing Encoders
+2018-07-22:17-11-59.780   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:17-11-59.909   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:17-18-07.286   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:17-18-07.533   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:17-18-14.331   Dashboard: Robot not found
+2018-07-22:17-18-15.576   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:17-18-17.936   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:17-18-18.155   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:17-18-19.014   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:17-20-49.599   DEBUG: dashboard connected via force wait
+2018-07-22:17-20-49.599   INFO: Initializing Encoders
+2018-07-22:17-20-49.612   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:17-20-49.737   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-03-18.475   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-03-18.672   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-03-22.001   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-05-17.595   DEBUG: dashboard connected via force wait
+2018-07-22:18-05-17.596   INFO: Initializing Encoders
+2018-07-22:18-05-17.625   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-05-17.887   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-05-42.173   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-07-59.260   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-07-59.522   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-08-03.402   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-10-33.923   DEBUG: dashboard connected via force wait
+2018-07-22:18-10-33.923   INFO: Initializing Encoders
+2018-07-22:18-10-33.938   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-10-34.066   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-11-29.693   Robot log cleared
+2018-07-22:18-11-30.953   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-11-35.981   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-11-51.114   DEBUG: dashboard connected via force wait
+2018-07-22:18-11-51.114   INFO: Initializing Encoders
+2018-07-22:18-11-51.130   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-11-51.285   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-18-46.034   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-18-46.260   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-18-46.696   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-19-12.103   DEBUG: dashboard connected via force wait
+2018-07-22:18-19-12.104   INFO: Initializing Encoders
+2018-07-22:18-19-12.127   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-19-12.381   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-26-11.577   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-26-11.833   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-26-12.154   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-26-42.499   DEBUG: dashboard connected via force wait
+2018-07-22:18-26-42.499   INFO: Initializing Encoders
+2018-07-22:18-26-42.522   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-26-42.762   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-27-37.007   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-29-34.452   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-29-34.696   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-29-45.980   Dashboard: Robot not found
+2018-07-22:18-29-46.959   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-29-49.471   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-29-49.673   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-29-49.805   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-30-25.178   DEBUG: dashboard connected via force wait
+2018-07-22:18-30-25.178   INFO: Initializing Encoders
+2018-07-22:18-30-25.205   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-30-25.507   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-31-55.476   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-31-55.723   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-31-56.013   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-32-21.152   DEBUG: dashboard connected via force wait
+2018-07-22:18-32-21.153   INFO: Initializing Encoders
+2018-07-22:18-32-21.188   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-32-21.327   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-33-00.584   INFO: PWM loading complete, I2C
+2018-07-22:18-33-31.366   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-22:18-33-53.863   DEBUG: MPU reports that device is on address 104...
+2018-07-22:18-34-14.645   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-22:18-34-18.739   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-22:18-34-36.635   DEBUG: Config gyro and accel sensitivity
+2018-07-22:18-34-46.054   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-22:18-34-51.401   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-22:18-34-55.553   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-22:18-34-55.614   INFO: Controller initialized, system online
+2018-07-22:18-40-19.563   \----------------------------------------------------------------------------------------------------------------------------------/
