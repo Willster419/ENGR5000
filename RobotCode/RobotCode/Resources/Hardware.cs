@@ -16,6 +16,7 @@ using System.ComponentModel;
 using Windows.Foundation;
 using Windows.Devices;
 using RobotCode.Resources;
+using Windows.Devices.Pwm.Provider;
 
 namespace RobotCode
 {
@@ -121,47 +122,47 @@ namespace RobotCode
         /// <summary>
         /// The voltage of the signal battery
         /// </summary>
-        public static float SignalVoltage { get; private set; }
+        public static float SignalVoltage { get; private set; } = 0F;
         /// <summary>
         /// The raw analog voltage of the signal battery level (volts)
         /// </summary>
-        public static float SignalVoltageRaw { get; private set; }
+        public static float SignalVoltageRaw { get; private set; } = 0F;
         /// <summary>
         /// The volatge of the power battery
         /// </summary>
-        public static float PowerVoltage { get; private set; }
+        public static float PowerVoltage { get; private set; } = 0F;
         /// <summary>
         /// The raw analog voltage of the power battery elvel (volts)
         /// </summary>
-        public static float PowerVoltageRaw { get; private set; }
+        public static float PowerVoltageRaw { get; private set; } = 0F;
         /// <summary>
         /// The current flowing from the signal battery (amps)
         /// </summary>
-        public static float SignalCurrent { get; private set; }
+        public static float SignalCurrent { get; private set; } = 0F;
         /// <summary>
         /// The raw analog voltage of the current flowing from the signal battery
         /// </summary>
-        public static float SignalCurrentRaw { get; private set; }
+        public static float SignalCurrentRaw { get; private set; } = 0F;
         /// <summary>
         /// The current frowing from the power battery (amps)
         /// </summary>
-        public static float PowerCurrent { get; private set; }
+        public static float PowerCurrent { get; private set; } = 0F;
         /// <summary>
         /// The raw analog voltage of the current flowing from the poawer battery
         /// </summary>
-        public static float PowerCurrentRaw { get; private set; }
+        public static float PowerCurrentRaw { get; private set; } = 0F;
         /// <summary>
         /// The tempature of around the robot (celcius)
         /// </summary>
-        public static float Tempature { get; private set; }
+        public static float Tempature { get; private set; } = 0F;
         /// <summary>
         /// The raw analog voltage of the tempature around the robot
         /// </summary>
-        public static float TempatureRaw { get; private set; }
+        public static float TempatureRaw { get; private set; } = 0F;
         /// <summary>
         /// The level detection of water in the collection
         /// </summary>
-        public static float WaterLevel { get; private set; }
+        public static float WaterLevel { get; private set; } = 0F;
         #endregion
 
         #region PWM
@@ -187,7 +188,7 @@ namespace RobotCode
         /// <summary>
         /// The GY-521 module
         /// </summary>
-        public static I2cDevice I2C_Device = null;
+        public static I2cDevice MPU6050 = null;
         /// <summary>
         /// The Connection settings for the GY-521 module
         /// </summary>
@@ -207,13 +208,15 @@ namespace RobotCode
         private const byte USER_CTRL = 0x6A;
         private const byte FIFO_COUNT = 0x72;
         private const byte FIFO_R_W = 0x74;
+        private const byte WHO_AM_I = 0x75;
         private const int SensorBytes = 12;
-        public static float AccelerationX { get; private set; }
-        public static float AccelerationY { get; private set; }
-        public static float AccelerationZ { get; private set; }
-        public static float GyroX { get; private set; }
-        public static float GyroY { get; private set; }
-        public static float GyroZ { get; private set; }
+        public static float AccelerationX { get; private set; } = 0F;
+        public static float AccelerationY { get; private set; } = 0F;
+        public static float AccelerationZ { get; private set; } = 0F;
+        public static float GyroX { get; private set; } = 0F;
+        public static float GyroY { get; private set; } = 0F;
+        public static float GyroZ { get; private set; } = 0F;
+        public static float Temp_2 { get; private set; } = 0F;
         #endregion
 
         #region Encoders
@@ -285,12 +288,6 @@ namespace RobotCode
             ADC = ADC_Control.GetDevice(ADCSettings);
             if (ADC == null)
                 return false;
-            WaterLevel = 0;
-            Tempature = 0;
-            SignalCurrent = 0;
-            SignalVoltage = 0;
-            PowerCurrent = 0;
-            PowerVoltage = 0;
             return true;
         }
         /// <summary>
@@ -304,6 +301,9 @@ namespace RobotCode
             if (controllers.Count <= 1)
                 return false;
             driveControl = controllers[1];
+            if (driveControl == null)
+                return false;
+            //can't step through the below line because reasons
             try
             {
                 driveControl.SetDesiredFrequency(1000);
@@ -330,43 +330,64 @@ namespace RobotCode
             I2C_Controller = await I2cController.GetDefaultAsync();
             if (I2C_Controller == null)
                 return false;
-            //TODO: make constants for device names
             I2C_Connection_settings = new I2cConnectionSettings(ADDRESS)//MPU-6050 address
             {
                 BusSpeed = I2cBusSpeed.FastMode,
             };
-            I2C_Device = I2C_Controller.GetDevice(I2C_Connection_settings);
-            if (I2C_Device == null)
+            MPU6050 = I2C_Controller.GetDevice(I2C_Connection_settings);
+            if (MPU6050 == null)
                 return false;
             await Task.Delay(3); // wait power up sequence
+            //device powers up in sleep mode, need to take it out of sleep mode
+            //0x80 sets the device to reset so we have a working state to use
             try
             {
-                I2C_WriteByte(PWR_MGMT_1, 0x80);// reset the device
+                I2C_WriteByte(PWR_MGMT_1, 0x80);
+                NetworkUtils.LogNetwork("MPU connection sucessfull, verified with reset bit send", NetworkUtils.MessageType.Debug);
             }
             catch
             {
                 return false;
             }
-
+            //allow for the reset to occur
             await Task.Delay(100);
-            I2C_WriteByte(PWR_MGMT_1, 0x2);
-            I2C_WriteByte(USER_CTRL, 0x04); //reset fifo
 
-            I2C_WriteByte(PWR_MGMT_1, 1); // clock source = gyro x
-            I2C_WriteByte(GYRO_CONFIG, 0); // +/- 250 degrees sec
-            I2C_WriteByte(ACCEL_CONFIG, 0); // +/- 2g
+            //test to make sure the device is on the correct bus
+            byte address_test = I2C_ReadByte(WHO_AM_I);
+            NetworkUtils.LogNetwork(string.Format("MPU reports that device is on address {0}...", address_test),NetworkUtils.MessageType.Debug);
+            if (!address_test.Equals(ADDRESS))
+                return false;
 
-            I2C_WriteByte(CONFIG, 1); // 184 Hz, 2ms delay
-            I2C_WriteByte(SMPLRT_DIV, 19);  // set rate 50Hz
-            I2C_WriteByte(FIFO_EN, 0x78); // enable accel and gyro to read into fifo
-            I2C_WriteByte(USER_CTRL, 0x40); // reset and enable fifo
-            I2C_WriteByte(INT_ENABLE, 0x1);
-            AccelerationX = 0;
-            AccelerationY = 0;
-            AccelerationZ = 0;
-            GyroX = 0;
-            GyroY = 0;
-            GyroZ = 0;
+            //"Upon power up, the MPU-60X0 clock source defaults to the internal oscillator. However, it is highly
+            //recommended that the device be configured to use one of the gyroscopes(or an external clock
+            //source) as the clock reference for improved stability"
+            //using x axis gyroscope
+            I2C_WriteByte(PWR_MGMT_1, 0x1);
+            NetworkUtils.LogNetwork("MPU internal clock set to use X axis gyroscope", NetworkUtils.MessageType.Debug);
+
+            //reset and disable the FIFO (don't need it)
+            NetworkUtils.LogNetwork("MPU FIFO reset and disable and signal cond clear reset",NetworkUtils.MessageType.Debug);
+            //disable all sensors from writing to the FIFO
+            I2C_WriteByte(FIFO_EN, 0x00);
+            //reset and complely disable FIFO, and reset signal conditons while clearing signal registers. nice.
+            I2C_WriteByte(USER_CTRL, 0x05);
+
+            NetworkUtils.LogNetwork("Config gyro and accel sensitivity",NetworkUtils.MessageType.Debug);
+            //config gyro to be +/- 250 degrees/sec
+            I2C_WriteByte(GYRO_CONFIG, 0);
+            //config accel to be +/- 2g
+            I2C_WriteByte(ACCEL_CONFIG, 0);
+
+            NetworkUtils.LogNetwork("Config gyro and accel sample rate and filter rate", NetworkUtils.MessageType.Debug);
+            //config DLPF to be 10/10 HZ, 13.8/13.4 ms delay (secondmost maximum filtering)
+            //TODO: determine if this is too much filtering?
+            //https://www.youtube.com/watch?v=Bv5ajMgdsno
+            I2C_WriteByte(CONFIG, 0x05);
+            //use a 50Hz sample rate
+            I2C_WriteByte(SMPLRT_DIV, 19);
+
+            NetworkUtils.LogNetwork("Disable inturrupts and clear accel and gyro values",NetworkUtils.MessageType.Debug);
+            I2C_WriteByte(INT_ENABLE, 0x00);
             return true;
         }
         /// <summary>
@@ -445,42 +466,31 @@ namespace RobotCode
         /// <param name="round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
         public static void UpdateI2CData(int round)
         {
-            int interruptStatus = I2C_ReadByte(INT_STATUS);
-            if ((interruptStatus & 0x10) != 0)
+            short xa = I2C_ReadShort(0x3B, 0x3C);
+            short ya = I2C_ReadShort(0x3D, 0x3E);
+            short za = I2C_ReadShort(0x3F, 0x40);
+            short xg = I2C_ReadShort(0x43, 0x44);
+            short yg = I2C_ReadShort(0x45, 0x46);
+            short zg = I2C_ReadShort(0x47, 0x48);
+            short te = I2C_ReadShort(0x41, 0x42);
+
+            AccelerationX = xa / (float)16384;
+            AccelerationY = ya / (float)16384;
+            AccelerationZ = za / (float)16384;
+            GyroX = xg / (float)16384;
+            GyroY = yg / (float)16384;
+            GyroZ = zg / (float)16384;
+            Temp_2 = te / (float)16384;
+
+            if (round >= 0)
             {
-                I2C_WriteByte(USER_CTRL, 0x44); // reset and enable fifo
-            }
-            if ((interruptStatus & 0x1) == 0) return;
-            int count = I2C_ReadWord(FIFO_COUNT);
-            while (count >= SensorBytes)
-            {
-                var data = I2C_ReadBytes(FIFO_R_W, SensorBytes);
-                count -= SensorBytes;
-
-                var xa = (short)(data[0] << 8 | data[1]);
-                var ya = (short)(data[2] << 8 | data[3]);
-                var za = (short)(data[4] << 8 | data[5]);
-
-                var xg = (short)(data[6] << 8 | data[7]);
-                var yg = (short)(data[8] << 8 | data[9]);
-                var zg = (short)(data[10] << 8 | data[11]);
-
-                AccelerationX = xa / (float)16384;
-                AccelerationY = ya / (float)16384;
-                AccelerationZ = za / (float)16384;
-                GyroX = xg / (float)131;
-                GyroY = yg / (float)131;
-                GyroZ = zg / (float)131;
-
-                if (round >= 0)
-                {
-                    AccelerationX = MathF.Round(AccelerationX, round);
-                    AccelerationY = MathF.Round(AccelerationY, round);
-                    AccelerationZ = MathF.Round(AccelerationZ, round);
-                    GyroX = MathF.Round(GyroX, round);
-                    GyroY = MathF.Round(GyroY, round);
-                    GyroZ = MathF.Round(GyroZ, round);
-                }
+                AccelerationX = MathF.Round(AccelerationX, round);
+                AccelerationY = MathF.Round(AccelerationY, round);
+                AccelerationZ = MathF.Round(AccelerationZ, round);
+                GyroX = MathF.Round(GyroX, round);
+                GyroY = MathF.Round(GyroY, round);
+                GyroZ = MathF.Round(GyroZ, round);
+                Temp_2 = MathF.Round(Temp_2, round);
             }
         }
         private static void I2C_WriteByte(byte regAddr, byte data)
@@ -488,7 +498,7 @@ namespace RobotCode
             byte[] buffer = new byte[2];
             buffer[0] = regAddr;
             buffer[1] = data;
-            I2C_Device.Write(buffer);
+            MPU6050.Write(buffer);
         }
 
         private static byte I2C_ReadByte(byte regAddr)
@@ -496,23 +506,22 @@ namespace RobotCode
             byte[] buffer = new byte[1];
             buffer[0] = regAddr;
             byte[] value = new byte[1];
-            I2C_Device.WriteRead(buffer, value);
+            MPU6050.WriteRead(buffer, value);
             return value[0];
         }
 
-        private static byte[] I2C_ReadBytes(byte regAddr, int length)
+        private static short I2C_ReadShort(byte reg1Addr, byte reg2Addr)
         {
-            byte[] values = new byte[length];
-            byte[] buffer = new byte[1];
-            buffer[0] = regAddr;
-            I2C_Device.WriteRead(buffer, values);
-            return values;
-        }
-
-        private static ushort I2C_ReadWord(byte address)
-        {
-            byte[] buffer = I2C_ReadBytes(FIFO_COUNT, 2);
-            return (ushort)(((int)buffer[0] << 8) | (int)buffer[1]);
+            byte[] buffer1 = new byte[1];
+            byte[] buffer2 = new byte[1];
+            byte[] value1 = new byte[1];
+            byte[] value2 = new byte[1];
+            //get the 15-8 register
+            MPU6050.WriteRead(buffer1, value1);
+            //gets the 7-0 register
+            MPU6050.WriteRead(buffer2, value2);
+            //https://stackoverflow.com/questions/31654634/combine-two-bytes-to-short-using-left-shift
+            return (short)(value1[0] << 8 | value2[0]);
         }
         #endregion
 
