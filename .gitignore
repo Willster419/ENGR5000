@@ -13,7 +13,10 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
+#https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
+#![Dd]ebug/
+#[Dd]ebug/*
+#![Dd]ebug/log_files/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
