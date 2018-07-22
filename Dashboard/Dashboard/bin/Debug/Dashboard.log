@@ -8808,3 +8808,122 @@
 2018-07-22:18-32-21.110   New data log file created
 2018-07-22:18-40-19.562   Application Closing
 2018-07-22:18-40-19.563   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-49-02.140   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-49-02.145   Dashboard Version 1.0.1.0
+2018-07-22:18-49-02.148   Built on Sat 07/21/2018 20:32:04.70
+2018-07-22:18-49-02.153   Initializing network connections
+2018-07-22:18-49-02.160   Checking for any local internet connection...
+2018-07-22:18-49-02.420   At leaset one valid network connections exist!
+2018-07-22:18-49-02.536   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-22:18-49-02.540   DEBUG: Hard-code select index 0
+2018-07-22:18-49-02.543   Computer IPV6 address set to 
+2018-07-22:18-49-02.545   Computer IPV4 address set to 10.0.0.69
+2018-07-22:18-49-02.546   Pinging robot hostname for aliveness
+2018-07-22:18-49-03.299   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-22:18-49-03.482   Parsed IPV4 address: 10.0.0.221
+2018-07-22:18-49-03.483   Parsed IPV6 address: 2601:197:700:be3f::40fa
+2018-07-22:18-49-03.489   Binding robot listener to address 10.0.0.69
+2018-07-22:18-49-03.492   Binding robot sender to address 10.0.0.221
+2018-07-22:18-49-03.493   Connecting to robot...
+2018-07-22:18-49-03.494   Sending IP address of dashboard to robot and waiting for response...
+2018-07-22:18-49-38.626   Robot Connected, comms established
+2018-07-22:18-49-38.629   New data log file created
+2018-07-22:18-52-14.129   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-52-14.134   Dashboard Version 1.0.1.0
+2018-07-22:18-52-14.138   Built on Sat 07/21/2018 20:32:04.70
+2018-07-22:18-52-14.140   Initializing network connections
+2018-07-22:18-52-14.145   Checking for any local internet connection...
+2018-07-22:18-52-14.259   At leaset one valid network connections exist!
+2018-07-22:18-52-14.388   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-22:18-52-14.392   DEBUG: Hard-code select index 0
+2018-07-22:18-52-14.394   Computer IPV6 address set to 
+2018-07-22:18-52-14.396   Computer IPV4 address set to 10.0.0.69
+2018-07-22:18-52-14.398   Pinging robot hostname for aliveness
+2018-07-22:18-52-26.849   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-52-26.856   Dashboard Version 1.0.1.0
+2018-07-22:18-52-26.859   Built on Sat 07/21/2018 20:32:04.70
+2018-07-22:18-52-26.860   Initializing network connections
+2018-07-22:18-52-26.865   Checking for any local internet connection...
+2018-07-22:18-52-26.971   At leaset one valid network connections exist!
+2018-07-22:18-52-27.082   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-22:18-52-27.087   DEBUG: Hard-code select index 0
+2018-07-22:18-52-27.090   Computer IPV6 address set to 
+2018-07-22:18-52-27.091   Computer IPV4 address set to 10.0.0.69
+2018-07-22:18-52-27.092   Pinging robot hostname for aliveness
+2018-07-22:18-52-27.269   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-22:18-52-27.466   Parsed IPV4 address: 10.0.0.221
+2018-07-22:18-52-27.468   Parsed IPV6 address: 2601:197:700:be3f::40fa
+2018-07-22:18-52-27.475   Binding robot listener to address 10.0.0.69
+2018-07-22:18-52-27.476   Binding robot sender to address 10.0.0.221
+2018-07-22:18-52-27.477   Connecting to robot...
+2018-07-22:18-52-27.478   Sending IP address of dashboard to robot and waiting for response...
+2018-07-22:18-52-57.666   Robot Connected, comms established
+2018-07-22:18-52-57.669   New data log file created
+2018-07-22:18-56-41.808   Application Closing
+2018-07-22:18-56-41.808   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-58-09.771   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-58-09.775   Dashboard Version 1.0.1.0
+2018-07-22:18-58-09.777   Built on Sat 07/21/2018 20:32:04.70
+2018-07-22:18-58-09.778   Initializing network connections
+2018-07-22:18-58-09.786   Checking for any local internet connection...
+2018-07-22:18-58-09.904   At leaset one valid network connections exist!
+2018-07-22:18-58-09.980   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-22:18-58-09.984   DEBUG: Hard-code select index 0
+2018-07-22:18-58-09.987   Computer IPV6 address set to 
+2018-07-22:18-58-09.988   Computer IPV4 address set to 10.0.0.69
+2018-07-22:18-58-09.989   Pinging robot hostname for aliveness
+2018-07-22:18-58-10.084   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-22:18-58-10.317   Parsed IPV4 address: 10.0.0.221
+2018-07-22:18-58-10.319   Parsed IPV6 address: 2601:197:700:be3f::40fa
+2018-07-22:18-58-10.352   Binding robot listener to address 10.0.0.69
+2018-07-22:18-58-10.370   Binding robot sender to address 10.0.0.221
+2018-07-22:18-58-10.372   Connecting to robot...
+2018-07-22:18-58-10.373   Sending IP address of dashboard to robot and waiting for response...
+2018-07-22:18-58-45.460   Robot Connected, comms established
+2018-07-22:18-58-45.466   New data log file created
+2018-07-22:19-00-44.980   Application Closing
+2018-07-22:19-00-44.981   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:19-03-44.681   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:19-03-44.688   Dashboard Version 1.0.1.0
+2018-07-22:19-03-44.690   Built on Sat 07/21/2018 20:32:04.70
+2018-07-22:19-03-44.691   Initializing network connections
+2018-07-22:19-03-44.697   Checking for any local internet connection...
+2018-07-22:19-03-44.809   At leaset one valid network connections exist!
+2018-07-22:19-03-44.900   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-22:19-03-44.904   DEBUG: Hard-code select index 0
+2018-07-22:19-03-44.906   Computer IPV6 address set to 
+2018-07-22:19-03-44.907   Computer IPV4 address set to 10.0.0.69
+2018-07-22:19-03-44.909   Pinging robot hostname for aliveness
+2018-07-22:19-03-45.383   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-22:19-03-45.586   Parsed IPV4 address: 10.0.0.221
+2018-07-22:19-03-45.588   Parsed IPV6 address: 2601:197:700:be3f::40fa
+2018-07-22:19-03-45.594   Binding robot listener to address 10.0.0.69
+2018-07-22:19-03-45.595   Binding robot sender to address 10.0.0.221
+2018-07-22:19-03-45.596   Connecting to robot...
+2018-07-22:19-03-45.598   Sending IP address of dashboard to robot and waiting for response...
+2018-07-22:19-06-26.066   Robot Connected, comms established
+2018-07-22:19-06-26.069   New data log file created
+2018-07-22:19-06-45.762   Application Closing
+2018-07-22:19-06-45.762   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:19-07-21.264   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:19-07-21.276   Dashboard Version 1.0.1.0
+2018-07-22:19-07-21.279   Built on Sat 07/21/2018 20:32:04.70
+2018-07-22:19-07-21.281   Initializing network connections
+2018-07-22:19-07-21.292   Checking for any local internet connection...
+2018-07-22:19-07-21.391   At leaset one valid network connections exist!
+2018-07-22:19-07-21.478   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-22:19-07-21.482   DEBUG: Hard-code select index 0
+2018-07-22:19-07-21.485   Computer IPV6 address set to 
+2018-07-22:19-07-21.486   Computer IPV4 address set to 10.0.0.69
+2018-07-22:19-07-21.487   Pinging robot hostname for aliveness
+2018-07-22:19-07-22.054   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-22:19-07-22.066   Parsed IPV4 address: 10.0.0.221
+2018-07-22:19-07-22.067   Parsed IPV6 address: 2601:197:700:be3f::40fa
+2018-07-22:19-07-22.075   Binding robot listener to address 10.0.0.69
+2018-07-22:19-07-22.076   Binding robot sender to address 10.0.0.221
+2018-07-22:19-07-22.077   Connecting to robot...
+2018-07-22:19-07-22.077   Sending IP address of dashboard to robot and waiting for response...
+2018-07-22:19-09-57.529   Robot Connected, comms established
+2018-07-22:19-09-57.533   New data log file created
+2018-07-22:19-12-55.911   Application Closing
+2018-07-22:19-12-55.911   \----------------------------------------------------------------------------------------------------------------------------------/

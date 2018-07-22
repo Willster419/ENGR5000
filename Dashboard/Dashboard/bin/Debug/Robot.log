@@ -6544,3 +6544,94 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-22:18-34-55.553   INFO: I2C loading complete, Initializing Main Robot controller
 2018-07-22:18-34-55.614   INFO: Controller initialized, system online
 2018-07-22:18-40-19.563   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-49-02.155   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-49-02.550   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-49-03.489   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-49-38.697   DEBUG: dashboard connected via force wait
+2018-07-22:18-49-38.697   INFO: Initializing Encoders
+2018-07-22:18-49-38.737   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-49-38.864   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-49-39.187   INFO: PWM loading complete, I2C
+2018-07-22:18-49-39.402   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-22:18-49-39.510   DEBUG: MPU reports that device is on address 104...
+2018-07-22:18-49-39.511   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-22:18-49-39.512   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-22:18-49-39.512   DEBUG: Config gyro and accel sensitivity
+2018-07-22:18-49-39.513   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-22:18-49-39.513   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-22:18-49-39.513   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-22:18-49-39.556   INFO: Controller initialized, system online
+2018-07-22:18-52-14.142   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-52-14.407   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-52-26.862   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-52-27.095   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-52-27.475   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-52-57.828   DEBUG: dashboard connected via force wait
+2018-07-22:18-52-57.828   INFO: Initializing Encoders
+2018-07-22:18-52-57.842   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-52-57.977   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-52-58.252   INFO: PWM loading complete, I2C
+2018-07-22:18-52-58.463   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-22:18-52-58.575   DEBUG: MPU reports that device is on address 104...
+2018-07-22:18-52-58.578   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-22:18-52-58.580   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-22:18-52-58.580   DEBUG: Config gyro and accel sensitivity
+2018-07-22:18-52-58.580   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-22:18-52-58.580   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-22:18-52-58.580   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-22:18-52-58.620   INFO: Controller initialized, system online
+2018-07-22:18-56-41.808   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:18-58-09.780   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:18-58-09.992   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:18-58-10.351   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:18-58-45.571   DEBUG: dashboard connected via force wait
+2018-07-22:18-58-45.571   INFO: Initializing Encoders
+2018-07-22:18-58-45.603   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:18-58-45.730   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:18-58-45.997   INFO: PWM loading complete, I2C
+2018-07-22:18-58-46.215   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-22:18-58-46.329   DEBUG: MPU reports that device is on address 104...
+2018-07-22:18-58-46.332   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-22:18-58-46.333   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-22:18-58-46.334   DEBUG: Config gyro and accel sensitivity
+2018-07-22:18-58-46.335   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-22:18-58-46.335   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-22:18-58-46.335   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-22:18-58-46.372   INFO: Controller initialized, system online
+2018-07-22:19-00-44.981   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:19-03-44.693   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:19-03-44.912   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:19-03-45.594   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:19-06-26.278   DEBUG: dashboard connected via force wait
+2018-07-22:19-06-26.279   INFO: Initializing Encoders
+2018-07-22:19-06-26.291   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:19-06-26.436   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:19-06-26.746   INFO: PWM loading complete, I2C
+2018-07-22:19-06-26.936   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-22:19-06-27.049   DEBUG: MPU reports that device is on address 104...
+2018-07-22:19-06-27.049   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-22:19-06-27.050   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-22:19-06-27.050   DEBUG: Config gyro and accel sensitivity
+2018-07-22:19-06-27.052   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-22:19-06-27.053   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-22:19-06-27.053   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-22:19-06-27.092   INFO: Controller initialized, system online
+2018-07-22:19-06-45.762   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-22:19-07-21.286   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-22:19-07-21.491   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-22:19-07-22.075   Dashboard: Robot found, binding socket and listening for events
+2018-07-22:19-09-57.574   DEBUG: dashboard connected via force wait
+2018-07-22:19-09-57.574   INFO: Initializing Encoders
+2018-07-22:19-09-57.614   INFO: Encoders initialized, initializing SPI interface
+2018-07-22:19-09-57.740   INFO: SPI Interface initialization complete, loading PWM
+2018-07-22:19-09-58.041   INFO: PWM loading complete, I2C
+2018-07-22:19-09-58.257   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-22:19-09-58.370   DEBUG: MPU reports that device is on address 104...
+2018-07-22:19-09-58.370   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-22:19-09-58.371   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-22:19-09-58.371   DEBUG: Config gyro and accel sensitivity
+2018-07-22:19-09-58.372   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-22:19-09-58.372   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-22:19-09-58.373   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-22:19-09-58.415   INFO: Controller initialized, system online
+2018-07-22:19-12-55.911   \----------------------------------------------------------------------------------------------------------------------------------/
