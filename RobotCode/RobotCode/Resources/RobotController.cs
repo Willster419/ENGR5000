@@ -127,6 +127,7 @@ namespace RobotCode
         private const bool IGNORE_LOW_SIGNAL_BATTERY_ACTION = true;
         private const bool IGNORE_LOW_POWER_BATTERY_ACTION = true;
         private static int DelayI2CRead = 0;
+        private static bool SingleSetBool = false;
 
         public static bool InitController()
         {
@@ -356,19 +357,28 @@ namespace RobotCode
                 {
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
-                        
-                        //RobotAutoControlState = AutoControlState.TurnToMap;
+                        Hardware.SideReciever.Start();
+                        RobotAutoControlState = AutoControlState.TurnToMap;
                         break;
                     case AutoControlState.TurnToMap:
-                        //turn to right to get to laser reading
+                        //turn to right to get to first laser reading
                         //move encoders specific ammount
 
-                        if(false)//it makes it to the wall
+                        if(Hardware.SideReciever.WallDetected)//it makes it to the wall
                         {
                             NetworkUtils.LogNetwork("Robot has found wall, moving to map", NetworkUtils.MessageType.Info);
                             Hardware.LeftEncoder.ResetCounter();
                             Hardware.RightEncoder.ResetCounter();
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5);
+                            Hardware.SideReciever.ResetDetection();
                             RobotAutoControlState = AutoControlState.MapOneSide;
+                        }
+                        else if (!SingleSetBool)
+                        {
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5d);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6d);
+                            SingleSetBool = true;
                         }
                         break;
 

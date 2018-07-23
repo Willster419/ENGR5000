@@ -55,6 +55,14 @@ namespace RobotCode
         /// </summary>
         public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
         /// <summary>
+        /// The GPIO pin used for the IR sensor on the side of the plow
+        /// </summary>
+        public const int SIDE_IR_DETECT_PIN = 21;
+        /// <summary>
+        /// The GPIO pin used of the IR sensor on the top of the plow
+        /// </summary>
+        public const int FRONT_IR_DETECT_PIN = 4;
+        /// <summary>
         /// The current logical representation of the realy output for the auger. 1 is no output, 0 is output
         /// </summary>
         public static int Augar_Output { get; private set; } = (int)GpioPinValue.High;
@@ -62,6 +70,14 @@ namespace RobotCode
         /// The current logical representation of the relay output for the impeller. 1 is no output, 0 is output
         /// </summary>
         public static int Impeller_Output { get; private set; } = (int)GpioPinValue.High;
+        /// <summary>
+        /// The Infared reciever on the right side of the plow, detects the side wall (current wall)
+        /// </summary>
+        public static IRReciever SideReciever;
+        /// <summary>
+        /// The Infared reciever on the top of the plow, detects the front wall (end of current wall)
+        /// </summary>
+        public static IRReciever FrontReciever;
         #endregion
 
         #region SPI/ADC
@@ -400,6 +416,13 @@ namespace RobotCode
                     Pins[i].Write(GpioPinValue.High);
                 Pins[i].SetDriveMode(GpioPinDriveMode.Output);
             }
+            //init IR recievers
+            SideReciever = new IRReciever();
+            FrontReciever = new IRReciever();
+            if (!SideReciever.InitSensor(SIDE_IR_DETECT_PIN, 2, GpioController))
+                return false;
+            if (!FrontReciever.InitSensor(FRONT_IR_DETECT_PIN, 2, GpioController))
+                return false;
             return true;
         }
         /// <summary>
