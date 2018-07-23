@@ -59,7 +59,7 @@ namespace RobotCode.Resources
         /// <returns>True if started, false otherwise</returns>
         public bool IsStarted() { return _pwmPin.IsStarted; }
         /// <summary>
-        /// Set the speed for the motor to move. above 0.5 sets the direction to high, below to low, and 0 to off
+        /// Set the speed for the motor to move. above 0.5 sets the direction to high, below sets to to low, and 0.5 to off
         /// </summary>
         /// <param name="percentage">The amount, in 0-1, to move the motors by</param>
         public void SetActiveDutyCyclePercentage(double percentage)
