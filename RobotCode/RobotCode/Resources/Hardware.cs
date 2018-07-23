@@ -197,26 +197,137 @@ namespace RobotCode
         /// The init address of the GY-521 module
         /// </summary>
         private const byte ADDRESS = 0x68;
-        private const byte PWR_MGMT_1 = 0x6B;
+        /// <summary>
+        /// Register address that specifies the frequency of new data updates
+        /// </summary>
         private const byte SMPLRT_DIV = 0x19;
+        /// <summary>
+        /// Address of Frame Syncronization (FSYNC) and Digital Low Pass Filter (DLPF)
+        /// Look at the register map datasheet for more informatoin
+        /// </summary>
         private const byte CONFIG = 0x1A;
+        /// <summary>
+        /// Gyro Config register that specifies sensitivitry and full scale range form 250deg/sec to 2000deg/s
+        /// </summary>
         private const byte GYRO_CONFIG = 0x1B;
+        /// <summary>
+        /// Accel config register that specifies snesitifit and full scale range from 2g to 16g
+        /// </summary>
         private const byte ACCEL_CONFIG = 0x1C;
+        /// <summary>
+        /// Configuratoin that toggles the fifo enabled
+        /// </summary>
         private const byte FIFO_EN = 0x23;
+        /// <summary>
+        /// Register tha tholds configuration data that specifies which enables to use
+        /// </summary>
         private const byte INT_ENABLE = 0x38;
+        /// <summary>
+        /// Read only register that goes high for different bits when different inturrupts are ready (if INT_ENABLE is set for it)
+        /// </summary>
         private const byte INT_STATUS = 0x3A;
+        /// <summary>
+        /// Acceleration x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte ACCEL_XOUT_H = 0x3B;
+        /// <summary>
+        /// Acceleration x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte ACCEL_XOUT_L = 0x3C;
+        /// <summary>
+        /// Acceleration x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte ACCEL_YOUT_H = 0x3D;
+        /// <summary>
+        /// Acceleration x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte ACCEL_YOUT_L = 0x3E;
+        /// <summary>
+        /// Acceleration x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte ACCEL_ZOUT_H = 0x3F;
+        /// <summary>
+        /// Acceleration x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte ACCEL_ZOUT_L = 0x40;
+        /// <summary>
+        /// Tempature data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte TEMP_OUT_H = 0x41;
+        /// <summary>
+        /// Tempature data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte TEMP_OUT_L = 0x42;
+        /// <summary>
+        /// Gyro x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte GYRO_XOUT_H = 0x43;
+        /// <summary>
+        /// Gyro x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte GYRO_XOUT_L = 0x44;
+        /// <summary>
+        /// Gyro x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte GYRO_YOUT_H = 0x45;
+        /// <summary>
+        /// Gyro x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte GYRO_YOUT_L = 0x46;
+        /// <summary>
+        /// Gyro x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte GYRO_ZOUT_H = 0x47;
+        /// <summary>
+        /// Gyro x,y,z data. High is MSB bits 15-8, LSB bits low are 7-0
+        /// </summary>
+        private const byte GYRO_ZOUT_L = 0x48;
+        /// <summary>
+        /// Controls resetting of FIFO, FIFO enable, and Signal conditioning reset
+        /// </summary>
         private const byte USER_CTRL = 0x6A;
-        private const byte FIFO_COUNT = 0x72;
-        private const byte FIFO_R_W = 0x74;
+        /// <summary>
+        /// Allows confiuration of power mode and clock source and reset and temp disble
+        /// </summary>
+        private const byte PWR_MGMT_1 = 0x6B;
+        /// <summary>
+        /// Read only register that shows the address currently used
+        /// </summary>
         private const byte WHO_AM_I = 0x75;
-        private const int SensorBytes = 12;
+        /// <summary>
+        /// Acceleration x,y,z data
+        /// </summary>
         public static float AccelerationX { get; private set; } = 0F;
+        /// <summary>
+        /// Acceleration x,y,z data
+        /// </summary>
         public static float AccelerationY { get; private set; } = 0F;
+        /// <summary>
+        /// Acceleration x,y,z data
+        /// </summary>
         public static float AccelerationZ { get; private set; } = 0F;
+        /// <summary>
+        /// Gyro x,y,z data
+        /// </summary>
         public static float GyroX { get; private set; } = 0F;
+        /// <summary>
+        /// Gyro x,y,z data
+        /// </summary>
         public static float GyroY { get; private set; } = 0F;
+        /// <summary>
+        /// Gyro x,y,z data
+        /// </summary>
         public static float GyroZ { get; private set; } = 0F;
+        /// <summary>
+        /// MPU tempature data
+        /// </summary>
         public static float Temp_2 { get; private set; } = 0F;
+        public static float VelocityX { get; private set; } = 0F;
+        public static float VelocityY { get; private set; } = 0F;
+        public static float VelocityZ { get; private set; } = 0F;
+        public static float RotationX { get; private set; } = 0F;
+        public static float RotationY { get; private set; } = 0F;
+        public static float RotationZ { get; private set; } = 0F;
         #endregion
 
         #region Encoders
@@ -466,14 +577,16 @@ namespace RobotCode
         /// <param name="round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
         public static void UpdateI2CData(int round)
         {
-            short xa = I2C_ReadShort(0x3B, 0x3C);
-            short ya = I2C_ReadShort(0x3D, 0x3E);
-            short za = I2C_ReadShort(0x3F, 0x40);
-            short xg = I2C_ReadShort(0x43, 0x44);
-            short yg = I2C_ReadShort(0x45, 0x46);
-            short zg = I2C_ReadShort(0x47, 0x48);
-            short te = I2C_ReadShort(0x41, 0x42);
+            //Get the values
+            short xa = I2C_ReadShort(ACCEL_XOUT_H, ACCEL_XOUT_L);
+            short ya = I2C_ReadShort(ACCEL_YOUT_H, ACCEL_YOUT_L);
+            short za = I2C_ReadShort(ACCEL_ZOUT_H, ACCEL_ZOUT_L);
+            short xg = I2C_ReadShort(GYRO_XOUT_H, GYRO_XOUT_L);
+            short yg = I2C_ReadShort(GYRO_YOUT_H, GYRO_YOUT_L);
+            short zg = I2C_ReadShort(GYRO_ZOUT_H, GYRO_ZOUT_L);
+            short te = I2C_ReadShort(TEMP_OUT_H, TEMP_OUT_L);
 
+            //peroform normalization
             AccelerationX = xa / (float)16384;
             AccelerationY = ya / (float)16384;
             AccelerationZ = za / (float)16384;
@@ -482,6 +595,7 @@ namespace RobotCode
             GyroZ = zg / (float)131;
             Temp_2 = te / (float)16384;
 
+            ///rounding
             if (round >= 0)
             {
                 AccelerationX = MathF.Round(AccelerationX, round);
@@ -492,7 +606,19 @@ namespace RobotCode
                 GyroZ = MathF.Round(GyroZ, round);
                 Temp_2 = MathF.Round(Temp_2, round);
             }
+            //integration
+            VelocityX += AccelerationX;
+            VelocityY += AccelerationY;
+            VelocityZ += AccelerationZ;
+            RotationX += GyroX;
+            RotationY += GyroY;
+            RotationZ += GyroZ;
         }
+        /// <summary>
+        /// Writes a byte of data to a specified byte address
+        /// </summary>
+        /// <param name="regAddr">The hex address of the register to write to</param>
+        /// <param name="data">The data to write</param>
         private static void I2C_WriteByte(byte regAddr, byte data)
         {
             byte[] buffer = new byte[2];
@@ -500,7 +626,11 @@ namespace RobotCode
             buffer[1] = data;
             MPU6050.Write(buffer);
         }
-
+        /// <summary>
+        /// Reads a byte of data from a specified byte register address
+        /// </summary>
+        /// <param name="regAddr">The address of the register to read form</param>
+        /// <returns>A byte of data</returns>
         private static byte I2C_ReadByte(byte regAddr)
         {
             byte[] buffer = new byte[1];
@@ -509,7 +639,12 @@ namespace RobotCode
             MPU6050.WriteRead(buffer, value);
             return value[0];
         }
-
+        /// <summary>
+        /// Reads two bytes of data and converts them to a short, to make reading a 16bit data value
+        /// </summary>
+        /// <param name="MSBRegAddr">The address of the MSB (15-8) bits</param>
+        /// <param name="LSBRegAddr">The address of the LSB (7-0) bits</param>
+        /// <returns>A short of 16bit data</returns>
         private static short I2C_ReadShort(byte MSBRegAddr, byte LSBRegAddr)
         {
             byte[] MSBbuffer = new byte[1];
