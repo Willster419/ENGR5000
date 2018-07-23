@@ -322,11 +322,29 @@ namespace RobotCode
         /// MPU tempature data
         /// </summary>
         public static float Temp_2 { get; private set; } = 0F;
+        /// <summary>
+        /// Velocity x,y,z data
+        /// </summary>
         public static float VelocityX { get; private set; } = 0F;
+        /// <summary>
+        /// Velocity x,y,z data
+        /// </summary>
         public static float VelocityY { get; private set; } = 0F;
+        /// <summary>
+        /// Velocity x,y,z data
+        /// </summary>
         public static float VelocityZ { get; private set; } = 0F;
+        /// <summary>
+        /// Rotation x,y,z data
+        /// </summary>
         public static float RotationX { get; private set; } = 0F;
+        /// <summary>
+        /// Rotation x,y,z data
+        /// </summary>
         public static float RotationY { get; private set; } = 0F;
+        /// <summary>
+        /// Rotation x,y,z data
+        /// </summary>
         public static float RotationZ { get; private set; } = 0F;
         #endregion
 
