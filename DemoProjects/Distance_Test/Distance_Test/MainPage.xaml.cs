@@ -62,52 +62,33 @@ namespace Distance_Test
             GpioController _controller = GpioController.GetDefault();
             if (_controller == null)
                 return;
-
             TriggerPin = _controller.OpenPin(21);
             TriggerPin.Write(GpioPinValue.Low);
             TriggerPin.SetDriveMode(GpioPinDriveMode.Output);
             EchoPin = _controller.OpenPin(4);
             EchoPin.Write(GpioPinValue.Low);
-            //EchoPin.DebounceTimeout = TimeSpan.FromMilliseconds(0.01);
             EchoPin.SetDriveMode(GpioPinDriveMode.Input);
-            //EchoPin.DebounceTimeout = TimeSpan.FromTicks(1000);
-            EchoPin.ValueChanged += OnEchoResponse;
+            //EchoPin.ValueChanged += OnEchoResponse;
             enable = true;
             distanceTimer = new Stopwatch();
             distanceTimer.Reset();
-            debounceTimer = new System.Timers.Timer();
-            debounceTimer.Interval = 0.01;
-            debounceTimer.AutoReset = false;
-            debounceTimer.Elapsed += OnDebounceReset;
-            _timer.Interval = TimeSpan.FromMilliseconds(500);
-            _timer.Tick += _timer_Tick;
-            _timer.Start();
+            //_timer.Start();
             //https://www.c-sharpcorner.com/article/ultrasonic-proximity-sensors-in-iot-context-raspberry-pi/
             SendTriggers = new Task(() =>
            {
-               while (enable)
+               while (true)
                {
+                   //1 tick = 100 ns = 0.1us
+                   //need a 10us pulse
+                   //10 tick = 1000ns = 1us
+                   //100 tick = 10us
                    TriggerPin.Write(GpioPinValue.High);
-                   Task.Delay(TimeSpan.FromMilliseconds(0.01)).Wait();
+                   Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
                    TriggerPin.Write(GpioPinValue.Low);
-                   Task.Delay(TimeSpan.FromMilliseconds(200)).Wait();
+                   Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
                }
            });
             SendTriggers.Start();
-        }
-
-        private void _timer_Tick(object sender, object e)
-        {
-            var task = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
-            {
-                DistanceVal.Text = "Time: " + lastTicks;
-            });
-        }
-
-        private void OnDebounceReset(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            EchoPin.ValueChanged += OnEchoResponse;
-            debounceTimer.Stop();
         }
 
         private void OnEchoResponse(GpioPin sender, GpioPinValueChangedEventArgs args)
