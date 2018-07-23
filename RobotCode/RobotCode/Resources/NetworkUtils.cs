@@ -706,6 +706,12 @@ namespace RobotCode
                 Hardware.GyroZ.ToString(), //gyro Z
                 Hardware.Augar_Output.ToString(),//collection relay
                 Hardware.Impeller_Output.ToString(),//another collection relay
+                Hardware.VelocityX.ToString(),//velocity data
+                Hardware.VelocityY.ToString(),//velocity data
+                Hardware.VelocityZ.ToString(),//velocity data
+                Hardware.RotationX.ToString(),//rotation data
+                Hardware.RotationY.ToString(),//rotation data
+                Hardware.RotationZ.ToString()//rotation data
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }

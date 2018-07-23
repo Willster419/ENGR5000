@@ -128,7 +128,13 @@ namespace Dashboard
             "GyroY",
             "GyroZ",
             "CollectionMotor1",
-            "CollectionMotor2"
+            "CollectionMotor2",
+            "VelocityX",
+            "VelocityY",
+            "VelocityZ",
+            "RotationX",
+            "RotationY",
+            "RotationZ"
         };
         #region Console Logging
         /// <summary>

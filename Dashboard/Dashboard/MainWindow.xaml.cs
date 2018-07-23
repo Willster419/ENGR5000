@@ -174,6 +174,12 @@ namespace Dashboard
             GyroX.Text = data[i++];
             GyroY.Text = data[i++];
             GyroZ.Text = data[i++];
+            VelocityX.Text = data[i++];
+            VelocityY.Text = data[i++];
+            VelocityZ.Text = data[i++];
+            RotationX.Text = data[i++];
+            RotationY.Text = data[i++];
+            RotationZ.Text = data[i++];
             //and log it to disk
             Logging.WriteDataLogEntry(data);
         }
