@@ -42,21 +42,74 @@ namespace RobotCode
     /// </summary>
     public enum AutoControlState
     {
+        /// <summary>
+        /// Starting point for all auto control. Starts from the dock, if you will.
+        /// </summary>
         None,
+        /// <summary>
+        /// When the robot is leaving the dock and onto the field (of battle)
+        /// </summary>
         LeavingDock,
+        /// <summary>
+        /// Is is now inside the area of work and turns to the right to begin mapping
+        /// </summary>
         TurnToMap,
+        /// <summary>
+        /// Mapping the first side of the rectangle
+        /// </summary>
         MapOneSide,
+        /// <summary>
+        /// The front and side IR sensors have both detected walls, it is at a corner.
+        /// Need to turn and map the next part of the rectnagle. Applies for all corners
+        /// </summary>
         MapTurn,
+        /// <summary>
+        /// Mapping the second side ofthe rectangle
+        /// </summary>
         MapTwoSide,
+        /// <summary>
+        /// Mapping the third side of the rectnagle
+        /// </summary>
         MapThreeSide,
+        /// <summary>
+        /// Mapping the fourther side of the rectangle
+        /// </summary>
         MapFourSide,
+        /// <summary>
+        /// Performing calculations to create the map and send the XML map data to the dashboard
+        /// </summary>
         Calculations,
+        /// <summary>
+        /// Cleaning the area, in the up side
+        /// </summary>
         CleanUp,
+        /// <summary>
+        /// Cleaning the area, in the down side
+        /// </summary>
         CleanDown,
+        /// <summary>
+        /// On cleaning complete, going back to base to charge or something
+        /// </summary>
         CleanComplete,
-        OnObstuction,
+        /// <summary>
+        /// When an obstruction is found when the robot is maping the work area
+        /// </summary>
+        OnObstuctionWhenMapping,
+        /// <summary>
+        /// When an obstruction is found when the robot is cleaning the work area
+        /// </summary>
+        OnObstructionWhenCleaning,
+        /// <summary>
+        /// When the signal battey is at a low level
+        /// </summary>
         OnLowSignalBattery,
+        /// <summary>
+        /// When the power battery is at a low level
+        /// </summary>
         OnLowPowerBattery,
+        /// <summary>
+        /// When the water tank has reached a level where it needs to be dumped
+        /// </summary>
         OnWaterLimit
     }
     /// <summary>
@@ -96,13 +149,39 @@ namespace RobotCode
     /// </summary>
     public enum ControlStatus
     {
+        /// <summary>
+        /// No control data
+        /// </summary>
         None = 0,
+        /// <summary>
+        /// Manual control has been requested from the dashboard. async inturrupt is sent to the thread
+        /// </summary>
         RequestManual = 1,
+        /// <summary>
+        /// Manual contorl mode form the dashboard
+        /// </summary>
         Manual = 2,
+        /// <summary>
+        /// Manual control has been requestedto be relased form the dashboard. async inturrupt is send to the contorl thread
+        /// </summary>
         RelaseManual = 3,
+        /// <summary>
+        /// Auto contorl hsa been requested form the dashboard?
+        /// TODO: is this neded
+        /// </summary>
         RequestAuto = 4,
+        /// <summary>
+        /// Auto contorl mode, default status
+        /// </summary>
         Auto = 5,
+        /// <summary>
+        /// Auto contorl mode is requesting to be released form the contorl thrad.
+        /// TODO: is this needed?
+        /// </summary>
         ReleaseAuto = 6,
+        /// <summary>
+        /// TODO: what is this for?
+        /// </summary>
         LowPowerWait = 7
     }
     /// <summary>
@@ -381,6 +460,8 @@ namespace RobotCode
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
                         Hardware.SideReciever.Start();
+                        //Hardware.FrontReciever.Start();
+                        //currently is floating...
                         //TODO: start map instance and mapping stuff
                         RobotAutoControlState = AutoControlState.TurnToMap;
                         break;
