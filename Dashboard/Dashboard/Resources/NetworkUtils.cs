@@ -282,9 +282,6 @@ namespace Dashboard
                     string[] diagnosticData = data.Split(',');
                     mainWindowInstance.OnDiagnosticData(diagnosticData);
                     break;
-                case 4://create new data log file
-                    Logging.InitNewDataLogFile();
-                    break;
             }
         }
         /// <summary>
@@ -401,7 +398,6 @@ namespace Dashboard
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
                 ConnectionLive = true;
-                ConnectionManager.ReportProgress(4);
                 //netwokr setup is complete, now for as long as the connection is alive,
                 //use blokcing call to wait for network events
                 while (ConnectionLive)
@@ -567,7 +563,6 @@ namespace Dashboard
                 }
                 ConnectionManager.ReportProgress(1, "Robot Connected, comms established");
                 ConnectionLive = true;
-                ConnectionManager.ReportProgress(4);
                 NumHeartbeatsSent = 0;
                 HeartbeatTimer.Start();
                 //netwokr setup is complete
