@@ -134,7 +134,14 @@ namespace Dashboard
             "VelocityZ",
             "RotationX",
             "RotationY",
-            "RotationZ"
+            "RotationZ",
+            "Tempature_MPU",
+            "SideWall",
+            "FrontWall",
+            "Proximity",
+            "Positionx",
+            "Positiony",
+            "Positionz",
         };
         #region Console Logging
         /// <summary>

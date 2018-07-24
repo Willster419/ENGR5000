@@ -337,7 +337,7 @@ namespace RobotCode
         /// <summary>
         /// MPU tempature data
         /// </summary>
-        public static float Temp_2 { get; private set; } = 0F;
+        public static float Tempature_2 { get; private set; } = 0F;
         /// <summary>
         /// Velocity x,y,z data
         /// </summary>
@@ -634,7 +634,7 @@ namespace RobotCode
             GyroX = xg / (float)131;
             GyroY = yg / (float)131;
             GyroZ = zg / (float)131;
-            Temp_2 = te / (float)16384;
+            Tempature_2 = te / (float)16384;
 
             ///rounding
             if (round >= 0)
@@ -645,7 +645,7 @@ namespace RobotCode
                 GyroX = MathF.Round(GyroX, round);
                 GyroY = MathF.Round(GyroY, round);
                 GyroZ = MathF.Round(GyroZ, round);
-                Temp_2 = MathF.Round(Temp_2, round);
+                Tempature_2 = MathF.Round(Tempature_2, round);
             }
             //integration
             VelocityX += AccelerationX;

@@ -711,7 +711,14 @@ namespace RobotCode
                 Hardware.VelocityZ.ToString(),//velocity data
                 Hardware.RotationX.ToString(),//rotation data
                 Hardware.RotationY.ToString(),//rotation data
-                Hardware.RotationZ.ToString()//rotation data
+                Hardware.RotationZ.ToString(),//rotation data
+                Hardware.Tempature_2.ToString(),//MPU temp data
+                Hardware.SideReciever == null? "null": Convert.ToByte(Hardware.SideReciever.WallDetected).ToString(),//side wall detection
+                Hardware.FrontReciever == null? "null": Convert.ToByte(Hardware.FrontReciever.WallDetected).ToString(),//front wall detection
+                "NC",//proximity
+                "null",//positionx
+                "null",//positiony
+                "null",//positionz
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }

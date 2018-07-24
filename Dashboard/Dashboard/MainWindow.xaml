@@ -72,7 +72,7 @@
                             <TextBox x:FieldModifier="public" x:Name="RightDriveEncoder" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Status" HorizontalAlignment="Left" Height="128" Margin="315,195,0,0" VerticalAlignment="Top" Width="235">
+                    <GroupBox Header="Status" HorizontalAlignment="Left" Height="138" Margin="315,195,0,0" VerticalAlignment="Top" Width="235">
                         <Grid Background="#FFE5E5E5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -94,13 +94,13 @@
                             <TextBox x:FieldModifier="public" x:Name="Battery2Amps" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" IsReadOnly="True" />
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="100" Margin="899,147,0,0" VerticalAlignment="Top" Width="183">
+                    <GroupBox Header="Networking" HorizontalAlignment="Left" Height="82" Margin="899,147,0,0" VerticalAlignment="Top" Width="183">
                         <Grid Background="#FFE5E5E5">
                             <Button x:Name="ResetNetworkConnection" Content="Reset Network Connection" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="10,35,0,0" Click="ResetNetworkConnection_Click"/>
                             <Button x:Name="ClearBothlogDisplays" Content="Clear log displays" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Click="ClearBothlogDisplays_Click"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Manual Control" HorizontalAlignment="Left" Height="313" Margin="555,10,0,0" VerticalAlignment="Top" Width="339">
+                    <GroupBox Header="Manual Control" HorizontalAlignment="Left" Height="323" Margin="555,10,0,0" VerticalAlignment="Top" Width="339">
                         <Grid Background="#FFE5E5E5">
                             <CheckBox x:Name="ManualControlToggle" x:FieldModifier="public" Content="Enable Manual Control" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="ManualControlToggle_Checked" Unchecked="ManualControlToggle_Unchecked"/>
                             <GroupBox Header="Button Control" HorizontalAlignment="Left" Height="150" Margin="10,36,0,0" VerticalAlignment="Top" Width="150">
@@ -167,13 +167,15 @@
                             <Button  HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="151" Content="Cancel Shutdown/Restart" x:Name="CancelShutdownRestartButton" Click="CancelShutdownRestartButton_Click"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="I2C Data" HorizontalAlignment="Left" Height="164" Margin="10,234,0,0" VerticalAlignment="Top" Width="300" x:Name="SpiModules">
+                    <GroupBox Header="I2C Data" HorizontalAlignment="Left" Height="180" Margin="10,338,0,0" VerticalAlignment="Top" Width="385" x:Name="SpiModules">
                         <Grid Background="#FFE5E5E5">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition MaxWidth="50"  Width="50*"/>
-                                <ColumnDefinition MaxWidth="60"  Width="60*" />
-                                <ColumnDefinition MaxWidth="100" Width="100*"/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition MaxWidth="50" Width="50*"/>
+                                <ColumnDefinition MaxWidth="60" Width="60*"/>
+                                <ColumnDefinition MaxWidth="70" Width="70*"/>
+                                <ColumnDefinition MaxWidth="60" Width="60*"/>
+                                <ColumnDefinition MaxWidth="70" Width="70*"/>
+                                <ColumnDefinition MaxWidth="60" Width="60*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -195,22 +197,30 @@
                             <Label Content="Rotation X" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="3" VerticalAlignment="Stretch"/>
                             <Label Content="Rotation Y" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="4" VerticalAlignment="Stretch"/>
                             <Label Content="Rotation Z" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="5" VerticalAlignment="Stretch"/>
-                            
-                            <TextBox x:FieldModifier="public" x:Name="AccelX"    Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="AccelY"    Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="AccelZ"    Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="GyroX"     Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="GyroY"     Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="GyroZ"     Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="VelocityX" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="VelocityY" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="VelocityZ" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="RotationX" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="RotationY" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
-                            <TextBox x:FieldModifier="public" x:Name="RotationZ" Grid.Column="3" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <Label Content="Position X" HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="0" VerticalAlignment="Stretch"/>
+                            <Label Content="Position Y" HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="1" VerticalAlignment="Stretch"/>
+                            <Label Content="Position Z" HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="2" VerticalAlignment="Stretch"/>
+                            <Label Content="Tempature"  HorizontalAlignment="Stretch" Grid.Column="4" Grid.Row="3" VerticalAlignment="Stretch"/>
+
+                            <TextBox x:FieldModifier="public" x:Name="AccelX"        Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="AccelY"        Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="AccelZ"        Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="GyroX"         Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="GyroY"         Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="GyroZ"         Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="VelocityX"     Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="VelocityY"     Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="VelocityZ"     Grid.Column="3" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="RotationX"     Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="RotationY"     Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="RotationZ"     Grid.Column="3" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="PositionX"     Grid.Column="5" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="PositionY"     Grid.Column="5" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="PositionZ"     Grid.Column="5" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
+                            <TextBox x:FieldModifier="public" x:Name="Tempature_MPU" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  TextWrapping="Wrap" IsReadOnly="True"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="Robot Status" HorizontalAlignment="Left" Height="98" Margin="315,328,0,0" VerticalAlignment="Top" Width="235">
+                    <GroupBox Header="Robot Status" HorizontalAlignment="Left" Height="99" Margin="899,234,0,0" VerticalAlignment="Top" Width="183">
                         <Grid Background="#FFE5E5E5">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -227,6 +237,25 @@
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="ControlStatus"   x:FieldModifier="public"/>
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="RobotStatus"     x:FieldModifier="public"/>
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="RobotAutoStatus" x:FieldModifier="public"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="99" Margin="10,234,0,0" VerticalAlignment="Top" Width="300">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75*" MaxWidth="75"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label   Grid.Column="0" HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Content="Side IR"/>
+                            <Label   Grid.Column="0" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Content="Front IR"/>
+                            <Label   Grid.Column="0" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Content="Proxmimity"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="SideWallDetect" x:FieldModifier="public"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="FrontWallDetect"  x:FieldModifier="public"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="ProximityDistance" x:FieldModifier="public"/>
                         </Grid>
                     </GroupBox>
                 </Grid>

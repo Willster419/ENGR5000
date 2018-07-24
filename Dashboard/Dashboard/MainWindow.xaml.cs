@@ -180,6 +180,13 @@ namespace Dashboard
             RotationX.Text = data[i++];
             RotationY.Text = data[i++];
             RotationZ.Text = data[i++];
+            Tempature_MPU.Text = data[i++];
+            SideWallDetect.Text = data[i++];
+            FrontWallDetect.Text = data[i++];
+            ProximityDistance.Text = data[i++];
+            PositionX.Text = data[i++];
+            PositionY.Text = data[i++];
+            PositionZ.Text = data[i++];
             //and log it to disk
             Logging.WriteDataLogEntry(data);
         }
