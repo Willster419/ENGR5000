@@ -50,7 +50,8 @@ namespace RobotCode.Resources
         /// </summary>
         public int Index;
         /// <summary>
-        /// Don't worry about this.
+        /// Create a new instance of the status indicator
+        /// note you need to use the init methods to actually use it.
         /// </summary>
         public StatusIndicator()
         {
