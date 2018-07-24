@@ -126,8 +126,11 @@ namespace RobotCode
         public static bool SystemOnline = false;
         private const bool IGNORE_LOW_SIGNAL_BATTERY_ACTION = true;
         private const bool IGNORE_LOW_POWER_BATTERY_ACTION = true;
+        private static BatteryStatus LastSignalBattStatus = BatteryStatus.Unknown;
+        private static BatteryStatus LastPowerBattStatus = BatteryStatus.Unknown;
         private static int DelayI2CRead = 0;
         private static bool SingleSetBool = false;
+        private static bool ReachedWaterLimit = false;
 
         public static bool InitController()
         {
@@ -329,28 +332,48 @@ namespace RobotCode
                 //process battery conditions
                 if(!IGNORE_LOW_SIGNAL_BATTERY_ACTION)
                 {
-                    //TODO: make method to run this single time as to not spam loging, maybe previous value and use if statements??
                     switch(SignalBatteryStatus)
                     {
                         case BatteryStatus.Below5Shutdown:
-                            NetworkUtils.LogNetwork("Robot signal voltage has reached critical level and must shut down, Setting shutdown for 60s", NetworkUtils.MessageType.Error);
-                            EmergencyShutdown(TimeSpan.FromSeconds(60));
+                            if(LastSignalBattStatus != SignalBatteryStatus)
+                            {
+                                LastSignalBattStatus = SignalBatteryStatus;
+                                NetworkUtils.LogNetwork("Robot signal voltage has reached critical level and must shut down, Setting shutdown for 60s", NetworkUtils.MessageType.Error);
+                                EmergencyShutdown(TimeSpan.FromSeconds(60));
+                            }
                             break;
                         case BatteryStatus.Below15Warning:
-                            NetworkUtils.LogNetwork("Robot signal voltage has reached warning level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                            if(LastSignalBattStatus != SignalBatteryStatus)
+                            {
+                                LastSignalBattStatus = SignalBatteryStatus;
+                                NetworkUtils.LogNetwork("Robot signal voltage has reached warning level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                            }
                             break;
                     }
                 }
                 if(!IGNORE_LOW_POWER_BATTERY_ACTION)
                 {
-                    //same idea as above
+                    if(LastPowerBattStatus != PowerBatteryStatus)
+                    {
+                        LastPowerBattStatus = PowerBatteryStatus;
+                        switch(PowerBatteryStatus)
+                        {
+                            case BatteryStatus.Below5Shutdown:
+                                NetworkUtils.LogNetwork("Robot power voltage has reached critical level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                                break;
+                            case BatteryStatus.Below15Warning:
+                                NetworkUtils.LogNetwork("Robot power voltage has reached warning level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                                break;
+                        }
+                    }
                 }
 
                 //check water level
-                if(Hardware.WaterLevel > 1.5F && false)//ignore water leverl for now
+                if(Hardware.WaterLevel > 1.5F && !ReachedWaterLimit)//ignore water leverl for now
                 {
                     NetworkUtils.LogNetwork("Robot water level is at level, needs to dump", NetworkUtils.MessageType.Warning);
                     RobotAutoControlState = AutoControlState.OnWaterLimit;
+                    ReachedWaterLimit = true;//will be set to false later
                 }
 
                 switch (RobotAutoControlState)
@@ -358,6 +381,7 @@ namespace RobotCode
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
                         Hardware.SideReciever.Start();
+                        //TODO: start map instance and mapping stuff
                         RobotAutoControlState = AutoControlState.TurnToMap;
                         break;
                     case AutoControlState.TurnToMap:
@@ -391,6 +415,18 @@ namespace RobotCode
                         //else if not wall ir sensor and counter for turning
                         //  set back to slow right turn
 
+                        break;
+                    case AutoControlState.OnLowPowerBattery:
+
+                        break;
+                    case AutoControlState.OnLowSignalBattery:
+
+                        break;
+                    case AutoControlState.OnWaterLimit:
+
+                        break;
+                    case AutoControlState.OnObstuction:
+                        
                         break;
                 }
 
