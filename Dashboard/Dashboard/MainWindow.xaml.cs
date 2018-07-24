@@ -174,6 +174,8 @@ namespace Dashboard
             GyroX.Text = data[i++];
             GyroY.Text = data[i++];
             GyroZ.Text = data[i++];
+            AugerRelay.Text = data[i++];
+            ImpellerRelay.Text = data[i++];
             VelocityX.Text = data[i++];
             VelocityY.Text = data[i++];
             VelocityZ.Text = data[i++];

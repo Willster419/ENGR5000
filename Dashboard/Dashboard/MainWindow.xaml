@@ -239,7 +239,7 @@
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="RobotAutoStatus" x:FieldModifier="public"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="99" Margin="10,234,0,0" VerticalAlignment="Top" Width="300">
+                    <GroupBox Header="Other Sensors" HorizontalAlignment="Left" Height="99" Margin="10,234,0,0" VerticalAlignment="Top" Width="300">
                         <Grid Background="#FFE5E5E5">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -256,6 +256,22 @@
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="SideWallDetect" x:FieldModifier="public"/>
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="FrontWallDetect"  x:FieldModifier="public"/>
                             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="ProximityDistance" x:FieldModifier="public"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Other Output" HorizontalAlignment="Left" Height="75" Margin="400,338,0,0" VerticalAlignment="Top" Width="150">
+                        <Grid Background="#FFE5E5E5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100*" MaxWidth="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Content="Auger Relay"/>
+                            <Label HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Content="Impeller Relay"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="AugerRelay"  x:FieldModifier="public"/>
+                            <TextBox Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" IsReadOnly="True" x:Name="ImpellerRelay" x:FieldModifier="public"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
