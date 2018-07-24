@@ -86,6 +86,10 @@ namespace Dashboard
         /// </summary>
         private static string CurrentDataFullFilePath = "";
         /// <summary>
+        /// Flag to determine if a new log file needs to be created
+        /// </summary>
+        public static bool LogSessionStarted = false;
+        /// <summary>
         /// The character seperater for the csv file
         /// </summary>
         private const string DATA_SEP_CHAR = ",";
@@ -229,6 +233,10 @@ namespace Dashboard
         /// </summary>
         public static void InitNewDataLogFile()
         {
+            if(RobotDataStream != null)
+            {
+                CloseDataLogSession();
+            }
             if (!Directory.Exists(DATA_LOG_FOLDER_PATH))
                 Directory.CreateDirectory(DATA_LOG_FOLDER_PATH);
             string dateTimeFormat = string.Format("{0:yyyy_MM_dd-HH_mm_ss}", DateTime.Now);
@@ -246,6 +254,11 @@ namespace Dashboard
         /// <param name="data"></param>
         public static void WriteDataLogEntry(string[] data)
         {
+            if (!LogSessionStarted)
+            {
+                InitNewDataLogFile();
+                LogSessionStarted = true;
+            }
             if (string.IsNullOrEmpty(CurrentDataFullFilePath))
             {
                 LogConsole("ERROR: WriteDataLogEntry called but CurrentDataFullFilePath is null");
@@ -268,6 +281,16 @@ namespace Dashboard
             string toWrite = string.Join(DATA_SEP_CHAR, dataToWrite) + DATA_LINE_ENDING;
             RobotDataStream.Write(Encoding.UTF8.GetBytes(toWrite), 0, Encoding.UTF8.GetByteCount(toWrite));
             RobotDataStream.Flush();
+        }
+        /// <summary>
+        /// Closes the filestream cleanly on the data logging steam
+        /// </summary>
+        public static void CloseDataLogSession()
+        {
+            RobotDataStream.Flush();
+            RobotDataStream.Close();
+            RobotDataStream.Dispose();
+            RobotDataStream = null;
         }
         #endregion
     }

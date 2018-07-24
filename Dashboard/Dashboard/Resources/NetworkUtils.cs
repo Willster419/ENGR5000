@@ -424,6 +424,8 @@ namespace Dashboard
                         ConnectionLive = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
+                        //set flag to re-init the robot loggins session
+                        Logging.LogSessionStarted = false;
                         e.Cancel = true;
                         HeartbeatTimer.Stop();
                         return;
@@ -590,6 +592,8 @@ namespace Dashboard
                         ConnectionLive = false;
                         ConnectionManager.ReportProgress(1, "Robot Disconnected, trying to reconnect...");
                         ConnectionManager.ReportProgress(2, "Robot Disconnected");
+                        //set flag to re-init the robot loggins session
+                        Logging.LogSessionStarted = false;
                         e.Cancel = true;
                         return;
                     }
