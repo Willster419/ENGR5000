@@ -9003,3 +9003,50 @@
 2018-07-23:17-42-04.948   Sending IP address of dashboard to robot and waiting for response...
 2018-07-23:17-42-10.181   Robot Connected, comms established
 2018-07-23:17-42-10.196   New data log file created
+2018-07-24:16-06-13.174   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-24:16-06-13.177   Dashboard Version 1.1.0.0
+2018-07-24:16-06-13.179   Built on Tue 07/24/2018 16:06:09.49
+2018-07-24:16-06-13.180   Initializing network connections
+2018-07-24:16-06-13.190   Checking for any local internet connection...
+2018-07-24:16-06-13.280   At leaset one valid network connections exist!
+2018-07-24:16-06-13.357   Valid V6 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=fe80::6c69:44a1:af9b:ef5c%17
+2018-07-24:16-06-13.360   Valid V4 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=10.200.109.27
+2018-07-24:16-06-13.361   DEBUG: Hard-code select index 0
+2018-07-24:16-06-13.362   Computer IPV6 address set to fe80::6c69:44a1:af9b:ef5c%17
+2018-07-24:16-06-13.364   Computer IPV4 address set to 10.200.109.27
+2018-07-24:16-06-13.364   Pinging robot hostname for aliveness
+2018-07-24:16-06-13.387   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-24:16-06-13.390   Parsed IPV4 address: 10.200.8.234
+2018-07-24:16-06-13.397   Binding robot listener to address 10.200.109.27
+2018-07-24:16-06-13.398   Binding robot sender to address 10.200.8.234
+2018-07-24:16-06-13.399   Connecting to robot...
+2018-07-24:16-06-13.400   Sending IP address of dashboard to robot and waiting for response...
+2018-07-24:16-13-29.620   Robot Connected, comms established
+2018-07-24:16-13-29.626   New data log file created
+2018-07-24:16-13-31.087   New data log file created
+2018-07-24:16-15-35.242   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-24:16-15-35.247   Dashboard Version 1.1.0.0
+2018-07-24:16-15-35.251   Built on Tue 07/24/2018 16:15:33.11
+2018-07-24:16-15-35.253   Initializing network connections
+2018-07-24:16-15-35.262   Checking for any local internet connection...
+2018-07-24:16-15-35.363   At leaset one valid network connections exist!
+2018-07-24:16-15-35.432   Valid V6 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=fe80::6c69:44a1:af9b:ef5c%17
+2018-07-24:16-15-35.437   Valid V4 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=10.200.109.27
+2018-07-24:16-15-35.439   DEBUG: Hard-code select index 0
+2018-07-24:16-15-35.443   Computer IPV6 address set to fe80::6c69:44a1:af9b:ef5c%17
+2018-07-24:16-15-35.445   Computer IPV4 address set to 10.200.109.27
+2018-07-24:16-15-35.446   Pinging robot hostname for aliveness
+2018-07-24:16-15-35.544   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-24:16-15-35.550   Parsed IPV4 address: 10.200.8.234
+2018-07-24:16-15-35.601   Binding robot listener to address 10.200.109.27
+2018-07-24:16-15-35.604   Binding robot sender to address 10.200.8.234
+2018-07-24:16-15-35.606   Connecting to robot...
+2018-07-24:16-15-35.608   Sending IP address of dashboard to robot and waiting for response...
+2018-07-24:16-17-10.932   Robot Connected, comms established
+2018-07-24:16-17-12.290   New data log file created
+2018-07-24:16-19-58.019   Starting Manual Control
+2018-07-24:16-19-58.096   Manual control Started
+2018-07-24:16-23-20.714   Starting Manual Control
+2018-07-24:16-23-20.715   Manual control Started
+2018-07-24:16-23-59.670   Application Closing
+2018-07-24:16-23-59.671   \----------------------------------------------------------------------------------------------------------------------------------/

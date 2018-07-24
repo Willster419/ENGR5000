@@ -223,7 +223,10 @@ namespace RobotCode
         private static int DelayI2CRead = 0;
         private static bool SingleSetBool = false;
         private static bool ReachedWaterLimit = false;
-
+        /// <summary>
+        /// Initialize the controller subsystem
+        /// </summary>
+        /// <returns>true if initialization was sucessfull, false otherwise</returns>
         public static bool InitController()
         {
             //first set the robot status
@@ -235,6 +238,7 @@ namespace RobotCode
             Hardware.UpdatePowerBattery();
             PowerBatteryStatus = Hardware.UpdatePowerBatteryStatus();
             Hardware.Power_battery_status_indicator.UpdateRuntimeValue((int)PowerBatteryStatus);
+            //and start them
             Hardware.Power_battery_status_indicator.Start();
             Hardware.Signal_battery_status_indicator.Start();
             //TODO: status indicator for what the robot control is doing

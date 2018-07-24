@@ -6676,3 +6676,48 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-23:17-42-11.662   INFO: I2C loading complete, Initializing Main Robot controller
 2018-07-23:17-42-11.731   INFO: Controller initialized, system online
 2018-07-23:17-42-17.946   INFO: Robot has found wall, moving to map
+2018-07-24:16-06-13.183   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-24:16-06-13.366   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-24:16-06-13.396   Dashboard: Robot found, binding socket and listening for events
+2018-07-24:16-13-29.642   DEBUG: dashboard connected via force wait
+2018-07-24:16-13-29.642   INFO: Initializing Encoders
+2018-07-24:16-13-29.745   INFO: Encoders initialized, initializing SPI interface
+2018-07-24:16-13-30.131   INFO: SPI Interface initialization complete, loading PWM
+2018-07-24:16-13-30.622   INFO: PWM loading complete, I2C
+2018-07-24:16-13-30.920   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-24:16-13-31.021   DEBUG: MPU reports that device is on address 104...
+2018-07-24:16-13-31.021   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-24:16-13-31.022   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-24:16-13-31.022   DEBUG: Config gyro and accel sensitivity
+2018-07-24:16-13-31.022   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-24:16-13-31.023   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-24:16-13-31.023   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-24:16-13-31.044   INFO: Controller initialized, system online
+2018-07-24:16-15-35.255   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-24:16-15-35.448   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-24:16-15-35.601   Dashboard: Robot found, binding socket and listening for events
+2018-07-24:16-17-10.975   DEBUG: dashboard connected via force wait
+2018-07-24:16-17-10.976   INFO: Initializing Encoders
+2018-07-24:16-17-11.050   INFO: Encoders initialized, initializing SPI interface
+2018-07-24:16-17-11.340   INFO: SPI Interface initialization complete, loading PWM
+2018-07-24:16-17-11.854   INFO: PWM loading complete, I2C
+2018-07-24:16-17-12.039   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-24:16-17-12.154   DEBUG: MPU reports that device is on address 104...
+2018-07-24:16-17-12.154   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-24:16-17-12.164   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-24:16-17-12.174   DEBUG: Config gyro and accel sensitivity
+2018-07-24:16-17-12.187   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-24:16-17-12.189   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-24:16-17-12.190   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-24:16-17-12.200   INFO: Controller initialized, system online
+2018-07-24:16-19-58.308   DEBUG: Control thread is down, determining what to do next
+2018-07-24:16-19-58.317   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-24:16-19-58.322   DEBUG: Manual control method starting
+2018-07-24:16-22-51.483   DEBUG: Control thread is down, determining what to do next
+2018-07-24:16-22-51.483   DEBUG: Releasing manual control, restarting auto
+2018-07-24:16-23-20.740   DEBUG: Control thread is down, determining what to do next
+2018-07-24:16-23-20.740   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-24:16-23-20.741   DEBUG: Manual control method starting
+2018-07-24:16-23-51.475   DEBUG: Control thread is down, determining what to do next
+2018-07-24:16-23-51.476   DEBUG: Releasing manual control, restarting auto
+2018-07-24:16-23-59.671   \----------------------------------------------------------------------------------------------------------------------------------/
