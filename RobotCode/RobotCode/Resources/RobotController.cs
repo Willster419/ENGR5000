@@ -506,8 +506,11 @@ namespace RobotCode
                     case AutoControlState.OnWaterLimit:
 
                         break;
-                    case AutoControlState.OnObstuction:
+                    case AutoControlState.OnObstructionWhenCleaning:
                         
+                        break;
+                    case AutoControlState.OnObstuctionWhenMapping:
+
                         break;
                 }
 
