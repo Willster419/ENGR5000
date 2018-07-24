@@ -213,44 +213,15 @@ namespace RobotCode
 
         public static bool InitController()
         {
-            //init the status indicators
-            statusIndicators = new StatusIndicator[3];
-
-            //robot status
-            statusIndicators[0] = new StatusIndicator()
-            {
-                GpioPin = Hardware.Pins[0],
-                Interval = TimeSpan.FromMilliseconds(250),
-                TimeThrough = 0,
-                Index = 0
-            };
-            statusIndicators[0].TimeToStop = (int)RobotStatus * 2;
-            statusIndicators[0].Tick += OnStatusTick;
-            statusIndicators[0].Start();
-
-            //signal batteyr specific
-            statusIndicators[1] = new StatusIndicator()
-            {
-                GpioPin = Hardware.Pins[2],
-                Interval = TimeSpan.FromMilliseconds(200),
-                TimeThrough = 0,
-                Index = 1
-            };
-            statusIndicators[1].TimeToStop = (int)Hardware.UpdateSignalBatteryStatus() * 2;
-            statusIndicators[1].Tick += OnStatusTick;
-            statusIndicators[1].Start();
-
-            //power batteyr specific
-            statusIndicators[2] = new StatusIndicator()
-            {
-                GpioPin = Hardware.Pins[4],
-                Interval = TimeSpan.FromMilliseconds(200),
-                TimeThrough = 0,
-                Index = 2
-            };
-            statusIndicators[2].TimeToStop = (int)Hardware.UpdatePowerBatteryStatus() * 2;
-            statusIndicators[2].Tick += OnStatusTick;
-            statusIndicators[2].Start();
+            //battery
+            Hardware.UpdateSignalBattery();
+            SignalBatteryStatus = Hardware.UpdateSignalBatteryStatus();
+            Hardware.Signal_battery_status_indicator.UpdateRuntimeValue((int)SignalBatteryStatus);
+            Hardware.UpdatePowerBattery();
+            PowerBatteryStatus = Hardware.UpdatePowerBatteryStatus();
+            Hardware.Power_battery_status_indicator.UpdateRuntimeValue((int)PowerBatteryStatus);
+            Hardware.Power_battery_status_indicator.Start();
+            Hardware.Signal_battery_status_indicator.Start();
             //TODO: status indicator for what the robot control is doing
             ControllerThread = new BackgroundWorker()
             {
@@ -262,51 +233,6 @@ namespace RobotCode
             ControllerThread.DoWork += ControlRobotAuto;
             ControllerThread.RunWorkerAsync();
             return true;
-        }
-        /// <summary>
-        /// The tick event for the timer for diagnostic LEDs
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private static void OnStatusTick(object sender, object e)
-        {
-            StatusIndicator SI = (StatusIndicator)sender;
-            if (SI.TimeThrough == 0)
-            {
-                switch(SI.Index)
-                {
-                    case (int)StatusFeed.RobotStatus://robot status
-                        SI.TimeToStop = (int)RobotStatus * 2;//times 2 cause one cycle is on and one is off
-                        break;
-                    case (int)StatusFeed.SignalBattery://signal battery
-                        SI.TimeToStop = (int)Hardware.UpdateSignalBatteryStatus() * 2;
-                        break;
-                    case (int)StatusFeed.PowerBattery://power battery
-                        SI.TimeToStop = (int)Hardware.UpdatePowerBatteryStatus() * 2;
-                        break;
-                }
-                
-            }
-            else if (SI.TimeThrough == SI.TimeToStop)
-            {
-                //turn off the status LED
-                SI.GpioPin.Write(GpioPinValue.Low);
-                //set negative time so that it acts as a pause
-                SI.TimeThrough = -4;
-            }
-            if (SI.TimeThrough >= 0)
-            {
-                //basicly a toggle. if high then low, if low then high.
-                if (SI.GpioPin.Read() == GpioPinValue.High)
-                {
-                    SI.GpioPin.Write(GpioPinValue.Low);
-                }
-                else
-                {
-                    SI.GpioPin.Write(GpioPinValue.High);
-                }
-            }
-            SI.TimeThrough++;
         }
         /// <summary>
         /// The method for the control thread to run when manual debugging control is requested
@@ -336,14 +262,19 @@ namespace RobotCode
                     //stop moving
                     Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5F);
                     Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.Pins[3].Write(GpioPinValue.High);
+                    Hardware.Auger_pin.Write(GpioPinValue.High);
+                    Hardware.Impeller_pin.Write(GpioPinValue.High);
                     System.Threading.Thread.Sleep(20);
                     continue;
                 }
                 //update sensor values
                 //battery
                 Hardware.UpdateSignalBattery();
+                SignalBatteryStatus = Hardware.UpdateSignalBatteryStatus();
+                Hardware.Signal_battery_status_indicator.UpdateRuntimeValue((int)SignalBatteryStatus);
                 Hardware.UpdatePowerBattery();
+                PowerBatteryStatus = Hardware.UpdatePowerBatteryStatus();
+                Hardware.Power_battery_status_indicator.UpdateRuntimeValue((int)PowerBatteryStatus);
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
@@ -358,13 +289,15 @@ namespace RobotCode
                 {
                     Hardware.LeftDrive.SetActiveDutyCyclePercentage(float.Parse(commands[0]));
                     Hardware.RightDrive.SetActiveDutyCyclePercentage(float.Parse(commands[1]));
-                    Hardware.Pins[3].Write(bool.Parse(commands[2]) ? GpioPinValue.Low : GpioPinValue.High);
+                    Hardware.Auger_pin.Write(bool.Parse(commands[2]) ? GpioPinValue.Low : GpioPinValue.High);
+                    Hardware.Impeller_pin.Write(bool.Parse(commands[2]) ? GpioPinValue.Low : GpioPinValue.High);
                 }
                 catch
                 {
                     Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5F);
                     Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.Pins[3].Write(GpioPinValue.High);
+                    Hardware.Auger_pin.Write(GpioPinValue.High);
+                    Hardware.Impeller_pin.Write(GpioPinValue.High);
                 }
                 System.Threading.Thread.Sleep(10);
             }
@@ -395,7 +328,11 @@ namespace RobotCode
                 //update sensor values
                 //battery
                 Hardware.UpdateSignalBattery();
+                SignalBatteryStatus = Hardware.UpdateSignalBatteryStatus();
+                Hardware.Signal_battery_status_indicator.UpdateRuntimeValue((int)SignalBatteryStatus);
                 Hardware.UpdatePowerBattery();
+                PowerBatteryStatus = Hardware.UpdatePowerBatteryStatus();
+                Hardware.Power_battery_status_indicator.UpdateRuntimeValue((int)PowerBatteryStatus);
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
@@ -459,11 +396,9 @@ namespace RobotCode
                 {
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
-                        Hardware.SideReciever.Start();
-                        //Hardware.FrontReciever.Start();
-                        //currently is floating...
-                        //TODO: start map instance and mapping stuff
-                        RobotAutoControlState = AutoControlState.TurnToMap;
+                        //Hardware.SideReciever.Start();
+                        //Hardware.FrontReciever.Start();//currently is floating...
+                        //RobotAutoControlState = AutoControlState.TurnToMap;
                         break;
                     case AutoControlState.TurnToMap:
                         //turn to right to get to first laser reading
@@ -588,10 +523,10 @@ namespace RobotCode
             //everything must stop, a critical exception has occured
             RobotStatus = RobotStatus.Error;
             //shut off any relays on
-            if(Hardware.GpioController != null && Hardware.Pins[3] != null)
-                Hardware.Pins[3].Write(GpioPinValue.High);
-            //if (Hardware.GpioController != null && Hardware.Pins[3] != null)
-                //Hardware.Pins[3].Write(GpioPinValue.High);
+            if(Hardware.GpioController != null && Hardware.Auger_pin != null)
+                Hardware.Auger_pin.Write(GpioPinValue.High);
+            if (Hardware.GpioController != null && Hardware.Impeller_pin != null)
+                Hardware.Impeller_pin.Write(GpioPinValue.High);
             //shut off any PWM systems
             if (Hardware.driveControl != null)
             {

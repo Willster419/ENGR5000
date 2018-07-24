@@ -235,7 +235,7 @@ namespace RobotCode
             }
             ConnectionManager.RunWorkerAsync();
             //Robot only
-            NetworkPin = Hardware.Pins[1];
+            NetworkPin = Hardware.Dashboard_connected_pin;
             NetworkPin.Write(ConnectionLive ? GpioPinValue.High : GpioPinValue.Low);
             return true;
         }

@@ -31,29 +31,28 @@ namespace RobotCode
         /// </summary>
         public static GpioController GpioController = null;
         /// <summary>
-        /// An array of all GPIO (not I2C, SPI, etc.) pins used in the robot
-        /// </summary>
-        public static GpioPin[] Pins = new GpioPin[5];
-        /// <summary>
-        /// The GPIO pin number of the LED code running pin. Index 0 in pin array
-        /// </summary>
-        public const int CODE_RUNNING_PIN = 17;//index 0
-        /// <summary>
         /// The GPIO pin number of the LED comms pin. Index 1 in pin array
         /// </summary>
-        public const int DASHBOARD_CONNECTED_PIN = 27;//index 1
-        /// <summary>
-        /// The GPIO pin number of the signal battery status pin. White(?) LED, index 2 in pin array
-        /// </summary>
-        public const int SIGNAL_BATTERY_STATUS_PIN = 23;//index 2
+        public const int DASHBOARD_CONNECTED_INDICATOR_PIN = 27;
+        public static GpioPin Dashboard_connected_pin;
         /// <summary>
         /// THE GPIO pin number of the Augar pin. Index 3 in array
         /// </summary>
-        public const int AUGAR_PIN = 22;//index 3
+        public const int AUGAR_PIN = 22;
+        public static GpioPin Auger_pin;
+        public const int IMPELLER_PIN = 18;//TODO:check
+        public static GpioPin Impeller_pin;
         /// <summary>
-        /// The GPIO pin number of the power battery status pin. Green(?) LED, index 4 of pin array
+        /// The current logical representation of the realy output for the auger. 1 is no output, 0 is output
         /// </summary>
-        public const int POWER_BATTERY_STATUS_PIN = 24;//index 4
+        public static int Augar_Output { get; private set; } = (int)GpioPinValue.High;
+        /// <summary>
+        /// The current logical representation of the relay output for the impeller. 1 is no output, 0 is output
+        /// </summary>
+        public static int Impeller_Output { get; private set; } = (int)GpioPinValue.High;
+        #endregion
+
+        #region IR
         /// <summary>
         /// The GPIO pin used for the IR sensor on the side of the plow
         /// </summary>
@@ -63,14 +62,6 @@ namespace RobotCode
         /// </summary>
         public const int FRONT_IR_DETECT_PIN = 4;
         /// <summary>
-        /// The current logical representation of the realy output for the auger. 1 is no output, 0 is output
-        /// </summary>
-        public static int Augar_Output { get; private set; } = (int)GpioPinValue.High;
-        /// <summary>
-        /// The current logical representation of the relay output for the impeller. 1 is no output, 0 is output
-        /// </summary>
-        public static int Impeller_Output { get; private set; } = (int)GpioPinValue.High;
-        /// <summary>
         /// The Infared reciever on the right side of the plow, detects the side wall (current wall)
         /// </summary>
         public static IRReciever SideReciever;
@@ -78,6 +69,24 @@ namespace RobotCode
         /// The Infared reciever on the top of the plow, detects the front wall (end of current wall)
         /// </summary>
         public static IRReciever FrontReciever;
+        #endregion
+
+        #region StatusIndicators
+        /// <summary>
+        /// The GPIO pin number of the LED code running pin. Index 0 in pin array
+        /// </summary>
+        public const int CODE_RUNNING_INDICATOR_PIN = 17;
+        public static SmartStatusIndicator Code_running_indicator;
+        /// <summary>
+        /// The GPIO pin number of the signal battery status pin. White(?) LED, index 2 in pin array
+        /// </summary>
+        public const int SIGNAL_BATTERY_STATUS_INDICATOR_PIN = 23;
+        public static SmartStatusIndicator Signal_battery_status_indicator;
+        /// <summary>
+        /// The GPIO pin number of the power battery status pin. Green(?) LED, index 4 of pin array
+        /// </summary>
+        public const int POWER_BATTERY_STATUS_INDICATOR_PIN = 24;
+        public static SmartStatusIndicator Power_battery_status_indicator;
         #endregion
 
         #region SPI/ADC
@@ -362,6 +371,9 @@ namespace RobotCode
         /// Rotation x,y,z data
         /// </summary>
         public static float RotationZ { get; private set; } = 0F;
+        public static float PositionX { get; private set; } = 0F;
+        public static float PositionY { get; private set; } = 0F;
+        public static float PositionZ { get; private set; } = 0F;
         #endregion
 
         #region Encoders
@@ -399,23 +411,21 @@ namespace RobotCode
             }
             //init the GPIO controller
             GpioController = GpioController.GetDefault();
-            
             if (GpioController == null)
                 return false;
-            Pins[0] = GpioController.OpenPin(CODE_RUNNING_PIN);
-            Pins[1] = GpioController.OpenPin(DASHBOARD_CONNECTED_PIN);
-            Pins[2] = GpioController.OpenPin(SIGNAL_BATTERY_STATUS_PIN);
-            Pins[3] = GpioController.OpenPin(AUGAR_PIN);
-            Pins[4] = GpioController.OpenPin(POWER_BATTERY_STATUS_PIN);
-            //loop for all the pins
-            for (int i = 0; i < Pins.Count(); i++)
-            {
-                if (i != 0 && i != 3)//use this to set high for values that need it
-                    Pins[i].Write(GpioPinValue.Low);
-                else
-                    Pins[i].Write(GpioPinValue.High);
-                Pins[i].SetDriveMode(GpioPinDriveMode.Output);
-            }
+
+            //init generic pins
+            Dashboard_connected_pin = GpioController.OpenPin(DASHBOARD_CONNECTED_INDICATOR_PIN);
+            Auger_pin = GpioController.OpenPin(AUGAR_PIN);
+            Impeller_pin = GpioController.OpenPin(IMPELLER_PIN);
+            //dashboard pin to low, relay pins to high
+            Dashboard_connected_pin.Write(GpioPinValue.Low);
+            Dashboard_connected_pin.SetDriveMode(GpioPinDriveMode.Output);
+            Auger_pin.Write(GpioPinValue.High);
+            Auger_pin.SetDriveMode(GpioPinDriveMode.Output);
+            Impeller_pin.Write(GpioPinValue.High);
+            Impeller_pin.SetDriveMode(GpioPinDriveMode.Output);
+            
             //init IR recievers
             SideReciever = new IRReciever();
             FrontReciever = new IRReciever();
@@ -423,6 +433,22 @@ namespace RobotCode
                 return false;
             if (!FrontReciever.InitSensor(FRONT_IR_DETECT_PIN, 2, GpioController))
                 return false;
+
+            //init status indicators
+            Code_running_indicator = new SmartStatusIndicator();
+            Signal_battery_status_indicator = new SmartStatusIndicator();
+            Power_battery_status_indicator = new SmartStatusIndicator();
+            if (!Code_running_indicator.InitIndicator(GpioController, CODE_RUNNING_INDICATOR_PIN, TimeSpan.FromMilliseconds(250), (int)RobotStatus.Idle))
+                return false;
+            if (!Signal_battery_status_indicator.InitIndicator(GpioController, SIGNAL_BATTERY_STATUS_INDICATOR_PIN,
+                TimeSpan.FromMilliseconds(250), (int)BatteryStatus.Unknown))
+                return false;
+            if (!Power_battery_status_indicator.InitIndicator(GpioController, POWER_BATTERY_STATUS_INDICATOR_PIN,
+                TimeSpan.FromMilliseconds(250), (int)BatteryStatus.Unknown))
+                return false;
+            //start the code running one
+            Code_running_indicator.Start();
+
             return true;
         }
         /// <summary>
@@ -561,8 +587,8 @@ namespace RobotCode
         #region GPIO methods
         public static void UpdateGPIOValues()
         {
-            Augar_Output = (int)Pins[3].Read();
-            Impeller_Output = 1;
+            Augar_Output = (int)Auger_pin.Read();
+            Impeller_Output = (int)Impeller_pin.Read();
         }
         #endregion
 
@@ -654,6 +680,10 @@ namespace RobotCode
             RotationX += GyroX;
             RotationY += GyroY;
             RotationZ += GyroZ;
+            //more integration
+            PositionX += VelocityX;
+            PositionY += VelocityY;
+            PositionZ += VelocityZ;
         }
         /// <summary>
         /// Writes a byte of data to a specified byte address

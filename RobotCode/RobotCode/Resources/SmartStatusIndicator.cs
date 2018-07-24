@@ -30,8 +30,7 @@ namespace RobotCode.Resources
                 return _pin == null? -1: _pin.PinNumber;
             }
         }
-        public TimeSpan On_delay { get; private set; }
-        public TimeSpan Off_delay { get; private set; }
+        public TimeSpan Delay { get; private set; }
         private CancellationToken CancelToken;
         private CancellationTokenSource CancelTokenSource;
         /// <summary>
@@ -40,7 +39,7 @@ namespace RobotCode.Resources
         private GpioPin _pin;
         private Task Pin_task;
         public SmartStatusIndicator() { }
-        public bool InitIndicator(GpioController contorller, int pin_to_use, TimeSpan on_delay, TimeSpan off_delay, int first_time_source)
+        public bool InitIndicator(GpioController contorller, int pin_to_use, TimeSpan delay, int first_time_source)
         {
             if(contorller == null)
                 return false;
@@ -59,8 +58,7 @@ namespace RobotCode.Resources
             _pin.Write(GpioPinValue.Low);
             //it's an output
             _pin.SetDriveMode(GpioPinDriveMode.Output);
-            On_delay = on_delay;
-            Off_delay = off_delay;
+            Delay = delay;
             //https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/how-to-cancel-a-task-and-its-children
             CancelTokenSource = new CancellationTokenSource();
             CancelToken = CancelTokenSource.Token;
@@ -74,6 +72,7 @@ namespace RobotCode.Resources
                 return false;
             if (Pin_task.Status == TaskStatus.Running)
                 return false;
+            Pin_task.Start();
             return true;
         }
         public void Stop()
@@ -82,6 +81,7 @@ namespace RobotCode.Resources
         }
         private async void RunStatusTask(CancellationToken ct)
         {
+            int real_time_to_stop = Time_to_stop;
             while(true)
             {
                 if (ct.IsCancellationRequested)
@@ -94,13 +94,15 @@ namespace RobotCode.Resources
                 while(Time_thorugh_status < Time_to_stop)
                 {
                     _pin.Write(GpioPinValue.High);
-                    await Task.Delay(On_delay);
+                    await Task.Delay(Delay);
                     _pin.Write(GpioPinValue.Low);
-                    await Task.Delay(Off_delay);
+                    await Task.Delay(Delay);
                     Time_thorugh_status++;
                 }
                 Time_thorugh_status = 0;
-                await Task.Delay(Off_delay + Off_delay + Off_delay);
+                //Time_to_stop updates outside of this function
+                real_time_to_stop = Time_to_stop;
+                await Task.Delay(Delay + Delay + Delay);
             }
         }
         public void UpdateRuntimeValue(int timeSource)
