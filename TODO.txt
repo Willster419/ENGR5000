@@ -1,0 +1,3 @@
+ROBOTCODE:
+  test with new task factories for not skipping events
+  convert the status indicators to tasks to be fully encapsulated
