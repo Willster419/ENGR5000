@@ -26,7 +26,8 @@ namespace RobotCode.Resources
         /// </summary>
         public int Pin
         {
-            get {
+            get
+            {
                 return _pin == null? -1: _pin.PinNumber;
             }
         }

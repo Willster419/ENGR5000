@@ -195,8 +195,21 @@ namespace RobotCode
          * 1 = network status
          * 2 = battery status
          */
-        public static StatusIndicator[] statusIndicators;
-        public static RobotStatus @RobotStatus = RobotStatus.Idle;
+        public static RobotStatus @RobotStatus
+        {
+            get
+            {
+                return @RobotStatus;
+            }
+            set
+            {
+                @RobotStatus = value;
+                if (Hardware.Code_running_indicator != null)
+                {
+                    Hardware.Code_running_indicator.UpdateRuntimeValue((int)value);
+                }
+            }
+        }
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
         public static ControlStatus @ControlStatus = ControlStatus.None;
@@ -213,6 +226,8 @@ namespace RobotCode
 
         public static bool InitController()
         {
+            //first set the robot status
+            @RobotStatus = RobotStatus.Idle;
             //battery
             Hardware.UpdateSignalBattery();
             SignalBatteryStatus = Hardware.UpdateSignalBatteryStatus();
