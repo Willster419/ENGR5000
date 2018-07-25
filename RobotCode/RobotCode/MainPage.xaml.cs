@@ -55,60 +55,60 @@ namespace RobotCode
                 {
                     System.Threading.Thread.Sleep(100);
                 }
-                NetworkUtils.LogNetwork("dashboard connected via force wait", NetworkUtils.MessageType.Debug);
+                NetworkUtils.LogNetwork("dashboard connected via force wait", MessageType.Debug);
             }
 
             //encoders
-            NetworkUtils.LogNetwork("Initializing Encoders", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("Initializing Encoders", MessageType.Info);
             if(!Hardware.InitEncoders())
             {
-                NetworkUtils.LogNetwork("Encoders Failed to initialize", NetworkUtils.MessageType.Error);
+                NetworkUtils.LogNetwork("Encoders Failed to initialize", MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
             }
 
             //SPI/ADC
-            NetworkUtils.LogNetwork("Encoders initialized, initializing SPI interface", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("Encoders initialized, initializing SPI interface", MessageType.Info);
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
             //https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation.findallasync
             //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
             if (! await Hardware.InitSPI())
             {
-                NetworkUtils.LogNetwork("SPI failed to intialize", NetworkUtils.MessageType.Error);
+                NetworkUtils.LogNetwork("SPI failed to intialize", MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
                 return;
             }
 
             //pwm
-            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading PWM", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("SPI Interface initialization complete, loading PWM", MessageType.Info);
             if (! await Hardware.InitPWM())
             {
-                NetworkUtils.LogNetwork("PWM failed to intialize", NetworkUtils.MessageType.Error);
+                NetworkUtils.LogNetwork("PWM failed to intialize", MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
                 return;
             }
 
             //I2c
-            NetworkUtils.LogNetwork("PWM loading complete, I2C", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("PWM loading complete, I2C", MessageType.Info);
             if(! await Hardware.InitI2C())
             {
-                NetworkUtils.LogNetwork("I2C Failed to Initialize", NetworkUtils.MessageType.Error);
+                NetworkUtils.LogNetwork("I2C Failed to Initialize", MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
             }
 
             //main control system
-            NetworkUtils.LogNetwork("I2C loading complete, Initializing Main Robot controller", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("I2C loading complete, Initializing Main Robot controller", MessageType.Info);
             if (!RobotController.InitController())
             {
-                NetworkUtils.LogNetwork("Controller failed to intialize", NetworkUtils.MessageType.Error);
+                NetworkUtils.LogNetwork("Controller failed to intialize", MessageType.Error);
                 RobotController.RobotStatus = RobotStatus.Error;
                 Application.Current.Exit();
                 return;
             }
-            NetworkUtils.LogNetwork("Controller initialized, system online", NetworkUtils.MessageType.Info);
+            NetworkUtils.LogNetwork("Controller initialized, system online", MessageType.Info);
             RobotController.SystemOnline = true;
         }
     }

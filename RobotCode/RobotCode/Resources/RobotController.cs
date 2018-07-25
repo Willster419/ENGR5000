@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.Devices.Gpio;
 using RobotCode.Resources;
 using Windows.System;
+using RobotCode.Mapping;
 
 namespace RobotCode
 {
@@ -223,6 +224,7 @@ namespace RobotCode
         private static int DelayI2CRead = 0;
         private static bool SingleSetBool = false;
         private static bool ReachedWaterLimit = false;
+        private static Map WorkArea;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
@@ -267,7 +269,7 @@ namespace RobotCode
             }
             if (ControlStatus != ControlStatus.Manual)
                 ControlStatus = ControlStatus.Manual;
-            NetworkUtils.LogNetwork("Manual control method starting", NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("Manual control method starting", MessageType.Debug);
             while (true)
             {
                 if(ControllerThread.CancellationPending)
@@ -373,7 +375,7 @@ namespace RobotCode
                             if(LastSignalBattStatus != SignalBatteryStatus)
                             {
                                 LastSignalBattStatus = SignalBatteryStatus;
-                                NetworkUtils.LogNetwork("Robot signal voltage has reached critical level and must shut down, Setting shutdown for 60s", NetworkUtils.MessageType.Error);
+                                NetworkUtils.LogNetwork("Robot signal voltage has reached critical level and must shut down, Setting shutdown for 60s", MessageType.Error);
                                 EmergencyShutdown(TimeSpan.FromSeconds(60));
                             }
                             break;
@@ -381,7 +383,7 @@ namespace RobotCode
                             if(LastSignalBattStatus != SignalBatteryStatus)
                             {
                                 LastSignalBattStatus = SignalBatteryStatus;
-                                NetworkUtils.LogNetwork("Robot signal voltage has reached warning level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                                NetworkUtils.LogNetwork("Robot signal voltage has reached warning level, needs to go back to base", MessageType.Warning);
                             }
                             break;
                     }
@@ -394,10 +396,10 @@ namespace RobotCode
                         switch(PowerBatteryStatus)
                         {
                             case BatteryStatus.Below5Shutdown:
-                                NetworkUtils.LogNetwork("Robot power voltage has reached critical level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                                NetworkUtils.LogNetwork("Robot power voltage has reached critical level, needs to go back to base", MessageType.Warning);
                                 break;
                             case BatteryStatus.Below15Warning:
-                                NetworkUtils.LogNetwork("Robot power voltage has reached warning level, needs to go back to base", NetworkUtils.MessageType.Warning);
+                                NetworkUtils.LogNetwork("Robot power voltage has reached warning level, needs to go back to base", MessageType.Warning);
                                 break;
                         }
                     }
@@ -406,7 +408,7 @@ namespace RobotCode
                 //check water level
                 if(Hardware.WaterLevel > 1.5F && !ReachedWaterLimit)//ignore water leverl for now
                 {
-                    NetworkUtils.LogNetwork("Robot water level is at level, needs to dump", NetworkUtils.MessageType.Warning);
+                    NetworkUtils.LogNetwork("Robot water level is at level, needs to dump", MessageType.Warning);
                     RobotAutoControlState = AutoControlState.OnWaterLimit;
                     ReachedWaterLimit = true;//will be set to false later
                 }
@@ -425,7 +427,7 @@ namespace RobotCode
 
                         if(Hardware.SideReciever.WallDetected)//it makes it to the wall
                         {
-                            NetworkUtils.LogNetwork("Robot has found wall, moving to map", NetworkUtils.MessageType.Info);
+                            NetworkUtils.LogNetwork("Robot has found wall, moving to map", MessageType.Info);
                             Hardware.LeftEncoder.ResetCounter();
                             Hardware.RightEncoder.ResetCounter();
                             Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
@@ -479,7 +481,7 @@ namespace RobotCode
         {
             //log here
             string message = (string)e.UserState;
-            NetworkUtils.MessageType messageType = (NetworkUtils.MessageType)e.ProgressPercentage;
+            MessageType messageType = (MessageType)e.ProgressPercentage;
             NetworkUtils.LogNetwork(message, messageType);
         }
         /// <summary>
@@ -489,13 +491,13 @@ namespace RobotCode
         /// <param name="e"></param>
         private static void OnControlThreadExit(object sender, RunWorkerCompletedEventArgs e)
         {
-            NetworkUtils.LogNetwork("Control thread is down, determining what to do next", NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("Control thread is down, determining what to do next", MessageType.Debug);
             //NOTE: this is on the UI thread
             if (e.Cancelled || e.Error != null)
             {
                 if (e.Error != null)
                 {
-                    NetworkUtils.LogNetwork(e.Error.ToString(), NetworkUtils.MessageType.Error);
+                    NetworkUtils.LogNetwork(e.Error.ToString(), MessageType.Error);
                 }
                 try
                 { ControllerThread.DoWork -= ControlRobotAuto; }
@@ -509,19 +511,19 @@ namespace RobotCode
                 switch (ControlStatus)
                 {
                     case ControlStatus.RequestManual:
-                        NetworkUtils.LogNetwork("Manual Control has been requested, sending ack and enabling manual control",NetworkUtils.MessageType.Debug);
-                        NetworkUtils.LogNetwork("request_ack", NetworkUtils.MessageType.Control);
+                        NetworkUtils.LogNetwork("Manual Control has been requested, sending ack and enabling manual control",MessageType.Debug);
+                        NetworkUtils.LogNetwork("request_ack", MessageType.Control);
                         ControllerThread.DoWork += ControlRobotManual;
                         ControllerThread.RunWorkerAsync();
                         break;
                     case ControlStatus.Manual:
-                        NetworkUtils.LogNetwork("Resuming manual control", NetworkUtils.MessageType.Debug);
+                        NetworkUtils.LogNetwork("Resuming manual control", MessageType.Debug);
                         ControllerThread.DoWork += ControlRobotManual;
                         ControllerThread.RunWorkerAsync();
                         break;
                     case ControlStatus.RelaseManual:
-                        NetworkUtils.LogNetwork("Releasing manual control, restarting auto", NetworkUtils.MessageType.Debug);
-                        NetworkUtils.LogNetwork("release_ack", NetworkUtils.MessageType.Control);
+                        NetworkUtils.LogNetwork("Releasing manual control, restarting auto", MessageType.Debug);
+                        NetworkUtils.LogNetwork("release_ack", MessageType.Control);
                         ControllerThread.DoWork += ControlRobotAuto;
                         ControllerThread.RunWorkerAsync();
                         break;
@@ -529,7 +531,7 @@ namespace RobotCode
             }
             else
             {
-                NetworkUtils.LogNetwork("The controller thread has ended, is the application unloading?", NetworkUtils.MessageType.Debug);
+                NetworkUtils.LogNetwork("The controller thread has ended, is the application unloading?", MessageType.Debug);
                 return;
             }
         }
@@ -561,7 +563,7 @@ namespace RobotCode
         public static void EmergencyShutdown(TimeSpan delay)
         {
             NetworkUtils.LogNetwork(string.Format("CRITICAL SYSTEM MESSAGE: The device is shutting down in {0} seconds, use" +
-                " ShutdownManager.CancelShutdown() to cancel", delay.TotalSeconds),NetworkUtils.MessageType.Warning);
+                " ShutdownManager.CancelShutdown() to cancel", delay.TotalSeconds),MessageType.Warning);
             //completly shut down the robot
             ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, delay);
         }
@@ -571,7 +573,7 @@ namespace RobotCode
         /// <param name="delay">The delay before the reboot takes place</param>
         public static void Reboot(TimeSpan delay)
         {
-            NetworkUtils.LogNetwork(string.Format("Rebooting in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
+            NetworkUtils.LogNetwork(string.Format("Rebooting in {0} seconds", delay.TotalSeconds), MessageType.Warning);
             ShutdownManager.BeginShutdown(ShutdownKind.Restart, delay);
         }
         /// <summary>
@@ -580,7 +582,7 @@ namespace RobotCode
         /// <param name="delay">The dealy before the poweroff takes place</param>
         public static void Poweroff(TimeSpan delay)
         {
-            NetworkUtils.LogNetwork(string.Format("Shutting down in {0} seconds", delay.TotalSeconds), NetworkUtils.MessageType.Warning);
+            NetworkUtils.LogNetwork(string.Format("Shutting down in {0} seconds", delay.TotalSeconds), MessageType.Warning);
             ShutdownManager.BeginShutdown(ShutdownKind.Shutdown, delay);
         }
         /// <summary>
@@ -588,7 +590,7 @@ namespace RobotCode
         /// </summary>
         public static void CancelShutdown()
         {
-            NetworkUtils.LogNetwork("Canceling shutdown/reboot", NetworkUtils.MessageType.Warning);
+            NetworkUtils.LogNetwork("Canceling shutdown/reboot", MessageType.Warning);
             ShutdownManager.CancelShutdown();
         }
     }

@@ -27,23 +27,56 @@ namespace RobotCode
         public IPAddress @IPAddress;
     }
     /// <summary>
+    /// The possible types of messages send to/from the robot/dashboard
+    /// </summary>
+    public enum MessageType
+    {
+        /// <summary>
+        /// A check that the connection is still live. nothing needs to happen with this
+        /// </summary>
+        Heartbeat = 0,
+        /// <summary>
+        /// A debug message. Will be appended with "DEBUG:"
+        /// </summary>
+        Debug = 1,
+        /// <summary>
+        /// An infromation message. Will be appeneded eith "INFO:"
+        /// </summary>
+        Info = 2,
+        /// <summary>
+        /// A warning message. Will be appended with "WARNING:"
+        /// </summary>
+        Warning = 3,
+        /// <summary>
+        /// An error message. Will be appended with "ERROR:"
+        /// </summary>
+        Error = 4,
+        /// <summary>
+        /// An exception message. Will be appended with "EXCEPTION:"
+        /// </summary>
+        Exception = 5,
+        /// <summary>
+        /// XML Mapping data
+        /// </summary>
+        Mapping = 6,
+        /// <summary>
+        /// A generic XML document
+        /// </summary>
+        XML = 7,
+        /// <summary>
+        /// Control data for manual robot control
+        /// </summary>
+        Control = 8,
+        /// <summary>
+        /// Diagnostic data for display and logging on the robot
+        /// </summary>
+        DiagnosticData = 9
+    }
+    /// <summary>
     /// A Network Utility class for all things relevent to networking
     /// </summary>
     public static class NetworkUtils
     {
-        public enum MessageType
-        {
-            Heartbeat = 0,
-            Debug = 1,
-            Info = 2,
-            Warning = 3,
-            Error = 4,
-            Exception = 5,
-            Mapping = 6,
-            XML = 7,
-            Control = 8,
-            DiagnosticData = 9
-        }
         /// <summary>
         /// The IPV6 address of the robot
         /// </summary>

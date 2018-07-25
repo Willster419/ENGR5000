@@ -554,7 +554,7 @@ namespace RobotCode
             try
             {
                 I2C_WriteByte(PWR_MGMT_1, 0x80);
-                NetworkUtils.LogNetwork("MPU connection sucessfull, verified with reset bit send", NetworkUtils.MessageType.Debug);
+                NetworkUtils.LogNetwork("MPU connection sucessfull, verified with reset bit send", MessageType.Debug);
             }
             catch
             {
@@ -565,7 +565,7 @@ namespace RobotCode
 
             //test to make sure the device is on the correct bus
             byte address_test = I2C_ReadByte(WHO_AM_I);
-            NetworkUtils.LogNetwork(string.Format("MPU reports that device is on address {0}...", address_test),NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork(string.Format("MPU reports that device is on address {0}...", address_test),MessageType.Debug);
             if (!address_test.Equals(ADDRESS))
                 return false;
 
@@ -574,22 +574,22 @@ namespace RobotCode
             //source) as the clock reference for improved stability"
             //using x axis gyroscope
             I2C_WriteByte(PWR_MGMT_1, 0x1);
-            NetworkUtils.LogNetwork("MPU internal clock set to use X axis gyroscope", NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("MPU internal clock set to use X axis gyroscope", MessageType.Debug);
 
             //reset and disable the FIFO (don't need it)
-            NetworkUtils.LogNetwork("MPU FIFO reset and disable and signal cond clear reset",NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("MPU FIFO reset and disable and signal cond clear reset",MessageType.Debug);
             //disable all sensors from writing to the FIFO
             I2C_WriteByte(FIFO_EN, 0x00);
             //reset and complely disable FIFO, and reset signal conditons while clearing signal registers. nice.
             I2C_WriteByte(USER_CTRL, 0x05);
 
-            NetworkUtils.LogNetwork("Config gyro and accel sensitivity",NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("Config gyro and accel sensitivity",MessageType.Debug);
             //config gyro to be +/- 250 degrees/sec
             I2C_WriteByte(GYRO_CONFIG, 0);
             //config accel to be +/- 2g
             I2C_WriteByte(ACCEL_CONFIG, 0);
 
-            NetworkUtils.LogNetwork("Config gyro and accel sample rate and filter rate", NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("Config gyro and accel sample rate and filter rate", MessageType.Debug);
             //config DLPF to be 10/10 HZ, 13.8/13.4 ms delay (secondmost maximum filtering)
             //TODO: determine if this is too much filtering?
             //https://www.youtube.com/watch?v=Bv5ajMgdsno
@@ -597,7 +597,7 @@ namespace RobotCode
             //use a 50Hz sample rate
             I2C_WriteByte(SMPLRT_DIV, 19);
 
-            NetworkUtils.LogNetwork("Disable inturrupts and clear accel and gyro values",NetworkUtils.MessageType.Debug);
+            NetworkUtils.LogNetwork("Disable inturrupts and clear accel and gyro values",MessageType.Debug);
             I2C_WriteByte(INT_ENABLE, 0x00);
 
             //wait for process to take place...

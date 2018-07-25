@@ -120,7 +120,7 @@ namespace RobotCode.Resources
                 {
                     //turn off the light and stop
                     _pin.Write(GpioPinValue.Low);
-                    NetworkUtils.LogNetwork("task stop request gotten, stopping", NetworkUtils.MessageType.Debug);
+                    NetworkUtils.LogNetwork("task stop request gotten, stopping", MessageType.Debug);
                     return;
                 }
                 while(Time_thorugh_status < Time_to_stop)

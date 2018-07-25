@@ -105,7 +105,7 @@ namespace RobotCode
         private void Application_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
             RobotController.RobotStatus = RobotStatus.Exception;
-            NetworkUtils.LogNetwork(e.ToString(), NetworkUtils.MessageType.Exception);
+            NetworkUtils.LogNetwork(e.ToString(), MessageType.Exception);
             Current.Exit();
         }
     }
