@@ -603,7 +603,7 @@ namespace RobotCode
             //wait for process to take place...
             await Task.Delay(100);
             //...and get normalization values
-            NormalizeI2CData();
+            NormalizeI2CData(0, 1);
 
             return true;
         }
@@ -680,8 +680,8 @@ namespace RobotCode
         /// <summary>
         /// Updates Acceleration and Gyro values
         /// </summary>
-        /// <param name="round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
-        public static void UpdateI2CData(int round)
+        /// <param name="gyro_round">The number of places to round to (0 for whole number, -1 to disable rounding)</param>
+        public static void UpdateI2CData(int gyro_round, int accel_round)
         {
             //Get the values
             short xa = I2C_ReadShort(ACCEL_XOUT_H, ACCEL_XOUT_L);
@@ -701,6 +701,18 @@ namespace RobotCode
             GyroZ = zg / (float)131;
             Tempature_2 = te / (float)16384;
 
+            //rounding
+            if (gyro_round >= 0)
+            {
+                AccelerationX = MathF.Round(AccelerationX, accel_round);
+                AccelerationY = MathF.Round(AccelerationY, accel_round);
+                AccelerationZ = MathF.Round(AccelerationZ, accel_round);
+                GyroX = MathF.Round(GyroX, gyro_round);
+                GyroY = MathF.Round(GyroY, gyro_round);
+                GyroZ = MathF.Round(GyroZ, gyro_round);
+                Tempature_2 = MathF.Round(Tempature_2, accel_round);
+            }
+
             //offset normalization
             AccelerationX -= AccelerationX_Offset;
             AccelerationY -= AccelerationY_Offset;
@@ -708,18 +720,6 @@ namespace RobotCode
             GyroX -= GyroX_Offset;
             GyroY -= GyroY_Offset;
             GyroZ -= GyroZ_Offset;
-
-            //rounding
-            if (round >= 0)
-            {
-                AccelerationX = MathF.Round(AccelerationX, round);
-                AccelerationY = MathF.Round(AccelerationY, round);
-                AccelerationZ = MathF.Round(AccelerationZ, round);
-                GyroX = MathF.Round(GyroX, round);
-                GyroY = MathF.Round(GyroY, round);
-                GyroZ = MathF.Round(GyroZ, round);
-                Tempature_2 = MathF.Round(Tempature_2, round);
-            }
 
             //integration
             VelocityX += AccelerationX;
@@ -737,7 +737,7 @@ namespace RobotCode
         /// <summary>
         /// Gets the current values and uses them as normalization values to subtract when getting actual values later. Calibration, if you will
         /// </summary>
-        public static void NormalizeI2CData()
+        public static void NormalizeI2CData(int gyro_round, int accel_round)
         {
             //Get the values
             short xa = I2C_ReadShort(ACCEL_XOUT_H, ACCEL_XOUT_L);
@@ -754,6 +754,14 @@ namespace RobotCode
             GyroX_Offset = xg / (float)131;
             GyroY_Offset = yg / (float)131;
             GyroZ_Offset = zg / (float)131;
+
+            //round
+            AccelerationX = MathF.Round(AccelerationX, accel_round);
+            AccelerationY = MathF.Round(AccelerationY, accel_round);
+            AccelerationZ = MathF.Round(AccelerationZ, accel_round);
+            GyroX = MathF.Round(GyroX, gyro_round);
+            GyroY = MathF.Round(GyroY, gyro_round);
+            GyroZ = MathF.Round(GyroZ, gyro_round);
         }
         /// <summary>
         /// Writes a byte of data to a specified byte address
@@ -825,7 +833,7 @@ namespace RobotCode
             //make signal 0 - 4 = correspond to 0 - 60 actual
             float voltage_part_2 = voltage_part_1 * 15F;
             //subtract 30 to normalize back
-            SignalVoltage = MathF.Round(voltage_part_2 - 33.8F, 2);
+            SignalVoltage = MathF.Round(voltage_part_2 - 34.5F, 2);
             SignalCurrent = MathF.Round(MathF.Abs(SignalCurrentRaw - CURRENT_BASE_SUBTRACT) * SIGNAL_CURRENT_MULTIPLIER, 2);
         }
         /// <summary>
