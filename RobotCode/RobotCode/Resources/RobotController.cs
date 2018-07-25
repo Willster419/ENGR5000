@@ -467,7 +467,6 @@ namespace RobotCode
 
                         break;
                 }
-
                 System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(5));
             }
         }

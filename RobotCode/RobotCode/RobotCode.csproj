@@ -100,14 +100,14 @@
     </Compile>
     <Compile Include="Mapping\Rectangle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\IRReciever.cs" />
-    <Compile Include="Resources\RotaryEncoder.cs" />
+    <Compile Include="Sensors\IRReciever.cs" />
+    <Compile Include="Sensors\RotaryEncoder.cs" />
     <Compile Include="Resources\Hardware.cs" />
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="Resources\NetworkUtils.cs" />
     <Compile Include="Resources\RobotController.cs" />
-    <Compile Include="Resources\SmartStatusIndicator.cs" />
-    <Compile Include="Resources\SMPWM.cs" />
+    <Compile Include="Sensors\SmartStatusIndicator.cs" />
+    <Compile Include="Actuators\SMPWM.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
