@@ -196,21 +196,8 @@ namespace RobotCode
          * 1 = network status
          * 2 = battery status
          */
-        public static RobotStatus @RobotStatus
-        {
-            get
-            {
-                return @RobotStatus;
-            }
-            set
-            {
-                @RobotStatus = value;
-                if (Hardware.Code_running_indicator != null)
-                {
-                    Hardware.Code_running_indicator.UpdateRuntimeValue((int)value);
-                }
-            }
-        }
+        private static RobotStatus _RobotStatus = RobotStatus.Idle;
+        private static object _robotlocker = new object();
         public static BatteryStatus SignalBatteryStatus = BatteryStatus.Unknown;//default for now
         public static BatteryStatus PowerBatteryStatus = BatteryStatus.Unknown;//default
         public static ControlStatus @ControlStatus = ControlStatus.None;
@@ -225,6 +212,8 @@ namespace RobotCode
         private static bool SingleSetBool = false;
         private static bool ReachedWaterLimit = false;
         private static Map WorkArea;
+        private static int Manual_counter_1 = 0;
+        private static int Manual_counter_2 = 0;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
@@ -232,7 +221,7 @@ namespace RobotCode
         public static bool InitController()
         {
             //first set the robot status
-            @RobotStatus = RobotStatus.Idle;
+            _RobotStatus = RobotStatus.Idle;
             //battery
             Hardware.UpdateSignalBattery();
             SignalBatteryStatus = Hardware.UpdateSignalBatteryStatus();
@@ -269,6 +258,14 @@ namespace RobotCode
             }
             if (ControlStatus != ControlStatus.Manual)
                 ControlStatus = ControlStatus.Manual;
+            if(!Hardware.SideReciever.Enabled)
+            {
+                Hardware.SideReciever.Start();
+            }
+            if(!Hardware.FrontReciever.Enabled)
+            {
+                Hardware.FrontReciever.Start();
+            }
             NetworkUtils.LogNetwork("Manual control method starting", MessageType.Debug);
             while (true)
             {
@@ -299,9 +296,20 @@ namespace RobotCode
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
-                Hardware.UpdateI2CData(2);
+                Hardware.UpdateI2CData(0, 1);
                 //SPI
                 Hardware.UpdateSPIData();
+                //IR
+                if(Hardware.SideReciever.WallDetected && Manual_counter_1++ > 10)
+                {
+                    Hardware.SideReciever.ResetDetection();
+                    Manual_counter_1 = 0;
+                }
+                if(Hardware.FrontReciever.WallDetected && Manual_counter_2++ > 10)
+                {
+                    Hardware.FrontReciever.ResetDetection();
+                    Manual_counter_2 = 0;
+                }
 
                 //parse the write the commands
                 string[] commands = NetworkUtils.ManualControlCommands.Split(',');
@@ -359,7 +367,7 @@ namespace RobotCode
                 //I2C
                 if (DelayI2CRead >= 2)
                 {
-                    Hardware.UpdateI2CData(2);
+                    Hardware.UpdateI2CData(0, 1);
                     DelayI2CRead = -1;
                 }
                 DelayI2CRead++;
@@ -406,7 +414,8 @@ namespace RobotCode
                 }
 
                 //check water level
-                if(Hardware.WaterLevel > 1.5F && !ReachedWaterLimit)//ignore water leverl for now
+                //Hardware.WaterLevel > 1.5F && !ReachedWaterLimit
+                if (false)//ignore water leverl for now
                 {
                     NetworkUtils.LogNetwork("Robot water level is at level, needs to dump", MessageType.Warning);
                     RobotAutoControlState = AutoControlState.OnWaterLimit;
@@ -420,8 +429,9 @@ namespace RobotCode
                         Hardware.SideReciever.Start();
                         Hardware.FrontReciever.Start();
                         RobotAutoControlState = AutoControlState.TurnToMap;
-                        if (WorkArea == null)
-                            WorkArea = new Map();
+                        //if (WorkArea == null)
+                        //WorkArea = new Map();
+                        NetworkUtils.LogNetwork("On robot init, autocontrolstate from none to turntomap", MessageType.Info);
                         SingleSetBool = false;
                         break;
                     case AutoControlState.TurnToMap:
@@ -429,14 +439,18 @@ namespace RobotCode
                         //move encoders specific ammount
                         if(Hardware.SideReciever.WallDetected)//it makes it to the wall
                         {
-                            NetworkUtils.LogNetwork("Robot has found wall, moving to map", MessageType.Info);
-                            Hardware.LeftEncoder.ResetCounter();
-                            Hardware.RightEncoder.ResetCounter();
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5);
-                            Hardware.SideReciever.ResetDetection();
-                            RobotAutoControlState = AutoControlState.MapOneSide;
-                            SingleSetBool = false;
+                            if (SingleSetBool)
+                            {
+                                NetworkUtils.LogNetwork("Robot has found wall, moving to map", MessageType.Info);
+                                Hardware.LeftEncoder.ResetCounter();
+                                Hardware.RightEncoder.ResetCounter();
+                                Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
+                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5);
+                                //Hardware.SideReciever.ResetDetection();
+                                RobotAutoControlState = AutoControlState.TurnToMap;
+                                SingleSetBool = false;
+                            }
+                            
                         }
                         else if (!SingleSetBool)
                         {
@@ -473,7 +487,7 @@ namespace RobotCode
                             {
                                 Hardware.LeftEncoder.ResetCounter();
                                 Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.4);
+                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
                                 SingleSetBool = true;
                             }
                             else if(Hardware.LeftEncoder.Counter >= 5)
@@ -489,7 +503,7 @@ namespace RobotCode
                         {
                             Hardware.LeftEncoder.ResetCounter();
                             Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.4);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
                             SingleSetBool = true;
                         }
                         else if (Hardware.LeftEncoder.Counter >= 5)
@@ -590,7 +604,7 @@ namespace RobotCode
         public static void EmergencyStop()
         {
             //everything must stop, a critical exception has occured
-            RobotStatus = RobotStatus.Error;
+            _RobotStatus = RobotStatus.Error;
             //shut off any relays on
             if(Hardware.GpioController != null && Hardware.Auger_pin != null)
                 Hardware.Auger_pin.Write(GpioPinValue.High);
@@ -642,5 +656,13 @@ namespace RobotCode
             NetworkUtils.LogNetwork("Canceling shutdown/reboot", MessageType.Warning);
             ShutdownManager.CancelShutdown();
         }
+        public static void SetRobotStatus(RobotStatus status)
+        {
+            _RobotStatus = status;
+            if (Hardware.Code_running_indicator != null)
+                Hardware.Code_running_indicator.UpdateRuntimeValue((int)status);
+        }
+        public static RobotStatus GetRobotStatus()
+        { return _RobotStatus; }
     }
 }

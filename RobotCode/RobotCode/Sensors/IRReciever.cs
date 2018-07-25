@@ -35,7 +35,7 @@ namespace RobotCode.Resources
         /// <summary>
         /// Flag to help stop rouge falling edges, set with start and stop
         /// </summary>
-        private bool Enabled = false;
+        public bool Enabled { get; private set; } = false;
         public IRReciever() { }
         /// <summary>
         /// Initaliise the IR sensor

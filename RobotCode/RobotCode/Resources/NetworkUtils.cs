@@ -363,7 +363,7 @@ namespace RobotCode
                 }
                 catch (Exception)
                 {
-                    RobotController.RobotStatus = RobotStatus.Exception;
+                    RobotController.SetRobotStatus(RobotStatus.Exception);
                     e.Cancel = true;
                     return;
                 }
@@ -711,7 +711,7 @@ namespace RobotCode
             string[] diagnosticData = new string[]
             {
                 RobotController.ControlStatus.ToString(),
-                RobotController.RobotStatus.ToString(),
+                RobotController.GetRobotStatus().ToString(),
                 RobotController.RobotAutoControlState.ToString(),
                 Hardware.SignalVoltageRaw.ToString(),//raw signal voltage
                 Hardware.SignalCurrentRaw.ToString(),//raw signal current

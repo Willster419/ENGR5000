@@ -43,7 +43,7 @@ namespace RobotCode
             //init the robot networking
             if(!NetworkUtils.InitComms())
             {
-                RobotController.RobotStatus = RobotStatus.Error;
+                RobotController.SetRobotStatus(RobotStatus.Error);
                 Application.Current.Exit();
                 return;
             }
@@ -63,7 +63,7 @@ namespace RobotCode
             if(!Hardware.InitEncoders())
             {
                 NetworkUtils.LogNetwork("Encoders Failed to initialize", MessageType.Error);
-                RobotController.RobotStatus = RobotStatus.Error;
+                RobotController.SetRobotStatus(RobotStatus.Error);
                 Application.Current.Exit();
             }
 
@@ -75,7 +75,7 @@ namespace RobotCode
             if (! await Hardware.InitSPI())
             {
                 NetworkUtils.LogNetwork("SPI failed to intialize", MessageType.Error);
-                RobotController.RobotStatus = RobotStatus.Error;
+                RobotController.SetRobotStatus(RobotStatus.Error);
                 Application.Current.Exit();
                 return;
             }
@@ -85,7 +85,7 @@ namespace RobotCode
             if (! await Hardware.InitPWM())
             {
                 NetworkUtils.LogNetwork("PWM failed to intialize", MessageType.Error);
-                RobotController.RobotStatus = RobotStatus.Error;
+                RobotController.SetRobotStatus(RobotStatus.Error);
                 Application.Current.Exit();
                 return;
             }
@@ -95,7 +95,7 @@ namespace RobotCode
             if(! await Hardware.InitI2C())
             {
                 NetworkUtils.LogNetwork("I2C Failed to Initialize", MessageType.Error);
-                RobotController.RobotStatus = RobotStatus.Error;
+                RobotController.SetRobotStatus(RobotStatus.Error);
                 Application.Current.Exit();
             }
 
@@ -104,7 +104,7 @@ namespace RobotCode
             if (!RobotController.InitController())
             {
                 NetworkUtils.LogNetwork("Controller failed to intialize", MessageType.Error);
-                RobotController.RobotStatus = RobotStatus.Error;
+                RobotController.SetRobotStatus(RobotStatus.Error);
                 Application.Current.Exit();
                 return;
             }
