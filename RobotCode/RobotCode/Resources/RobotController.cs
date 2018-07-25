@@ -417,16 +417,16 @@ namespace RobotCode
                 {
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
-                        //Hardware.SideReciever.Start();
-                        //Hardware.FrontReciever.Start();//currently is floating...
-                        //RobotAutoControlState = AutoControlState.TurnToMap;
+                        Hardware.SideReciever.Start();
+                        Hardware.FrontReciever.Start();
+                        RobotAutoControlState = AutoControlState.TurnToMap;
                         if (WorkArea == null)
                             WorkArea = new Map();
+                        SingleSetBool = false;
                         break;
                     case AutoControlState.TurnToMap:
                         //turn to right to get to first laser reading
                         //move encoders specific ammount
-
                         if(Hardware.SideReciever.WallDetected)//it makes it to the wall
                         {
                             NetworkUtils.LogNetwork("Robot has found wall, moving to map", MessageType.Info);
@@ -440,8 +440,8 @@ namespace RobotCode
                         }
                         else if (!SingleSetBool)
                         {
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5d);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6d);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
                             SingleSetBool = true;
                         }
                         break;
