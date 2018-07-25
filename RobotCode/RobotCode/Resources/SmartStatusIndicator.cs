@@ -31,15 +31,35 @@ namespace RobotCode.Resources
                 return _pin == null? -1: _pin.PinNumber;
             }
         }
+        /// <summary>
+        /// The delay used for determining the frequency of which the LED with flash the status indication and cycle through them
+        /// </summary>
         public TimeSpan Delay { get; private set; }
+        /// <summary>
+        /// The token used for cancelation
+        /// </summary>
         private CancellationToken CancelToken;
+        /// <summary>
+        /// The source of cancelToken
+        /// </summary>
         private CancellationTokenSource CancelTokenSource;
         /// <summary>
         /// The pin used to toggle the status LED
         /// </summary>
         private GpioPin _pin;
+        /// <summary>
+        /// The Task that asyncronously runs on a seperate thread to keep the UI thread as free as possible
+        /// </summary>
         private Task Pin_task;
         public SmartStatusIndicator() { }
+        /// <summary>
+        /// Initializes the Status Indicator
+        /// </summary>
+        /// <param name="contorller">The GPIO controller to open the pins on</param>
+        /// <param name="pin_to_use">The GPIO pin number ot use</param>
+        /// <param name="delay">The delay for determining the frequency of which the LED with flash the status indication</param>
+        /// <param name="first_time_source">An initializaion value, determins how many times the LED will first blink before an official value as set later</param>
+        /// <returns>True if initalization was sucessfull, false otherwise</returns>
         public bool InitIndicator(GpioController contorller, int pin_to_use, TimeSpan delay, int first_time_source)
         {
             if(contorller == null)
@@ -67,6 +87,10 @@ namespace RobotCode.Resources
             Time_to_stop = first_time_source;
             return true;
         }
+        /// <summary>
+        /// Start the Task to run asyncronously
+        /// </summary>
+        /// <returns>True if Task starting was sucessfull, false otherwise</returns>
         public bool Start()
         {
             if (Pin_task == null)
@@ -76,10 +100,17 @@ namespace RobotCode.Resources
             Pin_task.Start();
             return true;
         }
+        /// <summary>
+        /// Sends a cancel request to the Task so that it stopps running
+        /// </summary>
         public void Stop()
         {
             CancelTokenSource.Cancel();
         }
+        /// <summary>
+        /// The method that the Task uses to run async
+        /// </summary>
+        /// <param name="ct">The Cancelation token send into the method to detect if the calling parent task/thread wants it to end</param>
         private async void RunStatusTask(CancellationToken ct)
         {
             int real_time_to_stop = Time_to_stop;
@@ -106,6 +137,10 @@ namespace RobotCode.Resources
                 await Task.Delay(Delay + Delay + Delay);
             }
         }
+        /// <summary>
+        /// Called externally to update the number of blinks the LED will blink
+        /// </summary>
+        /// <param name="timeSource"></param>
         public void UpdateRuntimeValue(int timeSource)
         {
             Time_to_stop = timeSource;
