@@ -6721,3 +6721,1378 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-24:16-23-51.475   DEBUG: Control thread is down, determining what to do next
 2018-07-24:16-23-51.476   DEBUG: Releasing manual control, restarting auto
 2018-07-24:16-23-59.671   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:11-18-30.601   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:11-18-30.748   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:11-18-30.785   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:11-19-56.098   DEBUG: dashboard connected via force wait
+2018-07-25:11-19-56.098   INFO: Initializing Encoders
+2018-07-25:11-19-56.289   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:11-19-56.454   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:11-19-56.857   INFO: PWM loading complete, I2C
+2018-07-25:11-19-57.068   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:11-19-57.207   DEBUG: MPU reports that device is on address 104...
+2018-07-25:11-19-57.207   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:11-19-57.207   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:11-19-57.207   DEBUG: Config gyro and accel sensitivity
+2018-07-25:11-19-57.207   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:11-19-57.207   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:11-19-57.304   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:11-22-00.861   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:11-25-07.542   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:11-25-07.724   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:11-25-07.847   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:11-25-43.055   DEBUG: dashboard connected via force wait
+2018-07-25:11-25-43.055   INFO: Initializing Encoders
+2018-07-25:11-25-43.071   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:11-25-43.199   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:11-25-43.570   INFO: PWM loading complete, I2C
+2018-07-25:11-25-43.781   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:11-25-43.887   DEBUG: MPU reports that device is on address 104...
+2018-07-25:11-25-43.887   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:11-25-43.888   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:11-25-43.892   DEBUG: Config gyro and accel sensitivity
+2018-07-25:11-25-43.892   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:11-25-43.892   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:11-25-43.999   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:11-35-50.986   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:11-36-04.149   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:11-36-04.342   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:11-36-04.461   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:11-39-45.082   DEBUG: dashboard connected via force wait
+2018-07-25:11-39-45.082   INFO: Initializing Encoders
+2018-07-25:11-39-45.118   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:11-39-45.397   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:11-39-45.817   INFO: PWM loading complete, I2C
+2018-07-25:11-39-46.023   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:11-39-46.131   DEBUG: MPU reports that device is on address 104...
+2018-07-25:11-39-46.131   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:11-39-46.131   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:11-39-46.131   DEBUG: Config gyro and accel sensitivity
+2018-07-25:11-39-46.131   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:11-39-46.134   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:11-39-46.238   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:11-40-27.010   INFO: Controller initialized, system online
+2018-07-25:11-41-14.078   DEBUG: Control thread is down, determining what to do next
+2018-07-25:11-41-14.087   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-25:11-41-14.093   DEBUG: Manual control method starting
+2018-07-25:11-42-51.465   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:11-42-51.484   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:11-42-59.800   DEBUG: Control thread is down, determining what to do next
+2018-07-25:11-42-59.801   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-25:11-42-59.801   DEBUG: Manual control method starting
+2018-07-25:11-44-09.024   DEBUG: Control thread is down, determining what to do next
+2018-07-25:11-44-09.027   DEBUG: Releasing manual control, restarting auto
+2018-07-25:11-44-22.910   DEBUG: Control thread is down, determining what to do next
+2018-07-25:11-44-22.910   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-25:11-44-22.913   DEBUG: Manual control method starting
+2018-07-25:11-45-04.596   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:11-48-58.628   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:11-48-58.825   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:11-48-58.943   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:11-50-29.234   DEBUG: dashboard connected via force wait
+2018-07-25:11-50-29.235   INFO: Initializing Encoders
+2018-07-25:11-50-29.280   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:11-50-29.415   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:11-50-29.782   INFO: PWM loading complete, I2C
+2018-07-25:11-50-29.990   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:11-50-30.096   DEBUG: MPU reports that device is on address 104...
+2018-07-25:11-50-30.096   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:11-50-30.097   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:11-50-30.097   DEBUG: Config gyro and accel sensitivity
+2018-07-25:11-50-30.098   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:11-50-30.098   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:11-50-30.217   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:11-50-30.233   INFO: Controller initialized, system online
+2018-07-25:11-50-53.905   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:11-58-19.522   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:11-58-19.681   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:11-58-19.796   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:11-58-49.982   DEBUG: dashboard connected via force wait
+2018-07-25:11-58-49.983   INFO: Initializing Encoders
+2018-07-25:11-58-50.006   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:11-58-50.141   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:11-58-50.499   INFO: PWM loading complete, I2C
+2018-07-25:11-58-50.725   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:11-58-50.837   DEBUG: MPU reports that device is on address 104...
+2018-07-25:11-58-50.838   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:11-58-50.839   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:11-58-50.839   DEBUG: Config gyro and accel sensitivity
+2018-07-25:11-58-50.839   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:11-58-50.839   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:11-58-50.952   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:11-58-50.972   INFO: Controller initialized, system online
+2018-07-25:12-00-29.296   DEBUG: Control thread is down, determining what to do next
+2018-07-25:12-00-29.301   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-25:12-00-29.308   DEBUG: Manual control method starting
+2018-07-25:12-04-09.481   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:15-24-49.551   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:15-24-49.711   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:15-24-49.743   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:15-25-15.078   DEBUG: dashboard connected via force wait
+2018-07-25:15-25-15.079   INFO: Initializing Encoders
+2018-07-25:15-25-15.097   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:15-25-15.253   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:15-25-15.553   INFO: PWM loading complete, I2C
+2018-07-25:15-25-15.776   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:15-25-15.868   DEBUG: MPU reports that device is on address 104...
+2018-07-25:15-25-15.869   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:15-25-15.869   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:15-25-15.870   DEBUG: Config gyro and accel sensitivity
+2018-07-25:15-25-15.871   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:15-25-15.871   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:15-25-16.096   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:15-25-16.100   INFO: Controller initialized, system online
+2018-07-25:15-25-36.875   DEBUG: Control thread is down, determining what to do next
+2018-07-25:15-25-36.884   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-25:15-25-36.888   DEBUG: Manual control method starting
+2018-07-25:15-30-14.833   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:16-14-37.498   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:16-14-37.708   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-14-37.859   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-15-33.590   DEBUG: dashboard connected via force wait
+2018-07-25:16-15-33.595   INFO: Initializing Encoders
+2018-07-25:16-15-33.632   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-15-34.106   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-15-34.651   INFO: PWM loading complete, I2C
+2018-07-25:16-15-35.131   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-15-35.132   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-15-35.133   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-15-35.134   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-15-35.134   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-15-35.135   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-15-35.135   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-15-35.237   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-15-35.263   INFO: Controller initialized, system online
+2018-07-25:16-20-31.436   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-25:16-20-36.063   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:16-20-36.256   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-20-36.400   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-21-03.635   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-25:16-21-03.820   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-21-03.938   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-21-44.393   DEBUG: dashboard connected via force wait
+2018-07-25:16-21-44.393   INFO: Initializing Encoders
+2018-07-25:16-21-44.477   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-21-44.747   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-21-45.264   INFO: PWM loading complete, I2C
+2018-07-25:16-21-45.557   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-21-45.670   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-21-45.672   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-21-45.672   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-21-45.672   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-21-45.673   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-21-45.673   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-21-45.784   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-21-45.821   INFO: Controller initialized, system online
+2018-07-25:16-23-17.604   Robot log cleared
+2018-07-25:16-23-20.594   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-23-20.605   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-24-05.950   DEBUG: dashboard connected via force wait
+2018-07-25:16-24-05.952   INFO: Initializing Encoders
+2018-07-25:16-24-05.970   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-24-06.325   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-24-06.782   INFO: PWM loading complete, I2C
+2018-07-25:16-24-07.018   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-24-07.127   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-24-07.127   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-24-07.128   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-24-07.128   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-24-07.129   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-24-07.130   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-24-07.253   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-24-07.277   INFO: Controller initialized, system online
+2018-07-25:16-24-37.655   INFO: On robot init, autocontrolstate from none to turntomap
+2018-07-25:16-25-13.041   INFO: Robot has found wall, moving to map
+2018-07-25:16-25-13.079   INFO: Front wall detected, saving average of position and encoder data
+2018-07-25:16-26-06.204   Robot log cleared
+2018-07-25:16-26-08.630   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-26-08.641   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-26-38.867   DEBUG: dashboard connected via force wait
+2018-07-25:16-26-38.872   INFO: Initializing Encoders
+2018-07-25:16-26-38.886   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-26-39.209   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-26-39.720   INFO: PWM loading complete, I2C
+2018-07-25:16-26-39.964   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-26-40.079   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-26-40.081   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-26-40.086   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-26-40.090   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-26-40.092   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-26-40.095   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-26-40.193   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-26-40.214   INFO: Controller initialized, system online
+2018-07-25:16-26-40.238   INFO: On robot init, autocontrolstate from none to turntomap
+2018-07-25:16-26-46.160   INFO: Robot has found wall, moving to map
+2018-07-25:16-28-24.939   Robot log cleared
+2018-07-25:16-28-29.106   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-28-29.153   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-29-14.338   DEBUG: dashboard connected via force wait
+2018-07-25:16-29-14.340   INFO: Initializing Encoders
+2018-07-25:16-29-14.358   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-29-14.623   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-29-15.054   INFO: PWM loading complete, I2C
+2018-07-25:16-29-15.330   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-29-15.392   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-29-15.396   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-29-15.399   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-29-15.400   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-29-15.402   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-29-15.403   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-29-15.503   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-29-15.525   INFO: Controller initialized, system online
+2018-07-25:16-29-15.552   INFO: On robot init, autocontrolstate from none to turntomap
+2018-07-25:16-29-19.696   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.713   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.734   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.752   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.759   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.782   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.791   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.825   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.838   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.853   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.880   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.885   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.904   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.926   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.932   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.947   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.965   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.978   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-19.993   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.015   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.025   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.041   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.061   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.071   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.087   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.112   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.118   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.136   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.161   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.168   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.183   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.204   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.212   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.233   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.275   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.276   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.278   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.298   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.306   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.322   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.351   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.355   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.369   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.392   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.400   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.415   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.436   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.447   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.464   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.485   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.495   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.515   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.529   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.541   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.556   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.576   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.587   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.603   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.621   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.633   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.651   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.673   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.682   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.697   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.719   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.728   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.745   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.761   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.775   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.790   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.813   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.830   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.837   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.858   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.869   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.884   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.903   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.915   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.932   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.953   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.962   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.978   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-20.999   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.009   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.028   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.051   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.056   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.071   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.093   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.105   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.123   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.135   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.150   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.164   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.183   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.195   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.211   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.243   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.245   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.259   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.287   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.292   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.311   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.399   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.401   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.409   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.420   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.422   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.428   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.435   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.437   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.464   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.471   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.477   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.493   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.530   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.532   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.541   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.560   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.571   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.588   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.607   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.618   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.636   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.654   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.672   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.684   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.703   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.712   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.728   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.766   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.769   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.775   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.801   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.822   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.851   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.854   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.870   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.899   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.902   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-21.915   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.014   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.016   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.023   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.030   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.031   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.038   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.052   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.054   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.057   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.076   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.088   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.102   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.125   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.134   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.157   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.175   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.181   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.196   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.217   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.231   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.243   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.260   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.274   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.290   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.313   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.322   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.510   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.571   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.573   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.579   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.587   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.589   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.596   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.609   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.610   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.613   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.624   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.625   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.632   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.638   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.640   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.647   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.657   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.659   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.661   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.671   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.672   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.679   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.686   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.697   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.711   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.731   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.743   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.760   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.782   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.789   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.823   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.836   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.852   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.876   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.883   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.902   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.922   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.933   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.946   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.964   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.977   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-22.993   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.016   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.024   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.052   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.062   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.075   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.088   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.104   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.118   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.134   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.161   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.167   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.183   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.209   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.223   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.229   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.255   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.260   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.284   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.302   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.305   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.322   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.344   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.356   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.367   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.391   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.399   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.415   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.438   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.446   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.462   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.492   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.494   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.511   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.537   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.542   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.556   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.582   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.589   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.603   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.621   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.633   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.649   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.671   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.680   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.701   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.716   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.726   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.743   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.760   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.775   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.793   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.811   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.821   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.837   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.859   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.869   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.883   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.911   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.916   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.931   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.948   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.961   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-23.977   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.007   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.010   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.025   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.046   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.063   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.072   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.093   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.102   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.120   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.139   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.151   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.167   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.188   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.207   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.216   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.230   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.243   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.260   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.282   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.292   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.304   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.329   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.336   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.352   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.373   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.385   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.398   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.424   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.430   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.445   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.468   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.478   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.493   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.516   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.525   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.540   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.560   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.571   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.587   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.604   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.624   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.634   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.657   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.667   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.683   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.707   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.715   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.730   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.748   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.759   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.775   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.798   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.821   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.843   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.887   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.893   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.901   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.903   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.919   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.938   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.956   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.962   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.985   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-24.994   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.012   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.027   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.042   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.057   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.078   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.085   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.103   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.126   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.134   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.154   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.168   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.181   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.199   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.221   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.240   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.252   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.277   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.281   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.300   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.317   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.323   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.346   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.381   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.386   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.389   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.419   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.423   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.443   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.460   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.465   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.479   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.499   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.509   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.525   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.541   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.556   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.572   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.590   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.603   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.618   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.645   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.650   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.666   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.687   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.699   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.719   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.752   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.754   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.763   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.782   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.792   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.808   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.829   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.852   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.861   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.874   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.884   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.901   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.972   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.974   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.981   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.989   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-25.992   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.001   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.017   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.052   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.054   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.067   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.071   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.087   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.107   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.121   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.134   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.161   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.166   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.183   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.206   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.215   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.236   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.254   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.259   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.275   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.298   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.307   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.321   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.348   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.352   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.369   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.390   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.399   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.415   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.439   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.446   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.466   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.487   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.494   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.509   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.527   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.541   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.558   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.582   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.587   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.603   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.625   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.634   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.650   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.667   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.682   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.697   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.717   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.727   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.744   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.798   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.799   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.823   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.825   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.837   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.859   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.869   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.887   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.909   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.917   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.932   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.949   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.965   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-26.978   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.005   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.010   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.025   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.042   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.066   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.083   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.092   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.102   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.121   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.138   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.151   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.169   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.185   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.196   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.212   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.229   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.243   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.261   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.282   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.290   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.307   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.325   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.337   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.352   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.380   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.384   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.402   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.419   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.430   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.446   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.468   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.479   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.501   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.511   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.524   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.539   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.561   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.572   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.588   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.608   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.618   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.634   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.655   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.665   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.688   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.707   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.712   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.730   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.749   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.759   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.788   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.803   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.821   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.842   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.852   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.868   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.889   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.899   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.914   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.938   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.946   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.972   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.986   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-27.993   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.009   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.026   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.041   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.057   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.076   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.103   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.105   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.128   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.136   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.150   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.170   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.181   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.199   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.223   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.231   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.243   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.267   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.274   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.291   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.316   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.324   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.338   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.362   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.368   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.383   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.405   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.415   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.431   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.448   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.462   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.478   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.499   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.510   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.524   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.552   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.556   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.571   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.588   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.605   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.618   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.647   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.649   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.667   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.687   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.696   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.712   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.730   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.743   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.759   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.781   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.792   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.812   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.838   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.839   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.852   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.872   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.899   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.901   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.925   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.931   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.948   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.972   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.977   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-28.994   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.023   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.026   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.040   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.063   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.071   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.093   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.109   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.117   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.133   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.157   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.168   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.180   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.202   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.212   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.226   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.254   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.258   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.274   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.298   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.322   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.324   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.357   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.359   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.372   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.385   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.398   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.417   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.441   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.445   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.464   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.485   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.496   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.509   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.529   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.543   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.595   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.606   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.608   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.609   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.646   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.648   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.656   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.666   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.681   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.695   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.720   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.728   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.744   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.767   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.774   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.793   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.809   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.822   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.837   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.859   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.868   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.883   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.906   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.915   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.938   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.957   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.963   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.980   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-29.995   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.012   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.025   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.043   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.055   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.071   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.094   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.105   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.119   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.146   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.149   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.166   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.190   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.200   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.212   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.231   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.244   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.259   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.286   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.292   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.308   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.328   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.337   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.353   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.376   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.387   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.400   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.422   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.431   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.456   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.468   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.477   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.494   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.518   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.526   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.543   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.566   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.572   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.588   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.610   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.618   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.633   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.652   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.666   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.680   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.704   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.713   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.728   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.751   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.766   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.777   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.796   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.807   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.821   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.845   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.860   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.869   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.888   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.899   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.918   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.933   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.947   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.967   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.984   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-30.994   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.009   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.027   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.041   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.056   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.077   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.087   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.103   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.120   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.134   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.149   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.168   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.182   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.197   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.219   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.228   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.244   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.265   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.275   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.295   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.308   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.321   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.337   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.360   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.377   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.385   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.401   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.416   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.430   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.448   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.466   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.478   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.500   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.509   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.527   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.543   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.555   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.573   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.589   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.602   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.620   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.654   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.657   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.666   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.687   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.699   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.712   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.731   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.743   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.759   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.787   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.790   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.806   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.827   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.842   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.858   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.875   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.884   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.900   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.923   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.932   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.946   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.989   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-31.992   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.002   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.016   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.025   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.040   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.064   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.072   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.089   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.108   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.122   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.134   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.155   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.169   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.183   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.205   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.212   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.230   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.249   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.259   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.275   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.298   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.306   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.321   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.344   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.352   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.369   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.386   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.400   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.415   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.436   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.447   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.462   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.486   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.494   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.509   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.530   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.540   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.557   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.576   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.599   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.602   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.639   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.640   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.683   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.691   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.692   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.703   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.719   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.728   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.743   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.768   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.776   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.790   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.808   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.821   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.837   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.860   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.868   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.892   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.907   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.927   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.936   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.952   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.963   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.978   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-32.999   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.009   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.026   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.049   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.058   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.120   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.128   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.130   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.139   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.153   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.155   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.166   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.190   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.196   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.211   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.229   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.245   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.259   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.282   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.289   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.306   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.328   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.338   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.352   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.378   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.384   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.402   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.429   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.431   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.446   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.473   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.481   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.492   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.514   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.525   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.542   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.563   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.573   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.587   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.613   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.689   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.691   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.703   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.707   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.709   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.724   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.726   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.733   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.750   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.758   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.775   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.797   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.805   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.829   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.843   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.859   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.868   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.885   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.899   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.914   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.936   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.946   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.963   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.982   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-33.992   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.009   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.035   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.041   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.056   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.081   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.089   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.102   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.126   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.135   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.150   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.166   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.182   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.197   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.217   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.228   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.247   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.266   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.276   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.290   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.310   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.321   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.338   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.359   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.370   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.383   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.405   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.414   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.430   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.452   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.463   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.477   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.502   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.508   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.525   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.550   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.555   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.571   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.588   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.603   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.623   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.641   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.652   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.669   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.690   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.697   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.713   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.729   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.765   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.774   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.795   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.798   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.809   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.831   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.836   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.852   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.874   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.883   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.899   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.922   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.931   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.948   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.968   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.979   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-34.998   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.016   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.026   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.041   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.062   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.074   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.091   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.111   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.119   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.136   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.156   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.166   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.181   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.203   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.212   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.229   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.249   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.262   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.275   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.297   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.306   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.322   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.347   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.351   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.368   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.385   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.399   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.414   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.436   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.448   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.480   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.492   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.494   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.508   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.525   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.543   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.556   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.577   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.590   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.603   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.625   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.635   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.650   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.674   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.681   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.697   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.718   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.729   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.744   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.767   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.775   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.791   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.811   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.821   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.837   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.860   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.869   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.885   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.908   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.917   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.932   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.949   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.962   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-35.978   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.001   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.009   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.065   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.073   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.075   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.081   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.090   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.103   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.118   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.139   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.150   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.167   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.189   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.198   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.217   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.234   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.244   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.259   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.279   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.295   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.307   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.328   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.337   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.355   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.375   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.390   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.399   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.423   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.432   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.479   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.481   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.488   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.495   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.516   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.526   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.540   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.560   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.571   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.599   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.608   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.618   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.634   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.651   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.667   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.680   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.704   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.715   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.729   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.752   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.759   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.774   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.799   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.808   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.822   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.841   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.852   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.868   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.886   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.900   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.915   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.936   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.949   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.964   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.988   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-36.994   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-37.011   INFO: Robot has found wall, moving to map
+2018-07-25:16-29-45.244   Robot log cleared
+2018-07-25:16-29-47.170   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-29-47.183   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-31-43.212   DEBUG: dashboard connected via force wait
+2018-07-25:16-31-43.215   INFO: Initializing Encoders
+2018-07-25:16-31-43.249   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-31-43.504   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-31-43.964   INFO: PWM loading complete, I2C
+2018-07-25:16-31-44.199   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-31-44.312   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-31-44.318   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-31-44.323   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-31-44.329   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-31-44.335   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-31-44.341   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-31-44.425   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-31-44.458   INFO: Controller initialized, system online
+2018-07-25:16-31-44.499   INFO: On robot init, autocontrolstate from none to turntomap
+2018-07-25:16-32-38.187   Robot log cleared
+2018-07-25:16-32-42.517   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-32-42.530   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-38-55.073   DEBUG: dashboard connected via force wait
+2018-07-25:16-38-55.074   INFO: Initializing Encoders
+2018-07-25:16-38-55.226   INFO: Encoders initialized, initializing SPI interface
+2018-07-25:16-38-55.730   INFO: SPI Interface initialization complete, loading PWM
+2018-07-25:16-38-56.320   INFO: PWM loading complete, I2C
+2018-07-25:16-38-56.603   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-25:16-38-56.687   DEBUG: MPU reports that device is on address 104...
+2018-07-25:16-38-56.688   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-25:16-38-56.688   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-25:16-38-56.688   DEBUG: Config gyro and accel sensitivity
+2018-07-25:16-38-56.688   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-25:16-38-56.692   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-25:16-38-56.835   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-25:16-38-56.861   INFO: Controller initialized, system online
+2018-07-25:16-38-56.886   INFO: On robot init, autocontrolstate from none to turntomap
+2018-07-25:16-38-58.905   DEBUG: Control thread is down, determining what to do next
+2018-07-25:16-38-58.913   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-25:16-38-58.919   DEBUG: Manual control method starting
+2018-07-25:16-42-36.949   Robot log cleared
+2018-07-25:16-42-42.255   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-42-42.270   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:16-52-09.317   Robot log cleared
+2018-07-25:16-52-10.705   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-25:16-52-10.717   Dashboard: Robot found, binding socket and listening for events
+2018-07-25:17-46-44.116   \----------------------------------------------------------------------------------------------------------------------------------/
