@@ -420,6 +420,8 @@ namespace RobotCode
                         //Hardware.SideReciever.Start();
                         //Hardware.FrontReciever.Start();//currently is floating...
                         //RobotAutoControlState = AutoControlState.TurnToMap;
+                        if (WorkArea == null)
+                            WorkArea = new Map();
                         break;
                     case AutoControlState.TurnToMap:
                         //turn to right to get to first laser reading
@@ -434,6 +436,7 @@ namespace RobotCode
                             Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5);
                             Hardware.SideReciever.ResetDetection();
                             RobotAutoControlState = AutoControlState.MapOneSide;
+                            SingleSetBool = false;
                         }
                         else if (!SingleSetBool)
                         {
@@ -451,7 +454,53 @@ namespace RobotCode
                         //  turn x rotations
                         //else if not wall ir sensor and counter for turning
                         //  set back to slow right turn
-
+                        if(Hardware.FrontReciever.WallDetected)
+                        {
+                            NetworkUtils.LogNetwork("Front wall detected, saving average of position and encoder data", MessageType.Info);
+                            Hardware.RightEncoder.CorrectTicks();
+                            float encoder_height = Hardware.RightEncoder.Counter;
+                            //convert it to a normalized distance
+                            float MPU_height = Hardware.PositionX;
+                            //convert it to a normalized distance
+                            //average it
+                            RobotAutoControlState = AutoControlState.MapTurn;
+                            SingleSetBool = false;
+                        }
+                        else if (Hardware.SideReciever.WallDetected)
+                        {
+                            //reset left drive ticks
+                            if (!SingleSetBool)
+                            {
+                                Hardware.LeftEncoder.ResetCounter();
+                                Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
+                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.4);
+                                SingleSetBool = true;
+                            }
+                            else if(Hardware.LeftEncoder.Counter >= 5)
+                            {
+                                //reset the side reciever to let it continue
+                                Hardware.SideReciever.ResetDetection();
+                                SingleSetBool = false;
+                            }
+                        }
+                        break;
+                    case AutoControlState.MapTurn:
+                        if (!SingleSetBool)
+                        {
+                            Hardware.LeftEncoder.ResetCounter();
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.4);
+                            SingleSetBool = true;
+                        }
+                        else if (Hardware.LeftEncoder.Counter >= 5)
+                        {
+                            //reset the side reciever to let it continue
+                            Hardware.SideReciever.ResetDetection();
+                            Hardware.FrontReciever.ResetDetection();
+                            //DEBUG:TEMP SET BACK TO MAKE A SQUARE
+                            RobotAutoControlState = AutoControlState.MapOneSide;
+                            SingleSetBool = false;
+                        }
                         break;
                     case AutoControlState.OnLowPowerBattery:
 

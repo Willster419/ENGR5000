@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Windows;
 
 namespace RobotCode.Mapping
 {
@@ -29,6 +30,11 @@ namespace RobotCode.Mapping
         /// </summary>
         MappingComplete = 3
     }
+    public struct Location
+    {
+        public float X_Cordinate;
+        public float Y_Cordinate;
+    }
     /// <summary>
     /// The actual map that will be created in memory
     /// </summary>
@@ -49,6 +55,7 @@ namespace RobotCode.Mapping
         private XmlDocument XmlMap;
         private List<XmlElement> XmlObstructions;
         private XmlElement XmlWorkArea;
+        private Location RobotLocation;
         /// <summary>
         /// Get the total number of obstructions in this map
         /// </summary>
@@ -74,6 +81,11 @@ namespace RobotCode.Mapping
             Obstructions = new List<Rectangle>();
             XmlObstructions = new List<XmlElement>();
             WorkArea = new Rectangle();
+            RobotLocation = new Location()
+            {
+                X_Cordinate = 0F,
+                Y_Cordinate = 0F
+            };
             XmlDeclaration declaration = XmlMap.CreateXmlDeclaration("1.0", Encoding.UTF8.ToString(), true.ToString());
 
             XmlMap.InsertBefore(declaration, XmlMap.DocumentElement);

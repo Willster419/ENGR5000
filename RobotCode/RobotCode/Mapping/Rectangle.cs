@@ -11,9 +11,8 @@ namespace RobotCode.Mapping
     /// </summary>
     public class Rectangle
     {
-        public int Width, Height;
-        public int LocationX, LocationY;
-        public int Area
+        public float Width, Height;
+        public float Area
         {
             get
             {
