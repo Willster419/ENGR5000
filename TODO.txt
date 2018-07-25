@@ -1,3 +1,5 @@
 ROBOTCODE:
-  test with new task factories for not skipping events
-  convert the status indicators to tasks to be fully encapsulated
+  test with new task stuff for not skipping events (maybe puts them into a queue) USE PREFERER NICENESS PROPERTY
+  write the infared mapping code
+  test again making fake pwm signal with different task ideas
+  have reset of SPI data for first pass
