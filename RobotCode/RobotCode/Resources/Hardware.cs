@@ -371,9 +371,42 @@ namespace RobotCode
         /// Rotation x,y,z data
         /// </summary>
         public static float RotationZ { get; private set; } = 0F;
+        /// <summary>
+        /// Position x,y,z data
+        /// </summary>
         public static float PositionX { get; private set; } = 0F;
+        /// <summary>
+        /// Position x,y,z data
+        /// </summary>
         public static float PositionY { get; private set; } = 0F;
+        /// <summary>
+        /// Position x,y,z data
+        /// </summary>
         public static float PositionZ { get; private set; } = 0F;
+        /// <summary>
+        /// The first values read on init, so that they are subtracted and not counted when getting real values
+        /// </summary>
+        private static float GyroX_Offset = 0F;
+        /// <summary>
+        /// The first values read on init, so that they are subtracted and not counted when getting real values
+        /// </summary>
+        private static float GyroY_Offset = 0F;
+        /// <summary>
+        /// The first values read on init, so that they are subtracted and not counted when getting real values
+        /// </summary>
+        private static float GyroZ_Offset = 0F;
+        /// <summary>
+        /// The first values read on init, so that they are subtracted and not counted when getting real values
+        /// </summary>
+        private static float AccelerationX_Offset = 0F;
+        /// <summary>
+        /// The first values read on init, so that they are subtracted and not counted when getting real values
+        /// </summary>
+        private static float AccelerationY_Offset = 0F;
+        /// <summary>
+        /// The first values read on init, so that they are subtracted and not counted when getting real values
+        /// </summary>
+        private static float AccelerationZ_Offset = 0F;
         #endregion
 
         #region Encoders
@@ -566,6 +599,12 @@ namespace RobotCode
 
             NetworkUtils.LogNetwork("Disable inturrupts and clear accel and gyro values",NetworkUtils.MessageType.Debug);
             I2C_WriteByte(INT_ENABLE, 0x00);
+
+            //wait for process to take place...
+            await Task.Delay(100);
+            //...and get normalization values
+            NormalizeI2CData();
+
             return true;
         }
         /// <summary>
@@ -653,7 +692,7 @@ namespace RobotCode
             short zg = I2C_ReadShort(GYRO_ZOUT_H, GYRO_ZOUT_L);
             short te = I2C_ReadShort(TEMP_OUT_H, TEMP_OUT_L);
 
-            //peroform normalization
+            //data conversion
             AccelerationX = xa / (float)16384;
             AccelerationY = ya / (float)16384;
             AccelerationZ = za / (float)16384;
@@ -662,7 +701,15 @@ namespace RobotCode
             GyroZ = zg / (float)131;
             Tempature_2 = te / (float)16384;
 
-            ///rounding
+            //offset normalization
+            AccelerationX -= AccelerationX_Offset;
+            AccelerationY -= AccelerationY_Offset;
+            AccelerationZ -= AccelerationZ_Offset;
+            GyroX -= GyroX_Offset;
+            GyroY -= GyroY_Offset;
+            GyroZ -= GyroZ_Offset;
+
+            //rounding
             if (round >= 0)
             {
                 AccelerationX = MathF.Round(AccelerationX, round);
@@ -673,6 +720,7 @@ namespace RobotCode
                 GyroZ = MathF.Round(GyroZ, round);
                 Tempature_2 = MathF.Round(Tempature_2, round);
             }
+
             //integration
             VelocityX += AccelerationX;
             VelocityY += AccelerationY;
@@ -680,10 +728,32 @@ namespace RobotCode
             RotationX += GyroX;
             RotationY += GyroY;
             RotationZ += GyroZ;
+
             //more integration
             PositionX += VelocityX;
             PositionY += VelocityY;
             PositionZ += VelocityZ;
+        }
+        /// <summary>
+        /// Gets the current values and uses them as normalization values to subtract when getting actual values later. Calibration, if you will
+        /// </summary>
+        public static void NormalizeI2CData()
+        {
+            //Get the values
+            short xa = I2C_ReadShort(ACCEL_XOUT_H, ACCEL_XOUT_L);
+            short ya = I2C_ReadShort(ACCEL_YOUT_H, ACCEL_YOUT_L);
+            short za = I2C_ReadShort(ACCEL_ZOUT_H, ACCEL_ZOUT_L);
+            short xg = I2C_ReadShort(GYRO_XOUT_H, GYRO_XOUT_L);
+            short yg = I2C_ReadShort(GYRO_YOUT_H, GYRO_YOUT_L);
+            short zg = I2C_ReadShort(GYRO_ZOUT_H, GYRO_ZOUT_L);
+
+            //data conversion
+            AccelerationX_Offset = xa / (float)16384;
+            AccelerationY_Offset = ya / (float)16384;
+            AccelerationZ_Offset = za / (float)16384;
+            GyroX_Offset = xg / (float)131;
+            GyroY_Offset = yg / (float)131;
+            GyroZ_Offset = zg / (float)131;
         }
         /// <summary>
         /// Writes a byte of data to a specified byte address
