@@ -9,10 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="Black">
-        <TextBlock x:Name="DistanceVal" HorizontalAlignment="Left" Margin="10,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock x:Name="UpCount"     HorizontalAlignment="Left" Margin="10,35,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock x:Name="DownCount"   HorizontalAlignment="Left" Margin="10,60,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock x:Name="TotalCount"  HorizontalAlignment="Left" Margin="10,85,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="SideEdge" HorizontalAlignment="Left" Margin="10,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="SideUpCout"     HorizontalAlignment="Left" Margin="10,35,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="SideDownCount"   HorizontalAlignment="Left" Margin="10,60,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="SideTotalCout"  HorizontalAlignment="Left" Margin="10,85,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="FrontEdge" HorizontalAlignment="Left" Margin="89,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="FrontUpCount"     HorizontalAlignment="Left" Margin="89,35,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="FrontDownCount"   HorizontalAlignment="Left" Margin="89,60,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="FrontTotalCount"  HorizontalAlignment="Left" Margin="89,85,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Page>

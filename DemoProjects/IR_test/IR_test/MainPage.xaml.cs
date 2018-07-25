@@ -26,10 +26,14 @@ namespace IR_test
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private GpioPin TriggerPin;
-        private int UpCountInt = 0;
-        private int DownCountInt = 0;
-        private int TotalCountInt = 0;
+        private GpioPin SideIR;
+        private GpioPin FrontIR;
+        private int SideUpCountInt = 0;
+        private int SideDownCountInt = 0;
+        private int SideTotalCount = 0;
+        private int FrontUpCountInt = 0;
+        private int FrontDownCountInt = 0;
+        private int FrontTotalCountInt = 0;
         public MainPage()
         {
             this.InitializeComponent();
@@ -51,10 +55,37 @@ namespace IR_test
             if (_controller == null)
                 return;
 
-            TriggerPin = _controller.OpenPin(21);
-            TriggerPin.Write(GpioPinValue.Low);
-            TriggerPin.SetDriveMode(GpioPinDriveMode.Input);
-            TriggerPin.ValueChanged += TriggerPin_ValueChanged;
+            SideIR = _controller.OpenPin(21);
+            SideIR.Write(GpioPinValue.Low);
+            SideIR.SetDriveMode(GpioPinDriveMode.Input);
+            SideIR.ValueChanged += TriggerPin_ValueChanged;
+
+            FrontIR = _controller.OpenPin(4);
+            FrontIR.Write(GpioPinValue.Low);
+            FrontIR.SetDriveMode(GpioPinDriveMode.Input);
+            FrontIR.ValueChanged += OnFrontIRChange;
+        }
+
+        private void OnFrontIRChange(GpioPin sender, GpioPinValueChangedEventArgs args)
+        {
+            switch (args.Edge)
+            {
+                case GpioPinEdge.FallingEdge://low value
+                    FrontTotalCountInt--;
+                    FrontDownCountInt++;
+                    break;
+                case GpioPinEdge.RisingEdge://high value
+                    FrontTotalCountInt++;
+                    FrontUpCountInt++;
+                    break;
+            }
+            var task = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+            {
+                FrontEdge.Text = args.Edge.ToString();
+                FrontDownCount.Text = "Down: " + FrontDownCountInt.ToString();
+                FrontUpCount.Text = "Up: " + FrontUpCountInt.ToString();
+                FrontTotalCount.Text = "Total: " + FrontTotalCountInt.ToString();
+            });
         }
 
         private void TriggerPin_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
@@ -62,20 +93,20 @@ namespace IR_test
             switch(args.Edge)
             {
                 case GpioPinEdge.FallingEdge://low value
-                    TotalCountInt--;
-                    DownCountInt++;
+                    SideTotalCount--;
+                    SideDownCountInt++;
                     break;
                 case GpioPinEdge.RisingEdge://high value
-                    TotalCountInt++;
-                    UpCountInt++;
+                    SideTotalCount++;
+                    SideUpCountInt++;
                     break;
             }
             var task = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
             {
-                DistanceVal.Text = args.Edge.ToString();
-                DownCount.Text = "Down: " + DownCountInt.ToString();
-                UpCount.Text = "Up: " + UpCountInt.ToString();
-                TotalCount.Text = "Total: " + TotalCountInt.ToString();
+                SideEdge.Text = args.Edge.ToString();
+                SideDownCount.Text = "Down: " + SideDownCountInt.ToString();
+                SideUpCout.Text = "Up: " + SideUpCountInt.ToString();
+                SideTotalCout.Text = "Total: " + SideTotalCount.ToString();
             });
         }
     }
