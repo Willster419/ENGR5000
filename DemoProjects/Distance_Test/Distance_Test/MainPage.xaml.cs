@@ -33,20 +33,18 @@ namespace Distance_Test
             InitializeComponent();
             Loaded += LoadUserCode;
         }
+        //constnats (not testing)
         private const float SECONDS_TO_MICROSECONDS = 1000000;
         private readonly float TICKS_PER_MICROSECOND = Stopwatch.Frequency / SECONDS_TO_MICROSECONDS;
         private const float MICROSECONDS_TO_CM = 0.01715F;
-        private GpioPin TriggerPin;
-        private GpioPin EchoPin;
-        private Task SendTriggers;
+        //statics in use (not testing)
         private float distance_in_cm = 0F;
         private float session_microseconds;
-        private bool enable = false;
+        private GpioPin TriggerPin;
+        private GpioPin EchoPin;
+        //testing
+        private Task SendTriggers;
         private Stopwatch distanceTimer;
-        private System.Timers.Timer debounceTimer;
-        private DispatcherTimer _timer = new DispatcherTimer();
-        int lastTicks = 0;
-        private GpioPinEdge lastEdge;
 
         private void LoadUserCode(object sender, RoutedEventArgs e)
         {
@@ -68,26 +66,11 @@ namespace Distance_Test
             EchoPin = _controller.OpenPin(4);
             EchoPin.Write(GpioPinValue.Low);
             EchoPin.SetDriveMode(GpioPinDriveMode.Input);
+            //disable for now...
             //EchoPin.ValueChanged += OnEchoResponse;
-            enable = true;
             distanceTimer = new Stopwatch();
             distanceTimer.Reset();
-            //_timer.Start();
-            //https://www.c-sharpcorner.com/article/ultrasonic-proximity-sensors-in-iot-context-raspberry-pi/
-            SendTriggers = new Task(() =>
-           {
-               while (true)
-               {
-                   //1 tick = 100 ns = 0.1us
-                   //need a 10us pulse
-                   //10 tick = 1000ns = 1us
-                   //100 tick = 10us
-                   TriggerPin.Write(GpioPinValue.High);
-                   Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
-                   TriggerPin.Write(GpioPinValue.Low);
-                   Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
-               }
-           });
+            SendTriggers = new Task(() => FakePWM());
             SendTriggers.Start();
         }
 
@@ -108,11 +91,6 @@ namespace Distance_Test
                      * now have frequency in ticks/microsecond
                      * OUR ticks / new frequency = microseconds!
                      */
-                     if(lastEdge == GpioPinEdge.FallingEdge)
-                    {
-
-                    }
-                    lastTicks = (int)distanceTimer.ElapsedTicks;
                     //session_microseconds = distanceTimer.ElapsedTicks / TICKS_PER_MICROSECOND;
                     //distance_in_cm = session_microseconds * MICROSECONDS_TO_CM;
                     distanceTimer.Reset();
@@ -122,7 +100,21 @@ namespace Distance_Test
                     distanceTimer.Start();
                     break;
             }
-            lastEdge = args.Edge;
+        }
+        private async void FakePWM()
+        {
+            while (true)
+            {
+                //1 tick = 100 ns = 0.1us
+                //need a 10us pulse
+                //10 tick = 1000ns = 1us
+                //100 tick = 10us
+                //1000 tick = 100us
+                TriggerPin.Write(GpioPinValue.High);
+                await Task.Delay(TimeSpan.FromTicks(100));
+                TriggerPin.Write(GpioPinValue.Low);
+                await Task.Delay(TimeSpan.FromMilliseconds(50));
+            }
         }
     }
 }
