@@ -16,6 +16,7 @@ using System.ComponentModel;
 using Windows.Foundation;
 using Windows.Devices;
 using RobotCode.Resources;
+using RobotCode.Sensors;
 using Windows.Devices.Pwm.Provider;
 
 namespace RobotCode
@@ -414,8 +415,10 @@ namespace RobotCode
         public const int LEFT_DT = 19;
         public const int RIGHT_CLK = 20;
         public const int RIGHT_DT = 16;
-        public static RotaryEncoder LeftEncoder;
-        public static RotaryEncoder RightEncoder;
+        //public static RotaryEncoder LeftEncoder;
+        //public static RotaryEncoder RightEncoder;
+        public static SmartRotaryEncoder LeftEncoder;
+        public static SmartRotaryEncoder RightEncoder;
         public const int ROTARY_LEFT_CLK = 0;
         public const int ROTARY_LEFT_DT = 0;
         public const int ROTARY_RIGHT_CLK = 0;
@@ -617,11 +620,11 @@ namespace RobotCode
         /// <returns></returns>
         public static bool InitEncoders()
         {
-            LeftEncoder = new RotaryEncoder();
-            RightEncoder = new RotaryEncoder();
-            if (!LeftEncoder.InitEncoder(LEFT_CLK, LEFT_DT, GpioController,true))
+            LeftEncoder = new SmartRotaryEncoder();
+            RightEncoder = new SmartRotaryEncoder();
+            if (!LeftEncoder.InitEncoder(LEFT_CLK, LEFT_DT, GpioController,true,5))
                 return false;
-            if (!RightEncoder.InitEncoder(RIGHT_CLK, RIGHT_DT, GpioController,false))
+            if (!RightEncoder.InitEncoder(RIGHT_CLK, RIGHT_DT, GpioController,false,5))
                 return false;
             return true;
         }

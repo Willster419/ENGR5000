@@ -101,7 +101,7 @@ namespace RobotCode
 
             //main control system
             NetworkUtils.LogNetwork("I2C loading complete, Initializing Main Robot controller", MessageType.Info);
-            if (!RobotController.InitController())
+            if (!RobotController.InitController(this.Dispatcher))
             {
                 NetworkUtils.LogNetwork("Controller failed to intialize", MessageType.Error);
                 RobotController.SetRobotStatus(RobotStatus.Error);

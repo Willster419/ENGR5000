@@ -723,10 +723,10 @@ namespace RobotCode
                 "NC",//CH7 (unused)
                 Hardware.LeftDrive.GetSignInt().ToString(),//sign
                 Math.Round(Hardware.LeftDrive.GetActiveDutyCyclePercentage(),2).ToString(),//mag
-                Hardware.LeftEncoder.Counter.ToString(),//encoder
+                Hardware.LeftEncoder.Clicks.ToString(),//encoder
                 Hardware.RightDrive.GetSignInt().ToString(),//sign
                 Math.Round(Hardware.RightDrive.GetActiveDutyCyclePercentage(),2).ToString(),//mag
-                Hardware.RightEncoder.Counter.ToString(),//encoder
+                Hardware.RightEncoder.Clicks.ToString(),//encoder
                 Hardware.SignalVoltage.ToString(),//signal voltage
                 Hardware.SignalCurrent.ToString(),//signal current
                 Hardware.PowerVoltage.ToString(),//power voltage

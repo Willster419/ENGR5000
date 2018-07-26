@@ -9,6 +9,7 @@ using Windows.Devices.Gpio;
 using RobotCode.Resources;
 using Windows.System;
 using RobotCode.Mapping;
+using Windows.UI.Core;
 
 namespace RobotCode
 {
@@ -214,12 +215,14 @@ namespace RobotCode
         private static Map WorkArea;
         private static int Manual_counter_1 = 0;
         private static int Manual_counter_2 = 0;
+        public static CoreDispatcher SystemDispatcher;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
         /// <returns>true if initialization was sucessfull, false otherwise</returns>
-        public static bool InitController()
+        public static bool InitController(CoreDispatcher uiDispatcher)
         {
+            SystemDispatcher = uiDispatcher;
             //first set the robot status
             _RobotStatus = RobotStatus.Idle;
             //battery
@@ -471,8 +474,7 @@ namespace RobotCode
                         if(Hardware.FrontReciever.WallDetected)
                         {
                             NetworkUtils.LogNetwork("Front wall detected, saving average of position and encoder data", MessageType.Info);
-                            Hardware.RightEncoder.CorrectTicks();
-                            float encoder_height = Hardware.RightEncoder.Counter;
+                            float encoder_height = Hardware.RightEncoder.Clicks;
                             //convert it to a normalized distance
                             float MPU_height = Hardware.PositionX;
                             //convert it to a normalized distance
@@ -490,7 +492,7 @@ namespace RobotCode
                                 Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
                                 SingleSetBool = true;
                             }
-                            else if(Hardware.LeftEncoder.Counter >= 5)
+                            else if(Hardware.LeftEncoder.Clicks >= 5)
                             {
                                 //reset the side reciever to let it continue
                                 Hardware.SideReciever.ResetDetection();
@@ -506,7 +508,7 @@ namespace RobotCode
                             Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
                             SingleSetBool = true;
                         }
-                        else if (Hardware.LeftEncoder.Counter >= 5)
+                        else if (Hardware.LeftEncoder.Clicks >= 5)
                         {
                             //reset the side reciever to let it continue
                             Hardware.SideReciever.ResetDetection();

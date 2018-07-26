@@ -106,6 +106,7 @@
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="Resources\NetworkUtils.cs" />
     <Compile Include="Resources\RobotController.cs" />
+    <Compile Include="Sensors\SmartRotaryEncoder.cs" />
     <Compile Include="Sensors\SmartStatusIndicator.cs" />
     <Compile Include="Actuators\SMPWM.cs" />
   </ItemGroup>
