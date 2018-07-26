@@ -289,3 +289,10 @@ __pycache__/
 *.xsd.cs
 /Dashboard/Dashboard/Utils/CiInfo.cs
 /Dashboard/Dashboard/Resources/CiInfo.cs
+*.mk
+org.eclipse.cdt.codan.core.prefs
+org.eclipse.core.resources.prefs
+ccs
+Debug
+.launches
+targetConfigs
