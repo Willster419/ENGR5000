@@ -1,4 +1,7 @@
 ROBOTCODE:
-  test with new task stuff for not skipping events (maybe puts them into a queue) USE PREFERER NICENESS PROPERTY
   write the infared mapping code
-  test again making fake pwm signal with different task ideas
+  test encoders with new smart encoder stuff
+  test mapping code
+  more setup and test proximity sensor
+DASHBOARD:
+  parse mapping info onto display
