@@ -11,23 +11,28 @@
     <Grid Background="Black" >
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Left CLK value:"      TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,35,0,0" Text="Left DT value:"       TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" Text="Left Counter:"        TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,85,0,0" Text="Left Correct Events:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,60,0,0" Text="Left Correct Events:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,80,0,0" Text="Left Error Count:"    TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" Text="Left Counter:"        TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="151,10,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftCLKVal"/>
         <TextBlock HorizontalAlignment="Left" Margin="151,35,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftDTVal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="151,60,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftCounterVal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="151,85,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftCorrectEventsVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="151,60,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftCorrectEventsVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="151,85,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftErrorCountVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="151,109,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="LeftCounterVal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="10,130,0,0" Text="Right CLK value:"      TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" Text="Right DT  value:"      TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,180,0,0" Text="Right Counter:"        TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,205,0,0" Text="Right Correct Events:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="253,10,0,0" Text="Right CLK value:"      TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="253,35,0,0" Text="Right DT  value:"      TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="253,59,0,0" Text="Right Correct Events:" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="253,79,0,0" Text="Right Error Count:"    TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="253,103,0,0" Text="Right Counter:"        TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="152,130,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightCLKVal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="152,155,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightDTVal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="152,180,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightCounterVal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="152,205,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightCorrectEventsVal"/>
-        <Button x:Name="ResetButton" Content="Reset" Foreground="White" BorderBrush="White" Background="Gray" HorizontalAlignment="Left" Margin="248,13,0,0" VerticalAlignment="Top" Click="ResetButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="395,10,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightCLKVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="395,35,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightDTVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="395,59,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightCorrectEventsVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="395,79,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightErrorCountVal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="395,103,0,0" Text="Sample Text" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" x:Name="RightCounterVal"/>
+
+        <Button x:Name="ResetButton" Content="Reset" Foreground="White" BorderBrush="White" Background="Gray" HorizontalAlignment="Left" Margin="488,13,0,0" VerticalAlignment="Top" Click="ResetButton_Click"/>
     </Grid>
 </Page>

@@ -36,14 +36,16 @@ namespace Encoder_Event_Test
         public const int RIGHT_CLK = 20;
         public const int RIGHT_DT = 16;
         //left
-        private int LeftCounter = 0;//if this value goes to anything it means a click was missed
+        private int LeftErrorCounter = 0;//if this value goes to anything it means a click was missed
+        private int LeftTicks = 0;
         private int LeftCLKFire = 0;
         private int LeftDTFire = 0;
         private int LeftNumCorrectFiredEvents = 0;
         private GpioPin LeftCLK;
         private GpioPin LeftDT;
         //right
-        private int RightCounter = 0;
+        private int RightErrorCounter = 0;
+        private int RightTicks = 0;
         private int RightCLKFire = 0;
         private int RightDTFire = 0;
         private int RightNumCorrectFiredEvents = 0;
@@ -51,7 +53,9 @@ namespace Encoder_Event_Test
         private GpioPin RightDT;
         //state filtering
         byte[] LeftValues = new byte[] { 0, 0, 0, 0 };
+        byte[] LeftErrorValues = new byte[] { 0, 0, 0, 0 };
         byte[] RightValues = new byte[] { 0, 0, 0, 0 };
+        byte[] RightErrorValues = new byte[] { 0, 0, 0, 0 };
         private static readonly byte[] ccw1 = new byte[] { 0, 0, 0, 1 };
         private static readonly byte[] ccw2 = new byte[] { 0, 1, 1, 1 };
         private static readonly byte[] ccw4 = new byte[] { 1, 1, 1, 0 };
@@ -110,138 +114,183 @@ namespace Encoder_Event_Test
 
         private void RightValueChange(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
-            if (args.Edge == GpioPinEdge.FallingEdge)
+            var task = Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
             {
-                var task = Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+                //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
+                //DT first, then CLK
+                //0,1 are old, 2,3 are new
+                //DT,CLK,DT,CLK
+                RightValues[0] = RightValues[2];
+                RightValues[1] = RightValues[3];
+                if (sender == RightDT)
                 {
-                    //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
-                    //DT first, then CLK
-                    //0,1 are old, 2,3 are new
-                    //DT,CLK,DT,CLK
-                    RightValues[0] = RightValues[2];
-                    RightValues[1] = RightValues[3];
-                    if (sender == RightDT)
-                    {
-                        RightValues[2] = (byte)args.Edge;//1 = rising, 0 = falling
-                        RightValues[3] = (byte)RightCLK.Read();
-                        RightDTFire++;
-                    }
-                    else
-                    {
-                        RightValues[3] = (byte)args.Edge;//1 = rising, 0 = falling
-                        RightValues[2] = (byte)RightDT.Read();
-                        RightCLKFire++;
-                    }
+                    RightValues[2] = (byte)args.Edge;//1 = rising, 0 = falling
+                    RightValues[3] = (byte)RightCLK.Read();
+                    RightDTFire++;
+                }
+                else
+                {
+                    RightValues[3] = (byte)args.Edge;//1 = rising, 0 = falling
+                    RightValues[2] = (byte)RightDT.Read();
+                    RightCLKFire++;
+                }
+                if//CCW
+                (
+                    RightValues.SequenceEqual(ccw1) ||
+                    RightValues.SequenceEqual(ccw2) ||
+                    RightValues.SequenceEqual(ccw3) ||
+                    RightValues.SequenceEqual(ccw4)
+                )
+                {
+                    RightNumCorrectFiredEvents++;
+                    RightTicks++;
+                }
+                else if//CW
+                (
+                    RightValues.SequenceEqual(cw1) ||
+                    RightValues.SequenceEqual(cw2) ||
+                    RightValues.SequenceEqual(cw3) ||
+                    RightValues.SequenceEqual(cw4)
+                )
+                {
+                    RightNumCorrectFiredEvents++;
+                    RightTicks--;
+                }
+                if(args.Edge == GpioPinEdge.FallingEdge)
+                {
+                    RightErrorValues[0] = RightErrorValues[2];
+                    RightErrorValues[1] = RightErrorValues[3];
+                    RightErrorValues[2] = RightValues[2];
+                    RightErrorValues[3] = RightValues[3];
                     if//CCW
                     (
-                        RightValues.SequenceEqual(ccw1) ||
-                        RightValues.SequenceEqual(ccw2) ||
-                        RightValues.SequenceEqual(ccw3) ||
-                        RightValues.SequenceEqual(ccw4)
+                        RightErrorValues.SequenceEqual(ccw1) ||
+                        RightErrorValues.SequenceEqual(ccw2) ||
+                        RightErrorValues.SequenceEqual(ccw3) ||
+                        RightErrorValues.SequenceEqual(ccw4)
                     )
                     {
-                        RightNumCorrectFiredEvents++;
-                        RightCounter--;
+                        RightErrorCounter--;
                     }
                     else if//CW
                     (
-                        RightValues.SequenceEqual(cw1) ||
-                        RightValues.SequenceEqual(cw2) ||
-                        RightValues.SequenceEqual(cw3) ||
-                        RightValues.SequenceEqual(cw4)
+                        RightErrorValues.SequenceEqual(cw1) ||
+                        RightErrorValues.SequenceEqual(cw2) ||
+                        RightErrorValues.SequenceEqual(cw3) ||
+                        RightErrorValues.SequenceEqual(cw4)
                     )
                     {
-                        RightNumCorrectFiredEvents++;
-                        RightCounter++;
+                        RightErrorCounter++;
                     }
-                });
-            }
+                }
+            });
         }
 
         private void LeftValueChange(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
-            if (args.Edge == GpioPinEdge.FallingEdge)
+            var task = Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
             {
-                var task = Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+                //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
+                //DT first, then CLK
+                //0,1 are old, 2,3 are new
+                //DT,CLK,DT,CLK
+                LeftValues[0] = LeftValues[2];
+                LeftValues[1] = LeftValues[3];
+                if (sender == LeftDT)
                 {
-                    //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
-                    //DT first, then CLK
-                    //0,1 are old, 2,3 are new
-                    //DT,CLK,DT,CLK
-                    LeftValues[0] = LeftValues[2];
-                    LeftValues[1] = LeftValues[3];
-                    if (sender == LeftDT)
-                    {
-                        LeftValues[2] = (byte)args.Edge;//1 = rising, 0 = falling
-                        LeftValues[3] = (byte)LeftCLK.Read();
-                        LeftDTFire++;
-                    }
-                    else
-                    {
-                        LeftValues[3] = (byte)args.Edge;//1 = rising, 0 = falling
-                        LeftValues[2] = (byte)LeftDT.Read();
-                        LeftCLKFire++;
-                    }
+                    LeftValues[2] = (byte)args.Edge;//1 = rising, 0 = falling
+                    LeftValues[3] = (byte)LeftCLK.Read();
+                    LeftDTFire++;
+                }
+                else
+                {
+                    LeftValues[3] = (byte)args.Edge;//1 = rising, 0 = falling
+                    LeftValues[2] = (byte)LeftDT.Read();
+                    LeftCLKFire++;
+                }
+                if//CCW
+                (
+                    LeftValues.SequenceEqual(ccw1) ||
+                    LeftValues.SequenceEqual(ccw2) ||
+                    LeftValues.SequenceEqual(ccw3) ||
+                    LeftValues.SequenceEqual(ccw4)
+                )
+                {
+                    LeftNumCorrectFiredEvents++;
+                    LeftTicks++;
+                }
+                else if//CW
+                (
+                    LeftValues.SequenceEqual(cw1) ||
+                    LeftValues.SequenceEqual(cw2) ||
+                    LeftValues.SequenceEqual(cw3) ||
+                    LeftValues.SequenceEqual(cw4)
+                )
+                {
+                    LeftNumCorrectFiredEvents++;
+                    LeftTicks--;
+                }
+                if (args.Edge == GpioPinEdge.FallingEdge)
+                {
+                    LeftErrorValues[0] = LeftErrorValues[2];
+                    LeftErrorValues[1] = LeftErrorValues[3];
+                    LeftErrorValues[2] = LeftValues[2];
+                    LeftErrorValues[3] = LeftValues[3];
                     if//CCW
                     (
-                        LeftValues.SequenceEqual(ccw1) ||
-                        LeftValues.SequenceEqual(ccw2) ||
-                        LeftValues.SequenceEqual(ccw3) ||
-                        LeftValues.SequenceEqual(ccw4)
+                        LeftErrorValues.SequenceEqual(ccw1) ||
+                        LeftErrorValues.SequenceEqual(ccw2) ||
+                        LeftErrorValues.SequenceEqual(ccw3) ||
+                        LeftErrorValues.SequenceEqual(ccw4)
                     )
                     {
-                        LeftNumCorrectFiredEvents++;
-                        LeftCounter++;
+                        LeftErrorCounter--;
                     }
                     else if//CW
                     (
-                        LeftValues.SequenceEqual(cw1) ||
-                        LeftValues.SequenceEqual(cw2) ||
-                        LeftValues.SequenceEqual(cw3) ||
-                        LeftValues.SequenceEqual(cw4)
+                        LeftErrorValues.SequenceEqual(cw1) ||
+                        LeftErrorValues.SequenceEqual(cw2) ||
+                        LeftErrorValues.SequenceEqual(cw3) ||
+                        LeftErrorValues.SequenceEqual(cw4)
                     )
                     {
-                        LeftNumCorrectFiredEvents++;
-                        LeftCounter--;
+                        LeftErrorCounter++;
                     }
-                });
-            }
+                }
+            });
         }
         //updating the UI thread via polling
         private void Timer_Tick(object sender, object e)
         {
             var task = Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
             {
-                LeftCounterVal.Text = LeftCounter.ToString();
-                LeftDTVal.Text = LeftDTFire.ToString();
                 LeftCLKVal.Text = LeftCLKFire.ToString();
+                LeftDTVal.Text = LeftDTFire.ToString();
                 LeftCorrectEventsVal.Text = LeftNumCorrectFiredEvents.ToString();
+                LeftErrorCountVal.Text = LeftErrorCounter.ToString();
+                LeftCounterVal.Text = LeftTicks.ToString();
 
-                RightCounterVal.Text = RightCounter.ToString();
-                RightDTVal.Text = RightDTFire.ToString();
                 RightCLKVal.Text = RightCLKFire.ToString();
+                RightDTVal.Text = RightDTFire.ToString();
                 RightCorrectEventsVal.Text = RightNumCorrectFiredEvents.ToString();
+                RightErrorCountVal.Text = RightErrorCounter.ToString();
+                RightCounterVal.Text = RightTicks.ToString();
             });
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            LeftCounter = 0;
+            LeftErrorCounter = 0;
             LeftDTFire = 0;
             LeftCLKFire = 0;
             LeftNumCorrectFiredEvents = 0;
-            RightCounter = 0;
+            LeftTicks = 0;
+
+            RightErrorCounter = 0;
             RightDTFire = 0;
             RightCLKFire = 0;
             RightNumCorrectFiredEvents = 0;
-        }
-        //Interesting idea
-        private void CorrectTicks()
-        {
-           while(LeftCounter%4 != 0)
-           {
-               LeftCounter++;
-           }
+            RightTicks = 0;
         }
     }
 }
