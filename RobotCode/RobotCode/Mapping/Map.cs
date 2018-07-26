@@ -41,21 +41,24 @@ namespace RobotCode.Mapping
     public class Map
     {
         /// <summary>
-        /// The physical work area when mappingthe area
-        /// </summary>
-        public Rectangle WorkArea;
-        /// <summary>
         /// List of Physical obstructions inside the work area
         /// </summary>
-        public List<Rectangle> Obstructions;
+        public List<Obstruction> Obstructions;
         /// <summary>
         /// The current status of the Map
         /// </summary>
         public MapProgress @CurrentMapProgress;
-        private XmlDocument XmlMap;
-        private List<XmlElement> XmlObstructions;
-        private XmlElement XmlWorkArea;
-        private Location RobotLocation;
+        /// <summary>
+        /// The Main Document for the mapping to send via network
+        /// </summary>
+        private XmlDocument MapDocument;
+        private XmlElement XmlMap;
+        private XmlAttribute XmlWidth;
+        private XmlAttribute XmlHeight;
+        private XmlAttribute XmlRobotPositionX;
+        private XmlAttribute XmlRobotPositionY;
+        private XmlElement XmlObstructionsHolder;
+        public Location RobotLocation;
         /// <summary>
         /// Get the total number of obstructions in this map
         /// </summary>
@@ -70,25 +73,77 @@ namespace RobotCode.Mapping
         {
             get
             {
-                return XmlMap.ToString();
+                return MapDocument.ToString();
             }
         }
+        public float Width
+        {
+            get { return Width; }
+            set { Width = value; }
+        }
+        public float Height
+        {
+            get { return Height; }
+            set { Height = value; }
+        }
+        public float Area
+        {
+            get { return Width * Height; }
+        }
+
         public Map()
         {
             //init the map stuff, including the xml stuff
             CurrentMapProgress = MapProgress.None;
-            XmlMap = new XmlDocument();
-            Obstructions = new List<Rectangle>();
-            XmlObstructions = new List<XmlElement>();
-            WorkArea = new Rectangle();
+            MapDocument = new XmlDocument();
+            XmlMap = MapDocument.CreateElement("Map");
+            XmlObstructionsHolder = MapDocument.CreateElement("Obstructions");
+            XmlHeight = MapDocument.CreateAttribute("Height");
+            XmlWidth = MapDocument.CreateAttribute("Width");
+            XmlRobotPositionX = MapDocument.CreateAttribute("RobotPositionX");
+            XmlRobotPositionY = MapDocument.CreateAttribute("RobotPositionY");
+            XmlMap.Attributes.Append(XmlHeight);
+            XmlMap.Attributes.Append(XmlWidth);
+            XmlMap.Attributes.Append(XmlRobotPositionX);
+            XmlMap.Attributes.Append(XmlRobotPositionY);
+            Obstructions = new List<Obstruction>();
             RobotLocation = new Location()
             {
                 X_Cordinate = 0F,
                 Y_Cordinate = 0F
             };
-            XmlDeclaration declaration = XmlMap.CreateXmlDeclaration("1.0", Encoding.UTF8.ToString(), true.ToString());
+            //declaration
+            //https://msdn.microsoft.com/en-us/library/system.xml.xmldocument.createxmldeclaration(v=vs.110).aspx
+            XmlDeclaration declaration = MapDocument.CreateXmlDeclaration("1.0", Encoding.UTF8.ToString(), true.ToString());
+            MapDocument.InsertBefore(declaration, MapDocument.DocumentElement);
+        }
 
-            XmlMap.InsertBefore(declaration, XmlMap.DocumentElement);
+        public void SetWidth(float width, bool avg)
+        {
+            if(avg)
+            {
+                this.Width = (this.Width + width) / 2;
+            }
+            else
+            {
+                this.Width = width;
+
+            }
+        }
+        public void SetHeight(float height, bool avg)
+        {
+            if (avg)
+            {
+                this.Height = (this.Height + height) / 2;
+            }
+            else
+            {
+                this.Height = height;
+            }
+        }
+        public void AddObstruction(float width, float height, float LocationX, float LocationY)
+        {
+            Obstructions.Append(new Obstruction(width, height, Obstructions.Count + 1, MapDocument, XmlObstructionsHolder));
         }
     }
 }

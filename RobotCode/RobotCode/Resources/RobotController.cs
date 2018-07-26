@@ -429,8 +429,8 @@ namespace RobotCode
                         Hardware.SideReciever.Start();
                         Hardware.FrontReciever.Start();
                         RobotAutoControlState = AutoControlState.TurnToMap;
-                        //if (WorkArea == null)
-                        //WorkArea = new Map();
+                        if (WorkArea == null)
+                          WorkArea = new Map();
                         NetworkUtils.LogNetwork("On robot init, autocontrolstate from none to turntomap", MessageType.Info);
                         SingleSetBool = false;
                         break;
