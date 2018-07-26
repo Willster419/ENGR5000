@@ -410,6 +410,10 @@ namespace RobotCode
         #endregion
 
         #region Encoders
+        public const int LEFT_CLK = 26;
+        public const int LEFT_DT = 19;
+        public const int RIGHT_CLK = 20;
+        public const int RIGHT_DT = 16;
         public static RotaryEncoder LeftEncoder;
         public static RotaryEncoder RightEncoder;
         public const int ROTARY_LEFT_CLK = 0;
@@ -615,9 +619,9 @@ namespace RobotCode
         {
             LeftEncoder = new RotaryEncoder();
             RightEncoder = new RotaryEncoder();
-            if (!LeftEncoder.InitEncoder(20, 16, GpioController,true))
+            if (!LeftEncoder.InitEncoder(LEFT_CLK, LEFT_DT, GpioController,true))
                 return false;
-            if (!RightEncoder.InitEncoder(26, 19, GpioController,false))
+            if (!RightEncoder.InitEncoder(RIGHT_CLK, RIGHT_DT, GpioController,false))
                 return false;
             return true;
         }
