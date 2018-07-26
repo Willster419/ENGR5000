@@ -60,18 +60,18 @@ namespace Distance_Test
             GpioController _controller = GpioController.GetDefault();
             if (_controller == null)
                 return;
-            TriggerPin = _controller.OpenPin(21);
-            TriggerPin.Write(GpioPinValue.Low);
-            TriggerPin.SetDriveMode(GpioPinDriveMode.Output);
-            EchoPin = _controller.OpenPin(4);
+            //TriggerPin = _controller.OpenPin(21);
+            //TriggerPin.Write(GpioPinValue.Low);
+            //TriggerPin.SetDriveMode(GpioPinDriveMode.Output);
+            EchoPin = _controller.OpenPin(7);
             EchoPin.Write(GpioPinValue.Low);
             EchoPin.SetDriveMode(GpioPinDriveMode.Input);
             //disable for now...
-            //EchoPin.ValueChanged += OnEchoResponse;
+            EchoPin.ValueChanged += OnEchoResponse;
             distanceTimer = new Stopwatch();
             distanceTimer.Reset();
             SendTriggers = new Task(() => FakePWM());
-            SendTriggers.Start();
+            //SendTriggers.Start();
         }
 
         private void OnEchoResponse(GpioPin sender, GpioPinValueChangedEventArgs args)
@@ -91,8 +91,12 @@ namespace Distance_Test
                      * now have frequency in ticks/microsecond
                      * OUR ticks / new frequency = microseconds!
                      */
-                    //session_microseconds = distanceTimer.ElapsedTicks / TICKS_PER_MICROSECOND;
-                    //distance_in_cm = session_microseconds * MICROSECONDS_TO_CM;
+                    session_microseconds = distanceTimer.ElapsedTicks / TICKS_PER_MICROSECOND;
+                    distance_in_cm = session_microseconds * MICROSECONDS_TO_CM;
+                    var task = this.Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+                    {
+                        DistanceVal.Text = distanceTimer.ElapsedTicks.ToString();
+                    });
                     distanceTimer.Reset();
                     break;
                 case GpioPinEdge.RisingEdge:
