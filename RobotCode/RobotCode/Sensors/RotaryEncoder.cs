@@ -30,6 +30,10 @@ namespace RobotCode.Resources
         /// </summary>
         public int Ticks { get; private set; }
         /// <summary>
+        /// Switch to add or subtract values (cause they turn different ways)
+        /// </summary>
+        public bool NegateValues { get; private set; } = false;
+        /// <summary>
         /// The array to keep track of the current and previous states of the encoder. A state is a read of both pins
         /// </summary>
         private byte[] Values = new byte[] { 0, 0, 0, 0 };
@@ -43,8 +47,9 @@ namespace RobotCode.Resources
         /// <param name="clkPinNumber">The GPIO pin number connected to the CLK pin</param>
         /// <param name="dtPinNumber">The GPIO pin number connected to the DT pin</param>
         /// <param name="controller">The GPIO controller</param>
+        /// <param name="negateValues">Flag to negate the values (for other side of robot, for example)</param>
         /// <returns></returns>
-        public bool InitEncoder(int clkPinNumber, int dtPinNumber, GpioController controller)
+        public bool InitEncoder(int clkPinNumber, int dtPinNumber, GpioController controller, bool negateValues)
         {
             CLKPin = controller.OpenPin(clkPinNumber);
             if (CLKPin == null)
@@ -57,6 +62,8 @@ namespace RobotCode.Resources
                 return false;
             DTPin.SetDriveMode(GpioPinDriveMode.Input);
             DTPin.ValueChanged += OnValueChange;
+
+            NegateValues = negateValues;
 
             Counter = 0;
             Ticks = 0;
@@ -88,13 +95,15 @@ namespace RobotCode.Resources
             //CCW
             if (Values.SequenceEqual(Hardware.ccw1) || Values.SequenceEqual(Hardware.ccw2) || Values.SequenceEqual(Hardware.ccw3) || Values.SequenceEqual(Hardware.ccw4))
             {
-                Ticks++;
+                //Ticks++;
+                Ticks = NegateValues ? Ticks - 1 : Ticks + 1;
                 Counter = Ticks / 4;
             }
             //CW
             else if (Values.SequenceEqual(Hardware.cw1) || Values.SequenceEqual(Hardware.cw2) || Values.SequenceEqual(Hardware.cw3) || Values.SequenceEqual(Hardware.cw4))
             {
-                Ticks--;
+                //Ticks--;
+                Ticks = NegateValues ? Ticks + 1 : Ticks - 1;
                 Counter = Ticks / 4;
             }
         }

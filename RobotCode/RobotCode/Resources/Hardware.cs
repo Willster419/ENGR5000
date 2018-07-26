@@ -615,9 +615,9 @@ namespace RobotCode
         {
             LeftEncoder = new RotaryEncoder();
             RightEncoder = new RotaryEncoder();
-            if (!LeftEncoder.InitEncoder(26, 19, GpioController))
+            if (!LeftEncoder.InitEncoder(20, 16, GpioController,true))
                 return false;
-            if (!RightEncoder.InitEncoder(20, 16, GpioController))
+            if (!RightEncoder.InitEncoder(26, 19, GpioController,false))
                 return false;
             return true;
         }
