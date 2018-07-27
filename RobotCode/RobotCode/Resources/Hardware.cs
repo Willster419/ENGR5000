@@ -18,6 +18,7 @@ using Windows.Devices;
 using RobotCode.Resources;
 using RobotCode.Sensors;
 using Windows.Devices.Pwm.Provider;
+using System.Diagnostics;
 
 namespace RobotCode
 {
@@ -433,6 +434,16 @@ namespace RobotCode
         public static readonly byte[] cw2 = new byte[] { 0, 1, 0, 0 };
         #endregion
 
+        #region Distance
+        public const int ECHO_PIN = 7;
+        private const float SECONDS_TO_MICROSECONDS = 1000000;
+        private static readonly float TICKS_PER_MICROSECOND = Stopwatch.Frequency / SECONDS_TO_MICROSECONDS;
+        private const float MICROSECONDS_TO_CM = 0.01715F;
+        private const float AVG_ITTERATIONS = 10F;
+        private const float MAX_DISTANCE_VALUE = 20F;
+        public static DistanceSensor the_only_distance_sensor;
+        #endregion
+
         #region Init methods
         /// <summary>
         /// Initializes the GPIO controller
@@ -488,7 +499,6 @@ namespace RobotCode
                 return false;
             //start the code running one
             Code_running_indicator.Start();
-
             return true;
         }
         /// <summary>
@@ -625,6 +635,14 @@ namespace RobotCode
             if (!LeftEncoder.InitEncoder(LEFT_CLK, LEFT_DT, GpioController,true,5))
                 return false;
             if (!RightEncoder.InitEncoder(RIGHT_CLK, RIGHT_DT, GpioController,false,5))
+                return false;
+            return true;
+        }
+
+        public static bool InitDistanceSensor()
+        {
+            the_only_distance_sensor = new DistanceSensor();
+            if (!the_only_distance_sensor.InitSensor(ECHO_PIN, GpioController, MAX_DISTANCE_VALUE, AVG_ITTERATIONS))
                 return false;
             return true;
         }

@@ -100,67 +100,66 @@ namespace RobotCode.Sensors
         {
             var task = RobotController.SystemDispatcher.RunAsync(CoreDispatcherPriority.High, () =>
             {
-
+                //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
+                //DT first, then CLK
+                //0,1 are old, 2,3 are new
+                //DT,CLK,DT,CLK
+                StateValues[0] = StateValues[2];
+                StateValues[1] = StateValues[3];
+                if (sender == DTPin)
+                {
+                    StateValues[2] = (byte)args.Edge;//1 = rising, 0 = falling
+                    StateValues[3] = (byte)CLKPin.Read();
+                }
+                else
+                {
+                    StateValues[3] = (byte)args.Edge;//1 = rising, 0 = falling
+                    StateValues[2] = (byte)DTPin.Read();
+                }
+                //CCW
+                if (StateValues.SequenceEqual(Hardware.ccw1) || StateValues.SequenceEqual(Hardware.ccw2) || StateValues.SequenceEqual(Hardware.ccw3) || StateValues.SequenceEqual(Hardware.ccw4))
+                {
+                    //Ticks++;
+                    Ticks = NegateValues ? Ticks - 1 : Ticks + 1;
+                    Clicks = Ticks / 4;
+                }
+                //CW
+                else if (StateValues.SequenceEqual(Hardware.cw1) || StateValues.SequenceEqual(Hardware.cw2) || StateValues.SequenceEqual(Hardware.cw3) || StateValues.SequenceEqual(Hardware.cw4))
+                {
+                    //Ticks--;
+                    Ticks = NegateValues ? Ticks + 1 : Ticks - 1;
+                    Clicks = Ticks / 4;
+                }
+                if (EnableErrorCorrection && args.Edge == GpioPinEdge.FallingEdge)
+                {
+                    ErrorStateValues[0] = ErrorStateValues[2];
+                    ErrorStateValues[1] = ErrorStateValues[3];
+                    ErrorStateValues[2] = StateValues[2];
+                    ErrorStateValues[3] = StateValues[3];
+                    if//CCW
+                    (
+                        ErrorStateValues.SequenceEqual(Hardware.ccw1) ||
+                        ErrorStateValues.SequenceEqual(Hardware.ccw2) ||
+                        ErrorStateValues.SequenceEqual(Hardware.ccw3) ||
+                        ErrorStateValues.SequenceEqual(Hardware.ccw4)
+                    )
+                    {
+                        ErrorCounter--;
+                    }
+                    else if//CW
+                    (
+                        ErrorStateValues.SequenceEqual(Hardware.cw1) ||
+                        ErrorStateValues.SequenceEqual(Hardware.cw2) ||
+                        ErrorStateValues.SequenceEqual(Hardware.cw3) ||
+                        ErrorStateValues.SequenceEqual(Hardware.cw4)
+                    )
+                    {
+                        ErrorCounter++;
+                    }
+                    if (ErrorCounter >= ErrorThrshold)
+                        OnErrorAccumulation();
+                }
             });
-            //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
-            //DT first, then CLK
-            //0,1 are old, 2,3 are new
-            //DT,CLK,DT,CLK
-            StateValues[0] = StateValues[2];
-            StateValues[1] = StateValues[3];
-            if (sender == DTPin)
-            {
-                StateValues[2] = (byte)args.Edge;//1 = rising, 0 = falling
-                StateValues[3] = (byte)CLKPin.Read();
-            }
-            else
-            {
-                StateValues[3] = (byte)args.Edge;//1 = rising, 0 = falling
-                StateValues[2] = (byte)DTPin.Read();
-            }
-            //CCW
-            if (StateValues.SequenceEqual(Hardware.ccw1) || StateValues.SequenceEqual(Hardware.ccw2) || StateValues.SequenceEqual(Hardware.ccw3) || StateValues.SequenceEqual(Hardware.ccw4))
-            {
-                //Ticks++;
-                Ticks = NegateValues ? Ticks - 1 : Ticks + 1;
-                Clicks = Ticks / 4;
-            }
-            //CW
-            else if (StateValues.SequenceEqual(Hardware.cw1) || StateValues.SequenceEqual(Hardware.cw2) || StateValues.SequenceEqual(Hardware.cw3) || StateValues.SequenceEqual(Hardware.cw4))
-            {
-                //Ticks--;
-                Ticks = NegateValues ? Ticks + 1 : Ticks - 1;
-                Clicks = Ticks / 4;
-            }
-            if (EnableErrorCorrection && args.Edge == GpioPinEdge.FallingEdge)
-            {
-                ErrorStateValues[0] = ErrorStateValues[2];
-                ErrorStateValues[1] = ErrorStateValues[3];
-                ErrorStateValues[2] = StateValues[2];
-                ErrorStateValues[3] = StateValues[3];
-                if//CCW
-                (
-                    ErrorStateValues.SequenceEqual(Hardware.ccw1) ||
-                    ErrorStateValues.SequenceEqual(Hardware.ccw2) ||
-                    ErrorStateValues.SequenceEqual(Hardware.ccw3) ||
-                    ErrorStateValues.SequenceEqual(Hardware.ccw4)
-                )
-                {
-                    ErrorCounter--;
-                }
-                else if//CW
-                (
-                    ErrorStateValues.SequenceEqual(Hardware.cw1) ||
-                    ErrorStateValues.SequenceEqual(Hardware.cw2) ||
-                    ErrorStateValues.SequenceEqual(Hardware.cw3) ||
-                    ErrorStateValues.SequenceEqual(Hardware.cw4)
-                )
-                {
-                    ErrorCounter++;
-                }
-                if (ErrorCounter >= ErrorThrshold)
-                    OnErrorAccumulation();
-            }
         }
         private void OnErrorAccumulation()
         {
