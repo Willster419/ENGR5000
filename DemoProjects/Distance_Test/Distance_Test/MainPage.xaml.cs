@@ -38,13 +38,17 @@ namespace Distance_Test
         private readonly float TICKS_PER_MICROSECOND = Stopwatch.Frequency / SECONDS_TO_MICROSECONDS;
         private const float MICROSECONDS_TO_CM = 0.01715F;
         //statics in use (not testing)
-        private float distance_in_cm = 0F;
-        private float session_microseconds;
         private GpioPin TriggerPin;
         private GpioPin EchoPin;
-        //testing
+        private float distance_in_cm = 0F;
+        private float session_microseconds;
         private Task SendTriggers;
         private Stopwatch distanceTimer;
+
+        //averaging
+        private float avg_val = 0;
+        private float itteration = 1;
+        private float num_to_normalize_to = 10;
 
         private void LoadUserCode(object sender, RoutedEventArgs e)
         {
@@ -60,7 +64,7 @@ namespace Distance_Test
             GpioController _controller = GpioController.GetDefault();
             if (_controller == null)
                 return;
-            //TriggerPin = _controller.OpenPin(21);
+            //TriggerPin = _controller.OpenPin(25);
             //TriggerPin.Write(GpioPinValue.Low);
             //TriggerPin.SetDriveMode(GpioPinDriveMode.Output);
             EchoPin = _controller.OpenPin(7);
@@ -76,8 +80,6 @@ namespace Distance_Test
 
         private void OnEchoResponse(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
-            //EchoPin.ValueChanged -= OnEchoResponse;
-            //debounceTimer.Start();
             switch (args.Edge)
             {
                 case GpioPinEdge.FallingEdge:
@@ -92,11 +94,26 @@ namespace Distance_Test
                      * OUR ticks / new frequency = microseconds!
                      */
                     session_microseconds = distanceTimer.ElapsedTicks / TICKS_PER_MICROSECOND;
-                    distance_in_cm = session_microseconds * MICROSECONDS_TO_CM;
-                    var task = this.Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+                    //distance_in_cm = session_microseconds * MICROSECONDS_TO_CM;
+                    distance_in_cm = distanceTimer.ElapsedMilliseconds;
+                    if(itteration++ >= 10)
                     {
-                        DistanceVal.Text = distanceTimer.ElapsedTicks.ToString();
-                    });
+                        float real_value = avg_val / num_to_normalize_to;
+                        if (real_value > 20F)
+                            real_value = 20F;
+                        var task = this.Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+                        {
+                            DistanceVal.Text = real_value.ToString();
+                        });
+                        itteration = 1;
+                        avg_val = 0;
+                    }
+                    else
+                    {
+                        if (distance_in_cm > 20F)
+                            distance_in_cm = 20F;
+                        avg_val += distance_in_cm;
+                    }
                     distanceTimer.Reset();
                     break;
                 case GpioPinEdge.RisingEdge:

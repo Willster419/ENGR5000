@@ -17,7 +17,7 @@
 
 //pre-defined timer values for duty cycle
 #define UP_TIME 1//5% duty cycle -> 1ms
-#define PERIOD 2560//period of "carrier wave"
+#define PERIOD 3200//period of "carrier wave"
 //2560  = 20ms
 //256 = 2ms
 //25.6 = 200us
@@ -46,7 +46,7 @@ int main(void)
     MAP_CS_initClockSignal(CS_SMCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     MAP_PCM_setPowerState(PCM_AM_LF_VCORE0);
 
-    /* Configuring GPIO2.4 as peripheral output for PWM  and P6.7 for button interrupt */
+    /* Configuring GPIO2.4 as peripheral output for PWM */
     MAP_GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P2, GPIO_PIN4, GPIO_PRIMARY_MODULE_FUNCTION);
 
     /* Configuring Timer_A  */
