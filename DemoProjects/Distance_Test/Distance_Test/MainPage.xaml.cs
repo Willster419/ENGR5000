@@ -37,8 +37,8 @@ namespace Distance_Test
         private const float SECONDS_TO_MICROSECONDS = 1000000;
         private readonly float TICKS_PER_MICROSECOND = Stopwatch.Frequency / SECONDS_TO_MICROSECONDS;
         private const float MICROSECONDS_TO_CM = 0.01715F;
-        //statics in use (not testing)
-        private GpioPin TriggerPin;
+        //statics in use (testing)
+        private GpioPin TriggerPin;//not used, RPi can't keep up
         private GpioPin EchoPin;
         private float distance_in_cm = 0F;
         private float session_microseconds;
