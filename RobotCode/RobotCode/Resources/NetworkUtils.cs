@@ -748,10 +748,10 @@ namespace RobotCode
                 Hardware.Tempature_2.ToString(),//MPU temp data
                 Hardware.SideReciever == null? "null": Convert.ToByte(Hardware.SideReciever.WallDetected).ToString(),//side wall detection
                 Hardware.FrontReciever == null? "null": Convert.ToByte(Hardware.FrontReciever.WallDetected).ToString(),//front wall detection
-                "NC",//proximity
-                "null",//positionx
-                "null",//positiony
-                "null",//positionz
+                Hardware.the_only_distance_sensor == null? "null" : Hardware.the_only_distance_sensor.Distance_in_cm.ToString(),//proximity
+                Hardware.PositionX.ToString(),//positionx
+                Hardware.PositionY.ToString(),//positiony
+                Hardware.PositionZ.ToString(),//positionz
             };
             LogNetwork(string.Join(',', diagnosticData), MessageType.DiagnosticData);
         }
