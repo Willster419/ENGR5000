@@ -14108,3 +14108,647 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-28:16-16-49.016   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
 2018-07-28:16-16-50.131   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
 2018-07-28:16-17-45.045   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-32-51.434   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:18-32-51.682   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:18-32-52.051   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:18-43-03.823   DEBUG: dashboard connected via force wait
+2018-07-28:18-43-03.825   INFO: Initializing Encoders
+2018-07-28:18-43-03.848   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:18-43-04.101   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:18-43-04.326   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:18-43-04.496   INFO: PWM loading complete, I2C
+2018-07-28:18-43-04.666   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:18-43-04.771   DEBUG: MPU reports that device is on address 104...
+2018-07-28:18-43-04.773   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:18-43-04.775   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:18-43-04.776   DEBUG: Config gyro and accel sensitivity
+2018-07-28:18-43-04.777   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:18-43-04.778   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:18-43-04.877   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:18-43-04.882   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:18-43-04.898   INFO: Controller initialized, system online
+2018-07-28:18-43-05.294   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:18-43-35.679   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:18-43-35.943   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:18-46-00.134   Robot log cleared
+2018-07-28:18-47-06.592   DEBUG: dashboard connected via force wait
+2018-07-28:18-47-06.593   INFO: Initializing Encoders
+2018-07-28:18-47-06.612   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:18-47-06.742   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:18-47-07.101   INFO: PWM loading complete, I2C
+2018-07-28:18-47-07.328   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:18-47-07.427   DEBUG: MPU reports that device is on address 104...
+2018-07-28:18-47-07.429   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:18-47-07.430   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:18-47-07.430   DEBUG: Config gyro and accel sensitivity
+2018-07-28:18-47-07.431   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:18-47-07.432   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:18-47-07.528   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:18-47-07.536   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:18-47-07.570   INFO: Controller initialized, system online
+2018-07-28:18-47-08.040   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:18-47-11.153   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:18-47-12.204   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:18-47-12.460   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-12.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-13.026   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-13.350   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-13.638   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-13.914   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-14.454   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-14.962   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-15.217   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-15.624   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-16.136   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-16.417   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-16.675   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-17.064   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-17.355   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-17.731   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-18.160   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-18.375   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:18-47-19.490   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:18-47-19.792   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-20.057   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-20.465   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-20.990   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-21.571   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-22.395   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-22.789   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-23.246   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-23.520   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-47-23.700   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:18-47-23.718   INFO: Side 0 mapped, using width encoder value of 51, not averaging
+2018-07-28:18-48-13.526   Robot log cleared
+2018-07-28:18-48-18.980   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:18-48-28.009   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-28:18-48-31.115   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:18-48-31.365   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:18-48-31.714   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:18-54-42.669   DEBUG: dashboard connected via force wait
+2018-07-28:18-54-42.671   INFO: Initializing Encoders
+2018-07-28:18-54-42.687   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:18-54-42.832   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:18-54-42.989   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:18-54-43.122   INFO: PWM loading complete, I2C
+2018-07-28:18-54-43.343   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:18-54-43.448   DEBUG: MPU reports that device is on address 104...
+2018-07-28:18-54-43.449   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:18-54-43.450   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:18-54-43.452   DEBUG: Config gyro and accel sensitivity
+2018-07-28:18-54-43.453   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:18-54-43.454   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:18-54-43.551   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:18-54-43.558   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:18-54-43.583   INFO: Controller initialized, system online
+2018-07-28:18-54-44.051   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:18-54-46.435   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:18-54-47.493   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:18-54-48.104   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-48.378   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-48.656   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-49.075   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-49.455   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-49.720   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-50.103   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-50.467   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-50.934   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-51.796   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-52.150   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-52.399   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-52.692   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:18-54-53.739   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:18-54-54.420   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-54.812   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-55.300   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-55.714   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-56.128   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-56.396   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:18-54-56.723   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:18-54-56.739   INFO: Side 0 mapped, using width encoder value of 43, not averaging
+2018-07-28:18-59-35.030   Robot log cleared
+2018-07-28:18-59-37.585   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:18-59-37.904   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-01-58.483   DEBUG: dashboard connected via force wait
+2018-07-28:19-01-58.484   INFO: Initializing Encoders
+2018-07-28:19-01-58.510   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-01-58.760   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-01-59.090   INFO: PWM loading complete, I2C
+2018-07-28:19-01-59.294   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-01-59.405   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-01-59.407   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-01-59.408   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-01-59.408   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-01-59.408   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-01-59.408   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-01-59.510   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-01-59.525   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-01-59.543   INFO: Controller initialized, system online
+2018-07-28:19-02-00.006   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-02-03.025   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-02-03.193   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-04.196   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-02-04.621   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-05.031   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-05.287   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-05.929   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-06.350   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-06.744   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-07.450   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-07.803   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-07.823   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-02-08.852   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-02-09.612   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-10.101   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-10.635   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-11.170   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-11.421   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-11.759   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-12.025   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-12.277   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-12.640   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-02-12.679   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-02-12.697   INFO: Side 0 mapped, using width encoder value of 35, not averaging
+2018-07-28:19-06-26.837   Robot log cleared
+2018-07-28:19-06-29.077   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-06-29.355   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-09-19.855   DEBUG: dashboard connected via force wait
+2018-07-28:19-09-19.855   INFO: Initializing Encoders
+2018-07-28:19-09-19.865   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-09-20.004   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-09-20.347   INFO: PWM loading complete, I2C
+2018-07-28:19-09-20.565   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-09-20.678   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-09-20.680   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-09-20.686   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-09-20.687   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-09-20.688   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-09-20.689   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-09-20.780   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-09-20.789   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-09-20.846   INFO: Controller initialized, system online
+2018-07-28:19-09-21.278   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-09-23.351   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-09-24.374   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-09-24.769   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-25.028   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-25.485   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-25.758   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-26.123   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-26.484   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-26.863   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-27.151   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-09-27.152   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-28.266   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-09-28.679   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-29.057   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-29.652   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-30.069   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-30.335   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-30.818   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-09-31.046   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-09-31.063   INFO: Side 0 mapped, using width encoder value of 27, not averaging
+2018-07-28:19-10-03.952   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-10-04.857   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-05.145   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-05.396   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-05.770   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-06.326   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-06.805   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-07.185   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-07.442   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-07.726   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-07.992   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-08.562   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-08.827   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-09.100   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-09.749   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-10.014   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-10.280   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-10.750   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-11.017   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-11.376   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-11.485   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-10-12.529   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-10-13.403   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-13.847   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-14.202   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-14.459   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-14.722   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-15.082   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-15.479   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-15.498   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-10-15.517   INFO: Side 1 mapped, using height encoder value of 84, not averaging
+2018-07-28:19-10-20.268   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-10-21.302   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-21.552   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-22.082   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-22.352   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-22.906   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-23.382   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-23.910   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-24.164   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-24.515   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-24.790   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-25.380   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-25.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-25.970   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-26.597   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-26.614   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-10-27.659   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-10-28.143   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-28.430   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-28.678   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-29.489   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-29.673   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-10-29.688   INFO: Side 2 mapped, using second width encoder value of 130, averaging
+2018-07-28:19-10-34.452   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-10-35.268   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-35.828   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-36.395   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-36.961   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-37.257   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-37.641   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-37.885   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-38.296   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-10-39.343   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-10-40.384   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-40.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-41.010   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-41.466   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-10-41.842   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-10-41.858   INFO: Side 3 mapped, using second height encoder value of 165, averaging
+2018-07-28:19-13-28.256   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:19-13-28.483   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-13-28.813   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-13-54.165   DEBUG: dashboard connected via force wait
+2018-07-28:19-13-54.166   INFO: Initializing Encoders
+2018-07-28:19-13-54.193   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-13-54.352   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-13-54.511   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-13-54.678   INFO: PWM loading complete, I2C
+2018-07-28:19-13-54.881   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-13-55.015   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-13-55.017   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-13-55.018   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-13-55.030   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-13-55.032   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-13-55.033   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-13-55.126   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-13-55.134   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-13-55.155   INFO: Controller initialized, system online
+2018-07-28:19-13-55.635   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-13-57.101   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-13-57.233   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-13-58.225   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-13-58.885   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-13-59.121   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-13-59.385   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-13-59.663   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-00.032   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-00.490   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-00.845   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-14-00.860   INFO: Side 0 mapped, using width encoder value of 15, not averaging
+2018-07-28:19-14-06.002   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-14-06.731   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-06.993   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-07.461   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-08.094   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-14-08.114   INFO: Side 1 mapped, using height encoder value of 25, not averaging
+2018-07-28:19-14-08.180   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-13.063   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-14-13.751   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-14.144   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-14.773   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-14.959   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-14-14.971   INFO: Side 2 mapped, using second width encoder value of 35, averaging
+2018-07-28:19-14-19.953   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-14-20.714   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-21.059   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-21.588   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-21.946   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-22.865   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-14-22.973   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-14-22.984   INFO: Side 3 mapped, using second height encoder value of 51, averaging
+2018-07-28:19-15-16.360   Robot log cleared
+2018-07-28:19-15-17.896   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-15-18.153   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-21-34.418   DEBUG: dashboard connected via force wait
+2018-07-28:19-21-34.419   INFO: Initializing Encoders
+2018-07-28:19-21-34.495   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-21-34.777   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-21-35.202   INFO: PWM loading complete, I2C
+2018-07-28:19-21-35.499   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-21-35.553   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-21-35.652   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-21-35.653   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-21-35.655   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-21-35.656   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-21-35.657   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-21-35.659   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-21-35.772   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-21-35.774   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-21-35.796   INFO: Controller initialized, system online
+2018-07-28:19-21-36.434   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-21-39.403   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-21-40.471   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-21-40.882   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-41.459   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-41.926   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-42.328   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-42.495   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-21-42.517   INFO: Side 0 mapped, using width encoder value of 9, not averaging
+2018-07-28:19-21-47.573   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-21-48.318   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-48.716   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-49.211   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-49.528   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-21-49.542   INFO: Side 1 mapped, using height encoder value of 20, not averaging
+2018-07-28:19-21-54.496   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-21-55.084   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-55.330   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-55.808   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-21-55.885   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-21-56.950   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-21-56.966   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-21-56.983   INFO: Side 2 mapped, using second width encoder value of 27, averaging
+2018-07-28:19-21-56.995   INFO: mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-28:19-21-56.997   INFO: Sending mapping data...
+2018-07-28:19-24-27.054   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:19-24-27.354   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-24-27.680   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-25-02.891   DEBUG: dashboard connected via force wait
+2018-07-28:19-25-02.893   INFO: Initializing Encoders
+2018-07-28:19-25-02.942   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-25-03.133   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-25-03.508   INFO: PWM loading complete, I2C
+2018-07-28:19-25-03.735   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-25-03.851   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-25-03.852   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-25-03.854   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-25-03.855   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-25-03.856   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-25-03.857   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-25-03.948   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-25-03.955   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-25-04.013   INFO: Controller initialized, system online
+2018-07-28:19-25-04.445   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-25-06.618   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-06.902   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-25-08.017   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-25-08.435   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-09.148   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-09.431   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-09.707   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-10.542   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-10.819   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-11.122   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-25-11.126   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-11.137   INFO: Side 0 mapped, using width encoder value of 16, not averaging
+2018-07-28:19-25-16.345   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-25-17.618   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-17.908   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-18.419   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-18.814   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-19.091   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-19.393   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-19.798   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-25-19.872   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-25-19.886   INFO: Side 1 mapped, using height encoder value of 36, not averaging
+2018-07-28:19-26-05.747   Robot log cleared
+2018-07-28:19-26-09.123   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-26-09.429   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-26-29.704   DEBUG: dashboard connected via force wait
+2018-07-28:19-26-29.706   INFO: Initializing Encoders
+2018-07-28:19-26-29.728   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-26-29.998   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-26-30.210   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.216   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.268   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.276   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.283   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.328   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.330   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.338   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.342   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.344   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.348   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.352   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.353   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.355   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.360   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.364   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.368   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.369   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.408   INFO: PWM loading complete, I2C
+2018-07-28:19-26-30.612   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.626   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-26-30.628   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.629   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.632   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.634   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.635   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.636   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.639   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.641   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.643   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.644   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.645   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.649   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.651   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.652   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.655   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.656   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.660   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.664   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.665   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.667   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.669   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.670   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.687   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.688   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.689   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.691   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.692   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.694   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.695   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.696   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.700   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.701   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.703   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.704   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.705   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.712   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.714   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.716   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.717   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.718   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.730   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.731   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-26-30.732   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-26-30.734   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-26-30.735   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-26-30.736   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-26-30.737   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-26-30.738   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.740   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.741   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.744   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.746   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.748   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.749   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.751   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.752   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.754   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.756   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.758   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.761   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.765   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.768   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.769   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.773   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.775   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.776   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.778   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.779   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.781   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.782   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.784   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.786   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.795   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.798   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.801   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.805   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.806   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.818   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.819   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.823   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:19-26-30.827   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-26-30.834   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-26-30.860   INFO: Controller initialized, system online
+2018-07-28:19-26-31.372   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-26-38.310   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-26-39.389   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-26-41.023   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-26-41.344   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-26-41.572   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-26-41.578   INFO: Side 0 mapped, using width encoder value of 12, not averaging
+2018-07-28:19-26-47.034   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-26-48.265   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-26-48.916   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-26-49.017   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-26-49.029   INFO: Side 1 mapped, using height encoder value of 21, not averaging
+2018-07-28:19-26-54.530   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-26-56.404   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-26-56.749   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-26-56.763   INFO: Side 2 mapped, using second width encoder value of 33, averaging
+2018-07-28:19-27-02.263   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-27-02.410   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:19-27-03.608   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-27-04.432   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-04.869   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-05.144   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-05.664   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-05.961   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-06.360   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-06.792   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-07.331   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-07.741   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-08.027   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-27-08.091   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-27-08.109   INFO: Side 3 mapped, using second height encoder value of 56, averaging
+2018-07-28:19-27-08.110   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-28:19-27-08.122   INFO: Sending mapping data...
+2018-07-28:19-32-43.184   Robot log cleared
+2018-07-28:19-32-44.066   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-32-46.828   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-33-32.026   DEBUG: dashboard connected via force wait
+2018-07-28:19-33-32.027   INFO: Initializing Encoders
+2018-07-28:19-33-32.043   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-33-32.186   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-33-32.433   INFO: PWM loading complete, I2C
+2018-07-28:19-33-32.652   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-33-32.764   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-33-32.765   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-33-32.766   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-33-32.767   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-33-32.767   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-33-32.768   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-33-32.867   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-33-32.873   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-33-32.898   INFO: Controller initialized, system online
+2018-07-28:19-33-33.358   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-33-36.882   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-33-36.954   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-38.040   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-33-38.555   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-38.850   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-39.186   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-39.272   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-33-39.297   INFO: Side 0 mapped, using width encoder value of 4, not averaging
+2018-07-28:19-33-44.539   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-33-45.612   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-46.427   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-46.569   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-33-46.589   INFO: Side 1 mapped, using height encoder value of 15, not averaging
+2018-07-28:19-33-51.804   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-33-52.619   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-52.913   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-53.175   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-53.451   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-33-53.586   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-33-53.600   INFO: Side 2 mapped, using second width encoder value of 24, averaging
+2018-07-28:19-33-59.010   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-34-00.034   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-34-00.544   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-34-01.103   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-34-01.288   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-34-01.305   INFO: Side 3 mapped, using second height encoder value of 36, averaging
+2018-07-28:19-34-01.306   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-28:19-34-01.320   INFO: Sending mapping data...
+2018-07-28:19-37-44.962   Robot log cleared
+2018-07-28:19-37-47.037   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:19-37-49.824   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:19-38-20.019   DEBUG: dashboard connected via force wait
+2018-07-28:19-38-20.020   INFO: Initializing Encoders
+2018-07-28:19-38-20.036   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:19-38-20.162   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:19-38-20.414   INFO: PWM loading complete, I2C
+2018-07-28:19-38-20.613   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:19-38-20.750   DEBUG: MPU reports that device is on address 104...
+2018-07-28:19-38-20.751   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:19-38-20.752   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:19-38-20.753   DEBUG: Config gyro and accel sensitivity
+2018-07-28:19-38-20.754   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:19-38-20.757   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:19-38-20.852   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:19-38-20.860   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:19-38-20.886   INFO: Controller initialized, system online
+2018-07-28:19-38-21.359   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:19-38-22.479   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:19-38-22.586   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-23.561   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:19-38-24.062   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-24.731   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-25.041   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-38-25.043   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-25.062   INFO: Side 0 mapped, using width encoder value of 6, not averaging
+2018-07-28:19-38-30.602   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-38-32.166   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-38-32.182   INFO: Side 1 mapped, using height encoder value of 13, not averaging
+2018-07-28:19-38-37.884   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-38-38.402   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-38.665   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-38-38.680   INFO: Side 2 mapped, using second width encoder value of 17, averaging
+2018-07-28:19-38-44.290   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:19-38-44.804   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-45.131   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-45.566   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-45.861   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-46.204   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-46.743   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-28:19-38-46.766   INFO: Side 3 mapped, using second height encoder value of 29, averaging
+2018-07-28:19-38-46.767   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-28:19-38-46.769   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:19-38-46.774   INFO: Sending mapping data...
+2018-07-28:19-47-23.847   \----------------------------------------------------------------------------------------------------------------------------------/
