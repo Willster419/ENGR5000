@@ -243,7 +243,7 @@ namespace RobotCode
                 {
                     AutoReset = true,
                     Enabled = true,
-                    Interval = 20
+                    Interval = 50//50ms
                 };
                 DiagnosticTimer.Elapsed += SendDiagnosticData;
             }
