@@ -42,7 +42,7 @@ namespace RobotCode
         /// </summary>
         public const int AUGAR_PIN = 22;
         public static GpioPin Auger_pin;
-        public const int IMPELLER_PIN = 18;//TODO:check
+        public const int IMPELLER_PIN = 18;
         public static GpioPin Impeller_pin;
         /// <summary>
         /// The current logical representation of the realy output for the auger. 1 is no output, 0 is output
@@ -435,7 +435,7 @@ namespace RobotCode
         #endregion
 
         #region Distance
-        public const int ECHO_PIN = 7;
+        public const int ECHO_PIN = 25;
         private const float SECONDS_TO_MICROSECONDS = 1000000;
         private static readonly float TICKS_PER_MICROSECOND = Stopwatch.Frequency / SECONDS_TO_MICROSECONDS;
         private const float MICROSECONDS_TO_CM = 0.01715F;
