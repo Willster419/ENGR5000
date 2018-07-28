@@ -301,7 +301,7 @@ namespace RobotCode
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
-                Hardware.UpdateI2CData(0, 1);
+                Hardware.UpdateI2CData(1, 1);
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
@@ -372,7 +372,7 @@ namespace RobotCode
                 //I2C
                 if (DelayI2CRead >= 2)
                 {
-                    Hardware.UpdateI2CData(0, 1);
+                    Hardware.UpdateI2CData(1, 1);
                     DelayI2CRead = -1;
                 }
                 DelayI2CRead++;

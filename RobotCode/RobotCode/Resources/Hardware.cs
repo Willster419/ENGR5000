@@ -619,8 +619,10 @@ namespace RobotCode
 
             //wait for process to take place...
             await Task.Delay(100);
+
             //...and get normalization values
-            NormalizeI2CData(0, 1);
+            NetworkUtils.LogNetwork("Getting normalized values for accel and gyro", MessageType.Debug);
+            NormalizeI2CData(1, 1);
 
             return true;
         }
@@ -726,16 +728,21 @@ namespace RobotCode
             GyroZ = zg / (float)131;
             Tempature_2 = te / (float)16384;
 
-            //rounding
-            if (gyro_round >= 0)
+            //accel rounding
+            if (accel_round >= 0)
             {
                 AccelerationX = MathF.Round(AccelerationX, accel_round);
                 AccelerationY = MathF.Round(AccelerationY, accel_round);
                 AccelerationZ = MathF.Round(AccelerationZ, accel_round);
+                Tempature_2 = MathF.Round(Tempature_2, accel_round);
+            }
+
+            //gyro rounding
+            if(gyro_round >= 0)
+            {
                 GyroX = MathF.Round(GyroX, gyro_round);
                 GyroY = MathF.Round(GyroY, gyro_round);
                 GyroZ = MathF.Round(GyroZ, gyro_round);
-                Tempature_2 = MathF.Round(Tempature_2, accel_round);
             }
 
             //offset normalization
@@ -781,12 +788,12 @@ namespace RobotCode
             GyroZ_Offset = zg / (float)131;
 
             //round
-            AccelerationX = MathF.Round(AccelerationX, accel_round);
-            AccelerationY = MathF.Round(AccelerationY, accel_round);
-            AccelerationZ = MathF.Round(AccelerationZ, accel_round);
-            GyroX = MathF.Round(GyroX, gyro_round);
-            GyroY = MathF.Round(GyroY, gyro_round);
-            GyroZ = MathF.Round(GyroZ, gyro_round);
+            AccelerationX_Offset = MathF.Round(AccelerationX_Offset, accel_round);
+            AccelerationY_Offset = MathF.Round(AccelerationY_Offset, accel_round);
+            AccelerationZ_Offset = MathF.Round(AccelerationZ_Offset, accel_round);
+            GyroX_Offset = MathF.Round(GyroX_Offset, gyro_round);
+            GyroY_Offset = MathF.Round(GyroY_Offset, gyro_round);
+            GyroZ_Offset = MathF.Round(GyroZ_Offset, gyro_round);
         }
         /// <summary>
         /// Writes a byte of data to a specified byte address
