@@ -79,7 +79,6 @@ namespace RobotCode.Resources
         public void Stop(bool reset)
         {
             Enabled = false;
-            _pin.ValueChanged -= OnValueChanged;
             if(reset)
             {
                 ResetDetection();
@@ -92,6 +91,7 @@ namespace RobotCode.Resources
         {
             WallDetected = false;
             NumDetections = 0;
+            _pin.ValueChanged += OnValueChanged;
         }
         private void OnValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
