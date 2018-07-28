@@ -66,17 +66,9 @@ namespace RobotCode
         /// </summary>
         MapTurn,
         /// <summary>
-        /// Mapping the second side ofthe rectangle
+        /// The Side IR has detected the side wall while moving in mapping motion, wait until left encoder has moved back x value
         /// </summary>
-        MapTwoSide,
-        /// <summary>
-        /// Mapping the third side of the rectnagle
-        /// </summary>
-        MapThreeSide,
-        /// <summary>
-        /// Mapping the fourther side of the rectangle
-        /// </summary>
-        MapFourSide,
+        MapSideBackup,
         /// <summary>
         /// Performing calculations to create the map and send the XML map data to the dashboard
         /// </summary>
@@ -216,6 +208,12 @@ namespace RobotCode
         private static int Manual_counter_1 = 0;
         private static int Manual_counter_2 = 0;
         public static CoreDispatcher SystemDispatcher;
+        private static int NumSidesMapped = 0;
+        //speed constants
+        private const float SLOW_LEFT_FORWARD_MAP = 0.65F;
+        private const float SLOW_RIGHT_FORWARD_MAP = 0.6F;
+        private const float SLOW_LEFT_BACKUP = 0.35F;
+        private const float ALL_STOP = 0.5F;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
@@ -328,8 +326,8 @@ namespace RobotCode
                 }
                 catch
                 {
-                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                    Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
                     Hardware.Auger_pin.Write(GpioPinValue.High);
                     Hardware.Impeller_pin.Write(GpioPinValue.High);
                 }
@@ -431,12 +429,13 @@ namespace RobotCode
                 {
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
-                        //Hardware.SideReciever.Start();
-                        //Hardware.FrontReciever.Start();
-                        //RobotAutoControlState = AutoControlState.TurnToMap;
-                        //if (WorkArea == null)
-                          //WorkArea = new Map();
-                        //NetworkUtils.LogNetwork("On robot init, autocontrolstate from none to turntomap", MessageType.Info);
+                        Hardware.SideReciever.Start();
+                        Hardware.FrontReciever.Start();
+                        RobotAutoControlState = AutoControlState.TurnToMap;
+                        if (WorkArea == null)
+                          WorkArea = new Map();
+                        NumSidesMapped = 0;
+                        NetworkUtils.LogNetwork("On robot init, autocontrol state none->TurnToMap", MessageType.Info);
                         SingleSetBool = false;
                         break;
                     case AutoControlState.TurnToMap:
@@ -446,21 +445,20 @@ namespace RobotCode
                         {
                             if (SingleSetBool)
                             {
-                                NetworkUtils.LogNetwork("Robot has found wall, moving to map", MessageType.Info);
+                                NetworkUtils.LogNetwork("Robot has found side wall, TurnToMap->MapSideBackup", MessageType.Info);
                                 Hardware.LeftEncoder.ResetCounter();
                                 Hardware.RightEncoder.ResetCounter();
-                                Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5);
-                                //Hardware.SideReciever.ResetDetection();
-                                RobotAutoControlState = AutoControlState.TurnToMap;
+                                Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                                RobotAutoControlState = AutoControlState.MapSideBackup;
                                 SingleSetBool = false;
                             }
                             
                         }
                         else if (!SingleSetBool)
                         {
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_FORWARD_MAP);
                             SingleSetBool = true;
                         }
                         break;
@@ -475,7 +473,7 @@ namespace RobotCode
                         //  set back to slow right turn
                         if(Hardware.FrontReciever.WallDetected)
                         {
-                            NetworkUtils.LogNetwork("Front wall detected, saving average of position and encoder data", MessageType.Info);
+                            NetworkUtils.LogNetwork("Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn", MessageType.Info);
                             float encoder_height = Hardware.RightEncoder.Clicks;
                             //convert it to a normalized distance
                             float MPU_height = Hardware.PositionX;
@@ -486,32 +484,49 @@ namespace RobotCode
                         }
                         else if (Hardware.SideReciever.WallDetected)
                         {
-                            //reset left drive ticks
-                            if (!SingleSetBool)
-                            {
-                                Hardware.LeftEncoder.ResetCounter();
-                                Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                                Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
-                                SingleSetBool = true;
-                            }
-                            else if(Hardware.LeftEncoder.Clicks >= 5)
-                            {
-                                //reset the side reciever to let it continue
-                                Hardware.SideReciever.ResetDetection();
-                                SingleSetBool = false;
-                            }
+                            NetworkUtils.LogNetwork("Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup", MessageType.Info);
+                            Hardware.LeftEncoder.ResetCounter();
+                            RobotAutoControlState = AutoControlState.MapSideBackup;
+                            SingleSetBool = false;
+                        }
+                        else if (!SingleSetBool)
+                        {
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_FORWARD_MAP);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_RIGHT_FORWARD_MAP);
+                            SingleSetBool = true;
+                        }
+                        break;
+                    case AutoControlState.MapSideBackup:
+                        if(!SingleSetBool)
+                        {
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_BACKUP);
+                            SingleSetBool = true;
+                        }
+                        else if (Hardware.LeftEncoder.Clicks <= -10)
+                        {
+                            //go back to a slow turn to the right
+                            NetworkUtils.LogNetwork("Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide", MessageType.Info);
+                            Hardware.LeftEncoder.ResetCounter();
+                            Hardware.SideReciever.ResetDetection();
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            RobotAutoControlState = AutoControlState.MapOneSide;
+                            SingleSetBool = false;
                         }
                         break;
                     case AutoControlState.MapTurn:
                         if (!SingleSetBool)
                         {
                             Hardware.LeftEncoder.ResetCounter();
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_BACKUP);
+                            NumSidesMapped++;
                             SingleSetBool = true;
                         }
-                        else if (Hardware.LeftEncoder.Clicks >= 5)
+                        else if (Hardware.LeftEncoder.Clicks <= -50)
                         {
+                            NetworkUtils.LogNetwork("Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide", MessageType.Info);
                             //reset the side reciever to let it continue
                             Hardware.SideReciever.ResetDetection();
                             Hardware.FrontReciever.ResetDetection();
