@@ -114,7 +114,7 @@ namespace RobotCode.Mapping
             };
             //declaration
             //https://msdn.microsoft.com/en-us/library/system.xml.xmldocument.createxmldeclaration(v=vs.110).aspx
-            XmlDeclaration declaration = MapDocument.CreateXmlDeclaration("1.0", Encoding.UTF8.ToString(), true.ToString());
+            XmlDeclaration declaration = MapDocument.CreateXmlDeclaration("1.0", Encoding.UTF8.ToString(), "yes");
             MapDocument.InsertBefore(declaration, MapDocument.DocumentElement);
         }
 
