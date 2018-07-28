@@ -282,6 +282,9 @@ namespace Dashboard
                     string[] diagnosticData = data.Split(',');
                     mainWindowInstance.OnDiagnosticData(diagnosticData);
                     break;
+                case 4://mapping data
+                    mainWindowInstance.OnXMLMapData((string)e.UserState);
+                    break;
             }
         }
         /// <summary>
@@ -455,6 +458,9 @@ namespace Dashboard
                             case MessageType.DiagnosticData:
                                 ConnectionManager.ReportProgress(3, result.Substring(messageTypeString.Count() + 1));
                                 break;
+                            case MessageType.Mapping:
+                                ConnectionManager.ReportProgress(4, result.Substring(messageTypeString.Count() + 1));
+                                break;
                         }
                     }
 
@@ -620,6 +626,9 @@ namespace Dashboard
                                 break;
                             case MessageType.DiagnosticData:
                                 ConnectionManager.ReportProgress(3, result.Substring(messageTypeString.Count() + 1));
+                                break;
+                            case MessageType.Mapping:
+                                ConnectionManager.ReportProgress(4, result.Substring(messageTypeString.Count() + 1));
                                 break;
                         }
                     }

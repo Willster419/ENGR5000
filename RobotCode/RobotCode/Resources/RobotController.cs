@@ -299,7 +299,7 @@ namespace RobotCode
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
-                Hardware.UpdateI2CData(1, 1);
+                Hardware.UpdateI2CData(0, 0);
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
@@ -370,7 +370,7 @@ namespace RobotCode
                 //I2C
                 if (DelayI2CRead >= 2)
                 {
-                    Hardware.UpdateI2CData(1, 1);
+                    Hardware.UpdateI2CData(0, 0);
                     DelayI2CRead = -1;
                 }
                 DelayI2CRead++;
@@ -473,12 +473,7 @@ namespace RobotCode
                         //  set back to slow right turn
                         if(Hardware.FrontReciever.WallDetected)
                         {
-                            NetworkUtils.LogNetwork("Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn", MessageType.Info);
-                            float encoder_height = Hardware.RightEncoder.Clicks;
-                            //convert it to a normalized distance
-                            float MPU_height = Hardware.PositionX;
-                            //convert it to a normalized distance
-                            //average it
+                            NetworkUtils.LogNetwork("Front wall detected, MapOneSide->MapTurn", MessageType.Info);
                             RobotAutoControlState = AutoControlState.MapTurn;
                             SingleSetBool = false;
                         }
@@ -518,11 +513,47 @@ namespace RobotCode
                     case AutoControlState.MapTurn:
                         if (!SingleSetBool)
                         {
+                            float encoder_value = Hardware.RightEncoder.Clicks;
+                            //convert it to a normalized distance
+                            float MPU_height = Hardware.PositionX;
+                            //convert it to a normalized distance
+                            //average it
                             Hardware.LeftEncoder.ResetCounter();
                             Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
                             Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_BACKUP);
+                            switch(NumSidesMapped)
+                            {
+                                case 0:
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using width encoder value of {1}, not averaging", NumSidesMapped, encoder_value), MessageType.Info);
+                                    WorkArea.SetHeight(encoder_value, false);
+                                    break;
+                                case 1:
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using height encoder value of {1}, not averaging", NumSidesMapped, encoder_value), MessageType.Info);
+                                    WorkArea.SetWidth(encoder_value, false);
+                                    break;
+                                case 2:
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using second width encoder value of {1}, averaging", NumSidesMapped, encoder_value), MessageType.Info);
+                                    WorkArea.SetHeight(encoder_value, true);
+                                    break;
+                                case 3:
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using second height encoder value of {1}, averaging", NumSidesMapped, encoder_value), MessageType.Info);
+                                    WorkArea.SetWidth(encoder_value, true);
+                                    break;
+                                default:
+                                    NetworkUtils.LogNetwork(string.Format("Sides value of {0} should not happen", NumSidesMapped), MessageType.Error);
+                                    break;
+                            }
                             NumSidesMapped++;
-                            SingleSetBool = true;
+                            if(NumSidesMapped > 3)
+                            {
+                                NetworkUtils.LogNetwork("Mapping finished, moving to calculations, MapTurn->Calculations", MessageType.Info);
+                                RobotAutoControlState = AutoControlState.Calculations;
+                                SingleSetBool = false;
+                            }
+                            else
+                            {
+                                SingleSetBool = true;
+                            }
                         }
                         else if (Hardware.LeftEncoder.Clicks <= -50)
                         {
@@ -533,6 +564,16 @@ namespace RobotCode
                             //DEBUG:TEMP SET BACK TO MAKE A SQUARE
                             RobotAutoControlState = AutoControlState.MapOneSide;
                             SingleSetBool = false;
+                        }
+                        break;
+                    case AutoControlState.Calculations:
+                        if(!SingleSetBool)
+                        {
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            NetworkUtils.LogNetwork("Sending mapping data...", MessageType.Info);
+                            NetworkUtils.LogNetwork(WorkArea.XMLMap, MessageType.Mapping);
+                            SingleSetBool = true;
                         }
                         break;
                     case AutoControlState.OnLowPowerBattery:

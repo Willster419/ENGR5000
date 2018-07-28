@@ -290,7 +290,26 @@
                     <Button Content="Clear Log File" HorizontalAlignment="Left" Margin="90,511,0,0" VerticalAlignment="Top" Width="75" x:Name="DeleteRobotLogFile" Click="DeleteRobotLogFile_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" x:Name="MapTab"/>
+            <TabItem Header="Map" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" x:Name="MapTab">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="MapWidth"             HorizontalAlignment="Left" Margin="10,10,0,0"  TextWrapping="Wrap" Text="Map Width: "         VerticalAlignment="Top"/>
+                    <TextBlock x:Name="MapHeight"            HorizontalAlignment="Left" Margin="10,26,0,0"  TextWrapping="Wrap" Text="Map Height: "        VerticalAlignment="Top"/>
+                    <TextBlock x:Name="RobotLocationX"       HorizontalAlignment="Left" Margin="10,42,0,0"  TextWrapping="Wrap" Text="Robot Location X: "  VerticalAlignment="Top"/>
+                    <TextBlock x:Name="RobotLocationY"       HorizontalAlignment="Left" Margin="10,58,0,0"  TextWrapping="Wrap" Text="Robot Location Y: "  VerticalAlignment="Top"/>
+                    <TextBlock x:Name="NumObstructions"      HorizontalAlignment="Left" Margin="10,74,0,0"  TextWrapping="Wrap" Text="Obstruction Count: " VerticalAlignment="Top"/>
+                    <TextBlock x:Name="MapWidthValue"        HorizontalAlignment="Left" Margin="120,10,0,0" TextWrapping="Wrap" Text="Value"               VerticalAlignment="Top"/>
+                    <TextBlock x:Name="MapHeightValue"       HorizontalAlignment="Left" Margin="120,26,0,0" TextWrapping="Wrap" Text="Value"               VerticalAlignment="Top"/>
+                    <TextBlock x:Name="RobotLocationXValue"  HorizontalAlignment="Left" Margin="120,42,0,0" TextWrapping="Wrap" Text="Value"               VerticalAlignment="Top"/>
+                    <TextBlock x:Name="RobotLocationYValue"  HorizontalAlignment="Left" Margin="120,58,0,0" TextWrapping="Wrap" Text="Value"               VerticalAlignment="Top"/>
+                    <TextBlock x:Name="NumObstructionsValue" HorizontalAlignment="Left" Margin="120,74,0,0" TextWrapping="Wrap" Text="Value"               VerticalAlignment="Top"/>
+                    <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1166" Margin="10,95,10,10">
+                        <Canvas HorizontalAlignment="Stretch" Margin="-2" VerticalAlignment="Stretch">
+                            <Rectangle x:Name="WorkAreaTangle" Height="100" Canvas.Left="10" Canvas.Top="10" Width="100" Fill="#FF0000DC" Visibility="Hidden"/>
+
+                        </Canvas>
+                    </Border>
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>

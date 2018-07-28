@@ -3,6 +3,7 @@ using System.Windows;
 using System.Reflection;
 using System.Windows.Controls;
 using Dashboard.Resources;
+using System.Xml;
 
 namespace Dashboard
 {
@@ -191,6 +192,64 @@ namespace Dashboard
             PositionZ.Text = data[i++];
             //and log it to disk
             Logging.WriteDataLogEntry(data);
+        }
+        public void OnXMLMapData(string xmlData)
+        {
+            XmlDocument doc = new XmlDocument();
+            bool parseXmlPass = false;
+            try
+            {
+                doc.LoadXml(xmlData);
+                parseXmlPass = true;
+            }
+            catch(XmlException xmle)
+            {
+                Logging.LogConsole("ERROR: failed to parse xml document: \n" + xmle.ToString());
+            }
+            if (!parseXmlPass)
+                return;
+            Logging.LogConsole("Parsing xml document");
+            if(WorkAreaTangle.Visibility != Visibility.Visible)
+            {
+                WorkAreaTangle.Visibility = Visibility.Visible;
+            }
+            //get the attributes
+            XmlNode map = doc.SelectSingleNode("//Map");
+            foreach(XmlAttribute attribute in map.Attributes)
+            {
+                switch(attribute.Name)
+                {
+                    case "Height":
+                        if(!string.IsNullOrWhiteSpace(attribute.Value))
+                            WorkAreaTangle.Height = float.Parse(attribute.Value) / 2F;
+                        break;
+                    case "Width":
+                        if (!string.IsNullOrWhiteSpace(attribute.Value))
+                            WorkAreaTangle.Height = float.Parse(attribute.Value) / 2F;
+                        break;
+                    case "RobotPositionX":
+                        if (!string.IsNullOrWhiteSpace(attribute.Value))
+                        {
+                            //TODO
+                        }
+                        break;
+                    case "RobotPositionY":
+                        if (!string.IsNullOrWhiteSpace(attribute.Value))
+                        {
+                            //TODO
+                        }
+                        break;
+                    default:
+                        Logging.LogConsole("ERROR: unknown xml attribute: " + attribute.Name);
+                        break;
+                }
+            }
+            XmlNode obstructions = doc.SelectSingleNode("//Map/Obstructions");
+            foreach(XmlElement element in obstructions.ChildNodes)
+            {
+                //TODO
+            }
+            Logging.LogConsole("Parsing xml document complete");
         }
         /// <summary>
         /// On click on checkbox when the user wants to request manual debug control

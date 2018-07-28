@@ -622,7 +622,7 @@ namespace RobotCode
 
             //...and get normalization values
             NetworkUtils.LogNetwork("Getting normalized values for accel and gyro", MessageType.Debug);
-            NormalizeI2CData(1, 1);
+            NormalizeI2CData(0, 0);
 
             return true;
         }
@@ -753,18 +753,18 @@ namespace RobotCode
             GyroY -= GyroY_Offset;
             GyroZ -= GyroZ_Offset;
 
-            //integration
-            VelocityX += AccelerationX;
-            VelocityY += AccelerationY;
-            VelocityZ += AccelerationZ;
-            RotationX += GyroX;
-            RotationY += GyroY;
-            RotationZ += GyroZ;
+            //integration with rounding
+            VelocityX = MathF.Round(VelocityX + AccelerationX,accel_round);
+            VelocityY = MathF.Round(VelocityY + AccelerationY, accel_round);
+            VelocityZ = MathF.Round(VelocityZ + AccelerationZ, accel_round);
+            RotationX = MathF.Round(RotationX + GyroX, accel_round);
+            RotationY = MathF.Round(RotationY + GyroY, accel_round);
+            RotationZ = MathF.Round(RotationZ + GyroZ, accel_round);
 
-            //more integration
-            PositionX += VelocityX;
-            PositionY += VelocityY;
-            PositionZ += VelocityZ;
+            //more integration with rounding
+            PositionX = MathF.Round(PositionX + VelocityX, gyro_round);
+            PositionY = MathF.Round(PositionY + VelocityY, gyro_round);
+            PositionZ = MathF.Round(PositionZ + VelocityZ, gyro_round);
         }
         /// <summary>
         /// Gets the current values and uses them as normalization values to subtract when getting actual values later. Calibration, if you will

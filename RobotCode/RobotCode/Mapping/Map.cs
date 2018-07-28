@@ -34,6 +34,11 @@ namespace RobotCode.Mapping
     {
         public float X_Cordinate;
         public float Y_Cordinate;
+        public void SetLocation(float x, float y)
+        {
+            X_Cordinate = x;
+            Y_Cordinate = y;
+        }
     }
     /// <summary>
     /// The actual map that will be created in memory
@@ -58,7 +63,7 @@ namespace RobotCode.Mapping
         private XmlAttribute XmlRobotPositionX;
         private XmlAttribute XmlRobotPositionY;
         private XmlElement XmlObstructionsHolder;
-        public Location RobotLocation;
+        public Location RobotLocation { get; private set; }
         /// <summary>
         /// Get the total number of obstructions in this map
         /// </summary>
@@ -73,19 +78,11 @@ namespace RobotCode.Mapping
         {
             get
             {
-                return MapDocument.ToString();
+                return MapDocument.OuterXml;
             }
         }
-        public float Width
-        {
-            get { return Width; }
-            set { Width = value; }
-        }
-        public float Height
-        {
-            get { return Height; }
-            set { Height = value; }
-        }
+        private float Width;
+        private float Height;
         public float Area
         {
             get { return Width * Height; }
@@ -106,6 +103,8 @@ namespace RobotCode.Mapping
             XmlMap.Attributes.Append(XmlWidth);
             XmlMap.Attributes.Append(XmlRobotPositionX);
             XmlMap.Attributes.Append(XmlRobotPositionY);
+            XmlMap.AppendChild(XmlObstructionsHolder);
+            MapDocument.AppendChild(XmlMap);
             Obstructions = new List<Obstruction>();
             RobotLocation = new Location()
             {
@@ -129,7 +128,9 @@ namespace RobotCode.Mapping
                 this.Width = width;
 
             }
+            XmlWidth.Value = this.Width.ToString();
         }
+
         public void SetHeight(float height, bool avg)
         {
             if (avg)
@@ -140,7 +141,16 @@ namespace RobotCode.Mapping
             {
                 this.Height = height;
             }
+            XmlHeight.Value = this.Height.ToString();
         }
+
+        public void SetRobotLocation(float x, float y)
+        {
+            RobotLocation.SetLocation(x, y);
+            XmlRobotPositionX.Value = x.ToString();
+            XmlRobotPositionY.Value = y.ToString();
+        }
+
         public void AddObstruction(float width, float height, float LocationX, float LocationY)
         {
             Obstructions.Append(new Obstruction(width, height, Obstructions.Count + 1, MapDocument, XmlObstructionsHolder));
