@@ -277,7 +277,7 @@ namespace Dashboard
             {
                 if(timeout < 10)
                 {
-                    Logging.LogConsole("ERROR: invalid shutdown timeout: " + timeout.ToString());
+                    Logging.LogConsole(string.Format("ERROR: invalid shutdown timeout: {0}. Timeout must be positive number greator than 10", timeout.ToString()));
                     return;
                 }
                 NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Shutdown," + timeout.ToString());
@@ -304,7 +304,7 @@ namespace Dashboard
             {
                 if (timeout < 10)
                 {
-                    Logging.LogConsole("ERROR: invalid rebot timeout: " + timeout.ToString());
+                    Logging.LogConsole(string.Format("ERROR: invalid reboot timeout: {0}. Timeout must be positive number greator than 10", timeout.ToString()));
                     return;
                 }
                 NetworkUtils.SendRobotMesage(NetworkUtils.MessageType.Control, "Reboot," + timeout.ToString());
