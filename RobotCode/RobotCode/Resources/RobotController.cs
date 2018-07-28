@@ -261,15 +261,17 @@ namespace RobotCode
             }
             if (ControlStatus != ControlStatus.Manual)
                 ControlStatus = ControlStatus.Manual;
-            if(!Hardware.SideReciever.Enabled)
+            NetworkUtils.LogNetwork("Manual control method starting", MessageType.Debug);
+            if (!Hardware.SideReciever.Enabled)
             {
+                NetworkUtils.LogNetwork("Starting side reciever", MessageType.Debug);
                 Hardware.SideReciever.Start();
             }
             if(!Hardware.FrontReciever.Enabled)
             {
+                NetworkUtils.LogNetwork("Starting front reciever", MessageType.Debug);
                 Hardware.FrontReciever.Start();
             }
-            NetworkUtils.LogNetwork("Manual control method starting", MessageType.Debug);
             while (true)
             {
                 if(ControllerThread.CancellationPending)
@@ -303,12 +305,12 @@ namespace RobotCode
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
-                if(Hardware.SideReciever.WallDetected && Manual_counter_1++ > 10)
+                if(Hardware.SideReciever.WallDetected && Manual_counter_1++ > 40)
                 {
                     Hardware.SideReciever.ResetDetection();
                     Manual_counter_1 = 0;
                 }
-                if(Hardware.FrontReciever.WallDetected && Manual_counter_2++ > 10)
+                if(Hardware.FrontReciever.WallDetected && Manual_counter_2++ > 40)
                 {
                     Hardware.FrontReciever.ResetDetection();
                     Manual_counter_2 = 0;
@@ -331,7 +333,7 @@ namespace RobotCode
                     Hardware.Auger_pin.Write(GpioPinValue.High);
                     Hardware.Impeller_pin.Write(GpioPinValue.High);
                 }
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(25);
             }
         }
         /// <summary>
@@ -429,12 +431,12 @@ namespace RobotCode
                 {
                     case AutoControlState.None:
                         //getting into here means that the robot has not started, has good batteries, and is not water level full
-                        Hardware.SideReciever.Start();
-                        Hardware.FrontReciever.Start();
-                        RobotAutoControlState = AutoControlState.TurnToMap;
-                        if (WorkArea == null)
-                          WorkArea = new Map();
-                        NetworkUtils.LogNetwork("On robot init, autocontrolstate from none to turntomap", MessageType.Info);
+                        //Hardware.SideReciever.Start();
+                        //Hardware.FrontReciever.Start();
+                        //RobotAutoControlState = AutoControlState.TurnToMap;
+                        //if (WorkArea == null)
+                          //WorkArea = new Map();
+                        //NetworkUtils.LogNetwork("On robot init, autocontrolstate from none to turntomap", MessageType.Info);
                         SingleSetBool = false;
                         break;
                     case AutoControlState.TurnToMap:
@@ -655,8 +657,15 @@ namespace RobotCode
         /// </summary>
         public static void CancelShutdown()
         {
-            NetworkUtils.LogNetwork("Canceling shutdown/reboot", MessageType.Warning);
-            ShutdownManager.CancelShutdown();
+            try
+            {
+                ShutdownManager.CancelShutdown();
+                NetworkUtils.LogNetwork("Shutdown/reboot canceled", MessageType.Warning);
+            }
+            catch
+            {
+                NetworkUtils.LogNetwork("Failed to cancel shutdown/reboot: no command exists", MessageType.Warning);
+            }
         }
         public static void SetRobotStatus(RobotStatus status)
         {
