@@ -48,6 +48,11 @@ namespace RobotCode.Sensors
 
         private void OnEchoResponse(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
+            if (RobotController.SystemDispatcher == null)
+            {
+                NetworkUtils.LogNetwork("RobotController.SystemDispatcher is null", MessageType.Error);
+                return;
+            }
             var task = RobotController.SystemDispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 switch (args.Edge)

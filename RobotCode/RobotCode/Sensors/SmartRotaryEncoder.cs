@@ -98,6 +98,11 @@ namespace RobotCode.Sensors
         /// <param name="args">GPIO pin event arguements</param>
         private void OnValueChange(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
+            if (RobotController.SystemDispatcher == null)
+            {
+                NetworkUtils.LogNetwork("RobotController.SystemDispatcher is null", MessageType.Error);
+                return;
+            }
             var task = RobotController.SystemDispatcher.RunAsync(CoreDispatcherPriority.High, () =>
             {
                 //https://hifiduino.wordpress.com/2010/10/20/rotaryencoder-hw-sw-no-debounce/
