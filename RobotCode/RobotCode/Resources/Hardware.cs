@@ -865,7 +865,7 @@ namespace RobotCode
             //make signal 0 - 4 = correspond to 0 - 60 actual
             float voltage_part_2 = voltage_part_1 * 15F;
             //subtract 30 to normalize back
-            SignalVoltage = MathF.Round(voltage_part_2 - 34.5F, 2);
+            SignalVoltage = MathF.Round((voltage_part_2 - 38F), 2);
             SignalCurrent = MathF.Round(MathF.Abs(SignalCurrentRaw - CURRENT_BASE_SUBTRACT) * SIGNAL_CURRENT_MULTIPLIER, 2);
         }
         /// <summary>
