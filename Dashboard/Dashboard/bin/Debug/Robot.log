@@ -12251,3 +12251,1860 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-28:12-14-54.846   WARNING: Shutting down in 20 seconds
 2018-07-28:12-15-13.530   WARNING: Canceling shutdown/reboot
 2018-07-28:12-15-23.320   WARNING: Canceling shutdown/reboot
+2018-07-28:14-07-16.743   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:14-07-16.989   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-07-19.990   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-08-00.299   DEBUG: dashboard connected via force wait
+2018-07-28:14-08-00.299   INFO: Initializing Encoders
+2018-07-28:14-08-00.324   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-08-00.571   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-08-01.007   INFO: PWM loading complete, I2C
+2018-07-28:14-08-01.224   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-08-01.336   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-08-01.337   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-08-01.337   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-08-01.338   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-08-01.339   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-08-01.340   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-08-01.450   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-08-44.385   Robot log cleared
+2018-07-28:14-08-46.682   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-08-49.485   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-12-15.113   DEBUG: dashboard connected via force wait
+2018-07-28:14-12-15.113   INFO: Initializing Encoders
+2018-07-28:14-12-15.134   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-12-15.283   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-12-15.659   INFO: PWM loading complete, I2C
+2018-07-28:14-12-15.866   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-12-15.976   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-12-15.979   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-12-15.980   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-12-15.980   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-12-15.980   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-12-15.980   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-12-16.123   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-12-16.123   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-12-16.124   INFO: Controller initialized, system online
+2018-07-28:14-13-31.592   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-13-36.413   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-14-21.708   DEBUG: dashboard connected via force wait
+2018-07-28:14-14-21.710   INFO: Initializing Encoders
+2018-07-28:14-14-21.726   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-14-21.854   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-14-22.216   INFO: PWM loading complete, I2C
+2018-07-28:14-14-22.459   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-14-22.574   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-14-22.575   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-14-22.575   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-14-22.575   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-14-22.575   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-14-22.575   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-14-22.672   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-15-24.934   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-15-25.371   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-15-50.678   DEBUG: dashboard connected via force wait
+2018-07-28:14-15-50.679   INFO: Initializing Encoders
+2018-07-28:14-15-50.704   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-15-50.943   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-15-51.353   INFO: PWM loading complete, I2C
+2018-07-28:14-15-51.582   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-15-51.697   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-15-51.700   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-15-51.700   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-15-51.701   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-15-51.701   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-15-51.701   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-15-51.796   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-17-26.212   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-17-26.320   INFO: Controller initialized, system online
+2018-07-28:14-18-36.448   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-18-36.859   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-19-12.155   DEBUG: dashboard connected via force wait
+2018-07-28:14-19-12.164   INFO: Initializing Encoders
+2018-07-28:14-19-12.165   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-19-12.274   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-19-12.437   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:14-19-12.650   INFO: PWM loading complete, I2C
+2018-07-28:14-19-12.905   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-19-12.975   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-19-12.975   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-19-12.975   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-19-12.976   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-19-12.976   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-19-12.976   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-19-13.077   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-19-53.337   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-19-53.657   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-20-33.898   DEBUG: dashboard connected via force wait
+2018-07-28:14-20-33.899   INFO: Initializing Encoders
+2018-07-28:14-20-33.913   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-20-34.047   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-20-34.407   INFO: PWM loading complete, I2C
+2018-07-28:14-20-34.618   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-20-34.725   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-20-34.725   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-20-34.726   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-20-34.726   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-20-34.726   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-20-34.728   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-20-34.882   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-21-11.844   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-21-11.858   INFO: Controller initialized, system online
+2018-07-28:14-23-06.299   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-28:14-25-02.666   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:14-25-02.947   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-25-03.329   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-26-53.786   DEBUG: dashboard connected via force wait
+2018-07-28:14-26-53.788   INFO: Initializing Encoders
+2018-07-28:14-26-53.815   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-26-54.064   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-26-54.460   INFO: PWM loading complete, I2C
+2018-07-28:14-26-54.657   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-26-54.773   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-26-54.774   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-26-54.775   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-26-54.776   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-26-54.777   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-26-54.778   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-26-54.872   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-26-54.879   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-26-54.922   INFO: Controller initialized, system online
+2018-07-28:14-28-21.053   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-28-21.365   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-29-21.658   DEBUG: dashboard connected via force wait
+2018-07-28:14-29-21.667   INFO: Initializing Encoders
+2018-07-28:14-29-21.736   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-29-21.895   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-29-22.350   INFO: PWM loading complete, I2C
+2018-07-28:14-29-22.533   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-29-22.647   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-29-22.648   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-29-22.649   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-29-22.650   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-29-22.651   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-29-22.653   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-29-22.751   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-29-22.759   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-29-22.785   INFO: Controller initialized, system online
+2018-07-28:14-29-23.257   INFO: On robot init, autocontrol state none->turntomap
+2018-07-28:14-29-33.455   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-29-35.763   INFO: Robot has found wall, moving to map
+2018-07-28:14-30-15.059   DEBUG: Control thread is down, determining what to do next
+2018-07-28:14-30-15.066   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:14-30-15.074   DEBUG: Manual control method starting
+2018-07-28:14-30-33.777   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-31-04.964   DEBUG: Control thread is down, determining what to do next
+2018-07-28:14-31-04.965   DEBUG: Releasing manual control, restarting auto
+2018-07-28:14-31-04.973   INFO: On robot init, autocontrol state none->turntomap
+2018-07-28:14-31-11.011   INFO: Robot has found wall, moving to map
+2018-07-28:14-34-36.385   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-34-47.667   Dashboard: Robot not found
+2018-07-28:14-35-27.018   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-28:14-35-30.019   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:14-35-30.273   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-35-30.640   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-46-32.466   DEBUG: dashboard connected via force wait
+2018-07-28:14-46-32.468   INFO: Initializing Encoders
+2018-07-28:14-46-32.470   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-46-32.586   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-46-32.871   INFO: PWM loading complete, I2C
+2018-07-28:14-46-33.090   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-46-33.207   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-46-33.208   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-46-33.210   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-46-33.211   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-46-33.212   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-46-33.214   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-46-33.308   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-46-33.328   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-46-33.362   INFO: Controller initialized, system online
+2018-07-28:14-46-33.829   INFO: On robot init, autocontrol state none->turntomap
+2018-07-28:14-46-34.323   DEBUG: Control thread is down, determining what to do next
+2018-07-28:14-46-34.323   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:14-46-34.336   DEBUG: Manual control method starting
+2018-07-28:14-46-38.610   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-39.237   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-40.135   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-40.656   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-41.155   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-42.211   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-42.784   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-43.228   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-44.966   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-45.351   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-55.748   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-56.272   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-57.042   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-57.759   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-46-58.859   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-47-34.850   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-47-35.161   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-47-35.819   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:14-48-30.056   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:14-48-30.320   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:14-54-06.312   DEBUG: dashboard connected via force wait
+2018-07-28:14-54-06.312   INFO: Initializing Encoders
+2018-07-28:14-54-06.342   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:14-54-06.573   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:14-54-07.000   INFO: PWM loading complete, I2C
+2018-07-28:14-54-07.211   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:14-54-07.323   DEBUG: MPU reports that device is on address 104...
+2018-07-28:14-54-07.324   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:14-54-07.324   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:14-54-07.325   DEBUG: Config gyro and accel sensitivity
+2018-07-28:14-54-07.325   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:14-54-07.325   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:14-54-07.429   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:14-54-07.432   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:14-54-07.445   INFO: Controller initialized, system online
+2018-07-28:14-54-07.793   INFO: On robot init, autocontrol state none->turntomap
+2018-07-28:14-54-10.912   DEBUG: Control thread is down, determining what to do next
+2018-07-28:14-54-10.915   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:14-54-10.924   DEBUG: Manual control method starting
+2018-07-28:14-59-50.122   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:15-00-01.408   Dashboard: Robot not found
+2018-07-28:15-01-19.015   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-28:15-01-36.441   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:15-01-36.679   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:15-01-37.008   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:15-02-07.164   DEBUG: dashboard connected via force wait
+2018-07-28:15-02-07.164   INFO: Initializing Encoders
+2018-07-28:15-02-07.184   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:15-02-07.376   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:15-02-07.815   INFO: PWM loading complete, I2C
+2018-07-28:15-02-08.132   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:15-02-08.201   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:15-02-08.203   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:15-02-08.208   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:15-02-08.248   DEBUG: MPU reports that device is on address 104...
+2018-07-28:15-02-08.248   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:15-02-08.249   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:15-02-08.249   DEBUG: Config gyro and accel sensitivity
+2018-07-28:15-02-08.250   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:15-02-08.252   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:15-02-08.347   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:15-02-08.354   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:15-02-08.395   INFO: Controller initialized, system online
+2018-07-28:15-02-09.081   INFO: On robot init, autocontrol state none->turntomap
+2018-07-28:15-02-09.469   DEBUG: Control thread is down, determining what to do next
+2018-07-28:15-02-09.473   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:15-02-09.484   DEBUG: Manual control method starting
+2018-07-28:15-02-15.765   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-18.251   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-19.738   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-19.972   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-20.729   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-21.368   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-22.429   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-02-23.339   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-03-33.248   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:15-03-33.503   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:15-20-56.227   DEBUG: dashboard connected via force wait
+2018-07-28:15-20-56.229   INFO: Initializing Encoders
+2018-07-28:15-20-56.247   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:15-20-56.405   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:15-20-56.725   INFO: PWM loading complete, I2C
+2018-07-28:15-20-57.026   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:15-20-57.137   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:15-20-57.143   DEBUG: MPU reports that device is on address 104...
+2018-07-28:15-20-57.144   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:15-20-57.146   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:15-20-57.148   DEBUG: Config gyro and accel sensitivity
+2018-07-28:15-20-57.152   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:15-20-57.154   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:15-20-57.242   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:15-20-57.243   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:15-20-57.266   INFO: Controller initialized, system online
+2018-07-28:15-20-57.957   INFO: On robot init, autocontrol state none->turntomap
+2018-07-28:15-21-02.471   INFO: Robot has found wall, moving to map
+2018-07-28:15-21-02.483   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.501   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.575   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.578   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.601   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.603   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.625   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.643   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.657   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.671   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.703   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.719   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.735   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.749   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.767   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.781   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.796   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.850   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.853   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.876   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.891   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.909   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.926   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.973   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-02.981   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.015   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.016   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.025   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.063   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.115   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.117   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.119   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.126   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.140   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.158   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.170   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.206   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.209   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.238   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.252   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.284   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.297   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.313   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.345   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.407   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.427   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.436   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.456   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.471   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.513   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.530   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.548   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.562   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.578   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.595   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.629   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.670   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.706   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.734   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.748   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.763   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.783   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.830   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.845   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.875   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.890   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.906   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.929   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.953   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.973   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-03.999   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.021   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.068   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.081   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.093   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.114   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.123   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.139   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.156   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.191   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.199   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.205   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.222   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.235   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.250   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.279   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.298   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.311   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.344   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.357   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.373   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.392   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.409   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.421   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.438   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.455   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.467   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.485   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.500   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.515   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.534   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.548   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.572   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.586   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.614   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.617   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.653   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.654   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.656   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.695   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.706   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.728   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.759   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.772   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.786   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.800   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.818   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.826   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.843   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.859   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.882   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.890   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.906   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.960   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-04.987   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.001   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.047   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.062   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.077   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.095   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.109   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.126   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.141   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.155   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.171   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.187   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.201   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.235   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.248   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.265   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.282   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.314   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.331   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.346   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.376   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.389   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.405   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.428   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.437   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.451   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.476   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.484   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.498   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.521   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.530   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.546   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.567   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.576   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.592   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.610   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.623   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.639   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.657   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.673   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.689   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.703   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.751   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.765   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.809   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.812   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.844   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.873   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.916   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.918   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.938   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.952   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.971   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.984   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-05.998   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.032   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.047   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.061   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.082   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.092   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.108   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.125   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.139   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.162   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.180   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.188   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.202   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.225   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.235   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.249   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.272   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.317   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.326   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.343   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.359   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.374   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.390   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.437   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.439   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.447   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.453   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.503   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.509   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.511   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.530   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.549   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.563   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.576   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.594   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.626   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.634   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.722   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.730   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.732   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.741   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.748   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.764   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.782   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.829   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.845   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.879   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.891   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.905   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.927   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.952   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.975   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-06.999   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.016   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.031   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.067   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.077   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.092   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.113   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.125   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.140   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.158   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.170   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.186   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.203   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.232   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.250   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.265   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.279   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.297   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.312   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.344   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.374   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.391   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.405   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.423   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.438   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.451   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.469   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.485   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.532   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.534   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.541   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.545   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.560   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.579   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.592   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.626   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.639   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.676   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.686   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.701   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.726   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.749   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.766   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.780   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.820   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.827   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.842   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.859   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.874   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.890   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.907   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.920   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.953   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-07.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.000   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.015   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.047   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.061   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.080   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.095   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.111   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.124   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.143   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.156   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.170   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.188   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.201   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.235   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.249   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.281   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.301   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.315   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.337   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.342   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.382   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.389   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.405   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.423   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.438   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.455   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.476   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.484   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.498   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.520   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.530   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.545   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.570   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.601   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.603   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.611   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.626   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.642   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.658   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.670   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.686   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.704   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.735   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.750   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.764   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.779   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.797   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.812   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.826   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.847   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.874   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.878   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.891   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.904   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.920   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.940   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.952   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.968   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-08.984   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.002   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.017   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.033   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.062   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.080   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.093   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.108   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.126   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.139   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.155   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.176   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.186   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.202   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.227   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.236   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.248   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.273   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.313   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.343   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.360   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.374   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.389   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.406   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.421   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.437   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.453   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.467   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.483   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.500   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.529   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.547   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.564   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.594   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.609   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.627   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.657   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.670   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.687   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.701   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.718   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.735   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.748   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.764   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.784   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.812   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.842   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.880   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.889   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.905   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.927   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.938   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.952   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.976   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-09.998   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.024   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.046   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.068   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.078   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.095   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.114   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.123   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.139   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.157   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.171   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.187   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.203   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.218   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.233   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.250   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.297   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.311   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.344   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.376   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.391   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.404   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.422   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.439   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.452   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.467   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.485   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.499   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.531   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.545   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.561   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.579   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.593   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.607   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.629   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.640   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.681   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.686   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.703   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.720   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.750   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.766   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.781   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.818   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.820   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.830   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.843   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.864   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.875   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.895   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.911   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.953   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-10.984   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.002   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.048   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.062   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.079   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.112   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.115   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.123   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.143   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.156   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.184   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.190   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.202   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.218   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.234   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.248   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.284   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.297   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.311   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.328   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.342   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.357   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.375   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.390   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.407   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.430   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.436   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.452   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.469   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.483   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.500   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.515   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.529   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.545   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.567   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.601   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.612   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.623   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.640   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.657   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.671   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.686   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.705   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.719   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.814   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.816   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.817   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.827   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.830   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.836   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.848   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.857   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.873   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.892   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.909   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.987   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.990   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.991   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-11.998   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.000   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.033   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.057   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.061   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.096   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.097   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.108   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.126   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.140   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.156   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.176   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.186   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.202   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.225   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.234   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.257   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.279   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.281   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.319   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.330   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.349   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.393   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.397   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.405   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.407   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.420   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.436   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.455   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.468   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.483   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.500   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.534   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.549   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.563   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.576   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.594   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.626   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.654   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.670   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.689   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.703   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.718   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.734   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.764   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.765   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.783   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.796   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.810   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.836   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.842   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.879   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.892   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.905   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.923   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.937   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.952   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.976   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-12.986   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.000   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.020   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.031   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.063   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.077   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.093   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.113   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.123   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.140   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.157   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.180   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.187   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.204   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.233   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.253   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.266   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.297   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.312   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.346   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.386   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.389   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.398   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.421   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.423   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.449   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.458   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.467   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.495   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.501   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.532   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.548   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.560   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.581   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.592   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.619   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.635   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.639   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.684   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.686   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.701   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.724   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.748   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.771   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.780   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.813   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.826   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.843   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.859   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.873   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.889   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.907   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.953   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-13.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.000   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.015   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.029   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.048   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.061   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.078   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.093   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.115   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.123   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.141   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.154   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.173   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.191   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.201   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.235   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.249   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.265   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.281   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.311   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.333   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.342   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.359   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.382   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.389   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.412   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.428   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.436   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.451   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.475   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.484   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.499   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.521   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.531   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.548   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.568   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.594   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.610   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.623   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.640   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.684   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.690   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.701   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.705   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.734   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.751   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.767   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.780   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.798   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.849   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.873   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.892   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.905   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.923   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.939   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.951   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.985   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-14.998   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.032   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.062   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.079   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.097   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.109   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.125   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.139   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.155   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.193   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.195   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.201   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.225   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.233   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.248   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.282   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.322   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.342   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.388   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.391   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.400   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.407   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.421   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.436   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.454   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.468   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.482   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.503   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.529   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.547   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.561   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.596   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.624   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.656   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.673   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.701   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.735   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.748   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.765   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.785   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.815   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.842   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.858   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.878   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.897   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.904   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.930   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.952   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.975   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-15.998   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.022   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.031   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.048   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.083   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.092   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.109   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.125   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.141   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.154   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.171   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.186   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.201   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.225   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.233   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.249   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.274   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.279   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.295   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.321   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.342   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.359   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.374   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.439   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.441   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.443   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.450   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.453   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.468   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.487   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.500   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.533   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.547   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.561   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.594   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.623   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.671   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.713   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.718   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.721   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.735   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.749   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.765   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.782   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.796   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.842   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.857   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.876   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.889   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.908   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.929   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.953   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.976   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.983   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-16.998   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.022   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.030   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.045   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.064   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.077   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.093   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.113   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.124   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.141   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.157   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.171   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.186   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.204   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.217   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.234   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.250   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.297   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.311   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.326   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.346   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.409   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.412   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.413   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.422   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.439   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.453   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.467   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.484   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.499   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.521   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.534   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.545   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.561   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.578   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.593   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.608   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.625   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.639   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.675   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.711   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.721   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.748   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.765   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.783   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.795   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.817   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.829   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.845   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.863   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.874   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.889   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.906   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.936   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.954   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-17.988   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.001   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.036   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.048   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.063   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.079   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.094   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.108   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.123   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.141   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.156   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.170   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.214   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.216   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.218   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.234   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.252   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.264   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.284   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.296   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.311   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.329   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.342   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.358   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.375   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.391   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.406   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.428   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.438   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.451   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.475   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.483   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.499   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.521   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.530   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.545   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.571   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.577   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.592   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.610   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.639   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.648   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.657   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.673   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.706   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.733   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.750   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.764   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.780   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.797   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.811   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.828   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.845   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.857   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.873   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.892   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.904   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.921   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.942   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.951   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.967   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-18.986   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.005   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.014   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.059   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.059   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.061   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.078   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.093   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.108   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.125   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.139   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.155   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.172   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.186   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.201   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.225   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.262   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.263   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.274   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.280   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.300   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.321   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.327   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.344   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.361   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.374   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.390   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.406   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.420   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.436   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.454   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.467   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.483   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.500   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.514   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.529   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.565   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.569   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.580   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.593   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.626   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.628   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.641   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.655   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.671   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.688   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.704   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.717   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.734   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.760   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.763   INFO: Side IR detected wall, need to turn small left
+2018-07-28:15-21-19.794   DEBUG: Control thread is down, determining what to do next
+2018-07-28:15-21-19.796   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:15-21-19.807   DEBUG: Manual control method starting
+2018-07-28:15-32-47.189   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:15-32-47.644   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:15-46-14.886   DEBUG: dashboard connected via force wait
+2018-07-28:15-46-14.887   INFO: Initializing Encoders
+2018-07-28:15-46-14.913   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:15-46-15.154   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:15-46-15.592   INFO: PWM loading complete, I2C
+2018-07-28:15-46-15.814   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:15-46-15.920   DEBUG: MPU reports that device is on address 104...
+2018-07-28:15-46-15.921   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:15-46-15.921   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:15-46-15.921   DEBUG: Config gyro and accel sensitivity
+2018-07-28:15-46-15.921   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:15-46-15.922   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:15-46-16.022   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:15-46-16.029   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:15-46-16.055   INFO: Controller initialized, system online
+2018-07-28:15-46-16.540   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:15-46-20.351   INFO: Robot has found side wall, TurnToMap->MapOneSide
+2018-07-28:15-46-33.219   DEBUG: Control thread is down, determining what to do next
+2018-07-28:15-46-33.225   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:15-46-33.240   DEBUG: Manual control method starting
+2018-07-28:15-46-42.990   DEBUG: Control thread is down, determining what to do next
+2018-07-28:15-46-42.991   DEBUG: Releasing manual control, restarting auto
+2018-07-28:15-46-42.997   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:15-46-45.241   DEBUG: Control thread is down, determining what to do next
+2018-07-28:15-46-45.243   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:15-46-45.243   DEBUG: Manual control method starting
+2018-07-28:15-49-52.074   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:15-49-52.481   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:15-50-32.778   DEBUG: dashboard connected via force wait
+2018-07-28:15-50-32.778   INFO: Initializing Encoders
+2018-07-28:15-50-32.805   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:15-50-32.953   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:15-50-33.311   INFO: PWM loading complete, I2C
+2018-07-28:15-50-33.514   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:15-50-33.622   DEBUG: MPU reports that device is on address 104...
+2018-07-28:15-50-33.623   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:15-50-33.623   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:15-50-33.624   DEBUG: Config gyro and accel sensitivity
+2018-07-28:15-50-33.624   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:15-50-33.625   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:15-50-33.733   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:15-50-33.734   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:15-50-33.757   INFO: Controller initialized, system online
+2018-07-28:15-50-34.248   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:15-50-40.993   INFO: Robot has found side wall, TurnToMap->MapOneSide
+2018-07-28:15-50-41.930   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:15-53-13.180   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:15-53-13.599   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:15-53-53.791   DEBUG: dashboard connected via force wait
+2018-07-28:15-53-53.792   INFO: Initializing Encoders
+2018-07-28:15-53-53.796   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:15-53-53.929   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:15-53-54.278   INFO: PWM loading complete, I2C
+2018-07-28:15-53-54.481   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:15-53-54.590   DEBUG: MPU reports that device is on address 104...
+2018-07-28:15-53-54.591   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:15-53-54.591   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:15-53-54.592   DEBUG: Config gyro and accel sensitivity
+2018-07-28:15-53-54.593   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:15-53-54.593   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:15-53-54.694   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:15-53-54.701   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:15-53-54.723   INFO: Controller initialized, system online
+2018-07-28:15-53-55.208   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:15-53-58.241   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:15-53-59.178   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:15-54-01.008   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-01.454   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-01.869   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-02.473   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-03.425   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-04.124   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-04.893   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-05.566   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-06.017   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-07.002   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-07.792   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-08.738   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-09.588   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-10.432   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-12.117   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-12.600   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-13.047   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-14.108   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-14.727   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-15.600   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-15.602   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:15-54-16.475   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:15-54-18.385   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-20.184   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-20.660   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-21.149   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-21.809   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-22.240   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-23.206   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-23.382   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:15-54-24.287   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:15-54-24.685   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-25.313   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-27.245   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-27.860   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-28.629   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-29.507   INFO: Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn
+2018-07-28:15-54-29.732   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-31.209   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:15-54-32.303   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-33.252   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-34.234   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-35.427   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-35.876   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-36.476   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-37.227   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-38.105   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-39.898   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-40.841   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-41.493   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-41.973   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-42.449   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-43.313   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-43.867   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-44.477   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-44.957   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-45.617   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-46.067   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-46.498   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-47.575   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-48.025   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-48.722   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-49.232   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-49.836   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-50.757   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-51.614   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-52.752   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-53.324   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-56.257   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-57.899   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-59.002   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-54-59.615   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:15-55-02.778   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:15-55-03.652   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-04.436   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-05.028   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-05.568   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:15-55-05.696   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-09.782   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:15-55-10.083   INFO: Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn
+2018-07-28:15-55-15.290   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:15-55-16.265   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-16.947   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-17.668   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-19.154   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-19.773   INFO: Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn
+2018-07-28:15-55-24.149   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:15-55-25.134   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-25.601   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-26.132   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-26.748   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-27.560   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-28.143   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-28.878   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-29.636   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-30.111   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-30.542   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-31.561   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-32.136   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-32.933   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-34.107   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-34.576   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-35.941   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-36.441   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-37.592   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-38.392   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-39.230   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-40.154   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-40.877   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-41.512   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-42.084   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-42.549   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-43.123   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-44.232   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-45.160   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-45.765   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-46.684   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-47.281   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-48.720   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-49.218   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-50.205   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-50.652   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-51.669   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-52.195   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-53.625   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-54.297   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-54.727   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-55.391   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-55.828   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-56.280   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-57.716   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-58.407   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-59.076   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-55-59.938   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-00.541   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-00.967   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-01.754   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-03.254   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-04.520   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-05.496   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-05.933   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-06.479   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-07.391   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-07.858   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-08.673   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-09.134   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-10.373   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-10.902   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:15-56-11.967   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-11-39.908   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:16-11-40.146   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:16-12-20.421   DEBUG: dashboard connected via force wait
+2018-07-28:16-12-20.424   INFO: Initializing Encoders
+2018-07-28:16-12-20.437   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:16-12-20.565   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:16-12-20.725   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-12-20.727   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-12-20.852   INFO: PWM loading complete, I2C
+2018-07-28:16-12-21.104   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:16-12-21.206   DEBUG: MPU reports that device is on address 104...
+2018-07-28:16-12-21.207   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:16-12-21.210   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:16-12-21.211   DEBUG: Config gyro and accel sensitivity
+2018-07-28:16-12-21.211   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:16-12-21.211   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:16-12-21.313   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:16-12-21.324   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:16-12-21.347   INFO: Controller initialized, system online
+2018-07-28:16-12-21.810   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:16-12-32.187   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:16-12-33.842   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:16-12-34.144   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-12-34.533   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-13-25.136   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:16-13-25.417   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:16-13-46.542   Robot log cleared
+2018-07-28:16-13-50.591   DEBUG: dashboard connected via force wait
+2018-07-28:16-13-50.592   INFO: Initializing Encoders
+2018-07-28:16-13-50.614   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:16-13-50.840   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:16-13-51.055   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-13-51.245   INFO: PWM loading complete, I2C
+2018-07-28:16-13-51.449   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:16-13-51.563   DEBUG: MPU reports that device is on address 104...
+2018-07-28:16-13-51.564   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:16-13-51.565   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:16-13-51.566   DEBUG: Config gyro and accel sensitivity
+2018-07-28:16-13-51.567   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:16-13-51.570   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:16-13-51.665   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:16-13-51.670   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:16-13-51.698   INFO: Controller initialized, system online
+2018-07-28:16-13-52.168   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:16-13-56.761   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-13-57.464   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-28:16-13-58.999   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:16-13-59.655   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-00.191   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-01.137   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-01.623   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-02.257   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-02.942   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-03.267   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-04.804   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-05.145   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-05.476   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-05.795   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-06.351   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-06.956   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-07.842   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-08.150   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:16-14-09.961   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:16-14-10.681   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-11.490   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-12.183   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-12.691   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-13.434   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-14.164   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-14.489   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-15.826   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-16.600   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-16.923   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-17.165   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:16-14-19.008   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:16-14-19.348   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-19.764   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-20.185   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-20.624   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-20.982   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-21.602   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-21.910   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-22.577   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-23.153   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-23.448   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-24.632   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-25.188   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-25.216   INFO: Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn
+2018-07-28:16-14-36.460   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:16-14-38.185   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-39.180   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-39.695   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:16-14-41.712   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:16-14-41.901   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-42.661   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-43.103   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-43.181   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-28:16-14-45.326   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-28:16-14-46.590   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-47.018   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-47.429   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-47.765   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-48.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-48.602   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-49.056   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-49.503   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-50.009   INFO: Front wall detected, saving average of position and encoder data, MapOneSide->MapTurn
+2018-07-28:16-14-50.228   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-14-59.992   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-28:16-15-02.096   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-02.941   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-03.794   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-04.106   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-04.497   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-05.139   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-05.625   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-05.950   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-06.768   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-07.748   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-08.199   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-08.671   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-09.134   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-10.386   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-11.252   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-15-12.343   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-04.094   Robot log cleared
+2018-07-28:16-16-07.665   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-28:16-16-08.031   Dashboard: Robot found, binding socket and listening for events
+2018-07-28:16-16-38.378   DEBUG: dashboard connected via force wait
+2018-07-28:16-16-38.378   INFO: Initializing Encoders
+2018-07-28:16-16-38.404   INFO: Proximity initialized, initializing SPI interface
+2018-07-28:16-16-38.645   INFO: SPI Interface initialization complete, loading PWM
+2018-07-28:16-16-38.885   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.885   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.893   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.895   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.899   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.900   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.906   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.909   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.913   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.915   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.939   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.940   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.969   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.971   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.975   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.979   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.980   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.986   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.987   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.991   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.992   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-38.997   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.004   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.054   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.054   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.058   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.063   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.064   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.103   INFO: PWM loading complete, I2C
+2018-07-28:16-16-39.279   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.282   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-28:16-16-39.283   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.285   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.286   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.289   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.289   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.293   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.294   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.296   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.296   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.297   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.298   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.301   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.302   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.305   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.306   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.306   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.309   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.311   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.313   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.315   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.315   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.319   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.320   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.321   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.324   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.327   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.329   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.329   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.332   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.334   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.338   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.339   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.340   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.344   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.346   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.346   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.349   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.351   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.356   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.361   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.362   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.367   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.370   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.372   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.377   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.381   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.385   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.386   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.396   DEBUG: MPU reports that device is on address 104...
+2018-07-28:16-16-39.399   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-28:16-16-39.400   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-28:16-16-39.400   DEBUG: Config gyro and accel sensitivity
+2018-07-28:16-16-39.400   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-28:16-16-39.400   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-28:16-16-39.400   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.400   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.403   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.407   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.411   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.413   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.415   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.423   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.424   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.425   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.430   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.430   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.432   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.437   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.437   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.441   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.446   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.450   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.450   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.454   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.455   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.458   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.464   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.465   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.467   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.468   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.472   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.477   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.479   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.483   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.484   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.488   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.489   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.492   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.493   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.498   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.498   ERROR: RobotController.SystemDispatcher is null
+2018-07-28:16-16-39.499   DEBUG: Getting normalized values for accel and gyro
+2018-07-28:16-16-39.508   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-28:16-16-39.530   INFO: Controller initialized, system online
+2018-07-28:16-16-40.060   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-28:16-16-44.760   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-44.851   DEBUG: Control thread is down, determining what to do next
+2018-07-28:16-16-44.855   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-28:16-16-44.865   DEBUG: Manual control method starting
+2018-07-28:16-16-47.271   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-47.821   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-48.223   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-48.752   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-49.016   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-16-50.131   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
+2018-07-28:16-17-45.045   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()
