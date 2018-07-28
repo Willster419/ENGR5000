@@ -67,8 +67,18 @@ namespace RobotCode
                 Application.Current.Exit();
             }
 
+            //proximity
+            /*
+            NetworkUtils.LogNetwork("Encoders initialized, loading proximity sensor", MessageType.Info);
+            if(!Hardware.InitDistanceSensor())
+            {
+                NetworkUtils.LogNetwork("Proximity Failed to initialize", MessageType.Error);
+                RobotController.SetRobotStatus(RobotStatus.Error);
+                Application.Current.Exit();
+            }*/
+
             //SPI/ADC
-            NetworkUtils.LogNetwork("Encoders initialized, initializing SPI interface", MessageType.Info);
+            NetworkUtils.LogNetwork("Proximity initialized, initializing SPI interface", MessageType.Info);
             //http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
             //https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation.findallasync
             //https://stackoverflow.com/questions/33587832/prevent-winforms-ui-block-when-using-async-await
