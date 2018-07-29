@@ -789,22 +789,29 @@ namespace RobotCode
         public static void UpdateI2CData(int gyro_round, int accel_round)
         {
             //Get the values
-            short xa = I2C_ReadShort(ACCEL_XOUT_H, ACCEL_XOUT_L);
-            short ya = I2C_ReadShort(ACCEL_YOUT_H, ACCEL_YOUT_L);
-            short za = I2C_ReadShort(ACCEL_ZOUT_H, ACCEL_ZOUT_L);
-            short xg = I2C_ReadShort(GYRO_XOUT_H, GYRO_XOUT_L);
-            short yg = I2C_ReadShort(GYRO_YOUT_H, GYRO_YOUT_L);
-            short zg = I2C_ReadShort(GYRO_ZOUT_H, GYRO_ZOUT_L);
-            short te = I2C_ReadShort(TEMP_OUT_H, TEMP_OUT_L);
+            try
+            {
+                short xa = I2C_ReadShort(ACCEL_XOUT_H, ACCEL_XOUT_L);
+                short ya = I2C_ReadShort(ACCEL_YOUT_H, ACCEL_YOUT_L);
+                short za = I2C_ReadShort(ACCEL_ZOUT_H, ACCEL_ZOUT_L);
+                short xg = I2C_ReadShort(GYRO_XOUT_H, GYRO_XOUT_L);
+                short yg = I2C_ReadShort(GYRO_YOUT_H, GYRO_YOUT_L);
+                short zg = I2C_ReadShort(GYRO_ZOUT_H, GYRO_ZOUT_L);
+                short te = I2C_ReadShort(TEMP_OUT_H, TEMP_OUT_L);
 
-            //data conversion
-            AccelerationX = xa / (float)16384;
-            AccelerationY = ya / (float)16384;
-            AccelerationZ = za / (float)16384;
-            GyroX = xg / (float)131;
-            GyroY = yg / (float)131;
-            GyroZ = zg / (float)131;
-            Tempature_2 = te / (float)16384;
+                //data conversion
+                AccelerationX = xa / (float)16384;
+                AccelerationY = ya / (float)16384;
+                AccelerationZ = za / (float)16384;
+                GyroX = xg / (float)131;
+                GyroY = yg / (float)131;
+                GyroZ = zg / (float)131;
+                Tempature_2 = te / (float)16384;
+            }
+            catch
+            {
+                return;
+            }
 
             //accel rounding
             if (accel_round >= 0)
