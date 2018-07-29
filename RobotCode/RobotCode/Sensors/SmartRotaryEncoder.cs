@@ -48,6 +48,7 @@ namespace RobotCode.Sensors
         private byte[] ErrorStateValues = new byte[] { 0, 0, 0, 0 };
         private int ErrorCounter = 0;
         public int ErrorThrshold { get; private set; } = 0;
+        public string EncoderName { get; private set; } = "";
         /// <summary>
         /// Creates an instance of the SmartRotaryEncoder object
         /// </summary>
@@ -61,7 +62,7 @@ namespace RobotCode.Sensors
         /// <param name="negateValues">Flag to negate the values (for other side of robot, for example)</param>
         /// <param name="errorThreshold">The ammount of click error accumulation to wait untill applying error connectoin. Must be above 2. Set 0 to disable Erorr correction</param>
         /// <returns></returns>
-        public bool InitEncoder(int clkPinNumber, int dtPinNumber, GpioController controller, bool negateValues, int errorThreshold)
+        public bool InitEncoder(int clkPinNumber, int dtPinNumber, GpioController controller, bool negateValues, int errorThreshold, string name)
         {
             CLKPin = controller.OpenPin(clkPinNumber);
             if (CLKPin == null)
@@ -89,6 +90,7 @@ namespace RobotCode.Sensors
 
             Clicks = 0;
             Ticks = 0;
+            EncoderName = name;
             return true;
         }
         /// <summary>
@@ -168,7 +170,7 @@ namespace RobotCode.Sensors
         }
         private void OnErrorAccumulation()
         {
-            NetworkUtils.LogNetwork("Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation()", MessageType.Warning);
+            NetworkUtils.LogNetwork(string.Format("Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name={0}",EncoderName), MessageType.Warning);
             ErrorCounter = 0;
         }
         /// <summary>
