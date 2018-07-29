@@ -1,7 +1,3 @@
 ROBOTCODE:
-  test encoders with new smart encoder stuff in main code
-  test proximity sensor with main code
-  write the infared mapping code
-  test mapping code
+  test new proximity sensor with main code
 DASHBOARD:
-  parse mapping info onto display
