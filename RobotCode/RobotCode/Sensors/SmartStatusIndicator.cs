@@ -51,6 +51,9 @@ namespace RobotCode.Resources
         /// The Task that asyncronously runs on a seperate thread to keep the UI thread as free as possible
         /// </summary>
         private Task Pin_task;
+        /// <summary>
+        /// Creates the instance of the SmartStatusIndicator. Needs to be initialized with InitIndicator()
+        /// </summary>
         public SmartStatusIndicator() { }
         /// <summary>
         /// Initializes the Status Indicator

@@ -36,6 +36,9 @@ namespace RobotCode.Resources
         /// Flag to help stop rouge falling edges, set with start and stop
         /// </summary>
         public bool Enabled { get; private set; } = false;
+        /// <summary>
+        /// Create an instance of the IR receiver object
+        /// </summary>
         public IRReciever() { }
         /// <summary>
         /// Initaliise the IR sensor
@@ -93,6 +96,11 @@ namespace RobotCode.Resources
             NumDetections = 0;
             _pin.ValueChanged += OnValueChanged;
         }
+        /// <summary>
+        /// Event handler for when the GPIO pin value is changed
+        /// </summary>
+        /// <param name="sender">The sender object</param>
+        /// <param name="args">Event arguements</param>
         private void OnValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
             //default is high, so check for lows

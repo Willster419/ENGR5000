@@ -46,8 +46,17 @@ namespace RobotCode.Sensors
         /// The state array to keep track of the states on a falling edge form the encoder. A state is read of both pins.
         /// </summary>
         private byte[] ErrorStateValues = new byte[] { 0, 0, 0, 0 };
+        /// <summary>
+        /// Counter for the number of errors that have currently occured
+        /// </summary>
         private int ErrorCounter = 0;
+        /// <summary>
+        /// Threshold set to enable error correction when ErrorCounter has reached same value as this
+        /// </summary>
         public int ErrorThrshold { get; private set; } = 0;
+        /// <summary>
+        /// The friendly name of the encoder, like where it is on the robot
+        /// </summary>
         public string EncoderName { get; private set; } = "";
         /// <summary>
         /// Creates an instance of the SmartRotaryEncoder object
@@ -168,6 +177,9 @@ namespace RobotCode.Sensors
                 }
             });
         }
+        /// <summary>
+        /// Method that executes upon error accumulation
+        /// </summary>
         private void OnErrorAccumulation()
         {
             NetworkUtils.LogNetwork(string.Format("Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name={0}",EncoderName), MessageType.Warning);

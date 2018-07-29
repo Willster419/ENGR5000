@@ -193,6 +193,10 @@ namespace Dashboard
             //and log it to disk
             Logging.WriteDataLogEntry(data);
         }
+        /// <summary>
+        /// When xml mapping data is sent from the robot. Is parsed in the UI
+        /// </summary>
+        /// <param name="xmlData">The string of direct XML data</param>
         public void OnXMLMapData(string xmlData)
         {
             XmlDocument doc = new XmlDocument();
@@ -221,11 +225,11 @@ namespace Dashboard
                 {
                     case "Height":
                         if(!string.IsNullOrWhiteSpace(attribute.Value))
-                            WorkAreaTangle.Height = float.Parse(attribute.Value) / 2F;
+                            WorkAreaTangle.Height = float.Parse(attribute.Value);
                         break;
                     case "Width":
                         if (!string.IsNullOrWhiteSpace(attribute.Value))
-                            WorkAreaTangle.Height = float.Parse(attribute.Value) / 2F;
+                            WorkAreaTangle.Height = float.Parse(attribute.Value);
                         break;
                     case "RobotPositionX":
                         if (!string.IsNullOrWhiteSpace(attribute.Value))
@@ -320,7 +324,11 @@ namespace Dashboard
             ControlSystem.joystickDriveneable = false;
             ControlSystem.StopJoystickControl();
         }
-
+        /// <summary>
+        /// Sends a request message to the robot to shut down after a specified timeout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RequestShutdownButton_Click(object sender, RoutedEventArgs e)
         {
             if(!NetworkUtils.ConnectionLive)
@@ -347,7 +355,11 @@ namespace Dashboard
                 Logging.LogConsole("ERROR: failed to parse shutdown timout value: " + SecondsDelay.Text);
             }
         }
-
+        /// <summary>
+        /// Sends a request message to the robot to reboot after a specified timeout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RequestRebootButton_Click(object sender, RoutedEventArgs e)
         {
             if (!NetworkUtils.ConnectionLive)
@@ -374,7 +386,11 @@ namespace Dashboard
                 Logging.LogConsole("ERROR: failed to parse reboot timout value: " + SecondsDelay.Text);
             }
         }
-
+        /// <summary>
+        /// Sends a request message to cancel a pending shutdown, if one currently exists
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelShutdownRestartButton_Click(object sender, RoutedEventArgs e)
         {
             if (!NetworkUtils.ConnectionLive)

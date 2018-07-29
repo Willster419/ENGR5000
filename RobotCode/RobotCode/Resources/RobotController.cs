@@ -574,6 +574,8 @@ namespace RobotCode
                         {
                             Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
                             Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            //set robot location
+                            WorkArea.SetRobotLocation(0F, 0F);
                             NetworkUtils.LogNetwork("Sending mapping data...", MessageType.Info);
                             NetworkUtils.LogNetwork(WorkArea.XMLMap, MessageType.Mapping);
                             SingleSetBool = true;
@@ -589,10 +591,10 @@ namespace RobotCode
 
                         break;
                     case AutoControlState.OnObstructionWhenCleaning:
-                        
+                        //don't have the hardware to do this...
                         break;
                     case AutoControlState.OnObstuctionWhenMapping:
-
+                        //don't have the hardware to do this...
                         break;
                 }
                 System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(5));
@@ -726,12 +728,20 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("Failed to cancel shutdown/reboot: no command exists", MessageType.Warning);
             }
         }
+        /// <summary>
+        /// Sets the robot status, as well as updates the value of the status LED indicator
+        /// </summary>
+        /// <param name="status">The new robot status value</param>
         public static void SetRobotStatus(RobotStatus status)
         {
             _RobotStatus = status;
             if (Hardware.Code_running_indicator != null)
                 Hardware.Code_running_indicator.UpdateRuntimeValue((int)status);
         }
+        /// <summary>
+        /// Get the Robot Status
+        /// </summary>
+        /// <returns>The robot status</returns>
         public static RobotStatus GetRobotStatus()
         { return _RobotStatus; }
     }

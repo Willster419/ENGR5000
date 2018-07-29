@@ -36,13 +36,25 @@ namespace RobotCode
         /// The GPIO pin number of the LED comms pin. Index 1 in pin array
         /// </summary>
         public const int DASHBOARD_CONNECTED_INDICATOR_PIN = 27;
+        /// <summary>
+        /// The pin instance of the yellow LED for dashboard connectivity
+        /// </summary>
         public static GpioPin Dashboard_connected_pin;
         /// <summary>
-        /// THE GPIO pin number of the Augar pin. Index 3 in array
+        /// The GPIO pin number of the Augar pin. Connected to Augar Relay
         /// </summary>
         public const int AUGAR_PIN = 22;
+        /// <summary>
+        /// The pin instance of the Augar pin
+        /// </summary>
         public static GpioPin Auger_pin;
+        /// <summary>
+        /// The GPIO pin number of the Impeller pin. Connected to Impeller relay.
+        /// </summary>
         public const int IMPELLER_PIN = 18;
+        /// <summary>
+        /// The pin instnce of the Impeller pin
+        /// </summary>
         public static GpioPin Impeller_pin;
         /// <summary>
         /// The current logical representation of the realy output for the auger. 1 is no output, 0 is output
@@ -78,16 +90,25 @@ namespace RobotCode
         /// The GPIO pin number of the LED code running pin. Index 0 in pin array
         /// </summary>
         public const int CODE_RUNNING_INDICATOR_PIN = 17;
+        /// <summary>
+        /// The instance of the LED indicator for the 
+        /// </summary>
         public static SmartStatusIndicator Code_running_indicator;
         /// <summary>
         /// The GPIO pin number of the signal battery status pin. White(?) LED, index 2 in pin array
         /// </summary>
         public const int SIGNAL_BATTERY_STATUS_INDICATOR_PIN = 23;
+        /// <summary>
+        /// The instnace of the LED indicator for the voltage status of the signal battery
+        /// </summary>
         public static SmartStatusIndicator Signal_battery_status_indicator;
         /// <summary>
         /// The GPIO pin number of the power battery status pin. Green(?) LED, index 4 of pin array
         /// </summary>
         public const int POWER_BATTERY_STATUS_INDICATOR_PIN = 24;
+        /// <summary>
+        /// The instnace of the LED indicator for the voltage status of the power battery
+        /// </summary>
         public static SmartStatusIndicator Power_battery_status_indicator;
         #endregion
 
@@ -140,11 +161,29 @@ namespace RobotCode
         /// The analog chanel of the water level sensor
         /// </summary>
         public const byte WATER_LEVEL_CHANNEL = 0x50;
+        /// <summary>
+        /// The constance multiplier for converting from raw voltage to an actual voltage representation
+        /// </summary>
         public const float POWER_VOLTAGE_MULTIPLIER = 4.75F;
+        /// <summary>
+        /// The base subtraction for signal voltage. meter reads +/- 30V, thus 2.5 is the middle
+        /// </summary>
         public const float SIGNAL_VOLTAGE_BASE_SUBRTACT = 2.5F;
+        /// <summary>
+        /// The base multiplier for signal voltage
+        /// </summary>
         public const float SIGNAL_VOLTAGE_MULTIPLIER = 11.20F;
+        /// <summary>
+        /// The base subtraction for current in both signal and power circuits. Both meansuer +/- X amps, thus middle (2.5) is 0 amps.
+        /// </summary>
         public const float CURRENT_BASE_SUBTRACT = 2.5F;
+        /// <summary>
+        /// The power multiplier for converting the raw voltage to amps. Reads +/- 30A, +/- 2.5v (raw) is max value, 30/2.5 = 12
+        /// </summary>
         public const float POWER_CURRENT_MULTIPLIER = 12F;
+        /// <summary>
+        /// The signal multiplier for converting the raw voltage to amps. Reads +/- 5A, +/- 2.5v (raw) is max value, 5/2.5 = 2;
+        /// </summary>
         public const float SIGNAL_CURRENT_MULTIPLIER = 2F;
         /// <summary>
         /// The voltage of the signal battery
@@ -412,25 +451,61 @@ namespace RobotCode
         #endregion
 
         #region Encoders
+        /// <summary>
+        /// The pin number for the left encoder CLK pin
+        /// </summary>
         public const int LEFT_CLK = 26;
+        /// <summary>
+        /// The pin number for the left encoder DT pin
+        /// </summary>
         public const int LEFT_DT = 19;
+        /// <summary>
+        /// The pin number for the right encoder CLK pin
+        /// </summary>
         public const int RIGHT_CLK = 20;
+        /// <summary>
+        /// The pin number for the right encoder DT pin
+        /// </summary>
         public const int RIGHT_DT = 16;
-        //public static RotaryEncoder LeftEncoder;
-        //public static RotaryEncoder RightEncoder;
+        /// <summary>
+        /// The instance of the left encoder
+        /// </summary>
         public static SmartRotaryEncoder LeftEncoder;
+        /// <summary>
+        /// The instance of the right encoder
+        /// </summary>
         public static SmartRotaryEncoder RightEncoder;
-        public const int ROTARY_LEFT_CLK = 0;
-        public const int ROTARY_LEFT_DT = 0;
-        public const int ROTARY_RIGHT_CLK = 0;
-        public const int ROTARY_RIGHT_DT = 0;
+        /// <summary>
+        /// Valid states for encoder CCW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] ccw1 = new byte[] { 0, 0, 0, 1 };
+        /// <summary>
+        /// Valid states for encoder CCW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] ccw2 = new byte[] { 0, 1, 1, 1 };
+        /// <summary>
+        /// Valid states for encoder CCW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] ccw4 = new byte[] { 1, 1, 1, 0 };
+        /// <summary>
+        /// Valid states for encoder CCW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] ccw3 = new byte[] { 1, 0, 0, 0 };
+        /// <summary>
+        /// Valid states for encoder CW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] cw1 = new byte[] { 0, 0, 1, 0 };
+        /// <summary>
+        /// Valid states for encoder CW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] cw3 = new byte[] { 1, 0, 1, 1 };
+        /// <summary>
+        /// Valid states for encoder CW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] cw4 = new byte[] { 1, 1, 0, 1 };
+        /// <summary>
+        /// Valid states for encoder CW rotation. First two bytes represent last state of DT, CLK, next two represent current state of DT, CLK
+        /// </summary>
         public static readonly byte[] cw2 = new byte[] { 0, 1, 0, 0 };
         #endregion
 
@@ -651,6 +726,9 @@ namespace RobotCode
         #endregion
 
         #region GPIO methods
+        /// <summary>
+        /// Update the collection data for the impeller and auger relay output
+        /// </summary>
         public static void UpdateGPIOValues()
         {
             Augar_Output = (int)Auger_pin.Read();
@@ -801,6 +879,11 @@ namespace RobotCode
                 AccelerationZ_Offset = MathF.Round(AccelerationZ_Offset, accel_round);
             }
         }
+        /// <summary>
+        /// Resets the I2C data back to 0
+        /// </summary>
+        /// <param name="gyro">True to reset gyro data. Includes rotation</param>
+        /// <param name="accel">True to reset accel data. Includes velocity and position</param>
         public static void ResetI2CData(bool gyro, bool accel)
         {
             if(accel)
