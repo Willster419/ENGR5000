@@ -10369,3 +10369,63 @@
 2018-07-28:19-38-19.937   Robot Connected, comms established
 2018-07-28:19-47-23.847   Application Closing
 2018-07-28:19-47-23.847   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-28:22-24-58.795   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:22-24-58.804   Dashboard Version 1.1.0.0
+2018-07-28:22-24-58.807   Built on Sat 07/28/2018 22:24:54.71
+2018-07-28:22-24-58.809   Initializing network connections
+2018-07-28:22-24-58.818   Checking for any local internet connection...
+2018-07-28:22-24-58.912   At leaset one valid network connections exist!
+2018-07-28:22-24-58.978   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-28:22-24-58.981   DEBUG: Hard-code select index 0
+2018-07-28:22-24-58.982   Computer IPV6 address set to 
+2018-07-28:22-24-58.983   Computer IPV4 address set to 10.0.0.69
+2018-07-28:22-24-58.984   Pinging robot hostname for aliveness
+2018-07-28:22-25-01.822   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-28:22-25-01.829   Parsed IPV6 address: fe80::f462:99c:5492:1331
+2018-07-28:22-25-01.830   Parsed IPV4 address: 10.0.0.81
+2018-07-28:22-25-01.836   Binding robot listener to address 10.0.0.69
+2018-07-28:22-25-01.837   Binding robot sender to address 10.0.0.81
+2018-07-28:22-25-01.838   Connecting to robot...
+2018-07-28:22-25-01.839   Sending IP address of dashboard to robot and waiting for response...
+2018-07-28:22-25-52.006   Robot Connected, comms established
+2018-07-28:22-25-53.154   New data log file created
+2018-07-28:22-25-55.509   Starting Manual Control
+2018-07-28:22-25-55.532   Manual control Started
+2018-07-28:22-27-29.520   Application Closing
+2018-07-28:22-27-29.521   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-28:22-32-38.622   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-28:22-32-38.627   Dashboard Version 1.1.0.0
+2018-07-28:22-32-38.630   Built on Sat 07/28/2018 22:24:54.71
+2018-07-28:22-32-38.633   Initializing network connections
+2018-07-28:22-32-38.641   Checking for any local internet connection...
+2018-07-28:22-32-38.805   At leaset one valid network connections exist!
+2018-07-28:22-32-38.900   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=10.0.0.69
+2018-07-28:22-32-38.904   DEBUG: Hard-code select index 0
+2018-07-28:22-32-38.906   Computer IPV6 address set to 
+2018-07-28:22-32-38.908   Computer IPV4 address set to 10.0.0.69
+2018-07-28:22-32-38.909   Pinging robot hostname for aliveness
+2018-07-28:22-32-41.820   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-07-28:22-32-41.827   Parsed IPV6 address: fe80::f462:99c:5492:1331
+2018-07-28:22-32-41.828   Parsed IPV4 address: 10.0.0.81
+2018-07-28:22-32-41.833   Binding robot listener to address 10.0.0.69
+2018-07-28:22-32-41.834   Binding robot sender to address 10.0.0.81
+2018-07-28:22-32-41.835   Connecting to robot...
+2018-07-28:22-32-41.836   Sending IP address of dashboard to robot and waiting for response...
+2018-07-28:22-34-02.081   Robot Connected, comms established
+2018-07-28:22-34-03.044   New data log file created
+2018-07-28:22-34-10.192   Starting Manual Control
+2018-07-28:22-34-10.210   Manual control Started
+2018-07-28:22-34-29.115   Linking refrence for main window
+2018-07-28:22-34-29.115   Setting up background worker
+2018-07-28:22-34-29.115   Getting all joystick instances
+2018-07-28:22-35-04.160   Linking refrence for main window
+2018-07-28:22-35-04.160   Setting up background worker
+2018-07-28:22-35-04.160   Getting all joystick instances
+2018-07-28:22-35-04.208   Found joystick instance: Logitech Attack 3
+2018-07-28:22-35-05.639   Init joystick index 0
+2018-07-28:22-35-05.639   Joystick initaliized
+2018-07-28:22-36-55.145   DEBUG: Joystick thread was stopped
+2018-07-28:22-40-55.678   Parsing xml document
+2018-07-28:22-40-55.678   Parsing xml document complete
+2018-07-28:22-44-33.402   Application Closing
+2018-07-28:22-44-33.403   \----------------------------------------------------------------------------------------------------------------------------------/
