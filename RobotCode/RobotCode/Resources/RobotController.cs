@@ -270,6 +270,7 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("Starting front reciever", MessageType.Debug);
                 Hardware.FrontReciever.Start();
             }
+            Hardware.ResetI2CData(true, true);
             while (true)
             {
                 if(ControllerThread.CancellationPending)
@@ -349,6 +350,7 @@ namespace RobotCode
             if (ControlStatus != ControlStatus.Auto)
                 ControlStatus = ControlStatus.Auto;
             RobotAutoControlState = AutoControlState.None;
+            Hardware.ResetI2CData(true, true);
             while (true)
             {
                 //check for cancel/abort
@@ -514,6 +516,7 @@ namespace RobotCode
                         if (!SingleSetBool)
                         {
                             float encoder_value = Hardware.RightEncoder.Clicks;
+                            Hardware.RightEncoder.ResetCounter();
                             //convert it to a normalized distance
                             float MPU_height = Hardware.PositionX;
                             //convert it to a normalized distance
