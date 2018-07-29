@@ -293,6 +293,6 @@ __pycache__/
 org.eclipse.cdt.codan.core.prefs
 org.eclipse.core.resources.prefs
 ccs
-Debug
 .launches
 targetConfigs
+/PWM_Generator/Debug
