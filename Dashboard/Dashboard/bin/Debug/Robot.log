@@ -15011,3 +15011,847 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-28:22-40-55.530   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
 2018-07-28:22-40-55.545   INFO: Sending mapping data...
 2018-07-28:22-44-33.403   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:12-16-47.941   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:12-16-48.180   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:12-16-48.582   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:12-18-09.260   DEBUG: dashboard connected via force wait
+2018-07-29:12-18-09.260   INFO: Initializing Encoders
+2018-07-29:12-18-09.339   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:12-18-09.721   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:12-18-10.342   INFO: PWM loading complete, I2C
+2018-07-29:12-18-10.530   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:12-18-10.640   DEBUG: MPU reports that device is on address 104...
+2018-07-29:12-18-10.640   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:12-18-10.641   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:12-18-10.641   DEBUG: Config gyro and accel sensitivity
+2018-07-29:12-18-10.641   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:12-18-10.641   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:12-18-10.671   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-18-10.685   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-18-10.742   DEBUG: Getting normalized values for accel and gyro
+2018-07-29:12-18-10.747   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:12-18-10.770   INFO: Controller initialized, system online
+2018-07-29:12-18-11.495   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:12-18-12.811   DEBUG: Control thread is down, determining what to do next
+2018-07-29:12-18-12.816   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:12-18-12.833   DEBUG: Manual control method starting
+2018-07-29:12-19-36.660   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-19-37.218   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-19-40.986   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-19-45.452   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-21-33.881   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-47.074   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-47.858   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-48.137   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-49.155   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-49.926   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-50.273   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-50.777   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-51.326   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-51.719   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-52.369   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-52.819   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-53.732   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-54.420   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-55.570   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-56.318   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-56.769   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-57.452   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-21-59.193   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-00.325   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-02.066   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-02.610   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-03.352   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-04.680   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-05.721   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-06.748   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-07.640   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-08.184   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-09.566   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-10.978   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-11.548   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-12.170   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-12.863   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-13.429   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-15.048   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-43.061   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-22-43.363   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-23-59.480   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-26.907   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-32.760   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-35.117   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-37.611   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-39.412   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-41.120   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-45.499   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-48.509   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-49.407   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-53.568   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-55.085   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-25-56.645   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-05.040   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-06.619   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-08.524   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-09.819   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-11.427   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-20.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-21.775   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-23.390   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-24.458   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-24.706   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-25.785   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-27.403   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-27.882   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-29.484   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-30.104   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-30.623   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-31.065   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-31.278   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-32.520   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-33.071   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-38.497   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-38.772   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-39.651   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-40.000   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-40.338   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-45.170   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-46.074   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-46.428   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-46.929   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-47.135   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-48.032   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-48.420   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-49.894   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-50.286   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-51.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-51.553   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-52.570   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-52.931   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-54.373   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-54.841   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-55.288   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-55.840   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-56.338   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-56.613   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-56.899   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-57.124   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-57.328   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-57.633   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-58.002   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-58.183   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-58.468   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-58.964   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-59.626   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-26-59.820   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-00.184   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-00.421   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-00.887   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-01.072   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-01.256   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-01.704   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-02.253   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-02.471   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-03.086   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-03.343   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-03.881   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-04.253   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-04.681   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-05.139   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-10.154   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-10.444   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-12.795   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-13.330   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-14.024   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-14.229   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-21.613   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-22.118   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-25.525   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-26.452   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-27.436   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-28.029   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-28.484   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-28.707   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-29.434   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-29.887   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-30.143   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-30.586   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-31.176   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-31.382   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-31.653   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-32.487   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-32.846   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-40.560   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-41.547   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-41.901   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-43.093   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-43.811   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-44.833   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-46.098   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-46.544   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-47.026   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-48.028   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-48.617   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-48.889   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-49.240   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-49.678   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-49.970   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-27-50.736   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-28-25.370   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-28-26.648   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-28-27.314   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-28-27.818   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-28-28.290   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-28-29.490   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-07.029   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-09.199   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-10.219   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-12.168   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-14.935   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-15.194   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-15.549   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-20.470   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-21.930   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-22.581   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-42.589   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-29-43.313   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-01.581   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-02.541   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-03.155   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-06.573   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-06.672   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-58.673   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-59.102   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-59.542   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-30-59.738   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-00.265   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-00.554   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-00.823   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-01.276   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-02.690   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-03.148   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-04.632   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-04.833   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-51.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-51.906   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-52.261   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-52.637   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-53.872   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-54.936   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-55.519   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-55.966   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-56.399   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-56.777   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-57.593   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-58.079   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-58.610   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-31-59.203   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-00.671   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-01.266   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-01.617   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-01.821   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-02.020   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-02.982   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-03.367   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-03.553   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-03.886   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-04.255   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-04.928   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-05.893   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-06.518   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-07.518   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-08.132   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-32-08.520   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-48.498   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-48.646   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-48.818   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-48.974   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-49.138   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-49.316   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-49.499   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-49.731   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-49.999   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-50.273   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-50.429   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-50.609   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-50.979   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-51.171   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-52.472   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-52.640   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-54.187   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-33-55.195   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-13.251   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-13.313   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-13.425   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-13.604   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-13.828   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-13.897   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-14.091   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-14.273   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-14.629   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-14.743   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-14.807   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-14.967   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-15.560   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-15.694   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-16.368   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-16.516   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-17.119   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-17.544   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-18.357   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-18.491   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-18.836   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-19.564   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-20.038   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-20.147   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-20.266   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-20.387   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-21.043   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-21.274   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-22.235   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-22.509   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-22.885   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-23.225   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-23.521   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-23.700   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-23.977   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-24.249   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-24.365   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-24.671   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-24.985   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-25.270   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-25.463   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-25.691   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-25.859   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-26.075   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-26.282   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-26.664   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-26.730   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-26.795   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-26.975   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-27.300   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-27.407   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-27.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-27.805   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-28.052   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-28.371   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-28.664   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-28.896   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-29.034   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-29.541   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-29.787   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-37.435   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-37.542   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-37.966   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-38.377   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-38.665   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-39.339   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-43.510   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-43.874   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-45.888   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-45.982   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-46.464   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-47.015   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-47.381   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-48.555   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-49.601   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-50.538   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-50.980   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-51.337   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-51.651   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-51.963   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-52.104   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-52.378   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-52.701   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-53.026   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-53.270   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-53.775   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-53.905   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-54.280   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-54.833   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-55.315   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-55.571   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-56.120   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-56.316   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-56.830   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-58.389   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-58.744   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-58.834   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-38-59.160   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-10.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-11.030   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-11.155   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-11.220   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-11.332   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-12.468   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-13.376   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-13.604   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-13.703   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-14.154   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-14.276   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-14.871   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-15.715   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-15.845   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-16.051   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-16.355   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-16.686   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-16.841   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-16.987   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-17.339   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-17.581   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-19.014   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-19.684   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-20.220   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-20.516   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-20.713   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-21.172   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-21.473   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-21.933   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-22.001   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-22.325   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-22.607   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-23.350   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-23.621   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-23.883   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-24.676   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-25.385   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-25.500   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-25.791   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-25.877   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-26.205   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-26.360   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-26.433   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-26.582   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-26.771   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-26.856   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.027   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.165   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.288   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.373   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.467   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.700   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-27.932   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-28.042   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-40.761   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-40-42.923   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-47.773   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-48.033   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-48.553   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-49.217   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-49.761   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-49.963   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-50.138   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-50.453   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-50.570   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-50.858   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-51.671   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-52.071   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-52.174   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-52.375   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-52.576   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-53.010   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-53.280   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-55.840   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-56.345   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-41-57.401   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-44-02.266   Robot log cleared
+2018-07-29:12-44-03.756   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:12-44-04.133   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:12-44-39.439   DEBUG: dashboard connected via force wait
+2018-07-29:12-44-39.439   INFO: Initializing Encoders
+2018-07-29:12-44-39.457   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:12-44-39.597   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:12-44-39.745   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.755   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.759   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.760   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.765   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.768   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.774   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.777   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.777   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.816   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.818   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.821   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.826   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.829   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.834   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.834   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.836   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.846   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.846   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.853   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.855   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.858   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-39.907   INFO: PWM loading complete, I2C
+2018-07-29:12-44-40.128   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:12-44-40.131   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.132   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.133   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.138   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.138   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.142   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.150   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.150   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.150   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.153   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.153   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.158   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.161   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.167   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.168   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.172   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.172   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.176   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.177   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.180   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.181   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.184   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.190   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.190   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.191   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.193   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.196   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.198   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.203   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.205   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.205   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.207   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.208   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.213   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.216   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.224   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.225   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.225   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.227   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.227   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.228   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.236   DEBUG: MPU reports that device is on address 104...
+2018-07-29:12-44-40.236   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:12-44-40.236   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:12-44-40.237   DEBUG: Config gyro and accel sensitivity
+2018-07-29:12-44-40.242   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:12-44-40.243   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:12-44-40.243   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.243   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.244   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.244   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.248   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.248   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.249   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.258   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.259   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.259   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.260   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.265   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.265   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.268   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.268   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.275   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.275   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.275   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.278   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.279   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.280   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.283   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.285   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.288   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.290   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.292   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.295   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.299   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.300   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.300   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.307   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.308   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.310   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.311   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.311   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.314   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.317   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.320   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.321   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.321   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.322   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.325   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.326   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.329   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.330   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.331   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.338   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.338   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:12-44-40.340   DEBUG: Getting normalized values for accel and gyro
+2018-07-29:12-44-40.353   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:12-44-40.401   INFO: Controller initialized, system online
+2018-07-29:12-44-40.823   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-40.959   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:12-44-41.034   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-41.323   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-41.476   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-42.073   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-42.470   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-42.532   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-42.836   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-42.952   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-44-43.330   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-43.484   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-43.531   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-44-44.182   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-44.363   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-44.428   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-44.681   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-44-44.842   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-44.961   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-45.543   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-45.784   DEBUG: Control thread is down, determining what to do next
+2018-07-29:12-44-45.789   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:12-44-45.798   DEBUG: Manual control method starting
+2018-07-29:12-44-46.528   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-47.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-44-48.094   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-20.916   DEBUG: Control thread is down, determining what to do next
+2018-07-29:12-45-20.922   DEBUG: Releasing manual control, restarting auto
+2018-07-29:12-45-20.925   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:12-45-22.573   DEBUG: Control thread is down, determining what to do next
+2018-07-29:12-45-22.573   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:12-45-22.574   DEBUG: Manual control method starting
+2018-07-29:12-45-44.071   DEBUG: Control thread is down, determining what to do next
+2018-07-29:12-45-44.072   DEBUG: Releasing manual control, restarting auto
+2018-07-29:12-45-44.077   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:12-45-44.338   DEBUG: Control thread is down, determining what to do next
+2018-07-29:12-45-44.338   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:12-45-44.339   DEBUG: Manual control method starting
+2018-07-29:12-45-55.773   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-55.998   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-56.266   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-56.621   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-57.184   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-58.375   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-58.976   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-59.237   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-45-59.791   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-46-00.198   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-46-00.369   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-46-00.840   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-46-01.443   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-46-01.942   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-50-52.677   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-50-53.073   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-50-53.424   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-50-53.683   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-50-53.880   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-16.168   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-51-16.302   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-51-16.545   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-51-16.762   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-51-16.887   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-51-17.074   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:12-51-48.270   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-48.413   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-49.054   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-50.149   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-50.797   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-51.304   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-51.467   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-51.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-51.843   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-52.284   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-52.751   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-52.946   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-53.474   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-53.578   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-53.814   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-54.529   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-54.678   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-55.271   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-55.426   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-55.717   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-56.083   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-56.201   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-57.498   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-57.722   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-57.821   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-58.841   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-58.957   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-51-59.204   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-01.127   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-01.617   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-02.080   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-02.260   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-02.936   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-03.068   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-03.428   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-03.804   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-05.000   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-05.099   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-05.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-05.759   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-07.613   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-07.763   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-08.432   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-08.527   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-08.772   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-09.279   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-09.999   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-10.330   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-11.089   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-11.220   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-12.330   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-13.131   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-13.329   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-13.622   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-14.380   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-15.007   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-19.613   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-19.858   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-20.340   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-20.905   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-21.844   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-22.117   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-22.487   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-22.614   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-22.733   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-23.284   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-23.427   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-23.684   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-24.143   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-24.514   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-25.079   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-25.246   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-25.370   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-25.738   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-26.284   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-26.379   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-27.167   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-27.310   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-27.511   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-28.087   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-28.508   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-28.721   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-29.450   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-29.970   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-30.446   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-30.867   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-31.146   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-31.239   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-31.519   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-31.758   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-31.922   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-32.343   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-32.581   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-32.798   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-33.627   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-33.759   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-34.064   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-34.207   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-34.491   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-34.701   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-35.084   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-35.666   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-36.071   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-36.225   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-36.653   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-37.254   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-37.581   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-37.745   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-38.072   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-38.651   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-38.746   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-39.808   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-39.997   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-40.113   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-40.320   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-40.646   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-40.986   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-41.119   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-41.457   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-41.709   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-42.038   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-42.491   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-42.710   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-42.929   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-43.069   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-43.363   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-43.815   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-44.241   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-44.349   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-44.477   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-44.809   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-45.231   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-45.989   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-46.309   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-46.538   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-46.680   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-46.858   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-47.311   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-47.494   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-47.822   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-52-48.057   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-53-50.378   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-53-50.705   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-03.020   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-03.582   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-04.458   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-04.763   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-05.045   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-06.152   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-06.798   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-54-07.097   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-12.677   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-13.173   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-13.494   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-13.730   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-13.911   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-14.785   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-25.540   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-25.736   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-25.963   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-26.128   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-26.272   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-26.722   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-57-26.832   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-59-32.373   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:12-59-32.999   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-03-05.972   DEBUG: Control thread is down, determining what to do next
+2018-07-29:13-03-05.973   DEBUG: Releasing manual control, restarting auto
+2018-07-29:13-03-05.978   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:13-03-07.636   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:13-03-09.238   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:13-03-14.007   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:13-03-16.097   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:13-03-16.176   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:13-03-18.621   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:13-03-22.062   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:13-03-24.050   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:13-03-29.551   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:13-03-31.878   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:13-03-32.044   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-03-34.815   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:13-03-34.908   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-03-36.915   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:13-03-37.231   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-03-38.731   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-03-39.938   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-03-40.912   DEBUG: Control thread is down, determining what to do next
+2018-07-29:13-03-40.912   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:13-03-40.912   DEBUG: Manual control method starting
+2018-07-29:13-05-10.092   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:13-06-12.211   DEBUG: Control thread is down, determining what to do next
+2018-07-29:13-06-12.215   DEBUG: Releasing manual control, restarting auto
+2018-07-29:13-06-12.217   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:13-06-13.429   DEBUG: Control thread is down, determining what to do next
+2018-07-29:13-06-13.429   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:13-06-13.431   DEBUG: Manual control method starting
+2018-07-29:13-06-16.207   DEBUG: Control thread is down, determining what to do next
+2018-07-29:13-06-16.207   DEBUG: Releasing manual control, restarting auto
+2018-07-29:13-06-16.210   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:13-06-16.397   DEBUG: Control thread is down, determining what to do next
+2018-07-29:13-06-16.399   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:13-06-16.404   DEBUG: Manual control method starting
+2018-07-29:13-06-32.589   WARNING: Shutting down in 10 seconds
+2018-07-29:13-06-37.528   WARNING: Shutdown/reboot canceled
+2018-07-29:13-06-38.842   WARNING: Shutting down in 10 seconds
+2018-07-29:13-06-40.902   WARNING: Shutdown/reboot canceled
+2018-07-29:13-06-53.826   WARNING: Failed to cancel shutdown/reboot: no command exists
+2018-07-29:13-06-59.163   WARNING: Failed to cancel shutdown/reboot: no command exists
+2018-07-29:13-07-04.330   WARNING: Shutting down in 10 seconds
+2018-07-29:13-07-25.337   \----------------------------------------------------------------------------------------------------------------------------------/
