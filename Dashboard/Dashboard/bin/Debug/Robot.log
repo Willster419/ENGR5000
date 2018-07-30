@@ -16166,3 +16166,1098 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-07-29:16-26-16.768   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
 2018-07-29:16-26-24.977   WARNING: Shutting down in 10 seconds
 2018-07-29:16-26-40.680   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:16-46-53.038   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:16-46-53.271   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:16-46-53.927   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:16-47-29.327   DEBUG: dashboard connected via force wait
+2018-07-29:16-47-29.327   INFO: Initializing Encoders
+2018-07-29:16-47-29.425   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:16-47-29.715   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:16-47-30.155   INFO: PWM loading complete, I2C
+2018-07-29:16-47-30.459   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:16-47-30.497   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:16-47-30.504   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:16-47-30.556   DEBUG: MPU reports that device is on address 104...
+2018-07-29:16-47-30.559   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:16-47-30.559   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:16-47-30.561   DEBUG: Config gyro and accel sensitivity
+2018-07-29:16-47-30.562   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:16-47-30.562   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:16-47-30.659   DEBUG: Getting normalized values for accel and gyro
+2018-07-29:16-47-30.666   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:16-47-30.696   INFO: Controller initialized, system online
+2018-07-29:16-47-31.339   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:16-47-31.811   DEBUG: Control thread is down, determining what to do next
+2018-07-29:16-47-31.821   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:16-47-31.821   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-47-31.832   DEBUG: Manual control method starting
+2018-07-29:16-48-00.831   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.011   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.137   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.247   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.349   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.443   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.630   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-01.975   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-02.187   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-02.285   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-02.411   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-02.538   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-02.684   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:16-48-06.724   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-07.534   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-07.863   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-08.296   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-10.292   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-10.994   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-11.448   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-12.060   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-12.555   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-12.695   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-13.114   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-34.448   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-35.126   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-35.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-35.921   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-36.283   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-36.456   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-36.766   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-37.249   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-37.326   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-37.764   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-38.050   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-38.294   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-39.430   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-40.225   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-40.954   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-41.525   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-41.820   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-41.977   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-42.990   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-43.251   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-43.782   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-44.032   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-44.203   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-44.830   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-45.003   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-45.137   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-45.425   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-54.245   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-54.746   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-55.019   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-48-55.238   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-03.104   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-03.238   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-03.474   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-03.740   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-03.941   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-04.513   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-04.695   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-04.827   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-04.945   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-05.318   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-49-05.889   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:16-57-40.347   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:18-01-21.571   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:18-01-21.772   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:18-01-22.162   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:18-02-27.515   DEBUG: dashboard connected via force wait
+2018-07-29:18-02-27.515   INFO: Initializing Encoders
+2018-07-29:18-02-27.534   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:18-02-27.684   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:18-02-27.979   INFO: PWM loading complete, I2C
+2018-07-29:18-02-28.114   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:18-02-28.223   DEBUG: MPU reports that device is on address 104...
+2018-07-29:18-02-28.224   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:18-02-28.224   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:18-02-28.224   DEBUG: Config gyro and accel sensitivity
+2018-07-29:18-02-28.225   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:18-02-28.225   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:18-02-28.225   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:18-02-28.249   INFO: Controller initialized, system online
+2018-07-29:18-02-29.024   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:18-02-29.103   DEBUG: Control thread is down, determining what to do next
+2018-07-29:18-02-29.108   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:18-02-29.117   DEBUG: Manual control method starting
+2018-07-29:18-07-47.558   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:18-50-57.654   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:18-50-57.939   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:18-50-58.523   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:18-51-43.949   DEBUG: dashboard connected via force wait
+2018-07-29:18-51-43.951   INFO: Initializing Encoders
+2018-07-29:18-51-43.975   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:18-51-44.152   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:18-51-44.451   INFO: PWM loading complete, I2C
+2018-07-29:18-51-44.684   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:18-51-44.748   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:18-51-44.790   DEBUG: MPU reports that device is on address 104...
+2018-07-29:18-51-44.791   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:18-51-44.792   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:18-51-44.792   DEBUG: Config gyro and accel sensitivity
+2018-07-29:18-51-44.792   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:18-51-44.792   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:18-51-44.792   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:18-51-44.815   INFO: Controller initialized, system online
+2018-07-29:18-51-45.506   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:18-51-45.790   DEBUG: Control thread is down, determining what to do next
+2018-07-29:18-51-45.795   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:18-51-45.806   DEBUG: Manual control method starting
+2018-07-29:19-08-01.395   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-02.232   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-06.905   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-13.142   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-14.608   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-14.853   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-15.249   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-08-15.342   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-10-30.055   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-10-30.055   DEBUG: Releasing manual control, restarting auto
+2018-07-29:19-10-30.058   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:19-10-32.653   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:19-10-33.509   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-10-33.622   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:19-10-34.492   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-10-34.541   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:19-10-35.396   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-10-35.745   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:19-10-36.619   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-10-42.088   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-10-42.091   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:19-10-42.092   DEBUG: Manual control method starting
+2018-07-29:19-36-11.242   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:19-36-11.489   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:19-36-12.159   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:19-36-47.379   DEBUG: dashboard connected via force wait
+2018-07-29:19-36-47.385   INFO: Initializing Encoders
+2018-07-29:19-36-47.397   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:19-36-47.686   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:19-36-47.902   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.908   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.920   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.920   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.931   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.978   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.978   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-47.979   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-48.042   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-36-48.050   INFO: PWM loading complete, I2C
+2018-07-29:19-36-48.260   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:19-36-48.368   DEBUG: MPU reports that device is on address 104...
+2018-07-29:19-36-48.369   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:19-36-48.369   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:19-36-48.369   DEBUG: Config gyro and accel sensitivity
+2018-07-29:19-36-48.369   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:19-36-48.369   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:19-36-48.370   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:19-36-48.388   INFO: Controller initialized, system online
+2018-07-29:19-36-48.886   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:19-36-49.402   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-36-49.413   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:19-36-49.421   DEBUG: Manual control method starting
+2018-07-29:19-36-57.995   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-36-58.237   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-36-58.532   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-36-58.870   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-37-00.462   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-37-01.046   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-39-57.445   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-39-57.448   DEBUG: Releasing manual control, restarting auto
+2018-07-29:19-39-57.448   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:19-39-58.781   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:19-39-59.743   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-40-03.060   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:19-40-03.942   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-40-07.261   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-07.601   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-07.892   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-08.166   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-08.501   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-09.228   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-10.595   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-11.022   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-12.118   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-12.504   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-40-12.998   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-40-12.998   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:19-40-12.998   DEBUG: Manual control method starting
+2018-07-29:19-40-53.652   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-40-57.400   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-40-57.502   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-41-04.901   WARNING: Rebooting in 10 seconds
+2018-07-29:19-43-12.332   Robot log cleared
+2018-07-29:19-43-18.994   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:19-43-19.581   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:19-43-55.160   DEBUG: dashboard connected via force wait
+2018-07-29:19-43-55.169   INFO: Initializing Encoders
+2018-07-29:19-43-55.198   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:19-43-55.481   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:19-43-55.947   INFO: PWM loading complete, I2C
+2018-07-29:19-43-56.222   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:19-43-56.282   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-43-56.284   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-43-56.293   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:19-43-56.330   DEBUG: MPU reports that device is on address 104...
+2018-07-29:19-43-56.331   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:19-43-56.332   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:19-43-56.332   DEBUG: Config gyro and accel sensitivity
+2018-07-29:19-43-56.333   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:19-43-56.335   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:19-43-56.336   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:19-43-56.354   INFO: Controller initialized, system online
+2018-07-29:19-43-56.986   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:19-43-57.459   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-43-57.461   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:19-43-57.472   DEBUG: Manual control method starting
+2018-07-29:19-44-09.910   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-44-21.363   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-31.813   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-32.963   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-36.159   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-37.917   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-38.187   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-38.477   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-39.200   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-39.799   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:19-46-41.319   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-42.256   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-42.472   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-43.062   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-43.310   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-43.777   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-46-53.320   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-47-03.235   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-47-04.017   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-47-05.229   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-47-12.237   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-47-13.675   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-47-23.565   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-36.861   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-37.375   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-37.676   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-38.630   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-38.774   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-38.970   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-39.555   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-39.802   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-40.221   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-40.594   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-41.029   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-41.566   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-41.863   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-42.267   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-49-42.409   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-52-31.588   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-52-31.589   DEBUG: Releasing manual control, restarting auto
+2018-07-29:19-52-31.595   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:19-52-37.194   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:19-52-38.199   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-52-38.573   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:19-52-39.634   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-52-44.150   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-52-44.539   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-52-45.078   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-52-47.311   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:19-52-48.437   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-52-48.438   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:19-52-48.446   DEBUG: Manual control method starting
+2018-07-29:19-57-53.047   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-57-53.047   DEBUG: Releasing manual control, restarting auto
+2018-07-29:19-57-53.047   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:19-57-55.006   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:19-57-55.934   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:19-57-55.953   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:19-57-55.968   INFO: Side 0 mapped, using width encoder value of 0, not averaging
+2018-07-29:19-57-59.071   DEBUG: Control thread is down, determining what to do next
+2018-07-29:19-57-59.071   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:19-57-59.071   DEBUG: Manual control method starting
+2018-07-29:19-58-56.027   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:20-01-34.197   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:20-01-34.492   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:20-01-35.073   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:20-02-10.374   DEBUG: dashboard connected via force wait
+2018-07-29:20-02-10.375   INFO: Initializing Encoders
+2018-07-29:20-02-10.388   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:20-02-10.579   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:20-02-11.011   INFO: PWM loading complete, I2C
+2018-07-29:20-02-11.217   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:20-02-11.328   DEBUG: MPU reports that device is on address 104...
+2018-07-29:20-02-11.328   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:20-02-11.329   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:20-02-11.329   DEBUG: Config gyro and accel sensitivity
+2018-07-29:20-02-11.330   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:20-02-11.330   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:20-02-11.331   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:20-02-11.358   INFO: Controller initialized, system online
+2018-07-29:20-02-11.871   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-02-12.351   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-02-12.352   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-02-12.361   DEBUG: Manual control method starting
+2018-07-29:20-02-25.191   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-02-25.295   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-25.707   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-25.822   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-26.048   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-02-26.240   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-26.931   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-27.846   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-28.317   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-02-41.715   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-02-41.715   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-02-41.727   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-02-43.823   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-02-45.057   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-02-45.072   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-02-45.090   INFO: Side 0 mapped, using width encoder value of 0, not averaging
+2018-07-29:20-02-47.775   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-02-47.775   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-02-47.775   DEBUG: Manual control method starting
+2018-07-29:20-02-55.699   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-56.947   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-57.516   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-02-58.274   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-02-58.434   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-02-58.505   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-02-58.612   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-16.371   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-04-16.372   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-04-16.372   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-04-17.002   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-17.269   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-18.008   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-18.413   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-19.292   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-19.635   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-04-20.963   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-04-22.988   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-23.302   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-23.531   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-23.652   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-23.861   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-24.034   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-24.190   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-24.423   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-24.636   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-25.369   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-25.497   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-25.745   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-25.893   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-26.068   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-26.434   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-26.873   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-27.328   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-27.809   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-27.924   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-28.111   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-28.243   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-28.416   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-28.892   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-29.171   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-29.501   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-29.698   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-30.164   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-30.465   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-30.894   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-31.326   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-31.543   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-31.731   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-31.871   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-32.041   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-32.177   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-33.004   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-33.244   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-33.528   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-34.001   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-34.182   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-34.482   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-34.723   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-35.321   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-35.700   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-35.855   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-36.461   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-36.614   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-37.042   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-37.872   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-38.265   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-38.411   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-38.934   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-39.091   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-39.471   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-39.673   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-39.848   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-40.183   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-40.451   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-40.614   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-40.791   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-41.009   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-41.485   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-41.995   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-42.290   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-42.693   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-42.893   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-04-42.909   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-43.464   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-44.098   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-44.241   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-44.472   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-44.716   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-45.252   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-46.462   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-46.700   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-46.844   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-47.624   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-04-47.721   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-47.858   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-48.327   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-48.483   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-49.043   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-49.177   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-49.361   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-49.713   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-50.351   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-50.560   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-50.709   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-50.888   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-51.872   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-52.238   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-52.802   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-52.944   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-53.196   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-04-53.206   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-53.374   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-53.907   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-54.179   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-54.368   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-54.525   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-54.691   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-55.132   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-55.415   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-55.570   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-55.728   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-55.899   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-56.496   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-56.625   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-56.830   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-56.955   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-57.196   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-57.690   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-57.869   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-58.067   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-58.480   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-59.032   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-59.193   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-59.216   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-04-59.407   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-59.588   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-04-59.733   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-00.237   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-00.386   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-00.629   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-01.004   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-01.563   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-01.849   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-01.933   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-02.035   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-02.736   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-03.043   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-03.243   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-03.433   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-04.016   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-04.763   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-05.735   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-05.886   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-05.916   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-06.039   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-06.548   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-06.933   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-07.289   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-07.767   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-08.155   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-09.209   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-09.519   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-09.664   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-10.180   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-10.239   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-10.630   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-10.868   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-11.002   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-11.523   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-11.744   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-12.042   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-12.323   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-12.839   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-12.982   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-13.302   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-13.444   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-13.586   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-13.952   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-14.231   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-14.605   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-14.829   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-15.389   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-15.534   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-15.997   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-16.448   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-17.223   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-17.734   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-17.774   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-17.934   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-17.950   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-18.987   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-19.366   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-19.577   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-19.759   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-20.217   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-20.432   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-20.589   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-20.800   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-20.988   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-21.137   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-21.636   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-21.868   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-21.949   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-22.233   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-22.714   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-22.722   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-22.934   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-23.499   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-23.618   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-24.081   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-24.213   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-24.725   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-24.869   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-25.595   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-26.030   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-26.497   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-26.685   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-26.842   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-27.031   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-27.088   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-05-27.310   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-27.865   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-28.081   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-28.484   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-29.157   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-29.542   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-29.698   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-30.327   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-30.879   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-31.062   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-31.527   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-31.709   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-31.934   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-32.248   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-32.833   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-33.030   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-33.181   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-33.614   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-34.144   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-34.435   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-34.639   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-34.862   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-35.441   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-35.633   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-05-35.825   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-05-35.825   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-05-35.825   DEBUG: Manual control method starting
+2018-07-29:20-06-12.435   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:20-11-02.242   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:20-11-02.507   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:20-11-02.697   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:20-11-57.978   DEBUG: dashboard connected via force wait
+2018-07-29:20-11-57.978   INFO: Initializing Encoders
+2018-07-29:20-11-57.992   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:20-11-58.125   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:20-11-58.295   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:20-11-58.296   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:20-11-58.383   INFO: PWM loading complete, I2C
+2018-07-29:20-11-58.508   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:20-11-58.617   DEBUG: MPU reports that device is on address 104...
+2018-07-29:20-11-58.618   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:20-11-58.618   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:20-11-58.618   DEBUG: Config gyro and accel sensitivity
+2018-07-29:20-11-58.618   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:20-11-58.619   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:20-11-58.619   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:20-11-58.635   INFO: Controller initialized, system online
+2018-07-29:20-11-59.046   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-12-05.922   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-12-05.928   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-12-05.937   DEBUG: Manual control method starting
+2018-07-29:20-14-23.261   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-15-23.259   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-15-55.748   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=RightEncoder
+2018-07-29:20-16-56.484   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-56.734   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-57.253   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-57.644   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-58.432   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-58.757   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-59.102   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-16-59.658   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-10.395   Robot log cleared
+2018-07-29:20-17-17.492   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-17-17.492   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-17-17.493   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-17-19.427   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-19.778   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-20.402   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-17-21.135   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-17-21.149   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-17-21.161   INFO: Side 0 mapped, using width encoder value of 0, not averaging
+2018-07-29:20-17-24.412   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-17-24.489   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-17-25.255   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-17-25.454   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-17-26.214   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-17-26.870   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-27.106   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-27.402   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-27.796   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-27.932   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-28.093   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-28.561   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-28.736   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-28.967   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-29.268   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-29.420   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-29.657   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-30.426   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-30.794   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-30.956   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-31.304   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-31.956   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-32.370   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-32.779   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-33.017   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-33.187   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-33.414   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-33.643   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-33.810   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-34.029   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-34.260   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-34.420   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-34.651   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-34.941   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-35.180   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-35.349   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-35.517   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-35.809   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-36.160   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-36.390   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-36.623   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-36.862   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-37.108   WARNING: Feature not yet implimented: SmartRotaryEncoder->OnErrorAccumulation(): name=LeftEncoder
+2018-07-29:20-17-37.582   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-17-37.582   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-17-37.586   DEBUG: Manual control method starting
+2018-07-29:20-17-51.751   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:20-18-29.112   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:20-18-29.392   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:20-18-29.550   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:20-18-59.845   DEBUG: dashboard connected via force wait
+2018-07-29:20-18-59.846   INFO: Initializing Encoders
+2018-07-29:20-18-59.867   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:20-18-59.996   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:20-19-00.214   INFO: PWM loading complete, I2C
+2018-07-29:20-19-00.331   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:20-19-00.437   DEBUG: MPU reports that device is on address 104...
+2018-07-29:20-19-00.437   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:20-19-00.439   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:20-19-00.439   DEBUG: Config gyro and accel sensitivity
+2018-07-29:20-19-00.440   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:20-19-00.441   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:20-19-00.441   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:20-19-00.450   INFO: Controller initialized, system online
+2018-07-29:20-19-00.750   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-19-04.024   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-19-04.728   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-19-04.743   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-19-04.760   INFO: Side 0 mapped, using width encoder value of 0, not averaging
+2018-07-29:20-19-08.043   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-20-10.115   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-20-10.116   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-20-10.128   DEBUG: Manual control method starting
+2018-07-29:20-20-24.116   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-20-24.117   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-20-24.123   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-20-28.414   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-20-29.168   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-20-29.607   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-20-29.618   INFO: Side 0 mapped, using width encoder value of 3, not averaging
+2018-07-29:20-20-32.962   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-35-08.086   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:20-35-18.555   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:20-35-18.820   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:20-35-18.963   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:20-35-44.296   DEBUG: dashboard connected via force wait
+2018-07-29:20-35-44.296   INFO: Initializing Encoders
+2018-07-29:20-35-44.318   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:20-35-44.469   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:20-35-44.769   INFO: PWM loading complete, I2C
+2018-07-29:20-35-44.940   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:20-35-45.039   DEBUG: MPU reports that device is on address 104...
+2018-07-29:20-35-45.040   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:20-35-45.040   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:20-35-45.041   DEBUG: Config gyro and accel sensitivity
+2018-07-29:20-35-45.041   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:20-35-45.041   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:20-35-45.042   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:20-35-45.083   INFO: Controller initialized, system online
+2018-07-29:20-35-45.518   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-35-49.094   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-35-49.830   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-35-53.643   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-35-54.375   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-35-58.283   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-35-59.032   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-36-03.146   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-36-03.156   INFO: Side 0 mapped, using width encoder value of 105, not averaging
+2018-07-29:20-36-06.422   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-36-06.876   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-36-07.641   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-36-15.049   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-36-15.781   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-36-21.145   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-36-21.909   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-36-26.707   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-36-26.729   INFO: Side 1 mapped, using height encoder value of 150, not averaging
+2018-07-29:20-36-30.187   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-36-40.644   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-36-40.678   INFO: Side 2 mapped, using second width encoder value of 94, averaging
+2018-07-29:20-36-44.079   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-36-49.377   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-36-50.144   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-36-53.467   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-36-53.471   INFO: Side 3 mapped, using second height encoder value of 76, averaging
+2018-07-29:20-36-53.476   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-29:20-36-53.485   INFO: Sending mapping data...
+2018-07-29:20-36-53.634   INFO: Finish calculations, Calculcations->TurnToClean
+2018-07-29:20-36-59.109   INFO: right encoder clicks=50, rotationX=0, TurnToClean->CleanUp
+2018-07-29:20-37-41.475   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-37-41.476   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-37-41.482   DEBUG: Manual control method starting
+2018-07-29:20-37-48.735   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-37-48.736   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-37-48.736   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-37-52.564   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-37-53.328   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-37-58.694   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-37-59.457   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-38-03.673   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-38-04.471   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-38-07.960   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-38-07.974   INFO: Side 0 mapped, using width encoder value of 114, not averaging
+2018-07-29:20-38-11.300   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-38-15.421   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-38-16.186   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-38-19.075   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-38-19.085   INFO: Side 1 mapped, using height encoder value of 62, not averaging
+2018-07-29:20-38-22.395   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-38-22.681   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-38-23.425   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-38-28.172   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-38-28.942   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-38-33.002   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-38-33.033   INFO: Side 2 mapped, using second width encoder value of 79, averaging
+2018-07-29:20-38-36.382   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-38-37.923   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-38-38.673   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-38-39.798   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-38-39.814   INFO: Side 3 mapped, using second height encoder value of 22, averaging
+2018-07-29:20-38-39.823   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-29:20-38-39.832   INFO: Sending mapping data...
+2018-07-29:20-38-39.837   INFO: Finish calculations, Calculcations->TurnToClean
+2018-07-29:20-38-45.520   INFO: right encoder clicks=50, rotationX=0, TurnToClean->CleanUp
+2018-07-29:20-40-11.500   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-40-11.501   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-40-11.501   DEBUG: Manual control method starting
+2018-07-29:20-40-56.376   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-40-56.377   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-40-56.382   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-40-56.706   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-40-57.483   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-06.297   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-41-07.052   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-07.172   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-41-07.923   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-11.003   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-41-11.751   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-14.015   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-41-14.045   INFO: Side 0 mapped, using width encoder value of 123, not averaging
+2018-07-29:20-41-17.484   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-41-19.538   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-41-20.337   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-23.409   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-41-24.125   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-27.348   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-41-27.365   INFO: Side 1 mapped, using height encoder value of 72, not averaging
+2018-07-29:20-41-30.707   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-41-38.222   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-41-38.969   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-41-41.995   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-41-42.004   INFO: Side 2 mapped, using second width encoder value of 89, averaging
+2018-07-29:20-41-45.390   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-41-54.530   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-41-54.548   INFO: Side 3 mapped, using second height encoder value of 76, averaging
+2018-07-29:20-41-54.556   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-29:20-41-54.562   INFO: Sending mapping data...
+2018-07-29:20-41-54.584   INFO: Finish calculations, Calculcations->TurnToClean
+2018-07-29:20-41-59.980   INFO: right encoder clicks=50, rotationX=0, TurnToClean->CleanUp
+2018-07-29:20-44-26.814   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:20-44-27.042   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:20-44-27.409   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:20-44-52.690   DEBUG: dashboard connected via force wait
+2018-07-29:20-44-52.691   INFO: Initializing Encoders
+2018-07-29:20-44-52.701   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:20-44-52.852   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:20-44-53.160   INFO: PWM loading complete, I2C
+2018-07-29:20-44-53.371   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:20-44-53.484   DEBUG: MPU reports that device is on address 104...
+2018-07-29:20-44-53.497   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:20-44-53.497   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:20-44-53.497   DEBUG: Config gyro and accel sensitivity
+2018-07-29:20-44-53.498   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:20-44-53.498   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:20-44-53.498   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:20-44-53.545   INFO: Controller initialized, system online
+2018-07-29:20-44-54.038   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-44-59.590   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-45-00.479   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-45-04.080   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-45-04.852   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-45-07.858   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:20-45-07.862   INFO: Side 0 mapped, using width encoder value of 45, not averaging
+2018-07-29:20-45-11.059   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:20-45-13.741   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-45-13.741   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-45-13.742   DEBUG: Manual control method starting
+2018-07-29:20-51-23.601   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-51-23.601   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-51-23.603   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-51-25.633   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-51-26.444   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-52-07.244   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-52-07.244   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-52-07.244   DEBUG: Manual control method starting
+2018-07-29:20-53-11.288   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-53-11.288   DEBUG: Releasing manual control, restarting auto
+2018-07-29:20-53-11.290   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:20-53-13.589   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:20-53-14.368   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-53-17.368   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-53-18.119   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-53-21.351   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:20-53-22.143   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:20-53-32.850   DEBUG: Control thread is down, determining what to do next
+2018-07-29:20-53-32.851   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:20-53-32.857   DEBUG: Manual control method starting
+2018-07-29:20-54-47.143   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-07-29:21-11-41.487   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:21-11-41.693   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:21-11-42.145   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:21-12-12.550   DEBUG: dashboard connected via force wait
+2018-07-29:21-12-12.551   INFO: Initializing Encoders
+2018-07-29:21-12-12.557   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:21-12-12.689   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:21-12-12.845   ERROR: RobotController.SystemDispatcher is null
+2018-07-29:21-12-13.042   INFO: PWM loading complete, I2C
+2018-07-29:21-12-13.278   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:21-12-13.371   DEBUG: MPU reports that device is on address 104...
+2018-07-29:21-12-13.372   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:21-12-13.372   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:21-12-13.373   DEBUG: Config gyro and accel sensitivity
+2018-07-29:21-12-13.373   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:21-12-13.374   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:21-12-13.374   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:21-12-13.399   INFO: Controller initialized, system online
+2018-07-29:21-12-13.939   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:21-12-18.206   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:21-12-35.646   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-12-35.648   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:21-12-35.653   DEBUG: Manual control method starting
+2018-07-29:21-13-18.249   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-13-18.255   DEBUG: Releasing manual control, restarting auto
+2018-07-29:21-13-18.256   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:21-13-21.172   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:21-13-22.002   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-13-25.741   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-13-26.535   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-13-29.660   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-13-30.430   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-13-30.439   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-13-30.455   INFO: Side 0 mapped, using width encoder value of 51, not averaging
+2018-07-29:21-13-33.673   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-13-41.859   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-13-41.969   INFO: Side 1 mapped, using height encoder value of 63, not averaging
+2018-07-29:21-13-45.203   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-13-49.223   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-13-49.961   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-13-49.968   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-13-50.001   INFO: Side 2 mapped, using second width encoder value of 29, averaging
+2018-07-29:21-13-53.281   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-13-56.642   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-13-57.405   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-14-01.765   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-14-01.769   INFO: Side 3 mapped, using second height encoder value of 63, averaging
+2018-07-29:21-14-01.774   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-07-29:21-14-01.794   INFO: Sending mapping data...
+2018-07-29:21-14-02.015   INFO: Finish calculations, Calculcations->TurnToClean
+2018-07-29:21-14-07.729   INFO: right encoder clicks=50, rotationX=2, TurnToClean->CleanUp
+2018-07-29:21-18-05.770   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-18-05.772   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:21-18-05.773   DEBUG: Manual control method starting
+2018-07-29:21-32-51.044   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-32-51.056   DEBUG: Releasing manual control, restarting auto
+2018-07-29:21-32-51.057   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:21-32-53.762   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:21-32-54.747   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-32-54.752   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-32-54.770   INFO: Side 0 mapped, using width encoder value of 0, not averaging
+2018-07-29:21-32-58.933   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-33-09.748   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-33-10.730   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-33-10.747   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-33-10.765   INFO: Side 1 mapped, using height encoder value of 93, not averaging
+2018-07-29:21-33-15.029   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-33-21.526   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-33-22.432   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-33-29.980   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-33-29.981   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:21-33-29.981   DEBUG: Manual control method starting
+2018-07-29:21-43-12.842   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-43-12.842   DEBUG: Releasing manual control, restarting auto
+2018-07-29:21-43-12.843   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:21-43-17.447   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-43-17.447   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:21-43-17.447   DEBUG: Manual control method starting
+2018-07-29:21-49-25.952   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-49-25.953   DEBUG: Releasing manual control, restarting auto
+2018-07-29:21-49-25.953   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:21-49-27.008   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:21-49-28.039   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-32.350   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-49-33.338   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-35.967   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-49-37.007   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-41.138   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-49-42.147   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-44.942   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-49-45.948   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-46.340   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-49-47.329   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-52.860   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:21-49-53.851   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:21-49-53.855   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-49-53.866   INFO: Side 0 mapped, using width encoder value of 165, not averaging
+2018-07-29:21-49-58.272   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-50-04.526   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:21-50-04.539   INFO: Side 1 mapped, using height encoder value of 55, not averaging
+2018-07-29:21-50-09.077   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:21-50-12.260   DEBUG: Control thread is down, determining what to do next
+2018-07-29:21-50-12.260   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:21-50-12.260   DEBUG: Manual control method starting
+2018-07-29:22-03-38.700   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-07-29:22-03-38.909   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-07-29:22-03-39.341   Dashboard: Robot found, binding socket and listening for events
+2018-07-29:22-04-14.573   DEBUG: dashboard connected via force wait
+2018-07-29:22-04-14.574   INFO: Initializing Encoders
+2018-07-29:22-04-14.593   INFO: Proximity initialized, initializing SPI interface
+2018-07-29:22-04-14.727   INFO: SPI Interface initialization complete, loading PWM
+2018-07-29:22-04-15.129   INFO: PWM loading complete, I2C
+2018-07-29:22-04-15.349   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-07-29:22-04-15.460   DEBUG: MPU reports that device is on address 104...
+2018-07-29:22-04-15.461   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-07-29:22-04-15.463   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-07-29:22-04-15.463   DEBUG: Config gyro and accel sensitivity
+2018-07-29:22-04-15.463   DEBUG: Config gyro and accel sample rate and filter rate
+2018-07-29:22-04-15.463   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-07-29:22-04-15.464   INFO: I2C loading complete, Initializing Main Robot controller
+2018-07-29:22-04-15.488   INFO: Controller initialized, system online
+2018-07-29:22-04-16.017   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:22-04-16.497   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-04-16.501   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:22-04-16.510   DEBUG: Manual control method starting
+2018-07-29:22-05-21.483   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-05-21.483   DEBUG: Releasing manual control, restarting auto
+2018-07-29:22-05-21.488   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:22-05-22.329   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:22-05-23.249   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-27.892   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-28.949   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-31.782   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-32.704   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-33.078   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-33.985   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-39.506   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-40.452   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-41.328   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-42.251   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-44.876   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-45.795   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-50.362   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-51.352   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-51.443   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-52.391   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-57.658   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-05-58.697   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-05-58.700   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:22-05-58.706   INFO: Side 0 mapped, using width encoder value of 235, not averaging
+2018-07-29:22-06-03.062   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:22-06-07.731   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-06-08.640   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-06-08.657   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:22-06-08.672   INFO: Side 1 mapped, using height encoder value of 34, not averaging
+2018-07-29:22-06-12.969   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-07-29:22-06-24.797   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-06-24.800   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:22-06-24.800   DEBUG: Manual control method starting
+2018-07-29:22-18-51.921   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-18-51.921   DEBUG: Releasing manual control, restarting auto
+2018-07-29:22-18-51.924   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:22-18-52.913   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:22-18-53.858   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-18-54.198   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-18-55.167   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-18-55.263   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-18-56.188   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-18-56.354   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-18-57.389   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-18-58.997   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-18-58.997   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:22-18-58.997   DEBUG: Manual control method starting
+2018-07-29:22-19-10.823   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-19-10.823   DEBUG: Releasing manual control, restarting auto
+2018-07-29:22-19-10.827   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:22-19-12.338   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:22-19-13.410   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-13.545   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-19-14.564   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-14.862   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-19-15.811   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-16.039   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-19-17.042   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-17.277   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-19-18.278   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-18.528   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-19-19.557   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-19.674   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-19-20.607   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-19-24.172   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-19-24.175   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:22-19-24.181   DEBUG: Manual control method starting
+2018-07-29:22-20-22.574   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-20-22.574   DEBUG: Releasing manual control, restarting auto
+2018-07-29:22-20-22.580   INFO: On robot init, autocontrol state none->TurnToMap
+2018-07-29:22-20-23.965   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-07-29:22-20-24.889   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-20-25.198   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-20-26.135   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-20-26.215   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-20-27.201   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-20-37.876   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-07-29:22-20-38.920   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-07-29:22-20-38.927   INFO: Front wall detected, MapOneSide->MapTurn
+2018-07-29:22-20-38.931   INFO: Side 0 mapped, using width encoder value of 97, not averaging
+2018-07-29:22-20-41.541   DEBUG: Control thread is down, determining what to do next
+2018-07-29:22-20-41.541   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-07-29:22-20-41.542   DEBUG: Manual control method starting
