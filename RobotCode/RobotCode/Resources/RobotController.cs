@@ -74,6 +74,10 @@ namespace RobotCode
         /// </summary>
         Calculations,
         /// <summary>
+        /// It has finished mapping, is back at start, and will now turn left to start cleaning of first line
+        /// </summary>
+        TurnToClean,
+        /// <summary>
         /// Cleaning the area, in the up side
         /// </summary>
         CleanUp,
@@ -81,6 +85,10 @@ namespace RobotCode
         /// Cleaning the area, in the down side
         /// </summary>
         CleanDown,
+        /// <summary>
+        /// Turning to clean the next line
+        /// </summary>
+        CleanTurn,
         /// <summary>
         /// On cleaning complete, going back to base to charge or something
         /// </summary>
@@ -214,6 +222,8 @@ namespace RobotCode
         private const float SLOW_RIGHT_FORWARD_MAP = 0.6F;
         private const float SLOW_LEFT_BACKUP = 0.35F;
         private const float ALL_STOP = 0.5F;
+        private static int num_lanes = 0;
+        private const int ROBOT_TICKS_WIDTH = 70;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
@@ -300,7 +310,7 @@ namespace RobotCode
                 //GPIO
                 Hardware.UpdateGPIOValues();
                 //I2C
-                Hardware.UpdateI2CData(0, 0);
+                Hardware.UpdateI2CData(0, 1);
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
@@ -351,6 +361,8 @@ namespace RobotCode
                 ControlStatus = ControlStatus.Auto;
             RobotAutoControlState = AutoControlState.None;
             Hardware.ResetI2CData(true, true);
+            Hardware.RightEncoder.ResetCounter();
+            Hardware.LeftEncoder.ResetCounter();
             while (true)
             {
                 //check for cancel/abort
@@ -372,7 +384,7 @@ namespace RobotCode
                 //I2C
                 if (DelayI2CRead >= 2)
                 {
-                    Hardware.UpdateI2CData(0, 0);
+                    Hardware.UpdateI2CData(0, 1);
                     DelayI2CRead = -1;
                 }
                 DelayI2CRead++;
@@ -578,8 +590,44 @@ namespace RobotCode
                             WorkArea.SetRobotLocation(0F, 0F);
                             NetworkUtils.LogNetwork("Sending mapping data...", MessageType.Info);
                             NetworkUtils.LogNetwork(WorkArea.XMLMap, MessageType.Mapping);
+                            RobotAutoControlState = AutoControlState.TurnToClean;
+                            NetworkUtils.LogNetwork("Finish calculations, Calculcations->TurnToClean",MessageType.Info);
+                            SingleSetBool = false;
+                        }
+                        break;
+                    case AutoControlState.TurnToClean:
+                        if(!SingleSetBool)
+                        {
+                            Hardware.RightEncoder.ResetCounter();
+                            Hardware.ResetI2CData(true, true);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_RIGHT_FORWARD_MAP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            //you would set the cleaning relays on here
                             SingleSetBool = true;
                         }
+                        if(Hardware.RightEncoder.Clicks >=50 || Hardware.RotationX >= 800)
+                        {
+                            NetworkUtils.LogNetwork(string.Format("right encoder clicks={0}, rotationX={1}, TurnToClean->CleanUp", Hardware.RightEncoder.Clicks, Hardware.RotationX), MessageType.Info);
+                            RobotAutoControlState = AutoControlState.CleanUp;
+                            SingleSetBool = false;
+                        }
+                        break;
+                    case AutoControlState.CleanUp:
+                        if(!SingleSetBool)
+                        {
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            SingleSetBool = true;
+                        }
+                        break;
+                    case AutoControlState.CleanTurn:
+
+                        break;
+                    case AutoControlState.CleanDown:
+
+                        break;
+                    case AutoControlState.CleanComplete:
+
                         break;
                     case AutoControlState.OnLowPowerBattery:
 

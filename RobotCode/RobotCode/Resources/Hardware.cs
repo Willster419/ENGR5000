@@ -692,13 +692,6 @@ namespace RobotCode
             NetworkUtils.LogNetwork("Disable inturrupts and clear accel and gyro values",MessageType.Debug);
             I2C_WriteByte(INT_ENABLE, 0x00);
 
-            //wait for process to take place...
-            await Task.Delay(100);
-
-            //...and get normalization values
-            NetworkUtils.LogNetwork("Getting normalized values for accel and gyro", MessageType.Debug);
-            NormalizeI2CData(0, 0);
-
             return true;
         }
         /// <summary>
@@ -709,9 +702,9 @@ namespace RobotCode
         {
             LeftEncoder = new SmartRotaryEncoder();
             RightEncoder = new SmartRotaryEncoder();
-            if (!LeftEncoder.InitEncoder(LEFT_CLK, LEFT_DT, GpioController,true,5,"LeftEncoder"))
+            if (!LeftEncoder.InitEncoder(LEFT_CLK, LEFT_DT, GpioController,true,0,"LeftEncoder"))
                 return false;
-            if (!RightEncoder.InitEncoder(RIGHT_CLK, RIGHT_DT, GpioController,false,5,"RightEncoder"))
+            if (!RightEncoder.InitEncoder(RIGHT_CLK, RIGHT_DT, GpioController,false,0,"RightEncoder"))
                 return false;
             return true;
         }
@@ -898,7 +891,7 @@ namespace RobotCode
                 AccelerationX = AccelerationY = AccelerationZ = 0;
                 VelocityX = VelocityY = VelocityZ = 0;
                 PositionX = PositionY = PositionZ = 0;
-                NormalizeI2CData(-1, 0);
+                NormalizeI2CData(-1, 1);
             }
             if(gyro)
             {
