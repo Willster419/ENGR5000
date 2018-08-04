@@ -555,9 +555,9 @@ namespace RobotCode
             //init IR recievers
             SideReciever = new IRReciever();
             FrontReciever = new IRReciever();
-            if (!SideReciever.InitSensor(SIDE_IR_DETECT_PIN, 2, GpioController))
+            if (!SideReciever.InitSensor(SIDE_IR_DETECT_PIN, 5, GpioController))
                 return false;
-            if (!FrontReciever.InitSensor(FRONT_IR_DETECT_PIN, 2, GpioController))
+            if (!FrontReciever.InitSensor(FRONT_IR_DETECT_PIN, 5, GpioController))
                 return false;
 
             //init status indicators

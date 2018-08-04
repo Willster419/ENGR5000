@@ -215,15 +215,21 @@ namespace RobotCode
         private static Map WorkArea;
         private static int Manual_counter_1 = 0;
         private static int Manual_counter_2 = 0;
+        private static int left_ir_count_reset = 0;
+        private static int right_ir_count_reset = 0;
         public static CoreDispatcher SystemDispatcher;
         private static int NumSidesMapped = 0;
         //speed constants
         private const float SLOW_LEFT_FORWARD_MAP = 0.65F;
         private const float SLOW_RIGHT_FORWARD_MAP = 0.6F;
-        private const float SLOW_LEFT_BACKUP = 0.35F;
+        private const float SLOW_FORWARD = 0.6F;
+        private const float SLOW_REVERSE = 0.35F;
         private const float ALL_STOP = 0.5F;
         private static int num_lanes = 0;
         private const int ROBOT_TICKS_WIDTH = 70;
+        //encoder constsnts
+        private const int SIDE_WALL_CORRECTION = -5;
+        private const int MAP_TURN_LEFT = -40;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
@@ -280,6 +286,7 @@ namespace RobotCode
                 NetworkUtils.LogNetwork("Starting front reciever", MessageType.Debug);
                 Hardware.FrontReciever.Start();
             }
+            Manual_counter_1 = Manual_counter_2 = left_ir_count_reset = right_ir_count_reset = 0;
             Hardware.ResetI2CData(true, true);
             while (true)
             {
@@ -292,8 +299,8 @@ namespace RobotCode
                 if(!NetworkUtils.ConnectionLive)
                 {
                     //stop moving
-                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.5F);
-                    Hardware.RightDrive.SetActiveDutyCyclePercentage(0.5F);
+                    Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                    Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
                     Hardware.Auger_pin.Write(GpioPinValue.High);
                     Hardware.Impeller_pin.Write(GpioPinValue.High);
                     System.Threading.Thread.Sleep(20);
@@ -314,6 +321,16 @@ namespace RobotCode
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
+                if(left_ir_count_reset++ > 5)
+                {
+                    Hardware.SideReciever.ClearDetectionBuffer();
+                    left_ir_count_reset = 0;
+                }
+                if(right_ir_count_reset++ > 5)
+                {
+                    Hardware.FrontReciever.ClearDetectionBuffer();
+                    right_ir_count_reset = 0;
+                }
                 if(Hardware.SideReciever.WallDetected && Manual_counter_1++ > 40)
                 {
                     Hardware.SideReciever.ResetDetection();
@@ -363,6 +380,7 @@ namespace RobotCode
             Hardware.ResetI2CData(true, true);
             Hardware.RightEncoder.ResetCounter();
             Hardware.LeftEncoder.ResetCounter();
+            Manual_counter_1 = Manual_counter_2 = left_ir_count_reset = right_ir_count_reset = 0;
             while (true)
             {
                 //check for cancel/abort
@@ -390,9 +408,19 @@ namespace RobotCode
                 DelayI2CRead++;
                 //SPI
                 Hardware.UpdateSPIData();
-
+                //IR
+                if (left_ir_count_reset++ > 25)
+                {
+                    Hardware.SideReciever.ClearDetectionBuffer();
+                    left_ir_count_reset = 0;
+                }
+                if (right_ir_count_reset++ > 25)
+                {
+                    Hardware.FrontReciever.ClearDetectionBuffer();
+                    right_ir_count_reset = 0;
+                }
                 //process battery conditions
-                if(!IGNORE_LOW_SIGNAL_BATTERY_ACTION)
+                if (!IGNORE_LOW_SIGNAL_BATTERY_ACTION)
                 {
                     switch(SignalBatteryStatus)
                     {
@@ -471,7 +499,7 @@ namespace RobotCode
                         }
                         else if (!SingleSetBool)
                         {
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_REVERSE);
                             Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_FORWARD_MAP);
                             SingleSetBool = true;
                         }
@@ -509,10 +537,10 @@ namespace RobotCode
                         if(!SingleSetBool)
                         {
                             Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_BACKUP);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_REVERSE);
                             SingleSetBool = true;
                         }
-                        else if (Hardware.LeftEncoder.Clicks <= -10)
+                        else if (Hardware.LeftEncoder.Clicks <= SIDE_WALL_CORRECTION)
                         {
                             //go back to a slow turn to the right
                             NetworkUtils.LogNetwork("Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide", MessageType.Info);
@@ -534,8 +562,8 @@ namespace RobotCode
                             //convert it to a normalized distance
                             //average it
                             Hardware.LeftEncoder.ResetCounter();
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(ALL_STOP);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_LEFT_BACKUP);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_FORWARD);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_REVERSE);
                             switch(NumSidesMapped)
                             {
                                 case 0:
@@ -570,7 +598,7 @@ namespace RobotCode
                                 SingleSetBool = true;
                             }
                         }
-                        else if (Hardware.LeftEncoder.Clicks <= -50)
+                        else if (Hardware.LeftEncoder.Clicks <= MAP_TURN_LEFT)
                         {
                             NetworkUtils.LogNetwork("Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide", MessageType.Info);
                             //reset the side reciever to let it continue

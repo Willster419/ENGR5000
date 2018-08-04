@@ -97,6 +97,13 @@ namespace RobotCode.Resources
             _pin.ValueChanged += OnValueChanged;
         }
         /// <summary>
+        /// Clears the number of detections. Implied use is to remove noise by claering false detections
+        /// </summary>
+        public void ClearDetectionBuffer()
+        {
+            NumDetections = 0;
+        }
+        /// <summary>
         /// Event handler for when the GPIO pin value is changed
         /// </summary>
         /// <param name="sender">The sender object</param>
