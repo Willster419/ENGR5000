@@ -60,6 +60,7 @@ namespace RobotCode
         /// Mapping the first side of the rectangle
         /// </summary>
         MapOneSide,
+        MapOverTurn,
         /// <summary>
         /// The front and side IR sensors have both detected walls, it is at a corner.
         /// Need to turn and map the next part of the rectnagle. Applies for all corners
@@ -221,15 +222,22 @@ namespace RobotCode
         private static int NumSidesMapped = 0;
         //speed constants
         private const float SLOW_LEFT_FORWARD_MAP = 0.65F;
-        private const float SLOW_RIGHT_FORWARD_MAP = 0.6F;
-        private const float SLOW_FORWARD = 0.6F;
+        private const float SLOW_RIGHT_FORWARD_MAP = 0.61F;
+        private const float SLOW_FORWARD = 0.65F;
         private const float SLOW_REVERSE = 0.35F;
         private const float ALL_STOP = 0.5F;
         private static int num_lanes = 0;
         private const int ROBOT_TICKS_WIDTH = 70;
         //encoder constsnts
-        private const int SIDE_WALL_CORRECTION = -5;
-        private const int MAP_TURN_LEFT = -40;
+        private const int SIDE_WALL_CORRECTION = -3;
+        private const int MAP_TURN_LEFT = -25;
+        private const int MAP_TURN_OVER_BOUNDRY = 25;
+        private const int TURN_TO_CLEAN = -40;
+        //IR constants
+        private const int SIDE_IR_CLEAR_BUFFER_TIMEOUT = 25;
+        private const int FRONT_IR_CLEAR_BUFFER_TIMOEUT = 10;
+        //temps
+        private static float right_encoder_side_value = 0;
         /// <summary>
         /// Initialize the controller subsystem
         /// </summary>
@@ -321,12 +329,12 @@ namespace RobotCode
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
-                if(left_ir_count_reset++ > 5)
+                if(left_ir_count_reset++ > FRONT_IR_CLEAR_BUFFER_TIMOEUT)
                 {
                     Hardware.SideReciever.ClearDetectionBuffer();
                     left_ir_count_reset = 0;
                 }
-                if(right_ir_count_reset++ > 5)
+                if(right_ir_count_reset++ > FRONT_IR_CLEAR_BUFFER_TIMOEUT)
                 {
                     Hardware.FrontReciever.ClearDetectionBuffer();
                     right_ir_count_reset = 0;
@@ -409,12 +417,12 @@ namespace RobotCode
                 //SPI
                 Hardware.UpdateSPIData();
                 //IR
-                if (left_ir_count_reset++ > 25)
+                if (left_ir_count_reset++ > SIDE_IR_CLEAR_BUFFER_TIMEOUT)
                 {
                     Hardware.SideReciever.ClearDetectionBuffer();
                     left_ir_count_reset = 0;
                 }
-                if (right_ir_count_reset++ > 25)
+                if (right_ir_count_reset++ > FRONT_IR_CLEAR_BUFFER_TIMOEUT)
                 {
                     Hardware.FrontReciever.ClearDetectionBuffer();
                     right_ir_count_reset = 0;
@@ -515,8 +523,8 @@ namespace RobotCode
                         //  set back to slow right turn
                         if(Hardware.FrontReciever.WallDetected)
                         {
-                            NetworkUtils.LogNetwork("Front wall detected, MapOneSide->MapTurn", MessageType.Info);
-                            RobotAutoControlState = AutoControlState.MapTurn;
+                            NetworkUtils.LogNetwork("Front wall detected, MapOneSide->MapOverTurn", MessageType.Info);
+                            RobotAutoControlState = AutoControlState.MapOverTurn;
                             SingleSetBool = false;
                         }
                         else if (Hardware.SideReciever.WallDetected)
@@ -552,35 +560,51 @@ namespace RobotCode
                             SingleSetBool = false;
                         }
                         break;
-                    case AutoControlState.MapTurn:
+                    case AutoControlState.MapOverTurn:
                         if (!SingleSetBool)
                         {
-                            float encoder_value = Hardware.RightEncoder.Clicks;
+                            //save the rightEncoder value
+                            right_encoder_side_value = Hardware.RightEncoder.Clicks;
                             Hardware.RightEncoder.ResetCounter();
-                            //convert it to a normalized distance
+                            //convert it to a normalized distance (TODO)
                             float MPU_height = Hardware.PositionX;
                             //convert it to a normalized distance
                             //average it
+                            Hardware.LeftEncoder.ResetCounter();
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_FORWARD);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(0.6F);
+                            SingleSetBool = true;
+                        }
+                        else if (Hardware.LeftEncoder.Clicks >= MAP_TURN_OVER_BOUNDRY)
+                        {
+                            NetworkUtils.LogNetwork("Left encoder has moved enough over boundry, MapOverTurn->MapTurn", MessageType.Info);
+                            RobotAutoControlState = AutoControlState.MapTurn;
+                            SingleSetBool = false;
+                        }
+                        break;
+                    case AutoControlState.MapTurn:
+                        if (!SingleSetBool)
+                        {
                             Hardware.LeftEncoder.ResetCounter();
                             Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_FORWARD);
                             Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_REVERSE);
                             switch(NumSidesMapped)
                             {
                                 case 0:
-                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using width encoder value of {1}, not averaging", NumSidesMapped, encoder_value), MessageType.Info);
-                                    WorkArea.SetHeight(encoder_value, false);
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using width encoder value of {1}, not averaging", NumSidesMapped, right_encoder_side_value), MessageType.Info);
+                                    WorkArea.SetHeight(right_encoder_side_value, false);
                                     break;
                                 case 1:
-                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using height encoder value of {1}, not averaging", NumSidesMapped, encoder_value), MessageType.Info);
-                                    WorkArea.SetWidth(encoder_value, false);
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using height encoder value of {1}, not averaging", NumSidesMapped, right_encoder_side_value), MessageType.Info);
+                                    WorkArea.SetWidth(right_encoder_side_value, false);
                                     break;
                                 case 2:
-                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using second width encoder value of {1}, averaging", NumSidesMapped, encoder_value), MessageType.Info);
-                                    WorkArea.SetHeight(encoder_value, true);
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using second width encoder value of {1}, averaging", NumSidesMapped, right_encoder_side_value), MessageType.Info);
+                                    WorkArea.SetHeight(right_encoder_side_value, true);
                                     break;
                                 case 3:
-                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using second height encoder value of {1}, averaging", NumSidesMapped, encoder_value), MessageType.Info);
-                                    WorkArea.SetWidth(encoder_value, true);
+                                    NetworkUtils.LogNetwork(string.Format("Side {0} mapped, using second height encoder value of {1}, averaging", NumSidesMapped, right_encoder_side_value), MessageType.Info);
+                                    WorkArea.SetWidth(right_encoder_side_value, true);
                                     break;
                                 default:
                                     NetworkUtils.LogNetwork(string.Format("Sides value of {0} should not happen", NumSidesMapped), MessageType.Error);
@@ -627,13 +651,14 @@ namespace RobotCode
                         if(!SingleSetBool)
                         {
                             Hardware.RightEncoder.ResetCounter();
+                            Hardware.LeftEncoder.ResetCounter();
                             Hardware.ResetI2CData(true, true);
-                            Hardware.RightDrive.SetActiveDutyCyclePercentage(SLOW_RIGHT_FORWARD_MAP);
-                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(ALL_STOP);
+                            Hardware.RightDrive.SetActiveDutyCyclePercentage(0.63F);
+                            Hardware.LeftDrive.SetActiveDutyCyclePercentage(SLOW_REVERSE);
                             //you would set the cleaning relays on here
                             SingleSetBool = true;
                         }
-                        if(Hardware.RightEncoder.Clicks >=50 || Hardware.RotationX >= 800)
+                        if(Hardware.LeftEncoder.Clicks <= TURN_TO_CLEAN || Hardware.RotationX >= 800)
                         {
                             NetworkUtils.LogNetwork(string.Format("right encoder clicks={0}, rotationX={1}, TurnToClean->CleanUp", Hardware.RightEncoder.Clicks, Hardware.RotationX), MessageType.Info);
                             RobotAutoControlState = AutoControlState.CleanUp;
