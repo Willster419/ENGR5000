@@ -11880,3 +11880,121 @@
 2018-08-04:20-22-17.965   Sent Shutdown command for 10 seconds delay
 2018-08-04:20-23-38.101   Application Closing
 2018-08-04:20-23-38.101   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-08-07:12-31-20.601   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:12-31-20.626   Dashboard Version 1.1.0.0
+2018-08-07:12-31-20.630   Built on Tue 08/07/2018 12:02:43.79
+2018-08-07:12-31-20.632   Initializing network connections
+2018-08-07:12-31-20.639   Checking for any local internet connection...
+2018-08-07:12-31-20.723   At leaset one valid network connections exist!
+2018-08-07:12-31-20.799   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=192.168.1.2
+2018-08-07:12-31-20.806   Valid V6 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=fe80::6c69:44a1:af9b:ef5c%18
+2018-08-07:12-31-20.808   Valid V4 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=10.200.109.27
+2018-08-07:12-31-20.809   DEBUG: Hard-code select index 0
+2018-08-07:12-31-20.811   Computer IPV6 address set to fe80::6c69:44a1:af9b:ef5c%18
+2018-08-07:12-31-20.812   Computer IPV4 address set to 192.168.1.2
+2018-08-07:12-31-20.813   Pinging robot hostname for aliveness
+2018-08-07:12-31-21.524   Application Closing
+2018-08-07:12-31-21.526   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-08-07:12-35-14.039   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:12-35-14.043   Dashboard Version 1.1.0.0
+2018-08-07:12-35-14.046   Built on Tue 08/07/2018 12:02:43.79
+2018-08-07:12-35-14.049   Initializing network connections
+2018-08-07:12-35-14.055   Checking for any local internet connection...
+2018-08-07:12-35-14.140   At leaset one valid network connections exist!
+2018-08-07:12-35-14.248   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=192.168.1.2
+2018-08-07:12-35-14.253   Valid V6 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=fe80::6c69:44a1:af9b:ef5c%18
+2018-08-07:12-35-14.256   Valid V4 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=10.200.109.27
+2018-08-07:12-35-14.258   DEBUG: Hard-code select index 0
+2018-08-07:12-35-14.261   Computer IPV6 address set to fe80::6c69:44a1:af9b:ef5c%18
+2018-08-07:12-35-14.262   Computer IPV4 address set to 192.168.1.2
+2018-08-07:12-35-14.264   Pinging robot hostname for aliveness
+2018-08-07:12-35-14.351   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-08-07:12-35-14.373   Parsed IPV4 address: 192.168.1.5
+2018-08-07:12-35-14.409   Binding robot listener to address 192.168.1.2
+2018-08-07:12-35-14.410   Binding robot sender to address 192.168.1.5
+2018-08-07:12-35-14.412   Connecting to robot...
+2018-08-07:12-35-14.413   Sending IP address of dashboard to robot and waiting for response...
+2018-08-07:12-37-54.889   Robot Connected, comms established
+2018-08-07:12-37-56.127   New data log file created
+2018-08-07:12-39-17.988   Parsing xml document
+2018-08-07:12-39-17.989   Parsing xml document complete
+2018-08-07:12-39-31.708   Starting Manual Control
+2018-08-07:12-39-31.723   Manual control Started
+2018-08-07:12-39-37.829   Linking refrence for main window
+2018-08-07:12-39-37.830   Setting up background worker
+2018-08-07:12-39-37.830   Getting all joystick instances
+2018-08-07:12-39-37.898   Found joystick instance: Logitech Attack 3
+2018-08-07:12-39-38.878   Init joystick index 0
+2018-08-07:12-39-38.878   Joystick initaliized
+2018-08-07:12-41-19.360   Application Closing
+2018-08-07:12-41-19.360   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-08-07:16-47-23.147   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:16-47-23.165   Dashboard Version 1.1.0.0
+2018-08-07:16-47-23.169   Built on Tue 08/07/2018 12:02:43.79
+2018-08-07:16-47-23.173   Initializing network connections
+2018-08-07:16-47-23.179   Checking for any local internet connection...
+2018-08-07:16-47-23.259   At leaset one valid network connections exist!
+2018-08-07:16-47-23.336   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=192.168.1.2
+2018-08-07:16-47-23.343   Valid V6 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=fe80::6c69:44a1:af9b:ef5c%18
+2018-08-07:16-47-23.345   Valid V4 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=10.200.109.27
+2018-08-07:16-47-23.347   DEBUG: Hard-code select index 0
+2018-08-07:16-47-23.348   Computer IPV6 address set to fe80::6c69:44a1:af9b:ef5c%18
+2018-08-07:16-47-23.349   Computer IPV4 address set to 192.168.1.2
+2018-08-07:16-47-23.350   Pinging robot hostname for aliveness
+2018-08-07:16-47-34.447   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-08-07:16-47-45.581   Parsed IPV4 address: 192.168.1.5
+2018-08-07:16-47-45.589   Binding robot listener to address 192.168.1.2
+2018-08-07:16-47-45.590   Binding robot sender to address 192.168.1.5
+2018-08-07:16-47-45.591   Connecting to robot...
+2018-08-07:16-47-45.592   Sending IP address of dashboard to robot and waiting for response...
+2018-08-07:16-57-34.254   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:16-57-34.261   Dashboard Version 1.1.0.0
+2018-08-07:16-57-34.264   Built on Tue 08/07/2018 12:02:43.79
+2018-08-07:16-57-34.266   Initializing network connections
+2018-08-07:16-57-34.275   Checking for any local internet connection...
+2018-08-07:16-57-34.394   At leaset one valid network connections exist!
+2018-08-07:16-57-34.476   Valid V4 network found: name=Intel(R) Ethernet Connection (2) I219-LM, address=192.168.1.2
+2018-08-07:16-57-34.480   Valid V6 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=fe80::f491:b719:5d32:1cd6%18
+2018-08-07:16-57-34.482   Valid V4 network found: name=Intel(R) Dual Band Wireless-AC 8260, address=192.168.1.4
+2018-08-07:16-57-34.483   DEBUG: Hard-code select index 0
+2018-08-07:16-57-34.485   Computer IPV6 address set to fe80::f491:b719:5d32:1cd6%18
+2018-08-07:16-57-34.487   Computer IPV4 address set to 192.168.1.2
+2018-08-07:16-57-34.489   Pinging robot hostname for aliveness
+2018-08-07:16-57-34.640   Ping SUCCESS, getting IP v4 and v6 addresses
+2018-08-07:16-57-34.675   Parsed IPV4 address: 192.168.1.3
+2018-08-07:16-57-34.682   Binding robot listener to address 192.168.1.2
+2018-08-07:16-57-34.683   Binding robot sender to address 192.168.1.3
+2018-08-07:16-57-34.684   Connecting to robot...
+2018-08-07:16-57-34.685   Sending IP address of dashboard to robot and waiting for response...
+2018-08-07:17-01-25.335   Robot Connected, comms established
+2018-08-07:17-01-29.855   New data log file created
+2018-08-07:17-01-31.930   Starting Manual Control
+2018-08-07:17-01-32.008   Manual control Started
+2018-08-07:17-08-29.965   Starting Manual Control
+2018-08-07:17-08-29.965   Manual control Started
+2018-08-07:17-09-37.113   Starting Manual Control
+2018-08-07:17-09-37.113   Manual control Started
+2018-08-07:17-36-26.655   Starting Manual Control
+2018-08-07:17-36-26.656   Manual control Started
+2018-08-07:17-37-56.175   Starting Manual Control
+2018-08-07:17-37-56.175   Manual control Started
+2018-08-07:17-40-56.437   Starting Manual Control
+2018-08-07:17-40-56.438   Manual control Started
+2018-08-07:17-41-49.755   Starting Manual Control
+2018-08-07:17-41-49.755   Manual control Started
+2018-08-07:17-57-02.214   Starting Manual Control
+2018-08-07:17-57-02.214   Manual control Started
+2018-08-07:17-58-49.245   Starting Manual Control
+2018-08-07:17-58-49.246   Manual control Started
+2018-08-07:17-59-26.954   Starting Manual Control
+2018-08-07:17-59-26.955   Manual control Started
+2018-08-07:18-01-16.951   Starting Manual Control
+2018-08-07:18-01-16.952   Manual control Started
+2018-08-07:18-05-14.607   Linking refrence for main window
+2018-08-07:18-05-14.608   Setting up background worker
+2018-08-07:18-05-14.608   Getting all joystick instances
+2018-08-07:18-05-14.683   Found joystick instance: Logitech Attack 3
+2018-08-07:18-05-15.988   Init joystick index 0
+2018-08-07:18-05-15.989   Joystick initaliized
+2018-08-07:18-42-16.251   Application Closing
+2018-08-07:18-42-16.252   \----------------------------------------------------------------------------------------------------------------------------------/

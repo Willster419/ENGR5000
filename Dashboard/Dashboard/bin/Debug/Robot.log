@@ -19880,3 +19880,262 @@ Object name: 'System.Net.Sockets.NetworkStream'.
 2018-08-04:20-20-41.714   DEBUG: Manual control method starting
 2018-08-04:20-22-18.237   WARNING: Shutting down in 10 seconds
 2018-08-04:20-23-38.101   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-08-07:12-31-20.633   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:12-31-20.814   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-08-07:12-31-21.526   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-08-07:12-35-14.052   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:12-35-14.265   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-08-07:12-35-14.408   Dashboard: Robot found, binding socket and listening for events
+2018-08-07:12-37-54.995   DEBUG: dashboard connected via force wait
+2018-08-07:12-37-55.031   INFO: Initializing Encoders
+2018-08-07:12-37-55.031   INFO: Proximity initialized, initializing SPI interface
+2018-08-07:12-37-55.258   INFO: SPI Interface initialization complete, loading PWM
+2018-08-07:12-37-55.719   INFO: PWM loading complete, I2C
+2018-08-07:12-37-55.950   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-08-07:12-37-56.062   DEBUG: MPU reports that device is on address 104...
+2018-08-07:12-37-56.063   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-08-07:12-37-56.063   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-08-07:12-37-56.063   DEBUG: Config gyro and accel sensitivity
+2018-08-07:12-37-56.063   DEBUG: Config gyro and accel sample rate and filter rate
+2018-08-07:12-37-56.063   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-08-07:12-37-56.063   INFO: I2C loading complete, Initializing Main Robot controller
+2018-08-07:12-37-56.086   INFO: Controller initialized, system online
+2018-08-07:12-37-57.689   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:12-38-01.759   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:12-38-02.124   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-38-10.764   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:12-38-11.162   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-38-13.172   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:12-38-13.762   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-38-21.686   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:12-38-26.814   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:12-38-26.833   INFO: Side 0 mapped, using width encoder value of 112, not averaging
+2018-08-07:12-38-29.538   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-08-07:12-38-33.677   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:12-38-34.063   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-38-36.192   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:12-38-36.232   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-38-39.751   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:12-38-45.143   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:12-38-45.144   INFO: Side 1 mapped, using height encoder value of 137, not averaging
+2018-08-07:12-38-48.010   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-08-07:12-38-53.677   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:12-38-58.710   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:12-38-58.714   INFO: Side 2 mapped, using second width encoder value of 121, averaging
+2018-08-07:12-39-01.361   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-08-07:12-39-04.740   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:12-39-05.754   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-39-09.366   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:12-39-09.767   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:12-39-12.679   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:12-39-17.701   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:12-39-17.728   INFO: Side 3 mapped, using second height encoder value of 141, averaging
+2018-08-07:12-39-17.730   INFO: Mapping finished, moving to calculations, MapTurn->Calculations
+2018-08-07:12-39-17.733   INFO: Sending mapping data...
+2018-08-07:12-39-17.989   INFO: Finish calculations, Calculcations->TurnToClean
+2018-08-07:12-39-22.450   INFO: right encoder clicks=35, rotationX=0, TurnToClean->CleanUp
+2018-08-07:12-39-31.857   DEBUG: Control thread is down, determining what to do next
+2018-08-07:12-39-31.859   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:12-39-31.859   DEBUG: Manual control method starting
+2018-08-07:12-41-19.361   \----------------------------------------------------------------------------------------------------------------------------------/
+2018-08-07:16-47-23.175   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:16-47-23.351   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-08-07:16-47-45.589   Dashboard: Robot found, binding socket and listening for events
+2018-08-07:16-57-34.268   /----------------------------------------------------------------------------------------------------------------------------------\
+2018-08-07:16-57-34.491   Dashboard: Ping sent, waiting for ping respone from robot...
+2018-08-07:16-57-34.681   Dashboard: Robot found, binding socket and listening for events
+2018-08-07:17-01-25.418   DEBUG: dashboard connected via force wait
+2018-08-07:17-01-25.428   INFO: Initializing Encoders
+2018-08-07:17-01-25.428   INFO: Proximity initialized, initializing SPI interface
+2018-08-07:17-01-25.814   INFO: SPI Interface initialization complete, loading PWM
+2018-08-07:17-01-26.251   INFO: PWM loading complete, I2C
+2018-08-07:17-01-26.420   DEBUG: MPU connection sucessfull, verified with reset bit send
+2018-08-07:17-01-26.485   ERROR: RobotController.SystemDispatcher is null
+2018-08-07:17-01-26.485   ERROR: RobotController.SystemDispatcher is null
+2018-08-07:17-01-26.498   ERROR: RobotController.SystemDispatcher is null
+2018-08-07:17-01-26.499   ERROR: RobotController.SystemDispatcher is null
+2018-08-07:17-01-26.955   DEBUG: MPU reports that device is on address 104...
+2018-08-07:17-01-26.955   DEBUG: MPU internal clock set to use X axis gyroscope
+2018-08-07:17-01-27.404   DEBUG: MPU FIFO reset and disable and signal cond clear reset
+2018-08-07:17-01-27.404   DEBUG: Config gyro and accel sensitivity
+2018-08-07:17-01-28.322   DEBUG: Config gyro and accel sample rate and filter rate
+2018-08-07:17-01-28.322   DEBUG: Disable inturrupts and clear accel and gyro values
+2018-08-07:17-01-28.329   INFO: I2C loading complete, Initializing Main Robot controller
+2018-08-07:17-01-28.329   INFO: Controller initialized, system online
+2018-08-07:17-01-30.995   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-01-32.084   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-01-32.085   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-01-32.086   DEBUG: Manual control method starting
+2018-08-07:17-08-26.109   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-08-26.109   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-08-26.157   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-08-29.982   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-08-29.983   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-08-29.992   DEBUG: Manual control method starting
+2018-08-07:17-09-25.577   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-09-25.577   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-09-25.577   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-09-27.655   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-09-27.820   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-09-27.868   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-09-28.316   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-09-29.595   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-09-29.770   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-09-37.145   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-09-37.376   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-09-37.376   DEBUG: Manual control method starting
+2018-08-07:17-36-20.855   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-36-20.856   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-36-20.856   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-36-22.337   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-36-22.691   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-36-23.115   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-36-23.725   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-36-24.319   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-36-24.709   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-36-26.675   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-36-26.679   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-36-26.685   DEBUG: Manual control method starting
+2018-08-07:17-37-30.439   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-37-30.440   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-37-30.445   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-37-31.716   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-37-31.973   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-32.451   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-37-32.862   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-33.793   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-37-34.107   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-36.309   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-37-36.754   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-39.199   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-37-39.593   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-40.925   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-37-41.275   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-41.765   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-37-42.307   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-37-49.616   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:17-37-56.294   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-37-56.294   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-37-56.295   DEBUG: Manual control method starting
+2018-08-07:17-40-37.839   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-40-37.841   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-40-37.841   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-40-40.029   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-40-40.269   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-40-40.772   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-40-41.295   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-40-41.890   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-40-42.453   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-40-43.066   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-40-43.601   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-40-56.613   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-40-56.613   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-40-56.613   DEBUG: Manual control method starting
+2018-08-07:17-41-33.245   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-41-33.250   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-41-33.251   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-41-34.658   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-41-34.989   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-41-35.252   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-41-35.816   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-31.322   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-56-31.324   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-56-31.324   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-56-32.721   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-56-33.047   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-33.669   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-34.109   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-34.404   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-35.006   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-36.468   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-37.018   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-43.693   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-43.863   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-45.015   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-45.190   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-46.763   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-47.291   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-56-54.708   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-56-55.139   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-57-02.318   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-57-02.326   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-57-02.338   DEBUG: Manual control method starting
+2018-08-07:17-58-15.167   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-58-15.169   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-58-15.170   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-58-17.158   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-58-17.903   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-18.090   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-18.619   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-19.184   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-19.811   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-21.009   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-21.492   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-22.273   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-23.000   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-24.035   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-24.501   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-26.828   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-27.567   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-29.713   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-30.218   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-31.931   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-32.464   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-33.593   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-58-34.072   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-58-39.561   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:17-58-48.323   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:17-58-48.330   INFO: Side 0 mapped, using width encoder value of 118, not averaging
+2018-08-07:17-58-49.496   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-58-49.527   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-58-49.527   DEBUG: Manual control method starting
+2018-08-07:17-59-13.404   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-59-13.407   DEBUG: Releasing manual control, restarting auto
+2018-08-07:17-59-13.407   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:17-59-15.041   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:17-59-15.366   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-59-15.377   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-59-15.851   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-59-17.936   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:17-59-18.376   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:17-59-18.933   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:17-59-25.259   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:17-59-25.259   INFO: Side 0 mapped, using width encoder value of 8, not averaging
+2018-08-07:17-59-27.131   DEBUG: Control thread is down, determining what to do next
+2018-08-07:17-59-27.131   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:17-59-27.131   DEBUG: Manual control method starting
+2018-08-07:18-00-28.483   DEBUG: Control thread is down, determining what to do next
+2018-08-07:18-00-28.683   DEBUG: Releasing manual control, restarting auto
+2018-08-07:18-00-28.683   INFO: On robot init, autocontrol state none->TurnToMap
+2018-08-07:18-00-30.074   INFO: Robot has found side wall, TurnToMap->MapSideBackup
+2018-08-07:18-00-30.340   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-30.675   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-31.334   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-31.499   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-31.894   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-33.074   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-33.387   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-35.429   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-35.745   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-38.331   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-38.697   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-40.691   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-41.045   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-41.651   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-00-42.098   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-00-50.565   INFO: Front wall detected, MapOneSide->MapOverTurn
+2018-08-07:18-00-55.982   INFO: Left encoder has moved enough over boundry, MapOverTurn->MapTurn
+2018-08-07:18-00-55.998   INFO: Side 0 mapped, using width encoder value of 124, not averaging
+2018-08-07:18-01-00.183   INFO: Left encoder has backed up enough for conter, moving to slow right movement on new wall, MapTurn->MapOneSide
+2018-08-07:18-01-12.969   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-01-13.282   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-01-13.754   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-01-14.383   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-01-14.743   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-01-15.243   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-01-15.972   INFO: Side IR detected wall, need to turn small left, MapOneSide->MapSideBackup
+2018-08-07:18-01-16.201   INFO: Left encoder has backed up enough, moving to slow right movement, MapSideBackup->MapOneSide
+2018-08-07:18-01-17.277   DEBUG: Control thread is down, determining what to do next
+2018-08-07:18-01-17.559   DEBUG: Manual Control has been requested, sending ack and enabling manual control
+2018-08-07:18-01-17.560   DEBUG: Manual control method starting
+2018-08-07:18-42-16.252   \----------------------------------------------------------------------------------------------------------------------------------/
